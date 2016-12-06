@@ -1,4 +1,4 @@
-package controller;
+package com.techelevator.controller;
 
 import org.springframework.stereotype.Controller;
 
