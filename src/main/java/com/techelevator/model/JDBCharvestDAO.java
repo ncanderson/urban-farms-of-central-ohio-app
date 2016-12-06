@@ -34,9 +34,15 @@ public class JDBCharvestDAO implements HarvestDAO {
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlselectAnonymousItems);
 		
 		while(results.next()){
-			
+			Item item = new Item();
+			item.setType(results.getString("type"));
+			item.setHarvestQnty(results.getInt("harvest_quantity"));
+			item.setVariety(results.getString("variety"));
+			item.setPrice((DollarAmount)results.getObject("price"));
+			//TODO get item image ID
+			harvestItems.add(item);
 		}
 		
-		return null;
+		return harvestItems;
 	}
 }
