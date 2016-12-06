@@ -14,6 +14,7 @@ div.container-fluid {
 	padding: 0;
 }
 
+/* Header */
 #nav-header {
 	background-color: #FFFFFF;
 	height: 100px;
@@ -29,17 +30,32 @@ div.container-fluid {
 	padding: 5px;
 }
 
-div.jumbotron {
-	margin: 100px 75px;
+.center-block {
+	background-color: #edeff0;
+	height: 1000px;
+	display: absolute;
+	float: none;
 }
 
 .navbar-default {
   background-color: #1b107d;
   border: 0 !important;
   border-radius: 0 !important;  
+  margin-bottom: 20px;
+}
+
+#available-crops {
+	margin: 0px !important;
+	table-layout: fixed;
+}
+
+#available-crops td {
+	padding-bottom: 0px !important;
+	overflow: hidden;
 }
 
 #footer-divider {
+	margin-top: 20px;
 	height: 10px;
 	width: 100%;
 	background-color: #a37a46;

@@ -32,8 +32,8 @@ public class HomeController {
 	@RequestMapping(path={"/", "/welcome"}, method=RequestMethod.GET)
 	public String showHomepage(HttpServletRequest request){
 		
-		List<Item> itemList = harvestDAO.getHarvestItemList();
-		request.setAttribute("itemList", itemList);
+//		List<Item> itemList = harvestDAO.getHarvestItemList();
+//		request.setAttribute("itemList", itemList);
 		
 		return "anonymous-item-view";
 	}
