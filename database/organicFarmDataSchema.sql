@@ -11,19 +11,6 @@ DROP TABLE IF EXISTS item_price;
 DROP TABLE IF EXISTS harvest_details;
 DROP TABLE IF EXISTS item;
 
--- DROP SEQUENCE credentials_credentialsId;
--- DROP SEQUENCE contact_preference_type_contact_preference_type_id;
--- DROP SEQUENCE user_type_user_type_id;
--- DROP SEQUENCE user_role_user_role_id;
--- DROP SEQUENCE user_user_id;
--- DROP SEQUENCE buyer_information_buyer_information_id;
--- DROP SEQUENCE invoice_invoice_id;
--- DROP SEQUENCE sale_type_sale_type_id;
--- DROP SEQUENCE invoice_harvest_details_invoice_harvest_details_id;
--- DROP SEQUENCE item_price_item_price_id;
--- DROP SEQUENCE harvest_details_harvest_details_id;
--- DROP SEQUENCE item_item_id;
-
 CREATE TABLE buyer_information (
   buyer_id serial PRIMARY KEY,
   buyer_name varchar(80) NOT NULL,    -- Name of the buyer
@@ -63,15 +50,21 @@ CREATE TABLE sale_type (
   sale_type_description varchar(150) NULL,
 );
 
+CREATE TABLE invoice_status (
+  invoice_status_id serial PRIMARY KEY,
+  invoice_status_name varchar(25) NOT NULL,
+  invoice_status_description varchar(150) NULL,
+);
+
 CREATE TABLE user (
   user_id serial PRIMARY KEY,
   email varchar(100) NOT NULL, -- email is username 
-  user_type_id varchar(2) NOT NULL REFERENCES user_type,
-  buyer_id varchar(10) NULL REFERENCES buyer_information,
-  credentials_id varchar(10) NOT NULL REFERENCES credentials,
+  user_type_id integer(2) NOT NULL REFERENCES user_type,
+  buyer_id integer(10) NULL REFERENCES buyer_information,
+  credentials_id integer(10) NOT NULL REFERENCES credentials,
   first_name varchar(80) NOT NULL,
   last_name varchar(80) NOT NULL,
-  contact_preference_type_id varchar(2) NULL REFERENCES contact_preference_type,
+  contact_preference_type_id integer(2) NULL REFERENCES contact_preference_type,
   user_phone_number varchar(10) NULL,
   is_global_admin boolean NOT NULL,
   is_admin boolean NOT NULL,
@@ -88,10 +81,27 @@ CREATE TABLE item (
 
 CREATE TABLE item_price (
   item_price_id serial PRIMARY KEY,
-  item_id varchar(25) NOT NULL,
+  item_id integer(10) NOT NULL,
   date_added date NOT NULL,
-  sale_type_id varchar(25) NOT NULL,
+  sale_type_id integer(3) NOT NULL,
   item_price money NOT NULL,
+);
+
+CREATE TABLE invoice_item (
+  invoice_item_id serial PRIMARY KEY,
+  invoice_id integer(10) NOT NULL REFERENCES invoice,
+  invoice_quantity integer(5) NOT NULL,
+  item_harvest_details_id integer(2) NOT NULL REFERENCES harvest_details,
+  item_price_id integer(3) NOT NULL REFERENCES item_price,
+  );
+
+CREATE TABLE invoice (
+  invoice_id serial PRIMARY KEY,
+  invoice_date date NOT NULL,
+  user_id integer(10) NOT NULL REFERENCES user,
+  buyer_id integer(10) NOT NULL REFERENCES buyer_information,
+  sale_type_id integer(3) NOT NULL,
+  invoice_status_id integer(3) NOT NULL REFERENCES invoice_status
 );
 
 -- Insert contact preferences
@@ -114,3 +124,11 @@ INSERT INTO sale_type (sale_type_id, sale_type_name, sale_type_description) VALU
 INSERT INTO sale_type (sale_type_id, sale_type_name, sale_type_description) VALUES (6, 'Farm Stand', );
 INSERT INTO sale_type (sale_type_id, sale_type_name, sale_type_description) VALUES (7, 'Compost', );
 INSERT INTO sale_type (sale_type_id, sale_type_name, sale_type_description) VALUES (8, 'Other', );
+
+-- Insert Invoice Status
+INSERT INTO invoice_status (invoice_status_id, invoice_status_name, invoice_status_description) VALUES (1, 'Pending', );
+INSERT INTO invoice_status (invoice_status_id, invoice_status_name, invoice_status_description) VALUES (2, 'Review', );
+INSERT INTO invoice_status (invoice_status_id, invoice_status_name, invoice_status_description) VALUES (3, 'Confirm', );
+INSERT INTO invoice_status (invoice_status_id, invoice_status_name, invoice_status_description) VALUES (4, 'Approved', );
+INSERT INTO invoice_status (invoice_status_id, invoice_status_name, invoice_status_description) VALUES (5, 'Paid', );
+INSERT INTO invoice_status (invoice_status_id, invoice_status_name, invoice_status_description) VALUES (6, 'Delivered', );
