@@ -6,4 +6,5 @@ public class User {
 	private Type type;
 	
 
+
 }

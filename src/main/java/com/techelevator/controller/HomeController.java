@@ -15,6 +15,7 @@ import com.techelevator.model.ItemDAO;
 import com.techelevator.model.UserDAO;
 
 
+
 @Controller 
 public class HomeController {
 	
@@ -28,13 +29,13 @@ public class HomeController {
 		this.harvestDAO = harvestDAO;
 	}
 	
-	@RequestMapping(path={"/, /welcome"}, method=RequestMethod.GET)
+	@RequestMapping(path={"/", "/welcome"}, method=RequestMethod.GET)
 	public String showHomepage(HttpServletRequest request){
 		
 		List<Item> itemList = harvestDAO.getHarvestItemList();
 		request.setAttribute("itemList", itemList);
 		
-		return "welcome";
+		return "anonymous-item-view";
 	}
 	
 	@RequestMapping(path="/login", method=RequestMethod.GET)

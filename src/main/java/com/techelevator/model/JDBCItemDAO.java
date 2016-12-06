@@ -19,7 +19,5 @@ public class JDBCItemDAO implements ItemDAO {
 		
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
-	
-
 
 }
