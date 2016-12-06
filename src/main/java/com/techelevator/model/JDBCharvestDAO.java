@@ -25,11 +25,19 @@ public class JDBCharvestDAO implements HarvestDAO {
 	public List<Item> getHarvestItemList() {
 		
 		List<Item> harvestItems = new ArrayList<Item>();
+<<<<<<< HEAD
 		String sqlselectAnonymousItems = "SELECT item_image_id, type, variety, harvest_quantity, price FROM harvest_details"
 										 + "INNER JOIN item"
 										 + "ON harvest_details.item_id = item.item_id"
 										 + "INNER JOIN item_price"
 										 + "ON harvest_details.item_id = item_price.item_id";
+=======
+		String sqlselectAnonymousItems = "SELECT type, variety, harvest_quantity, price FROM harvest_details "
+										 + "INNER JOIN item "
+										 + "ON harvest_details.item_id = item.item_id "
+										 + "INNER JOIN item_price "
+										 + "ON harvest_details.item_id = item_price.item_id ";
+>>>>>>> 06234346a9505f05d4bd752debfb075dc4383bee
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlselectAnonymousItems);
 		
