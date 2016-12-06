@@ -25,18 +25,24 @@ public class JDBCharvestDAO implements HarvestDAO {
 	public List<Item> getHarvestItemList() {
 		
 		List<Item> harvestItems = new ArrayList<Item>();
-		String sqlselectAnonymousItems = "SELECT type, variety, harvest_quantity, price FROM harvest_details"
-										 + "INNER JOIN item"
-										 + "ON harvest_details.item_id = item.item_id"
-										 + "INNER JOIN item_price"
-										 + "ON harvest_details.item_id = item_price.item_id";
+		String sqlselectAnonymousItems = "SELECT type, variety, harvest_quantity, price FROM harvest_details "
+										 + "INNER JOIN item "
+										 + "ON harvest_details.item_id = item.item_id "
+										 + "INNER JOIN item_price "
+										 + "ON harvest_details.item_id = item_price.item_id ";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlselectAnonymousItems);
 		
 		while(results.next()){
-			
+			Item item = new Item();
+			item.setType(results.getString("type"));
+			item.setHarvestQnty(results.getInt("harvest_quantity"));
+			item.setVariety(results.getString("variety"));
+			item.setPrice((DollarAmount)results.getObject("price"));
+			//TODO get item image ID
+			harvestItems.add(item);
 		}
 		
-		return null;
+		return harvestItems;
 	}
 }
