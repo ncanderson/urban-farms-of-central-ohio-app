@@ -48,6 +48,10 @@ public class HomeController {
 		return "login";
 	}
 	
+	/**
+	 * FOR TESTING ONLY UNTIL DB COMES ONLINE
+	 * @return
+	 */
 	private List<Item> makeMockItems() {
 		List<Item> itemList = new ArrayList<Item>();  
 		

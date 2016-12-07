@@ -44,6 +44,7 @@ div.container-fluid {
   margin-bottom: 20px;
 }
 
+/* Anonymous view */
 #available-crops {
 	margin: 0px !important;
 	table-layout: fixed;
@@ -58,6 +59,12 @@ div.container-fluid {
 	max-height: 150px;	
 }
 
+/* Login */
+.center-block {
+	text-align: center;
+}
+
+/* footer */
 #footer-divider {
 	margin-top: 20px;
 	height: 10px;

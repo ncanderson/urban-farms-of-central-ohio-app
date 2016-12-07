@@ -21,7 +21,7 @@
 <div class="container-fluid">
 
 <div id="nav-header" class="hidden-xs">
-	<a href="#"><img src="img/cropped-UFCO-logo.png" alt="Urban farms of central ohio logo" id="logo-image"/></a>
+	<a href="welcome"><img src="img/cropped-UFCO-logo.png" alt="Urban farms of central ohio logo" id="logo-image"/></a>
 </div>
 
 <nav class="navbar navbar-default">
@@ -52,6 +52,7 @@
           </ul>
         </li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> View Cart</a></li>
+        <li><a href="login">Login</a></li>
     </ul>
 
 	
