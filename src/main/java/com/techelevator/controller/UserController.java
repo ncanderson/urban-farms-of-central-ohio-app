@@ -27,13 +27,13 @@ public class UserController {
 		this.userDAO = userDAO;
 	}
 	
-	@RequestMapping(path="/dashboard",method=RequestMethod.POST)
+	@RequestMapping(path="/farmer-dashboard-views/dashboard",method=RequestMethod.GET)
 	public String showDashboard(HttpServletRequest request){
 		
 		return "farmer-dashboard-views/dashboard";
 	}
 	
-	@RequestMapping(path="/admin-main-view",method=RequestMethod.POST)
+	@RequestMapping(path="admin/admin-main-view",method=RequestMethod.GET)
 	public String showAdminMainView(HttpServletRequest request){
 		
 		
@@ -46,33 +46,8 @@ public class UserController {
 		return "customer-views/current-inventory";
 	}
 	
-	
-	
-
-	
-//	@RequestMapping(path="/current-inventory", method=RequestMethod.GET)
-//	public String showCurrentInventory(HttpServletRequest request){
-//		request.setAttribute("page", "inventory");
-//		return "dashboard";
-//	}
-//	
-//	@RequestMapping(path="/account", method=RequestMethod.GET)
-//	public String showCustomerAccount(HttpServletRequest request){
-//		request.setAttribute("page", "account");
-//		return "dashboard";
-//	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@RequestMapping(path="/order-completion", method=RequestMethod.GET)
-	public String showOrderCompletion(){
+	public String showOrderCompletion(HttpServletRequest request){
 		
 		return "order-completion";
 	}

@@ -43,7 +43,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping(path="/login", method=RequestMethod.GET)
-	public String displayLoginForm(){
+	public String displayLoginForm(HttpServletRequest reqeust){
 		
 		return "login";
 	}
