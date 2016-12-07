@@ -23,7 +23,8 @@ CREATE TABLE buyer_information (
 
 CREATE TABLE credentials (
   credentials_id serial PRIMARY KEY,
-  password varchar(25) NOT NULL
+  password varchar(30) NOT NULL,
+  salt varchar(200) NOT NULL
 );
 
 CREATE TABLE contact_preference_type (
