@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.techelevator.model.HarvestDAO;
 import com.techelevator.model.ItemDAO;
 import com.techelevator.model.UserDAO;
 
 @Controller
+@SessionAttributes("currentUser")
 public class UserController {
 	
 	private HarvestDAO harvestDAO;
@@ -28,14 +30,20 @@ public class UserController {
 	@RequestMapping(path="/dashboard",method=RequestMethod.GET)
 	public String showDashboard(HttpServletRequest request) {
 		
+		return "farmer-dashboard-views/dashboard";
+	}
+	
+	@RequestMapping(path="/admin-main-view",method=RequestMethod.POST)
+	public String showAdminMainView(HttpServletRequest request){
 		
 		
 		return "farmer-dashboard-views/dashboard";
 	}
-	
-	@RequestMapping(path="/enterInventory", method=RequestMethod.GET)
-	public String enterInventoryForm() {
-		return "farmer-dashboard-views/enterInventory";
+
+	@RequestMapping(path="/customer-views/current-inventory", method=RequestMethod.GET)
+	public String showCurrentInventory(HttpServletRequest request){
+		
+		return "customer-views/current-inventory";
 	}
 	
 	@RequestMapping(path="/enterInventory", method = RequestMethod.POST)
@@ -43,6 +51,7 @@ public class UserController {
 		return "redirect:/farmer-dashboard-views/enterInventory";
 	}
 	
+
 	
 //	@RequestMapping(path="/current-inventory", method=RequestMethod.GET)
 //	public String showCurrentInventory(HttpServletRequest request){

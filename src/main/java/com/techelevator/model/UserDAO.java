@@ -4,6 +4,6 @@ public interface UserDAO {
 
 	public boolean searchForUsernameAndPassword(String userName, String password);
 	
-	public String selectTypeByUserName(String userName);
+	public User selectUserByUserName(String userName);
 
 }

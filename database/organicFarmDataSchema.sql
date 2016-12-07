@@ -56,7 +56,7 @@ CREATE TABLE invoice_status (
   invoice_status_description varchar(150) NULL,
 );
 
-CREATE TABLE user (
+CREATE TABLE users (
   user_id serial PRIMARY KEY,
   email varchar(100) NOT NULL, -- email is username 
   user_type_id integer(2) NOT NULL REFERENCES user_type,
