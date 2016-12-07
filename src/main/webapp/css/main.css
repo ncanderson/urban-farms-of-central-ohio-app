@@ -1,9 +1,15 @@
+@import url("header-footer.css");
 @import url("application-main.css");
 @import url("anonymous-view.css");
 @import url("farmer-dashboard.css");
 
+
 html {
 	height: 100%;
+}
+
+html * {
+	font-family: Raleway, sans-serif;
 }
 
 body {
@@ -17,3 +23,10 @@ div.container-fluid {
 	margin: 0;
 	padding: 0;
 }
+
+.center-block {
+	text-align: center;
+	padding: 0;
+	overflow: hidden;
+}
+

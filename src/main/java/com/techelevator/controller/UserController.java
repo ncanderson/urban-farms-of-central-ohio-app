@@ -30,7 +30,7 @@ public class UserController {
 		
 		
 		
-		return "dashboard";
+		return "farmer-dashboard-views/dashboard";
 	}
 	
 	

@@ -1,0 +1,51 @@
+.menu-header {
+
+}
+
+#menu {
+	border: 2px solid blue;
+	
+}
+
+#content {
+	height: 100%;
+	text-align: left;
+}
+
+#menu-items {
+	white-space: nowrap;
+	width: auto;
+	padding: 0;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+  	float: none;
+}
+
+#menu-items .navbar-collapse {
+  	text-align: center;
+}
+
+#menu-items > ul {
+	text-align: center;
+	padding: 0;
+}
+
+#menu-items > ul > li {
+	text-align: center;
+	padding: 0;
+}
+
+@media(max-width:795px){
+	#menu-items > ul > li > a {
+		padding-left: 10px;
+		padding-right: 10px;
+    }
+    #menu-items {
+		
+		margin: 0 auto;
+		display: table;
+		
+		
+    }
+}
