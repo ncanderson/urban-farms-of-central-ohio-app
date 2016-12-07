@@ -2,8 +2,6 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-<div class="center-block col-sm-10">
-
 	<div class="Rtable Rtable--4cols Rtable--collapse js-RtableAccordions">
 		<c:forEach var="item" items="${itemList}">
 			<button class="Accordion" role="tab">${item.variety} ${item.type}</button>
@@ -14,6 +12,4 @@
 		</c:forEach>  			     
 	</div>     
             
-</div>    
-
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

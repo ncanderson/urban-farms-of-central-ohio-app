@@ -1,3 +1,5 @@
+<!-- end of centered-text box  -->
+</div>   
 <!--  end of container-fluid div  -->
 </div>
 
