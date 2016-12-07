@@ -21,3 +21,13 @@ TO capstone_appuser;
 GRANT USAGE, SELECT
 ON ALL SEQUENCES IN SCHEMA public
 TO capstone_appuser; 
+
+-- CREATE USER farmer WITH PASSWORD 'farmer1';
+
+-- GRANT SELECT, INSERT, UPDATE, DELETE
+-- ON item
+-- TO capstone_appuser;
+
+-- GRANT USAGE, SELECT
+-- ON ALL SEQUENCES IN SCHEMA public
+-- TO capstone_appuser; 
