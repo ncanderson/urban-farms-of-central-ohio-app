@@ -13,12 +13,14 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="js/application-main.js"></script>
+	<script type="text/javascript" src="js/anonymous-view.js"></script>
+	<link rel="stylesheet" href="css/anonymous-view.css" />
 </head>
 <body>
 
 <div class="container-fluid">
 
-<div id="nav-header" class="hidden-sm">
+<div id="nav-header" class="hidden-xs">
 	<a href="#"><img src="img/cropped-UFCO-logo.png" alt="Urban farms of central ohio logo" id="logo-image"/></a>
 </div>
 

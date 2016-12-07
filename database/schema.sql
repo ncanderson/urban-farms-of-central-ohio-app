@@ -17,6 +17,7 @@ CREATE TABLE buyer_information (
   notes varchar (250) NULL, 		  -- Optional notes field
   is_active boolean NOT NULL,		  -- True for active buyers
   description varchar(150) NULL,  -- Description of buyer
+  PRIMARY KEY (buyer_id)
 );
 
 CREATE TABLE credentials (
@@ -28,6 +29,7 @@ CREATE TABLE contact_preference_type (
   contact_preference_type_id serial PRIMARY KEY,
   contact_preference_type_name varchar(6) NOT NULL,
   contact_preference_type_description varchar(150) NULL,
+  PRIMARY KEY (contact_preference_type_id)
 );
 
 CREATE TABLE user_type (

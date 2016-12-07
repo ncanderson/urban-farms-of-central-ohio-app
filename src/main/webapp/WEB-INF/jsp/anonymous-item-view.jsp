@@ -4,28 +4,16 @@
 
 <div class="center-block col-sm-10">
 
-   <div class="container">
-        <table id="available-crops" class="table table-striped ">
-            <thead>
-                <tr>
-                	<th>Image</th>
-                    <th>Crop</th>
-                    <th>Quantity Available (pounds)</th>
-                    <th>Price (per pound)</th>
-                    <th>Availability</th>
-                    <th>Image</th>
-                </tr>
-            </thead>
-            <tbody>
-            <c:forEach var="item" items="${itemList}">
+	<div class="Rtable Rtable--4cols Rtable--collapse js-RtableAccordions">
+		<c:forEach var="item" items="${itemList}">
+			<button class="Accordion" role="tab">${item.variety} ${item.type}</button>
+			<div class="Rtable-cell"><img src="${item.imageId}" alt="crop image" class="crop-image" /></div>
+			<div class="Rtable-cell  Rtable-cell--head"><h3>${item.type}, ${item.variety}</h3></div>
+			<div class="Rtable-cell">${item.harvestQnty} lbs. available</div>
+			<div class="Rtable-cell Rtable-cell--foot">${item.price.toString()}/lbs</div>
+		</c:forEach>  			     
+	</div>     
             
-            
-            
-			</c:forEach>            
-            </tbody>
-        </table>
-    </div>    
-
-</div>
+</div>    
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

@@ -32,7 +32,7 @@ div.container-fluid {
 
 .center-block {
 	background-color: #edeff0;
-	height: 1000px;
+	height: 100%;
 	display: absolute;
 	float: none;
 }
@@ -52,6 +52,10 @@ div.container-fluid {
 #available-crops td {
 	padding-bottom: 0px !important;
 	overflow: hidden;
+}
+
+.crop-image {
+	max-height: 150px;	
 }
 
 #footer-divider {

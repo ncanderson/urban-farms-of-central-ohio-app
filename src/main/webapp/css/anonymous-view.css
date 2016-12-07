@@ -1,0 +1,101 @@
+@media all and (max-width: 500px) { 
+	.hiddenSmall {
+  		display: none; 
+  	}
+  	.Rtable--collapse > .Rtable-cell {
+		width: 100% !important;
+	}
+}
+
+.Rtable {
+  display: flex !important;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0 0 3em 0;
+  padding: 0;
+}
+
+.Rtable-cell {
+  box-sizing: border-box;
+  flex-grow: 1;
+  width: 25%;
+  padding: 0.8em 1.2em;
+  overflow: hidden;
+  list-style: none;
+  border: solid 3px white;
+  background: fade(slategrey,20%);
+  > h1, > h2, > h3, > h4, > h5, > h6 { margin: 0; }
+}
+
+.Rtable--4cols > .Rtable-cell  { 
+	width: 25%; 
+} 
+
+.Accordion {
+  position: relative;
+  top: -3px;
+  left: -3px;
+  width: 100%;
+  margin: 0 0 0.5em 0;
+  padding: 0.6em 0.6em 0.6em 2em;
+  border-radius: 0.5em;
+  text-align: left;
+  border: solid 3px #007676;
+  background-color: darkcyan;
+  font-weight: bold;
+  color: #002525;
+  text-decoration: none;
+  transition: background-color 0.1s;
+  cursor: pointer;
+}
+@media all and (min-width: 500px) {
+  .Accordion {
+    display: none;
+  }
+  .Rtable--collapse {
+    display: block;
+  }
+
+  .Rtable--collapse > .Rtable-cell--foot {
+    margin-bottom: 1em;
+  }
+}
+.Accordion:hover,
+.Accordion:focus {
+  outline: none;
+}
+.Accordion[aria-selected="true"] {
+  margin-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-width: 0;
+  background: #b3dcdc;
+}
+.Accordion:before {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  left: 0.3em;
+  margin-top: -1.1428571428571em;
+  font-weight: normal;
+  font-size: 2em;
+  line-height: 2em;
+  background-size: 2em 2em;
+}
+.Accordion[aria-selected="true"]:before {
+  content: "-";
+}
+.js-RtableTabs,
+.js-RtableAccordions {
+  min-width: 240px;
+}
+
+.no-flexbox .Rtable {
+  display: block;
+}
+.no-flexbox .Rtable > .Rtable-cell {
+  width: 100%;
+}
+.no-flexbox .Rtable > .Rtable-cell--foot {
+  margin-bottom: 1em;
+}
