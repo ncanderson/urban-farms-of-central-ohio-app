@@ -1,8 +1,7 @@
 @import url("header-footer.css");
-@import url("application-main.css");
 @import url("anonymous-view.css");
 @import url("farmer-dashboard.css");
-
+@import url("enter-new-inventory.css");
 
 html {
 	height: 100%;
@@ -27,6 +26,6 @@ div.container-fluid {
 .center-block {
 	text-align: center;
 	padding: 0;
-	overflow: hidden;
+	/* overflow: hidden; */
+	height: 100%;
 }
-

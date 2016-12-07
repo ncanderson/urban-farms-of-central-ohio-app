@@ -26,15 +26,22 @@ public class UserController {
 	}
 	
 	@RequestMapping(path="/dashboard",method=RequestMethod.GET)
-	public String showDashboard(HttpServletRequest request){
+	public String showDashboard(HttpServletRequest request) {
 		
 		
 		
 		return "farmer-dashboard-views/dashboard";
 	}
 	
+	@RequestMapping(path="/enterInventory", method=RequestMethod.GET)
+	public String enterInventoryForm() {
+		return "farmer-dashboard-views/enterInventory";
+	}
 	
-	
+	@RequestMapping(path="/enterInventory", method = RequestMethod.POST)
+	public String addNewOrderItemToDatabase() {
+		return "redirect:/farmer-dashboard-views/enterInventory";
+	}
 	
 	
 //	@RequestMapping(path="/current-inventory", method=RequestMethod.GET)

@@ -1,3 +1,20 @@
+/* Anonymous view general styles */
+#available-crops {
+	margin: 0px !important;
+	table-layout: fixed;
+}
+
+#available-crops td {
+	padding-bottom: 0px !important;
+	overflow: hidden;
+}
+
+.crop-image {
+	max-height: 150px;	
+}
+
+/* Accordian collapse styling */
+
 @media all and (max-width: 500px) { 
 	.hiddenSmall {
   		display: none; 
