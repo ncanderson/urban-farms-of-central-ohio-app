@@ -14,6 +14,7 @@
 	<script type="text/javascript" src="js/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="js/application-main.js"></script>
 	<script type="text/javascript" src="js/anonymous-view.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 <body>
 
@@ -24,7 +25,6 @@
 </div>
 
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
   
     <!-- Hamburger button -->
     <div class="navbar-header">
@@ -56,7 +56,6 @@
 
 	
     </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
 </nav>
 
 <div class="center-block col-sm-10">

@@ -36,7 +36,8 @@ public class UserController {
 	@RequestMapping(path="/admin-main-view",method=RequestMethod.POST)
 	public String showAdminMainView(HttpServletRequest request){
 		
-		return "admin/admin-main-view";
+		
+		return "farmer-dashboard-views/dashboard";
 	}
 	
 	@RequestMapping(path="/customer-views/current-inventory", method=RequestMethod.GET)
