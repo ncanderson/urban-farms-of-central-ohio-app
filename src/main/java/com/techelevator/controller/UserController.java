@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.techelevator.model.HarvestDAO;
 import com.techelevator.model.ItemDAO;
 import com.techelevator.model.UserDAO;
 
 @Controller
+@SessionAttributes("currentUser")
 public class UserController {
 	
 	private HarvestDAO harvestDAO;
@@ -25,17 +27,27 @@ public class UserController {
 		this.userDAO = userDAO;
 	}
 	
-	@RequestMapping(path="/dashboard",method=RequestMethod.GET)
+	@RequestMapping(path="/dashboard",method=RequestMethod.POST)
 	public String showDashboard(HttpServletRequest request){
 		
+		return "farmer-dashboard-views/dashboard";
+	}
+	
+	@RequestMapping(path="/admin-main-view",method=RequestMethod.POST)
+	public String showAdminMainView(HttpServletRequest request){
 		
+		return "admin/admin-main-view";
+	}
+	
+	@RequestMapping(path="/customer-views/current-inventory", method=RequestMethod.GET)
+	public String showCurrentInventory(HttpServletRequest request){
 		
-		return "dashboard";
+		return "customer-views/current-inventory";
 	}
 	
 	
 	
-	
+
 	
 //	@RequestMapping(path="/current-inventory", method=RequestMethod.GET)
 //	public String showCurrentInventory(HttpServletRequest request){

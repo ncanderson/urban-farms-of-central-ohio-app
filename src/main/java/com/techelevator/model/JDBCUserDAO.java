@@ -25,11 +25,11 @@ public class JDBCUserDAO implements UserDAO {
 	@Override
 	public boolean searchForUsernameAndPassword(String userName, String password) {
 		
-		String sqlSearchForUser = "SELECT email, password "+
-			      "FROM user "
-			      + "INNER JOIN credentials"
-			      + "ON user.credentials_id = credentials.credentials_id"+
-			      "WHERE email = ?";
+		String sqlSearchForUser = "SELECT password, salt "
+			      +"FROM users "
+			      +"INNER JOIN credentials "
+			      +"ON users.credentials_id = credentials.credentials_id "
+			      +"WHERE email = ?";
 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSearchForUser, userName);
 		if(results.next()) {
@@ -43,12 +43,39 @@ public class JDBCUserDAO implements UserDAO {
 	}
 
 	@Override
-	public String selectTypeByUserName(String userName) {
-		// TODO Auto-generated method stub
-		return null;
+	public User selectUserByUserName(String userName) {
+		
+		String sqlSelectStatment = "SELECT user_id, user_type, first_name, last_name, "
+				+ "user_phone_number, is_global_admin, is_admin, is_active "
+				+ "FROM users "
+				+ "WHERE email = ?";
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatment, userName);
+		User user = mapResultToUser(results, userName);
+		
+		return user;
 	}
 	
 	
+	private User mapResultToUser(SqlRowSet results, String userName){
+		User user = new User();
+		
+		while(results.next()){
+			user.setAdmin(results.getBoolean("is_admin"));
+			user.setEmail(userName);
+			user.setFirstName(results.getString("first_name"));
+			user.setLastName(results.getString("last_name"));
+			user.setGlobalAdmin(results.getBoolean("is_global_admin"));
+			user.setPhoneNumber(results.getString("user_phone_number"));
+			user.setType(User.Type.values()[results.getInt("user_type")]);
+			user.setUserID(results.getInt("user_id"));
+		}	
+		return user;
+	}
+	
+	private void saveUser(User user) {
+		user.getType().ordinal();//Enum integer to be stored in DB
+	}
 
 
 }
