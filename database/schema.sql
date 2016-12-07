@@ -74,7 +74,7 @@ CREATE TABLE item_price (
   item_id integer NOT NULL,
   date_added timestamp NOT NULL,
   sale_type_id integer NOT NULL,
-  item_price money NOT NULL
+  item_price decimal NOT NULL
 );
 
 CREATE TABLE invoice (
