@@ -54,17 +54,19 @@ public class UserController {
 	@RequestMapping(path="/farmer-dashboard-views/dashboard", method=RequestMethod.GET)
 	public String showDashboard(HttpServletRequest request){
 		
-
-		List<User> customerList = userDAO.getAllCustomers();		
-//		List<Invoice> pastOrders = invoiceDAO.getPastOrders();
-//		List<Invoice> pendingOrders = invoiceDAO.getPendingOrders();	
+	
+		
+		
+		List<Invoice> allInvoices = invoiceDAO.getAllInvoices();
+		List<Invoice> pastOrders =  invoiceDAO.getPastOrders();
+		List<Invoice> pendingOrders =  invoiceDAO.getPendingOrders();
+		List<User> customerList = userDAO.getAllCustomers();			
 		List<Item> harvestItems = harvestDAO.getHarvestItemList();
 		
 		request.setAttribute("harvestItemsList", harvestItems);
 		request.setAttribute("customerList", customerList);
-//		request.setAttribute("pastOrders", pastOrders);
-//		request.setAttribute("pendingOrders", pendingOrders);
-
+		request.setAttribute("pastOrders", pastOrders);
+		request.setAttribute("pendingOrders", pendingOrders);
 		
 		return "farmer-dashboard-views/dashboard";
 	}
