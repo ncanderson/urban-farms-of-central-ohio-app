@@ -51,7 +51,7 @@
 	<div class="dashboard-item">
 		<h3>View all orders</h3>
 		<c:forEach var="invoice" items="${allOrders}">
-			<div class="Rtable Rtable--4cols Rtable--collapse">
+			<div class="Rtable Rtable--7cols Rtable--collapse">
 				<div class="Rtable-cell Rtable-cell--head">${invoice.invoiceId}</div>
 				<div class="Rtable-cell">${invoice.date}</div>
 				<div class="Rtable-cell">${invoice.saleType}</div>
@@ -59,6 +59,7 @@
 				<div class="Rtable-cell">${invoice.status}</div>
 				<div class="Rtable-cell">${invoice.getTotal()}</div>
 				<div class="Rtable-cell Rtable-cell--foot">${item.price.toString()}</div>
+				
 			</div>
 		</c:forEach>
 	</div>

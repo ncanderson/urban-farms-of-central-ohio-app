@@ -55,7 +55,7 @@ public class UserController {
 	@RequestMapping(path="/farmer-dashboard-views/dashboard", method=RequestMethod.GET)
 	public String showDashboard(HttpServletRequest request){
 		
-		List<Invoice> allInvoices = invoiceDAO.getAllInvoices();
+//		List<Invoice> allInvoices = invoiceDAO.getAllInvoices();
 		List<Invoice> pastOrders =  invoiceDAO.getPastOrders();
 		List<Invoice> pendingOrders =  invoiceDAO.getPendingOrders();
 		List<User> customerList = userDAO.getAllCustomers();			
