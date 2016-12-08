@@ -4,13 +4,13 @@
 
 BEGIN;
 
--- Insert contact preferences
+-- Insert Contact Preference Types
 INSERT INTO contact_preference_type (contact_preference_type_id, contact_preference_type_name) VALUES (1, 'Home');
 INSERT INTO contact_preference_type (contact_preference_type_id, contact_preference_type_name) VALUES (2, 'Work');
 INSERT INTO contact_preference_type (contact_preference_type_id, contact_preference_type_name) VALUES (3, 'Mobile');
 INSERT INTO contact_preference_type (contact_preference_type_id, contact_preference_type_name) VALUES (4, 'Other');
 
--- Insert Sale types
+-- Insert Sale Types
 INSERT INTO sale_type (sale_type_id, sale_type_name) VALUES (1, 'Sale - Restaurant');
 INSERT INTO sale_type (sale_type_id, sale_type_name) VALUES (2, 'Sale - Wholesale');
 INSERT INTO sale_type (sale_type_id, sale_type_name) VALUES (3, 'Sale - CSA');
@@ -20,11 +20,18 @@ INSERT INTO sale_type (sale_type_id, sale_type_name) VALUES (6, 'Farm Stand');
 INSERT INTO sale_type (sale_type_id, sale_type_name) VALUES (7, 'Compost');
 INSERT INTO sale_type (sale_type_id, sale_type_name) VALUES (8, 'Other');
 
+-- Insert Harvest Reconciliation Types
+INSERT INTO harvest_reconciliation (harvest_reconciliation_id, harvest_reconciliation_name) VALUES (1, 'Unknown');
+INSERT INTO harvest_reconciliation (harvest_reconciliation_id, harvest_reconciliation_name) VALUES (2, 'Sold');
+INSERT INTO harvest_reconciliation (harvest_reconciliation_id, harvest_reconciliation_name) VALUES (3, 'Compost');
+INSERT INTO harvest_reconciliation (harvest_reconciliation_id, harvest_reconciliation_name) VALUES (4, 'Turn Under');
+INSERT INTO harvest_reconciliation (harvest_reconciliation_id, harvest_reconciliation_name) VALUES (5, 'Loss');
+INSERT INTO harvest_reconciliation (harvest_reconciliation_id, harvest_reconciliation_name) VALUES (6, 'Harvest Overestimate');
+INSERT INTO harvest_reconciliation (harvest_reconciliation_id, harvest_reconciliation_name) VALUES (7, 'Seconds');
+INSERT INTO harvest_reconciliation (harvest_reconciliation_id, harvest_reconciliation_name) VALUES (8, 'Other');
 
 
-
-
--- Insert Invoice Status
+-- Insert Invoice Status Types
 INSERT INTO invoice_status (invoice_status_id, invoice_status_name) VALUES (1, 'Pending');
 INSERT INTO invoice_status (invoice_status_id, invoice_status_name) VALUES (2, 'Review');
 INSERT INTO invoice_status (invoice_status_id, invoice_status_name) VALUES (3, 'Confirm');
