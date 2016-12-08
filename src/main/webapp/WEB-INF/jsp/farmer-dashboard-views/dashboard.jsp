@@ -21,7 +21,7 @@
 
 <div class="col-xs-12 col-md-9" id="content">
 	<div class="dashboard-item">
-		<h3>Current Order List</h3>
+		<h3>Available Inventory</h3>
 		<c:forEach var="item" items="${harvestItems}">
 			<div class="Rtable Rtable--4cols Rtable--collapse">
 				<div class="Rtable-cell Rtable-cell--head">${item.type}</div>
@@ -59,15 +59,6 @@
 				<div class="Rtable-cell">${invoice.status}</div>
 				<div class="Rtable-cell">${invoice.getTotal()}</div>
 				<div class="Rtable-cell Rtable-cell--foot">${item.price.toString()}</div>
-			</div>
-			
-			<div class="Rtable Rtable--2cols Rtable--collapse">
-			<c:if test="${pastOrders.items != null}">
-				<c:forEach var="item" items="${pastOrders.items}">
-					<div class="Rtable-cell">${item.type}</div>
-					<div class="Rtable-cell">${item.havestQnty}</div>				
-				</c:forEach>
-			</c:if>
 			</div>
 			
 		</c:forEach>
