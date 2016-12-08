@@ -37,17 +37,113 @@ INSERT INTO invoice_status (invoice_status_id, invoice_status_name) VALUES (7, '
 -- 								SEED DATA
 -- *****************************************************************************
 
--- Insert Buyers
-INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,state_code,zipcode,delivery_times,contact_phone,notes,is_active,description, apply_large_order_discount, discount) VALUES (1,'Finale','7842 Vel, Rd.','fermentum metus.','Detroit','MI','20221','Nam interdum enim non nisi. Aenean eget metus. In','(997) 637-3374','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.','true','Lorem ipsum dolor sit', 'true', '0.2');
-INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,state_code,zipcode,delivery_times,contact_phone,notes,is_active,description, apply_large_order_discount, discount) VALUES (2,'Lavasoft','Ap #857-6443 Sit Street','tristique aliquet.','Rockford','IL','96953','sit amet, faucibus ut, nulla. Cras','(805) 278-4309','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non,','true','Lorem ipsum dolor', 'false', '.1');
-INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,state_code,zipcode,delivery_times,contact_phone,notes,is_active,description, apply_large_order_discount, discount) VALUES (3,'Google','Ap #265-4324 Pulvinar Ave','consectetuer euismod','Aurora','CO','48745','non lorem vitae odio sagittis semper. Nam tempor diam dictum','(483) 303-3362','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et','true','Lorem ipsum dolor sit amet', 'false', '.1');
-INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,state_code,zipcode,delivery_times,contact_phone,notes,is_active,description, apply_large_order_discount, discount) VALUES (4,'Google','342-8167 Nulla Street','mauris erat','Hattiesburg','MS','72365','felis.','(623) 504-7742','Lorem','true','Lorem ipsum', 'false', '.1');
-INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,state_code,zipcode,delivery_times,contact_phone,notes,is_active,description, apply_large_order_discount, discount) VALUES (5,'Chami','392-4440 Tellus Rd.','neque sed','Fort Smith','AR','71196','urna. Nunc quis arcu','(229) 857-1815','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam','true','Lorem ipsum dolor', 'false', '.1');
-INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,state_code,zipcode,delivery_times,contact_phone,notes,is_active,description, apply_large_order_discount, discount) VALUES (6,'Cakewalk','479-5059 Dolor Road','justo eu','Hartford','CT','90844','convallis est, vitae sodales nisi','(451) 411-5583','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.','true','Lorem', 'false', '.1');
-INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,state_code,zipcode,delivery_times,contact_phone,notes,is_active,description, apply_large_order_discount, discount) VALUES (7,'Apple Systems','802-4731 Mauris Av.','ullamcorper eu,','Little Rock','AR','71852','ante bibendum ullamcorper. Duis','(428) 388-6185','Lorem ipsum dolor','true','Lorem ipsum', 'false', '.1');
-INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,state_code,zipcode,delivery_times,contact_phone,notes,is_active,description, apply_large_order_discount, discount) VALUES (8,'Chami','P.O. Box 772, 2051 Nec Ave','sodales. Mauris','Fresno','CA','90647','Nam nulla magna, malesuada vel, convallis in, cursus et, eros.','(550) 631-9892','Lorem ipsum dolor sit amet, consectetuer','true','Lorem ipsum dolor', 'false', '.1');
-INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,state_code,zipcode,delivery_times,contact_phone,notes,is_active,description, apply_large_order_discount, discount) VALUES (9,'Lycos','1765 Egestas Rd.','eu erat','Augusta','ME','60042','nulla vulputate dui, nec tempus','(286) 101-4113','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non,','true','Lorem ipsum dolor sit amet,', 'false', '.1');
-INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,state_code,zipcode,delivery_times,contact_phone,notes,is_active,description, apply_large_order_discount, discount) VALUES (10,'Google','P.O. Box 482, 8641 Sagittis Avenue','eleifend vitae,','Little Rock','AR','71153','erat. Vivamus nisi.','(212) 584-5167','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing','true','Lorem ipsum dolor sit amet,', 'false', '.1');
+-- Insert Development Buyers
+INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,state_code,zipcode,delivery_times,contact_phone,notes,is_active,description, apply_large_order_discount, discount) VALUES (101,'Finale','7842 Vel, Rd.','fermentum metus.','Detroit','MI','20221','Nam interdum enim non nisi. Aenean eget metus. In','(997) 637-3374','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.','true','Lorem ipsum dolor sit', 'true', '0.2');
+INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,state_code,zipcode,delivery_times,contact_phone,notes,is_active,description, apply_large_order_discount, discount) VALUES (102,'Lavasoft','Ap #857-6443 Sit Street','tristique aliquet.','Rockford','IL','96953','sit amet, faucibus ut, nulla. Cras','(805) 278-4309','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non,','true','Lorem ipsum dolor', 'false', '.1');
+INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,state_code,zipcode,delivery_times,contact_phone,notes,is_active,description, apply_large_order_discount, discount) VALUES (103,'Google','Ap #265-4324 Pulvinar Ave','consectetuer euismod','Aurora','CO','48745','non lorem vitae odio sagittis semper. Nam tempor diam dictum','(483) 303-3362','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et','true','Lorem ipsum dolor sit amet', 'false', '.1');
+INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,state_code,zipcode,delivery_times,contact_phone,notes,is_active,description, apply_large_order_discount, discount) VALUES (104,'Google','342-8167 Nulla Street','mauris erat','Hattiesburg','MS','72365','felis.','(623) 504-7742','Lorem','true','Lorem ipsum', 'false', '.1');
+INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,state_code,zipcode,delivery_times,contact_phone,notes,is_active,description, apply_large_order_discount, discount) VALUES (105,'Chami','392-4440 Tellus Rd.','neque sed','Fort Smith','AR','71196','urna. Nunc quis arcu','(229) 857-1815','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam','true','Lorem ipsum dolor', 'false', '.1');
+INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,state_code,zipcode,delivery_times,contact_phone,notes,is_active,description, apply_large_order_discount, discount) VALUES (106,'Cakewalk','479-5059 Dolor Road','justo eu','Hartford','CT','90844','convallis est, vitae sodales nisi','(451) 411-5583','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.','true','Lorem', 'false', '.1');
+INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,state_code,zipcode,delivery_times,contact_phone,notes,is_active,description, apply_large_order_discount, discount) VALUES (107,'Apple Systems','802-4731 Mauris Av.','ullamcorper eu,','Little Rock','AR','71852','ante bibendum ullamcorper. Duis','(428) 388-6185','Lorem ipsum dolor','true','Lorem ipsum', 'false', '.1');
+INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,state_code,zipcode,delivery_times,contact_phone,notes,is_active,description, apply_large_order_discount, discount) VALUES (108,'Chami','P.O. Box 772, 2051 Nec Ave','sodales. Mauris','Fresno','CA','90647','Nam nulla magna, malesuada vel, convallis in, cursus et, eros.','(550) 631-9892','Lorem ipsum dolor sit amet, consectetuer','true','Lorem ipsum dolor', 'false', '.1');
+INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,state_code,zipcode,delivery_times,contact_phone,notes,is_active,description, apply_large_order_discount, discount) VALUES (109,'Lycos','1765 Egestas Rd.','eu erat','Augusta','ME','60042','nulla vulputate dui, nec tempus','(286) 101-4113','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non,','true','Lorem ipsum dolor sit amet,', 'false', '.1');
+INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,state_code,zipcode,delivery_times,contact_phone,notes,is_active,description, apply_large_order_discount, discount) VALUES (110,'Google','P.O. Box 482, 8641 Sagittis Avenue','eleifend vitae,','Little Rock','AR','71153','erat. Vivamus nisi.','(212) 584-5167','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing','true','Lorem ipsum dolor sit amet,', 'false', '.1');
+
+-- Insert Production Buyers
+
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (1,'San Fillipo','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (2,'The Table','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (3,'Skillet','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (4,'Harvest Pizza - German Village','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (5,'Harvest Pizza - Clintonville','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (6,'Heirloom Café  (OSU)','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (7,'The Sycamore','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (9,'Basi Italia','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (10,'Explorers Club','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (11,'Westies Gastropub','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (12,'Alchemy Juice Bar and Café','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (13,'The Kitchen','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (14,'Yellow Bird','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (15,'Barcelona','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (16,'The Crest','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (17,'Black Creek Bistro','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (18,'Acre','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (19,'Native','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (20,'Wolf Ridge Brewery/Restaurant','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (21,'La Tavola','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (22,'Till','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (23,'G. Michaels','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (24,'Rigsbys','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (25,'Cameron Mitchell','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (26,'Rusty Bucket','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (27,'Strong Water','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (28,'Southside Roots Café','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (29,'Little Eater Produce and Provisions','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (30,'Staff','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (31,'LSS','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (33,'Compost','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (34,'North Market','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (35,'Clintonville Market','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (36,'Worthington Market','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (37,'400 West Rich Market','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (38,'Senior Distribution','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (39,'U-Pick','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (42,'Little Eater (Restaurant)','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (45,'CSA','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (46,'Southside Roots Market','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (47,'CSA - YP','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (48,'Primary One Cooking Demo','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (49,'MOF Farm Stand','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (50,'Double Comfort','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (51,'Carl Williamson','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (52,'Casey Slive','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (53,'Cooking Demo - Parsons Health Center','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (54,'Duncan''s Mom','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (55,'Ed (Cooking Demo)','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (56,'Farm Stand - Clarfield','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (57,'Farm Stand - Indoors Opportunity Center','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (58,'Farm Stand - Indoors Rec Center','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (59,'Farm Stand - Wheatland','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (60,'Fleeter','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (61,'Franklin Park Conservatory','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (62,'Franklinton Gardens','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (63,'Jeannice','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (64,'Kim''s mom','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (65,'Maggie','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (66,'Produce Basket Giveaway','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (67,'Sarah Lenkay','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (68,'Shalom Zone','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (69,'South Side HC (Sat AM pickup)','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (70,'Special Order','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (71,'Special Order - Clem Taylor','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (72,'Special Order - Martha Jones','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (73,'Special Order - Ms Williams','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (74,'Special Order - Robert Patterson','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (75,'Special Order - Vita King','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (76,'Special Order - Williams','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (77,'Sweet Carrot','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (78,'Youth Program Celebration','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (79,'Farm Stand','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (80,'Watkins Elementary School','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (81,'Terry Traster','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (82,'Special Order - Fleeter','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (83,'Special Order - Carl Williamson','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (84,'Robert Patterson','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (85,'Outreach Event','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (86,'OSU Community Garden Event','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (87,'Opportunity Center Grand Opening','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (88,'National Night Out','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (89,'Mary Beth','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (90,'Limited Brand Market','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (91,'Kawolski-Leonard Wedding','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (92,'Harvest','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (93,'Food Justice Project','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (94,'Farm Stand - Indoors','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (95,'Columbus Children''s Parade','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (96,'Charles Ingrott','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (97,'Amy','true','false');
+INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (98,'Fall Farm Celebration','true','false');
+
 
 -- Insert Credentials
 INSERT INTO credentials (credentials_id, password, salt) VALUES (1, 'QfJS17tdJUn4HnVFKq8zuw==', 'NmKwEFwoHZvbmTTBa9vjUBD50GGaMvzj+O91X9aD8D3n+XXeP4xQpLmqxw13S3H22beys+ASaIGNOVh6Hwc4gOGlnePVuYdr8wFseYzZe5syhTBKpImmcTmo78iMOEt7j4tfNms86+VFm1PMuiUwXRXpZ40CuSgKbqOjyH55j7A=');
@@ -60,7 +156,7 @@ INSERT INTO users (user_id, email, user_type, credentials_id, first_name, last_n
 INSERT INTO users (user_id, email, user_type, credentials_id, first_name, last_name, is_global_admin, is_admin, is_active) VALUES (2, 'some@farmer.com', 1, 2, 'Farmer', 'Joe', 'false', 'true', 'true');
 INSERT INTO users (user_id, email, user_type, credentials_id, first_name, last_name, is_global_admin, is_admin, is_active) VALUES (3, 'some@buyer.com', 2, 3, 'Buyer', 'Joe', 'false', 'false', 'true');
 
--- Insert Development Items
+-- Insert Production Items
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (1,'Acorn Squash','',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (2,'Arugula','','Field'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (3,'Arugula ','Baby','wait until dry'); 
@@ -197,7 +293,6 @@ INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (13
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (134,'Winter Squash','',''); 
 
 -- Insert Development Prices
-
 INSERT INTO "item_price" (item_price_id, item_id, date_added, sale_type_id, item_price) VALUES (1,1,'2017-03-08 13:15:50',5,'9.79');
 INSERT INTO "item_price" (item_price_id, item_id, date_added, sale_type_id, item_price) VALUES (2,2,'2017-04-26 04:13:34',1,'8.81');
 INSERT INTO "item_price" (item_price_id, item_id, date_added, sale_type_id, item_price) VALUES (3,3,'2016-06-06 02:30:37',5,'8.15');
@@ -399,7 +494,7 @@ INSERT INTO "item_price" (item_price_id, item_id, date_added, sale_type_id, item
 INSERT INTO "item_price" (item_price_id, item_id, date_added, sale_type_id, item_price) VALUES (199,99,'2016-03-14 15:23:18',3,'2.43');
 INSERT INTO "item_price" (item_price_id, item_id, date_added, sale_type_id, item_price) VALUES (200,100,'2017-11-01 18:53:38',2,'6.79');
 
--- Insert Development Invoice
+-- Insert Production Invoice
 INSERT INTO "invoice" (invoice_id, invoice_date, user_id, buyer_id, sale_type_id, invoice_status_id) VALUES (1,'03/12/2015 00:00:00',0,2,1,5);
 INSERT INTO "invoice" (invoice_id, invoice_date, user_id, buyer_id, sale_type_id, invoice_status_id) VALUES (2,'03/20/2015 00:00:00',0,79,6,5);
 INSERT INTO "invoice" (invoice_id, invoice_date, user_id, buyer_id, sale_type_id, invoice_status_id) VALUES (3,'03/20/2015 00:00:00',0,2,1,5);
