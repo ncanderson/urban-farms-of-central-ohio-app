@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.techelevator.model.Buyer;
 import com.techelevator.model.DollarAmount;
 import com.techelevator.model.HarvestDAO;
 import com.techelevator.model.Invoice;
@@ -58,12 +59,13 @@ public class UserController {
 		List<Invoice> allInvoices = invoiceDAO.getAllInvoices();
 		List<Invoice> pastOrders =  invoiceDAO.getPastOrders();
 		List<Invoice> pendingOrders =  invoiceDAO.getPendingOrders();
-		
-		//List<User> customerList = userDAO.getAllCustomers();			
+		List<Buyer> buyerList = userDAO.getAllBuyers();			
 		List<Item> harvestItems = harvestDAO.getHarvestItemList();
 		
 		//request.setAttribute("harvestItemsList", harvestItems);//TODO push
-		//request.setAttribute("customerList", customerList);
+		request.setAttribute("buyerList", buyerList);
+		request.setAttribute("allInvoices", allInvoices);//TODO push 
+
 		
 		request.setAttribute("allInvoices", allInvoices);//TODO push 
 		request.setAttribute("pastOrders", pastOrders); 
@@ -87,9 +89,14 @@ public class UserController {
 		String variety = (String) request.getAttribute("variety");
 		int harvestQnty = Integer.parseInt((String)request.getAttribute("harvestQnty"));
 			int temp = Math.round(100*Float.parseFloat(request.getParameter("price")));
-		DollarAmount price = new DollarAmount(temp);//TODO dallor amount stuff ??
+		DollarAmount price = new DollarAmount(temp);
 		
 		itemDAO.insertItem(imageId, type, variety, harvestQnty, price);//TODO fix insert in itemDAO
+		
+		List<Item> allCropsList = itemDAO.allCropsList();
+		
+		request.setAttribute("allCropsList", allCropsList);
+		
 		return "redirect:/farmer-dashboard-views/dashboard";
 	}
 	

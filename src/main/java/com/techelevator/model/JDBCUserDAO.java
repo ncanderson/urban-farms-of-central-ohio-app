@@ -81,11 +81,37 @@ public class JDBCUserDAO implements UserDAO {
 	}
 
 	@Override
-	public List<User> getAllCustomers() {
-		User user = new User();
-		List<User> userList = new ArrayList<User>();
-		userList.add(user);
-		return userList;
+	public List<Buyer> getAllBuyers() {
+		
+		String sqlSelectStatement = "SELECT buyer_id, buyer_name, address1, address2, city, state_code, zipcode, "
+									+ "delivery_times, contact_phone, notes, is_active, description, "
+									+ "apply_large_order_discount, discount "
+									+"FROM buyer_information";
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement);
+		
+		List<Buyer> buyerList = new ArrayList<Buyer>();
+		
+		while(results.next()){
+			Buyer buyer = new Buyer();
+			buyer.setBuyerID(results.getInt("buyer_id"));
+			buyer.setBuyerName(results.getString("buyer_name"));
+			buyer.setAddress1(results.getString("address1"));
+			buyer.setAddress2(results.getString("address2"));
+			buyer.setCity(results.getString("city"));
+			buyer.setStateCode(results.getString("state_code"));
+			buyer.setZipCode(results.getInt("zipcode"));
+			buyer.setDeliveryTime(results.getString("delivery_times"));
+			buyer.setContactPhone(results.getString("contact_phone"));
+			buyer.setNotes(results.getString("notes"));
+			buyer.setActive(results.getBoolean("is_active"));
+			buyer.setDescription(results.getString("description"));
+			buyer.setApplyLargeOrderDiscount(results.getBoolean("apply_large_order_discount"));
+			buyer.setDiscount(results.getFloat("discount"));
+			
+			buyerList.add(buyer);
+		}
+		return buyerList;
 	}
 
 

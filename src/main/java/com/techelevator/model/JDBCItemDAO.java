@@ -1,5 +1,6 @@
 package com.techelevator.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -22,34 +23,42 @@ public class JDBCItemDAO implements ItemDAO {
 
 	@Override
 	public void insertItem(String imageId, String type, String variety, int harvestQnty, DollarAmount price) {
-		// note this is a harvest image id
-		//TODO might be better to use a "TRANSACTION" 
-		String sqlItemInsert = "INSERT INTO item (item_type, item_variety, item_image_id) VALUES (?, ?, ?)";
-		String sqlHarvestInsert = "INSERT INTO item_harvest_details (harvest_quantity) VALUES ( ? )";
-		String sqlInsertPrice = "INSERT INTO item_price (item_price) VALUES ( ?, ? )";
-		
-//		  item_price_id serial PRIMARY KEY,
-//		  item_id integer NOT NULL,
-//		  date_added timestamp NOT NULL,
-//		  sale_type_id integer NOT NULL,
-//		  item_price money NOT NULL
-//		
-//		  item_id serial PRIMARY KEY,
-//		  item_type varchar(25) NOT NULL,
-//		  item_variety varchar(25) NULL,
-//		  item_image_id varchar(50) NULL,
-//		  item_description varchar(150) NULL
-//		  
-//		  item_harvest_details_id serial PRIMARY KEY,
-//		  item_id integer NOT NULL REFERENCES item,
-//		  harvest_quantity integer NOT NULL,
-//		  item_price_id integer NULL REFERENCES item_price,
-//		  harvest_image_id varchar(25) NULL,
-//		  average_size_of_item varchar(100) NULL,
-//		  harvest_details_comments varchar(150) NULL,
-//		  harvest_date timestamp NOT NULL
+	
+
 	}
 
+	@Override
+	public List<Item> allCropsList() {
+		
+		String sqlSelectStatement = "SELECT item_image_id, item_type, item_variety, harvest_quantity, item_price " 
+									+"FROM item "
+									+"INNER JOIN item_harvest_details "
+									+"ON item.item_id = item_harvest_details.item_id "
+									+"INNER JOIN invoice_item "
+									+"ON item_harvest_details.item_harvest_details_id = invoice_item.item_harvest_details_id "
+									+"INNER JOIN item_price "
+									+"ON invoice_item.item_price_id = item_price.item_price_id";
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement);
+		List<Item> allCrops = new ArrayList<Item>();
+		while(results.next()){
+			Item item = new Item();
+			item.setImageId(results.getString("item_image_id"));
+			item.setType(results.getString("item_type"));
+			item.setVariety(results.getString("item_variety"));
+			item.setHarvestQnty(results.getInt("harvest_quantity"));
+			
+			float tempFloat = results.getBigDecimal("item_price").floatValue();
+			int tempInt = Math.round(100*tempFloat);
+			DollarAmount price = new DollarAmount(tempInt);
+			
+			item.setPrice(price);
+			
+			allCrops.add(item);		
+		}		
+		return allCrops;
+	}
+	
 	
 
 }
