@@ -41,3 +41,14 @@
 		display: table;	
     }
 }
+
+@media(min-width:1650px) {
+	#menu-items {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+
+
+
