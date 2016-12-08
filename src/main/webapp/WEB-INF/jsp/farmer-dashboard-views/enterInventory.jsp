@@ -26,14 +26,20 @@
 			<input type="text" name="price" />
 		</li>
 	    <li>
-     			<label for="availability">Message</label>
+     			<label for="availability">Availability:</label>
      			<textarea rows="2" id="availability" placeholder="Enter crop availability"></textarea>
+   		</li>
+   		<li>
+     			<label for="notes">Message:</label>
+     			<textarea rows="2" id="notes" placeholder="Notes about the crop"></textarea>
    		</li>
 		<li>
 			<input type="submit" value="Add Item to Order" />
 		</li>
 	</ul>
 </form>
+
+<img src="https://s-media-cache-ak0.pinimg.com/564x/79/a3/3e/79a33ea964cb35247a13ba78555e2f4d.jpg" alt="A demon" />
 
             
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

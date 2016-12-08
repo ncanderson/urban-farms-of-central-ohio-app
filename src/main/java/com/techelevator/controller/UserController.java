@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -49,7 +50,8 @@ public class UserController {
 	@RequestMapping(path="/farmer-dashboard-views/dashboard", method=RequestMethod.GET)
 	public String showDashboard(HttpServletRequest request){
 		
-		List<Item> items = harvestDAO.getHarvestItemList();
+//		List<Item> items = harvestDAO.getHarvestItemList();
+		List<Item> items = makeMockItems();
 		request.setAttribute("itemsList", items);
 		
 		return "farmer-dashboard-views/dashboard";
@@ -155,4 +157,54 @@ public class UserController {
 	}
 //---------------------------END CUSTOMER VIEWS------------------------------------------------------------
 //---------------------------END CUSTOMER VIEWS------------------------------------------------------------
+	/**
+	 * FOR TESTING ONLY UNTIL DB COMES ONLINE
+	 * @return
+	 */
+	private List<Item> makeMockItems() {
+		List<Item> itemList = new ArrayList<Item>();  
+		
+		Item tomato = new Item();
+		tomato.setImageId("img/tomato.jpg");
+		tomato.setType("Tomato");
+		tomato.setVariety("Cherry");
+		tomato.setHarvestQnty(20);
+		tomato.setPrice(new DollarAmount(100));
+		
+		Item kale = new Item();
+		kale.setImageId("img/kale.jpg");
+		kale.setType("Kale");
+		kale.setVariety("");
+		kale.setHarvestQnty(10);
+		kale.setPrice(new DollarAmount(600));
+		
+		Item cucumber = new Item();
+		cucumber.setImageId("img/cucumber.jpg");
+		cucumber.setType("Cucumber");
+		cucumber.setVariety("Pickling");
+		cucumber.setHarvestQnty(50);
+		cucumber.setPrice(new DollarAmount(175));
+		
+		Item arugula = new Item();
+		arugula.setImageId("img/arugula.jpg");
+		arugula.setType("Arugula");
+		arugula.setVariety("");
+		arugula.setHarvestQnty(10);
+		arugula.setPrice(new DollarAmount(200));
+		
+		Item lettuce = new Item();
+		lettuce.setImageId("img/lettuce.jpg");
+		lettuce.setType("Lettuce");
+		lettuce.setVariety("Head");
+		lettuce.setHarvestQnty(15);
+		lettuce.setPrice(new DollarAmount(300));
+		
+		itemList.add(tomato);
+		itemList.add(kale);
+		itemList.add(cucumber);
+		itemList.add(arugula);
+		itemList.add(lettuce);
+				
+		return itemList;
+	}
 }

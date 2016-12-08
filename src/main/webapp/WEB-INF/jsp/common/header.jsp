@@ -39,8 +39,10 @@
 
 <div class="container-fluid">
 
+<c:url var="homePage" value="/"/>
+
 <div id="nav-header" class="hidden-xs">
-	<a href="welcome"><img src="${imagePath}/cropped-UFCO-logo.png" alt="Urban farms of central ohio logo" id="logo-image"/></a>
+	<a href="${homePage}"><img src="${imagePath}/cropped-UFCO-logo.png" alt="Urban farms of central ohio logo" id="logo-image"/></a>
 </div>
 
 <nav class="navbar navbar-default">
@@ -60,7 +62,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     
     <ul class="nav navbar-nav">
-        <li class="active"><a href="welcome">Home<span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="${homePage}">Home<span class="sr-only">(current)</span></a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
           <ul class="dropdown-menu">
