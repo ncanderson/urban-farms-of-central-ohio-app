@@ -1,5 +1,6 @@
 package com.techelevator.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -81,8 +82,10 @@ public class JDBCUserDAO implements UserDAO {
 
 	@Override
 	public List<User> getAllCustomers() {
-		// TODO Auto-generated method stub
-		return null;
+		User user = new User();
+		List<User> userList = new ArrayList<User>();
+		userList.add(user);
+		return userList;
 	}
 
 
