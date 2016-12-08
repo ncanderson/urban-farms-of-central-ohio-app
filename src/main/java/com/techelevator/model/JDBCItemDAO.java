@@ -42,7 +42,6 @@ public class JDBCItemDAO implements ItemDAO {
 			item.setImageId(results.getString("item_image_id"));
 			item.setType(results.getString("item_type"));
 			item.setVariety(results.getString("item_variety"));
-			item.setHarvestQnty(results.getInt("harvest_quantity"));
 			
 			float tempFloat = results.getBigDecimal("item_price").floatValue();
 			int tempInt = Math.round(100*tempFloat);
