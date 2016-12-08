@@ -30,14 +30,10 @@ public class JDBCItemDAO implements ItemDAO {
 	@Override
 	public List<Item> allCropsList() {
 		
-		String sqlSelectStatement = "SELECT item_image_id, item_type, item_variety, harvest_quantity, item_price " 
+		String sqlSelectStatement = "SELECT item_image_id, item_type, item_variety, item_price " 
 									+"FROM item "
-									+"INNER JOIN item_harvest_details "
-									+"ON item.item_id = item_harvest_details.item_id "
-									+"INNER JOIN invoice_item "
-									+"ON item_harvest_details.item_harvest_details_id = invoice_item.item_harvest_details_id "
 									+"INNER JOIN item_price "
-									+"ON invoice_item.item_price_id = item_price.item_price_id";
+									+"ON item.item_id = item_price.item_id";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement);
 		List<Item> allCrops = new ArrayList<Item>();
