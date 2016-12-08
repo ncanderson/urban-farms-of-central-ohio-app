@@ -26,7 +26,7 @@ public class JDBCinvoiceDAO implements InvoiceDAO {
 	
 	@Override
 	public List<Invoice> getAllInvoices() {
-	
+
 		List<Invoice> invoices = new ArrayList<Invoice>();
 		String sqlSelectStatment = "SELECT invoice_id, invoice_date, buyer_name, invoice_status_name, sale_type_name "
 				+ "FROM invoice INNER JOIN sale_type "
@@ -39,6 +39,7 @@ public class JDBCinvoiceDAO implements InvoiceDAO {
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatment);
 	
 		while(results.next()){	
+
 			Invoice invoice = new Invoice();
 			Timestamp invoiceDate = results.getTimestamp("invoice_date");
 			int invoiceId = results.getInt("invoice_id");
