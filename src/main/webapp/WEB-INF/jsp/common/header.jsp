@@ -80,14 +80,9 @@
         </li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> View Cart</a></li>
         <li><a href="${login}">Login</a></li>
-<<<<<<< HEAD
+
         <li><a href="${logout }">Logout</a></li>
-=======
-<<<<<<< HEAD
-        <li><a href="${logout}">Sign Out</a></li>
-=======
->>>>>>> b0e380d28e4684cb8cf90bc6ea68f8b6da49c8d3
->>>>>>> 43b8c7901f4342599f1e71cfc24edc9e9c063e81
+
     </ul>
 
 	
