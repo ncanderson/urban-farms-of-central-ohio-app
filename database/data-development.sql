@@ -55,6 +55,7 @@ INSERT INTO credentials (credentials_id, password, salt) VALUES (2, 'HG6d3dbxeVD
 INSERT INTO credentials (credentials_id, password, salt) VALUES (3, 'YN+dqszFM3oNefVK7LjjzA==', 'CjGbVky1eCe0W8Xm6QhSJpR0qukfuM+XDgHzsYiQBuwmJav86V5yoX1en/xgEcBpcf54yLR7OIdXLFhMnnTH1epj77jdL+oC7QVFu+1b1bHaDQYY4Yt1jD48im/eWIoz6eUOTn3pJCwgDryAJ7YzasbjRmULkufwIpUrjY6xj8s=');
 
 -- Insert Development Users
+INSERT INTO users (user_id, email, user_type, credentials_id, first_name, last_name, is_global_admin, is_admin, is_active) VALUES (0, 'some@archive.com', 0, 1, 'Archive', 'User', 'false', 'false', 'true');
 INSERT INTO users (user_id, email, user_type, credentials_id, first_name, last_name, is_global_admin, is_admin, is_active) VALUES (1, 'some@admin.com', 0, 1, 'Admin', 'Joe', 'true', 'false', 'true');
 INSERT INTO users (user_id, email, user_type, credentials_id, first_name, last_name, is_global_admin, is_admin, is_active) VALUES (2, 'some@farmer.com', 1, 2, 'Farmer', 'Joe', 'false', 'true', 'true');
 INSERT INTO users (user_id, email, user_type, credentials_id, first_name, last_name, is_global_admin, is_admin, is_active) VALUES (3, 'some@buyer.com', 2, 3, 'Buyer', 'Joe', 'false', 'false', 'true');
