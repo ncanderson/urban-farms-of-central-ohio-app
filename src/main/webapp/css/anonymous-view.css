@@ -64,6 +64,10 @@
 	width: 15%; 
 } 
 
+.Rtable--2cols > .Rtable-cell {
+	width: 50%;
+}
+
 .Accordion {
 	position: relative;
 	top: -3px;
