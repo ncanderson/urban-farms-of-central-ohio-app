@@ -99,16 +99,15 @@ public class JDBCinvoiceDAO implements InvoiceDAO {
 	private List<Item> getItemsByInvoiceId(int invoiceId) {
 		List<Item> items = null;
 		
-		String sqlSelectStatemnt = "SELECT image_id, type, variety, harvest_quantity, price FROM invoice "
-				+ "INNER JOIN invoice_item "
-				+ "ON invoice.invoice_id = invoice_item.invoice_id "
-				+ "INNER JOIN harvest_details "
-				+ "ON invoice_item.harvest_details_id = item_harvest_details.harvest_detail_id "
-				+ "INNER JOIN item"
-				+ "ON item_harvest_details.item_id = item.item_id "
-				+ "INNER JOIN item_price"
-				+ "ON item_harvest_details.item_pirce_id = item_price.item_price_id "
-				+ "WHERE invoice_id = ?";
+		String sqlSelectStatemnt = "SELECT item_image_id, item_type, item_variety, item_harvest_details.harvest_quantity, item_price.item_price "
+				+ "FROM item "
+				+"INNER JOIN item_harvest_details "
+				+"ON item.item_id = item_harvest_details.item_id "
+				+"INNER JOIN invoice_item "
+				+"ON item_harvest_details.item_harvest_details_id = invoice_item.item_harvest_details_id "
+				+"INNER JOIN item_price  "
+				+"ON invoice_item.item_price_id = item_price.item_price_id " 
+				+"WHERE invoice_id = ?";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatemnt, invoiceId);
 		
