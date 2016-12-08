@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface ItemDAO {
 
-
+	public void insertItem(String imageId, String type, String variety, int harvestQnty, DollarAmount price);
 }
