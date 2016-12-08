@@ -12,7 +12,7 @@
 			<label for="type">Select crop type:</label>
 			<select name="type" id="crop-type">
 				<c:forEach var="cropItem" items="${allCropsList}">
-					<option value="${cropItem.type}">${cropItem.type.toUpperCase()}</option>
+					<option value="${cropItem.type}">${cropItem.type}</option>
 				</c:forEach>
 			</select>
 		</li>

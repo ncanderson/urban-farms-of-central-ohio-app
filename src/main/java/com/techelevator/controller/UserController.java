@@ -77,6 +77,9 @@ public class UserController {
 	@RequestMapping(path="/farmer-dashboard-views/enterInventory", method = RequestMethod.GET)
 	public String addNewOrderItemToDatabaseGet(HttpServletRequest request) {
 		
+		List<Item> allCropsList = itemDAO.allCropsList();
+		
+		request.setAttribute("allCropsList", allCropsList);
 		
 		return "farmer-dashboard-views/enterInventory";
 	}
@@ -90,7 +93,6 @@ public class UserController {
 		int harvestQnty = Integer.parseInt((String)request.getAttribute("harvestQnty"));
 			int temp = Math.round(100*Float.parseFloat(request.getParameter("price")));
 		DollarAmount price = new DollarAmount(temp);
-		
 		itemDAO.insertItem(imageId, type, variety, harvestQnty, price);//TODO fix insert in itemDAO
 		
 		List<Item> allCropsList = itemDAO.allCropsList();
