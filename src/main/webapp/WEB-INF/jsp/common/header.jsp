@@ -11,8 +11,8 @@
 	<c:url var="bootstrapCSSHREF" value="/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="${bootstrapCSSHREF}" />
 	
-	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/main.css" />
+	<c:url var="mainCSS" value="/css/main.css"/>	
+	<link rel="stylesheet" href="${mainCSS}" />
 
 	<c:url var="jqueryHREF" value="/js/jquery.min.js"/>
 	<script type="text/javascript" src="${jqueryHREF}"></script>
@@ -29,14 +29,18 @@
 	<c:url var="anonymousJS" value="/js/anonymous-view.js"/>		
 	<script type="text/javascript" src="${anonymousJS}"></script>
 	
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	
+	<c:url var="imagePath" value="/img/" />
+	
 </head>
 <body>
 
 <div class="container-fluid">
 
 <div id="nav-header" class="hidden-xs">
-	<a href="welcome"><img src="img/cropped-UFCO-logo.png" alt="Urban farms of central ohio logo" id="logo-image"/></a>
+	<a href="welcome"><img src="${imagePath}/cropped-UFCO-logo.png" alt="Urban farms of central ohio logo" id="logo-image"/></a>
 </div>
 
 <nav class="navbar navbar-default">
