@@ -26,7 +26,7 @@ public class JDBCinvoiceDAO implements InvoiceDAO {
 	
 	@Override
 	public List<Invoice> getAllInvoices() {
-		System.out.println("test1");
+		
 		List<Invoice> invoices = new ArrayList<Invoice>();
 		String sqlSelectStatment = "SELECT invoice_id, invoice_date, buyer_name, invoice_status_name, sale_type_name "
 				+ "FROM invoice INNER JOIN sale_type "
@@ -36,11 +36,11 @@ public class JDBCinvoiceDAO implements InvoiceDAO {
 				+ "INNER JOIN buyer_information "
 				+ "ON invoice.buyer_id = buyer_information.buyer_id";
 		
-		System.out.println("tes2");
+		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatment);
-		System.out.println("test3");
+		
 		while(results.next()){
-			System.out.println("test4");
+			
 			Invoice invoice = new Invoice();
 			Timestamp invoiceDate = results.getTimestamp("invoice_date");
 			int invoiceId = results.getInt("invoice_id");
