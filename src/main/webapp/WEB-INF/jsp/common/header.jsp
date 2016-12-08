@@ -41,8 +41,11 @@
 
 <c:url var="homePage" value="/"/>
 <c:url var="login" value="/login"/>
+<<<<<<< HEAD
 <c:url var="logout" value="/logout"/>
 
+=======
+>>>>>>> b0e380d28e4684cb8cf90bc6ea68f8b6da49c8d3
 
 <div id="nav-header" class="hidden-xs">
 	<a href="${homePage}"><img src="${imagePath}/cropped-UFCO-logo.png" alt="Urban farms of central ohio logo" id="logo-image"/></a>
@@ -77,7 +80,10 @@
         </li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> View Cart</a></li>
         <li><a href="${login}">Login</a></li>
+<<<<<<< HEAD
         <li><a href="${logout}">Sign Out</a></li>
+=======
+>>>>>>> b0e380d28e4684cb8cf90bc6ea68f8b6da49c8d3
     </ul>
 
 	

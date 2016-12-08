@@ -26,7 +26,7 @@ public class JDBCinvoiceDAO implements InvoiceDAO {
 	
 	@Override
 	public List<Invoice> getAllInvoices() {
-		
+
 		List<Invoice> invoices = new ArrayList<Invoice>();
 		String sqlSelectStatment = "SELECT invoice_id, invoice_date, buyer_name, invoice_status_name, sale_type_name "
 				+ "FROM invoice INNER JOIN sale_type "
@@ -36,11 +36,10 @@ public class JDBCinvoiceDAO implements InvoiceDAO {
 				+ "INNER JOIN buyer_information "
 				+ "ON invoice.buyer_id = buyer_information.buyer_id";
 		
-		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatment);
-		
-		while(results.next()){
-			
+	
+		while(results.next()){	
+
 			Invoice invoice = new Invoice();
 			Timestamp invoiceDate = results.getTimestamp("invoice_date");
 			int invoiceId = results.getInt("invoice_id");
@@ -97,7 +96,7 @@ public class JDBCinvoiceDAO implements InvoiceDAO {
 	
 	
 	private List<Item> getItemsByInvoiceId(int invoiceId) {
-		List<Item> items = null;
+		List<Item> items = new ArrayList<Item>();
 		
 		String sqlSelectStatemnt = "SELECT item_image_id, item_type, item_variety, item_harvest_details.harvest_quantity, item_price.item_price "
 				+ "FROM item "
@@ -105,7 +104,7 @@ public class JDBCinvoiceDAO implements InvoiceDAO {
 				+"ON item.item_id = item_harvest_details.item_id "
 				+"INNER JOIN invoice_item "
 				+"ON item_harvest_details.item_harvest_details_id = invoice_item.item_harvest_details_id "
-				+"INNER JOIN item_price  "
+				+"INNER JOIN item_price "
 				+"ON invoice_item.item_price_id = item_price.item_price_id " 
 				+"WHERE invoice_id = ?";
 		

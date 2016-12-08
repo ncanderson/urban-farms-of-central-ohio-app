@@ -65,7 +65,9 @@ public class UserController {
 		//request.setAttribute("harvestItemsList", harvestItems);//TODO push
 		request.setAttribute("buyerList", buyerList);
 		request.setAttribute("allInvoices", allInvoices);//TODO push 
+
 		
+		request.setAttribute("allInvoices", allInvoices);//TODO push 
 		request.setAttribute("pastOrders", pastOrders); 
 		request.setAttribute("pendingOrders", pendingOrders);
 		

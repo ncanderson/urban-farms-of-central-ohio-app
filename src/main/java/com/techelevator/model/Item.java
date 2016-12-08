@@ -2,7 +2,6 @@ package com.techelevator.model;
 
 public class Item {
 
-
 	private String imageId;
 	private String type;
 	private String variety;
