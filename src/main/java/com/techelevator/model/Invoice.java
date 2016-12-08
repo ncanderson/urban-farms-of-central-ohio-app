@@ -1,11 +1,14 @@
 package com.techelevator.model;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
+import com.sun.jna.platform.win32.Sspi.TimeStamp;
+
 public class Invoice {
 
-	private Date date;
+	private Timestamp date;
 	private String buyerName;
 	private int buyerId;
 	private int invoiceId;
@@ -17,11 +20,11 @@ public class Invoice {
 		
 	}
 
-	public Date getDate() {
+	public Timestamp getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(Timestamp date) {
 		this.date = date;
 	}
 
@@ -73,5 +76,14 @@ public class Invoice {
 		this.items = items;
 	}
 	
+	public DollarAmount getTotal(){
+		
+		DollarAmount total = new DollarAmount(0);
+		for(Item item: items){
+			
+			total.plus(item.getPrice());
+		}
+		return total;
+	}
 	
 }

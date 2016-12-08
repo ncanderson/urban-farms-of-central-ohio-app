@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.techelevator.model.DollarAmount;
 import com.techelevator.model.HarvestDAO;
+import com.techelevator.model.Invoice;
+import com.techelevator.model.InvoiceDAO;
 import com.techelevator.model.Item;
 import com.techelevator.model.ItemDAO;
+import com.techelevator.model.User;
 import com.techelevator.model.UserDAO;
 
 @Controller
@@ -23,6 +26,7 @@ public class UserController {
 	private HarvestDAO harvestDAO;
 	private ItemDAO itemDAO;
 	private UserDAO userDAO;
+	private InvoiceDAO invoiceDAO;
 	
 	@Autowired
 	public UserController(HarvestDAO harvestDAO, ItemDAO itemDAO, UserDAO userDAO){
@@ -49,8 +53,15 @@ public class UserController {
 	@RequestMapping(path="/farmer-dashboard-views/dashboard", method=RequestMethod.GET)
 	public String showDashboard(HttpServletRequest request){
 		
-		List<Item> items = harvestDAO.getHarvestItemList();
-		request.setAttribute("itemsList", items);
+		List<User> customerList = userDAO.getAllCustomers();		
+		List<Invoice> pastOrders = invoiceDAO.getPastOrders();
+		List<Invoice> pendingOrders = invoiceDAO.getPendingOrders();	
+		List<Item> harvestItems = harvestDAO.getHarvestItemList();
+		
+		request.setAttribute("harvestItemsList", harvestItems);
+		request.setAttribute("customerList", customerList);
+		request.setAttribute("pastOrders", pastOrders);
+		request.setAttribute("pendingOrders", pendingOrders);
 		
 		return "farmer-dashboard-views/dashboard";
 	}
@@ -69,10 +80,10 @@ public class UserController {
 		String type = (String) request.getAttribute("type");
 		String variety = (String) request.getAttribute("variety");
 		int harvestQnty = Integer.parseInt((String)request.getAttribute("harvestQnty"));
-		int temp = Math.round(100*Float.parseFloat((String) request.getAttribute("price")));
+			int temp = Math.round(100*Float.parseFloat(request.getParameter("price")));
 		DollarAmount price = new DollarAmount(temp);//TODO dallor amount stuff ??
 		
-		itemDAO.insertItem(imageId, type, variety, harvestQnty, price);
+		itemDAO.insertItem(imageId, type, variety, harvestQnty, price);//TODO fix insert in itemDAO
 		return "redirect:/farmer-dashboard-views/dashboard";
 	}
 	

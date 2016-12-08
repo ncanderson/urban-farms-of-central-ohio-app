@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="${bootstrapCSSHREF}" />
 	
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+	
 	<link rel="stylesheet" href="css/main.css" />
 
 	<c:url var="jqueryHREF" value="/js/jquery.min.js"/>

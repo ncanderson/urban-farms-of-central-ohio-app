@@ -1,5 +1,6 @@
 package com.techelevator.model;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -9,6 +10,8 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+
+import com.sun.jna.platform.win32.Sspi.TimeStamp;
 
 public class JDBCinvoiceDAO implements InvoiceDAO {
 
@@ -35,7 +38,7 @@ public class JDBCinvoiceDAO implements InvoiceDAO {
 		
 		while(results.next()){
 			Invoice invoice = new Invoice();
-			Date invoiceDate = results.getDate("invoice_date");
+			Timestamp invoiceDate = results.getTimestamp("invoice_date");
 			int invoiceId = results.getInt("invoice_id");
 			int buyerId = results.getInt("buyer_id");
 			String buyerName = results.getString("buyer_id");
@@ -56,6 +59,87 @@ public class JDBCinvoiceDAO implements InvoiceDAO {
 					
 		return invoices;
 	}
+	
+	@Override
+	public List<Invoice> getPastOrders() {
+		
+		List<Invoice> invoices = new ArrayList<Invoice>();
+		String sqlSelectStatment = "SELECT invoice_id, invoice_date, buyer_id, buyer_name, status, sale_type FROM invoice "
+				+ "INNER JOIN invoice_status "
+				+ "ON invoice.invoice_status_id = invoice_status.invoice_status_id "
+				+ "INNER JOIN sale_type"
+				+ "ON invoice.sale_type_id = sale_type.sale_type_id "
+				+ "INNER JOIN buyer_info "
+				+ "ON invoice.buyer_id = buyer_info.buyer_id "
+				+ "WHERE status = ? OR ? OR ?";
+
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatment, "Paid", "Delivered", "Archived");
+		
+		while(results.next()){
+			Invoice invoice = new Invoice();
+			Timestamp invoiceDate = results.getTimestamp("invoice_date");
+			int invoiceId = results.getInt("invoice_id");
+			int buyerId = results.getInt("buyer_id");
+			String buyerName = results.getString("buyer_id");
+			int status = results.getInt("status");
+			String saleType = results.getString("sale_type");
+			List<Item>  items = getItemsByInvoiceId(invoiceId);
+			
+			invoice.setInvoiceId(invoiceId);
+			invoice.setBuyerId(buyerId);
+			invoice.setBuyerName(buyerName);
+			invoice.setDate(invoiceDate);
+			invoice.setItems(items);
+			invoice.setSaleType(saleType);
+			invoice.setStatus(status);
+			
+			invoices.add(invoice);
+		}
+					
+		return invoices;
+		
+	}
+
+	@Override
+	public List<Invoice> getPendingOrders() {
+		
+		List<Invoice> invoices = new ArrayList<Invoice>();
+		String sqlSelectStatment = "SELECT invoice_id, invoice_date, buyer_id, buyer_name, status, sale_type FROM invoice "
+				+ "INNER JOIN invoice_status "
+				+ "ON invoice.invoice_status_id = invoice_status.invoice_status_id "
+				+ "INNER JOIN sale_type"
+				+ "ON invoice.sale_type_id = sale_type.sale_type_id "
+				+ "INNER JOIN buyer_info "
+				+ "ON invoice.buyer_id = buyer_info.buyer_id "
+				+ "WHERE status = ?";
+
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatment, "Pending");
+		
+		while(results.next()){
+			Invoice invoice = new Invoice();
+			Timestamp invoiceDate = results.getTimestamp("invoice_date");
+			int invoiceId = results.getInt("invoice_id");
+			int buyerId = results.getInt("buyer_id");
+			String buyerName = results.getString("buyer_id");
+			int status = results.getInt("status");
+			String saleType = results.getString("sale_type");
+			List<Item>  items = getItemsByInvoiceId(invoiceId);
+			
+			invoice.setInvoiceId(invoiceId);
+			invoice.setBuyerId(buyerId);
+			invoice.setBuyerName(buyerName);
+			invoice.setDate(invoiceDate);
+			invoice.setItems(items);
+			invoice.setSaleType(saleType);
+			invoice.setStatus(status);
+			
+			invoices.add(invoice);
+		}
+					
+		return invoices;
+		
+	}
+	
 	
 	
 	private List<Item> getItemsByInvoiceId(int invoiceId) {
@@ -86,5 +170,7 @@ public class JDBCinvoiceDAO implements InvoiceDAO {
 		}
 		return items;
 	}
+
+	
 
 }
