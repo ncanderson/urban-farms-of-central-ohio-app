@@ -8,16 +8,22 @@
 			<label for="harvestImageId">Enter Image URL:</label>
 			<input type="text" name="harvestImageId" />
 		</li>
-		<!-- DROPDOWN -->
 		<li>
-			<label for="type">Enter crop type:</label>
-			<input type="text" name="type" />
+			<label for="type">Select crop type:</label>
+			<select name="type" id="crop-type">
+				<c:forEach var="cropItem" items="${allCropsList}">
+					<option value="${cropItem.type}">${cropItem.type.toUpperCase()}</option>
+				</c:forEach>
+			</select>
 		</li>
 		<li>
-			<label for="variety">Enter crop variety, if any:</label>
-			<input type="text" name="variety" />
+			<label for="variety">Select crop variety:</label>
+			<select name="variety" id="crop-variety">
+				<c:forEach var="cropVariety" items="${allCropsList}">
+					<option value="${cropVariety.variety}">${cropVariety.variety.toUpperCase()}</option>
+				</c:forEach>
+			</select>
 		</li>
-		<!-- END DROPDOWN -->
 		<li>
 			<label for="harvestQuantity">Enter pounds available:</label>
 			<input type="text" name="harvestQuantity" />

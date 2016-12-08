@@ -29,6 +29,9 @@
 	<c:url var="anonymousJS" value="/js/anonymous-view.js"/>		
 	<script type="text/javascript" src="${anonymousJS}"></script>
 	
+	<c:url var="jsCookies" value="/js/jscookies.js"/>
+	<script type="text/javascript" src="${jsCookies}"></script>
+	
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	
@@ -41,6 +44,7 @@
 
 <c:url var="homePage" value="/"/>
 <c:url var="login" value="/login"/>
+<c:url var="logout" value="/logout"/>
 
 <div id="nav-header" class="hidden-xs">
 	<a href="${homePage}"><img src="${imagePath}/cropped-UFCO-logo.png" alt="Urban farms of central ohio logo" id="logo-image"/></a>
@@ -74,6 +78,7 @@
         </li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> View Cart</a></li>
         <li><a href="${login}">Login</a></li>
+        <li><a href="${logout }">Logout</a></li>
     </ul>
 
 	
