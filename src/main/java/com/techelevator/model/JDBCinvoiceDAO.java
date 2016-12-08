@@ -10,9 +10,11 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import com.sun.jna.platform.win32.Sspi.TimeStamp;
 
+@Component
 public class JDBCinvoiceDAO implements InvoiceDAO {
 
 	JdbcTemplate jdbcTemplate;
@@ -24,7 +26,7 @@ public class JDBCinvoiceDAO implements InvoiceDAO {
 	
 	@Override
 	public List<Invoice> getAllInvoices() {
-		
+		System.out.println("test1");
 		List<Invoice> invoices = new ArrayList<Invoice>();
 		String sqlSelectStatment = "SELECT invoice_id, invoice_date, buyer_name, invoice_status_name, sale_type_name "
 				+ "FROM invoice INNER JOIN sale_type "
@@ -32,11 +34,13 @@ public class JDBCinvoiceDAO implements InvoiceDAO {
 				+ "INNER JOIN invoice_status "
 				+ "ON invoice_status.invoice_status_id = invoice.invoice_status_id "
 				+ "INNER JOIN buyer_information "
-				+ "ON invoice.buyer_id = buyer_information.buyer_id;";
-
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatment);
+				+ "ON invoice.buyer_id = buyer_information.buyer_id";
 		
+		System.out.println("tes2");
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatment);
+		System.out.println("test3");
 		while(results.next()){
+			System.out.println("test4");
 			Invoice invoice = new Invoice();
 			Timestamp invoiceDate = results.getTimestamp("invoice_date");
 			int invoiceId = results.getInt("invoice_id");
