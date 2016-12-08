@@ -40,9 +40,13 @@
 <div class="container-fluid">
 
 <c:url var="homePage" value="/"/>
+<c:url var="login" value="/login"/>
+<c:url var="logout" value="/logout"/>
+
 
 <div id="nav-header" class="hidden-xs">
 	<a href="${homePage}"><img src="${imagePath}/cropped-UFCO-logo.png" alt="Urban farms of central ohio logo" id="logo-image"/></a>
+	
 </div>
 
 <nav class="navbar navbar-default">
@@ -72,7 +76,8 @@
           </ul>
         </li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> View Cart</a></li>
-        <li><a href="login">Login</a></li>
+        <li><a href="${login}">Login</a></li>
+        <li><a href="${logout}">Sign Out</a></li>
     </ul>
 
 	

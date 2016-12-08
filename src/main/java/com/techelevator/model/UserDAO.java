@@ -8,6 +8,6 @@ public interface UserDAO {
 	
 	public User selectUserByUserName(String userName);
 	
-	public List<User> getAllCustomers();
+	public List<Buyer> getAllBuyers();
 
 }
