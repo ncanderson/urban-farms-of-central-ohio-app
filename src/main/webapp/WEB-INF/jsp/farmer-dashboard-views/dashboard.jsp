@@ -49,8 +49,8 @@
 	</div>
 
 	<div class="dashboard-item">
-		<h3>View all orders</h3>
-		<c:forEach var="invoice" items="${allInvoices}">
+		<h3>View past orders</h3>
+		<c:forEach var="invoice" items="${pastOrders}">
 			<div class="Rtable Rtable--7cols Rtable--collapse">
 				<div class="Rtable-cell Rtable-cell--head">${invoice.invoiceId}</div>
 				<div class="Rtable-cell">${invoice.date}</div>
@@ -62,10 +62,12 @@
 			</div>
 			
 			<div class="Rtable Rtable--2cols Rtable--collapse">
-			<c:forEach var="item" items="${allOrders.items}">
-				<div class="Rtable-cell">${item.type}</div>
-				<div class="Rtable-cell">${item.havestQnty}</div>				
-			</c:forEach>
+			<c:if test="${pastOrders.items != null}">
+				<c:forEach var="item" items="${pastOrders.items}">
+					<div class="Rtable-cell">${item.type}</div>
+					<div class="Rtable-cell">${item.havestQnty}</div>				
+				</c:forEach>
+			</c:if>
 			</div>
 			
 		</c:forEach>
