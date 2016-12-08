@@ -64,14 +64,14 @@ public class JDBCinvoiceDAO implements InvoiceDAO {
 	public List<Invoice> getPastOrders() {
 		
 		List<Invoice> invoices = new ArrayList<Invoice>();
-		String sqlSelectStatment = "SELECT invoice_id, invoice_date, buyer_id, buyer_name, status, sale_type FROM invoice "
+		String sqlSelectStatment = "SELECT invoice_id, invoice_date, buyer_id, buyer_name, invoice_status_name, sale_type_name FROM invoice "
 				+ "INNER JOIN invoice_status "
 				+ "ON invoice.invoice_status_id = invoice_status.invoice_status_id "
 				+ "INNER JOIN sale_type"
 				+ "ON invoice.sale_type_id = sale_type.sale_type_id "
-				+ "INNER JOIN buyer_info "
-				+ "ON invoice.buyer_id = buyer_info.buyer_id "
-				+ "WHERE status = ? OR ? OR ?";
+				+ "INNER JOIN buyer_information "
+				+ "ON invoice.buyer_id = buyer_information.buyer_id "
+				+ "WHERE invoce_status.invoice_status_name = ? OR ? OR ?";
 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatment, "Paid", "Delivered", "Archived");
 		
