@@ -50,7 +50,6 @@ INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,stat
 INSERT INTO "buyer_information" (buyer_id,buyer_name,address1,address2,city,state_code,zipcode,delivery_times,contact_phone,notes,is_active,description, apply_large_order_discount, discount) VALUES (110,'Google','P.O. Box 482, 8641 Sagittis Avenue','eleifend vitae,','Little Rock','AR','71153','erat. Vivamus nisi.','(212) 584-5167','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing','true','Lorem ipsum dolor sit amet,', 'false', '.1');
 
 -- Insert Production Buyers
-
 INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (1,'San Fillipo','true','false');
 INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (2,'The Table','true','false');
 INSERT INTO "buyer_information" (buyer_id,buyer_name, is_active, apply_large_order_discount) VALUES (3,'Skillet','true','false');
