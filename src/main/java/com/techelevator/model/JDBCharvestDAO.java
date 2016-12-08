@@ -45,4 +45,11 @@ public class JDBCharvestDAO implements HarvestDAO {
 		
 		return harvestItems;
 	}
+
+	@Override
+	public void addHarvestItem(Harvest newHarvestItem) {
+		String sqlInsertHarvestItem = "INSERT INTO item_harvest_details(item_id, harvest_quantity, harvest_date, average_size_of_item, harvest_availability, harvest_details_comments) " +
+										"VALUES(?,?,?)";
+		
+	}
 }
