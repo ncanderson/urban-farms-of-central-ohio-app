@@ -59,8 +59,15 @@
 				<div class="Rtable-cell">${invoice.status}</div>
 				<div class="Rtable-cell">${invoice.getTotal()}</div>
 				<div class="Rtable-cell Rtable-cell--foot">${item.price.toString()}</div>
-				
 			</div>
+			
+			<div class="Rtable Rtable--2cols Rtable--collapse">
+			<c:forEach var="item" items="${allOrders.items}">
+				<div class="Rtable-cell">${item.type}</div>
+				<div class="Rtable-cell">${item.havestQnty}</div>				
+			</c:forEach>
+			</div>
+			
 		</c:forEach>
 	</div>
 	
