@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.bouncycastle.util.encoders.Base64;
@@ -75,6 +77,12 @@ public class JDBCUserDAO implements UserDAO {
 	
 	private void saveUser(User user) {
 		user.getType().ordinal();//Enum integer to be stored in DB
+	}
+
+	@Override
+	public List<User> getAllCustomers() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

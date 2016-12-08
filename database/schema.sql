@@ -86,15 +86,22 @@ CREATE TABLE invoice (
   invoice_status_id integer NOT NULL REFERENCES invoice_status
 );
 
+CREATE TABLE harvest_reconciliation (
+  harvest_reconciliation_id serial PRIMARY KEY,
+  harvest_reconciliation_name varchar(25) NOT NULL,
+  harvest_reconciliation_description varchar(250) NULL
+);
+
 CREATE TABLE item_harvest_details (
   item_harvest_details_id serial PRIMARY KEY,
   item_id integer NOT NULL REFERENCES item,
   harvest_quantity integer NOT NULL,
-  item_price_id integer NULL REFERENCES item_price,
   harvest_image_id varchar(25) NULL,
   average_size_of_item varchar(100) NULL,
+  harvest_availability varchar(150) NULL,
   harvest_details_comments varchar(150) NULL,
-  harvest_date timestamp NOT NULL
+  harvest_date timestamp NOT NULL,
+  harvest_reconciliation_id integer NULL REFERENCES harvest_reconciliation
 );
 
 CREATE TABLE invoice_item (
@@ -103,7 +110,7 @@ CREATE TABLE invoice_item (
   invoice_quantity integer NOT NULL,
   item_harvest_details_id integer NOT NULL REFERENCES item_harvest_details,
   item_price_id integer NOT NULL REFERENCES item_price,
-  invoice_date timestamp NOT NULL
+  added_to_invoice_date timestamp NOT NULL
   );
 
 

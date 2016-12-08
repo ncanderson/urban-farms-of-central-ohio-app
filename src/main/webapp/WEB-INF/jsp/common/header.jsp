@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,9 +11,14 @@
 	<c:url var="bootstrapCSSHREF" value="/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="${bootstrapCSSHREF}" />
 	
+<<<<<<< HEAD
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 	
 	<link rel="stylesheet" href="css/main.css" />
+=======
+	<c:url var="mainCSS" value="/css/main.css"/>	
+	<link rel="stylesheet" href="${mainCSS}" />
+>>>>>>> 353d43c403fecd10f4a2c02c34cc5ccf9ccff8b2
 
 	<c:url var="jqueryHREF" value="/js/jquery.min.js"/>
 	<script type="text/javascript" src="${jqueryHREF}"></script>
@@ -29,14 +35,20 @@
 	<c:url var="anonymousJS" value="/js/anonymous-view.js"/>		
 	<script type="text/javascript" src="${anonymousJS}"></script>
 	
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	
+	<c:url var="imagePath" value="/img/" />
+	
 </head>
 <body>
 
 <div class="container-fluid">
 
+<c:url var="homePage" value="/"/>
+
 <div id="nav-header" class="hidden-xs">
-	<a href="welcome"><img src="img/cropped-UFCO-logo.png" alt="Urban farms of central ohio logo" id="logo-image"/></a>
+	<a href="${homePage}"><img src="${imagePath}/cropped-UFCO-logo.png" alt="Urban farms of central ohio logo" id="logo-image"/></a>
 </div>
 
 <nav class="navbar navbar-default">
@@ -56,7 +68,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     
     <ul class="nav navbar-nav">
-        <li class="active"><a href="welcome">Home<span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="${homePage}">Home<span class="sr-only">(current)</span></a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
           <ul class="dropdown-menu">
