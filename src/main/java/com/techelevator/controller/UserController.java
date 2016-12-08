@@ -30,10 +30,11 @@ public class UserController {
 	private InvoiceDAO invoiceDAO;
 	
 	@Autowired
-	public UserController(HarvestDAO harvestDAO, ItemDAO itemDAO, UserDAO userDAO){
+	public UserController(HarvestDAO harvestDAO, ItemDAO itemDAO, UserDAO userDAO, InvoiceDAO invoiceDAO){
 		this.harvestDAO = harvestDAO;
 		this.itemDAO = itemDAO;
 		this.userDAO = userDAO;
+		this.invoiceDAO = invoiceDAO;
 	}
 
 //---------------------------ADMIN VIEWS---------------------------------------------------------
@@ -53,9 +54,6 @@ public class UserController {
 	
 	@RequestMapping(path="/farmer-dashboard-views/dashboard", method=RequestMethod.GET)
 	public String showDashboard(HttpServletRequest request){
-		
-	
-		
 		
 		List<Invoice> allInvoices = invoiceDAO.getAllInvoices();
 		List<Invoice> pastOrders =  invoiceDAO.getPastOrders();
