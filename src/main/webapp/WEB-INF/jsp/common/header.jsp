@@ -6,14 +6,28 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Urban Farms of Central Ohio | Produce Ordering</title>
-	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	
+	<c:url var="bootstrapCSSHREF" value="/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="${bootstrapCSSHREF}" />
+	
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/main.css" />
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="js/application-main.js"></script>
-	<script type="text/javascript" src="js/anonymous-view.js"></script>
+
+	<c:url var="jqueryHREF" value="/js/jquery.min.js"/>
+	<script type="text/javascript" src="${jqueryHREF}"></script>
+
+	<c:url var="bootstrapJS" value="/js/bootstrap.min.js"/>	
+	<script type="text/javascript" src="${bootstrapJS}"></script>
+	
+	<c:url var="jqueryJS" value="/js/jquery.validate.min.js"/>		
+	<script type="text/javascript" src="${jqueryJS}"></script>
+	
+	<c:url var="applicationJS" value="/js/application-main.js"/>		
+	<script type="text/javascript" src="${applicationJS }"></script>
+	
+	<c:url var="anonymousJS" value="/js/anonymous-view.js"/>		
+	<script type="text/javascript" src="${anonymousJS}"></script>
+	
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 <body>
