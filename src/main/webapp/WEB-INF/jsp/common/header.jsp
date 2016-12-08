@@ -11,14 +11,8 @@
 	<c:url var="bootstrapCSSHREF" value="/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="${bootstrapCSSHREF}" />
 	
-<<<<<<< HEAD
-	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-	
-	<link rel="stylesheet" href="css/main.css" />
-=======
 	<c:url var="mainCSS" value="/css/main.css"/>	
 	<link rel="stylesheet" href="${mainCSS}" />
->>>>>>> 353d43c403fecd10f4a2c02c34cc5ccf9ccff8b2
 
 	<c:url var="jqueryHREF" value="/js/jquery.min.js"/>
 	<script type="text/javascript" src="${jqueryHREF}"></script>
