@@ -13,7 +13,7 @@ public class Invoice {
 	private int buyerId;
 	private int invoiceId;
 	private String saleType;
-	private int status;
+	private String status;
 	private List<Item> items;
 	
 	public Invoice(){
@@ -60,11 +60,11 @@ public class Invoice {
 		this.saleType = saleType;
 	}
 
-	public int getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
