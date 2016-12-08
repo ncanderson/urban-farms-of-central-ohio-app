@@ -1,0 +1,31 @@
+@import url("header-footer.css");
+@import url("anonymous-view.css");
+@import url("farmer-dashboard.css");
+@import url("enter-new-inventory.css");
+
+html {
+	height: 100%;
+}
+
+html * {
+	font-family: Raleway, sans-serif;
+}
+
+body {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+div.container-fluid {
+	flex: 1;
+	margin: 0;
+	padding: 0;
+}
+
+.center-block {
+	text-align: center;
+	padding: 0;
+	/* overflow: hidden; */
+	height: 100%;
+}
