@@ -6,10 +6,9 @@ public interface ItemDAO {
 
 	public void insertItem(String imageId, String type, String variety, int harvestQnty, DollarAmount price);
 
-	public List<Item> allCropsList();
+	public List<Item> allCurrentHarvestItems();
 	
-	public List<Item> allAvailableCropsList();
+	public List<Item> allCropsInDatabase();
 
-
-
+	public List<String> selectAllUniqueCropsByType();
 }

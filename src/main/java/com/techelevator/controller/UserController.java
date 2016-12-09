@@ -2,13 +2,13 @@ package com.techelevator.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +24,8 @@ import com.techelevator.model.Item;
 import com.techelevator.model.ItemDAO;
 import com.techelevator.model.User;
 import com.techelevator.model.UserDAO;
+
+import gherkin.lexer.Pl;
 
 @Controller
 @SessionAttributes("currentUser")
@@ -79,25 +81,11 @@ public class UserController {
 	}
 	
 	@RequestMapping(path="/farmer-dashboard-views/enterInventory", method = RequestMethod.GET)
-	public String addNewOrderItemToDatabaseGet(HttpServletRequest request,  HttpServletResponse response) {
+	public String addNewOrderItemToDatabaseGet(HttpServletRequest request) {
 		
-		List<Item> allCropsList = itemDAO.allCropsList();
+		List<String> distinctCropTypes = itemDAO.selectAllUniqueCropsByType();
 		
-		String jsonPersons = "["
-			    + "{ \"name\": \"John Doe\", \"address\": \"Main Street 1\" },"
-			    + "{ \"name\": \"Jane Doe\", \"address\": \"Baker Street 1\" },"
-			    + "{ \"name\": \"Jack Doe\", \"address\": \"Church Street 1\" }"
-			+ "]";
-		
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("application/json");
-		try {
-			response.getWriter().write(jsonPersons);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		request.setAttribute("allCropsList", jsonPersons);
+		request.setAttribute("distinctCropTypes", distinctCropTypes);
 		
 		return "farmer-dashboard-views/enterInventory";
 	}
@@ -109,11 +97,11 @@ public class UserController {
 		String type = (String) request.getAttribute("type");
 		String variety = (String) request.getAttribute("variety");
 		int harvestQnty = Integer.parseInt((String)request.getAttribute("harvestQnty"));
-			int temp = Math.round(100*Float.parseFloat(request.getParameter("price")));
+		int temp = Math.round(100*Float.parseFloat(request.getParameter("price")));
 		DollarAmount price = new DollarAmount(temp);
 		itemDAO.insertItem(imageId, type, variety, harvestQnty, price);//TODO fix insert in itemDAO
 		
-		List<Item> allCropsList = itemDAO.allCropsList();
+		List<Item> allCropsList = itemDAO.allCurrentHarvestItems();
 		
 		request.setAttribute("allCropsList", allCropsList);
 		
@@ -177,7 +165,7 @@ public class UserController {
 	@RequestMapping(path="/customer-views/current-inventory", method=RequestMethod.GET)
 	public String showCurrentInventoryGet(HttpServletRequest request){
 		
-		List<Item> allAvailableCrops = itemDAO.allAvailableCropsList();
+		List<Item> allAvailableCrops = itemDAO.allCropsInDatabase();
 		
 		request.setAttribute("availableCrops",  allAvailableCrops);
 		

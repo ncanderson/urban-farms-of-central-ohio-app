@@ -165,7 +165,7 @@ INSERT INTO users (user_id, email, user_type, credentials_id, first_name, last_n
 -- Insert Production Items
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (1,'Acorn Squash','',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (2,'Arugula','','Field'); 
-INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (3,'Arugula ','Baby','wait until dry'); 
+INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (3,'Arugula','Baby','wait until dry'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (4,'Asparagus','',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (5,'Baby Swiss Chard','',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (6,'Basil','Green','HT2'); 
@@ -227,7 +227,7 @@ INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (61
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (62,'Onion','Red',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (63,'Onion','Spring',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (64,'Onion','White',''); 
-INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (65,'Onions','','All Available'); 
+INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (65,'Onion','','All Available'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (66,'Pac Choi','',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (67,'Kale','Red Russian','Baby size - From field'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (68,'Patty Pan Squash','',''); 
@@ -261,7 +261,7 @@ INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (95
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (96,'Strawberries','',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (97,'Summer Squash','','Pick all available- last harvest'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (98,'Peas','',''); 
-INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (99,'Radish ','Purple Daikon',''); 
+INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (99,'Radish','Purple Daikon',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (100,'Swiss Chard','',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (101,'Peppers','Italian Sweet',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (102,'Radish','','Mix of Easter Egg (HT) and Watermelon (field)'); 
@@ -274,7 +274,7 @@ INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (10
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (109,'Tomatoes','Paste','Ripe/slightly underripe'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (110,'Tomatoes','Slicer','All ripe, slightly underripe'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (111,'Turnip Greens','','harvest only greens from older beds'); 
-INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (112,'Kale ','Green','Field - clear out any available'); 
+INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (112,'Kale','Green','Field - clear out any available'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (113,'Radish','Purple Daikon - BULK',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (114,'Turnips','',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (115,'Watermelon','','In shipping container'); 
