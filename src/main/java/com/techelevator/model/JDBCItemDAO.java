@@ -1,6 +1,7 @@
 package com.techelevator.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -72,9 +73,8 @@ public class JDBCItemDAO implements ItemDAO {
 	private List<Item> mapResultsToItemList(SqlRowSet results){
 		
 		List<Item> allCrops = new ArrayList<Item>();
-
-		while(results.next()){
-			
+		
+		while(results.next()) {
 			Item item = new Item();
 			item.setImageId(results.getString("item_image_id"));
 			item.setType(results.getString("item_type"));
@@ -89,6 +89,7 @@ public class JDBCItemDAO implements ItemDAO {
 		
 			allCrops.add(item);		
 		}		
+		System.out.println(allCrops);
 		return allCrops;
 	}
 
@@ -116,7 +117,7 @@ public class JDBCItemDAO implements ItemDAO {
 	
 	@Override
 	public List<String> selectAllUniqueCropsByType() {
-		
+		 
 		String sqlSelectStatement = "SELECT DISTINCT item_type "
 									+ "FROM item";
 		
@@ -127,8 +128,28 @@ public class JDBCItemDAO implements ItemDAO {
 			String itemType = results.getString("item_type");
 			distinctCropTypes.add(itemType);
 		}
-		
+		Collections.sort(distinctCropTypes);
 		return distinctCropTypes;
+	}
+	
+	@Override 
+	public List<Item> findAllCropsByType(String chosenType) {
 		
+		String sqlSelectStatement = "SELECT * "
+									+ "FROM item "
+									+ "WHERE item_type = ?";
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement, chosenType);
+		
+		List<Item> itemsByType = new ArrayList<Item>();
+		
+		while (results.next()) {
+			Item item = new Item();
+			item.setType(results.getString("item_type"));
+			item.setVariety(results.getString("item_variety"));
+			itemsByType.add(item);
+		}
+		
+		return itemsByType;
 	}
 }
