@@ -2,17 +2,17 @@ $(document).ready(function() {
 
     $("#crop-type").change(function() {
         
-        
         $.ajax ({
             url: "cropPicker?cropType=" + $(this).val(),
             method: "GET", 
             dataType: "json"
         })
         .done(function(data) {
-            $("#crop-variety").empty();
-
-            $.each(data, function() {
-                $("#crop-variety").append("<option value=" + crop-type + ">" + crop-type + "</option>");
+            $.each(data, function(index, cropType) {
+            	var option = document.createElement("option");
+            	$(option).attr("value", cropType.variety);
+            	$(option).text(cropType.variety);
+                $("#crop-variety").append(option);
             });
             
             console.log(data);
@@ -21,5 +21,6 @@ $(document).ready(function() {
             console.log(error);
         });
     });
+    
 });
 

@@ -33,7 +33,7 @@ public class UserController {
 	
 	private HarvestDAO harvestDAO;
 	private ItemDAO itemDAO;
-	private UserDAO userDAO;
+	private UserDAO userDAO; 
 	private InvoiceDAO invoiceDAO;
 	
 	@Autowired

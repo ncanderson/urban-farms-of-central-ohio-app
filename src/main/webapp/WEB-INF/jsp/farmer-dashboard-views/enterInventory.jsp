@@ -16,10 +16,10 @@
 				</c:forEach>
 			</select>
 		</li>
-		<li>
+		<li id="crop-variety-hidden">
 			<label for="variety">Select crop variety:</label>
 			<select name="variety" id="crop-variety">
-			<option value="delete-me">Delete Me</option>
+				<!-- JS will fill this menu out -->
 			</select>
 		</li>
 		<li>

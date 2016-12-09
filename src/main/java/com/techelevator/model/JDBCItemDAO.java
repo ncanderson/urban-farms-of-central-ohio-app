@@ -11,8 +11,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
-import gherkin.lexer.Pl;
-
 @Component
 public class JDBCItemDAO implements ItemDAO {
 
@@ -86,6 +84,7 @@ public class JDBCItemDAO implements ItemDAO {
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement);
 		
 		return mapResultsToItemList(results);
+
 	}
 	
 	@Override
@@ -110,7 +109,8 @@ public class JDBCItemDAO implements ItemDAO {
 		
 		String sqlSelectStatement = "SELECT * "
 									+ "FROM item "
-									+ "WHERE item_type = ?";
+									+ "WHERE item_type = ? "
+									+ "ORDER BY item_variety";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement, chosenType);
 		

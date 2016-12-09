@@ -43,12 +43,16 @@ public class AuthenticationController {
 				case FARMER: return "redirect:/farmer-dashboard-views/dashboard";				
 				case BUYER: return "redirect:/customer-views/current-inventory";
 				default : return "redirect:/welcome";
-							
 			} 
-			
 		}	
-		
 		return "redirect:/login";
-		
 	}	
+	
+	@RequestMapping(path="/logout", method=RequestMethod.POST)
+	public String logout(ModelMap model, HttpSession session) {
+		model.remove("currentUser");
+		session.removeAttribute("currentUser");
+		session.invalidate();
+		return "redirect:/";
+	}
 }
