@@ -76,9 +76,6 @@ public class JDBCItemDAO implements ItemDAO {
 			item.setVariety(results.getString("item_variety"));
 			crops.add(item);
 		}
-		for (Item item : crops) {
-			System.out.println(item.getType());
-		}
 		return crops;
 	}
 	
