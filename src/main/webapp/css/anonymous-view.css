@@ -56,17 +56,21 @@
 	h1, > h2, > h3, > h4, > h5, > h6 { margin: 0; }
 }
 
+.Rtable--2cols > .Rtable-cell {
+	width: 50%;
+}
+
 .Rtable--4cols > .Rtable-cell  { 
 	width: 25%; 
+}
+
+.Rtable--5cols > .Rtable-cell {
+	width: 20%;
 }
 
 .Rtable--7cols > .Rtable-cell  { 
 	width: 15%; 
 } 
-
-.Rtable--2cols > .Rtable-cell {
-	width: 50%;
-}
 
 .Accordion {
 	position: relative;

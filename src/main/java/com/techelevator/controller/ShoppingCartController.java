@@ -64,7 +64,7 @@ public class ShoppingCartController {
 //		return "redirect:/available-crops";
 //	}
 	
-	@RequestMapping(path="/crop-item-details", method=RequestMethod.GET)
+	@RequestMapping(path="/shoppin-cart/crop-item-detials", method=RequestMethod.GET)
 	public String cropDetailsGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		try {
 			
@@ -79,7 +79,7 @@ public class ShoppingCartController {
 		}
 	}
 	
-	@RequestMapping(path="/crop-item-details", method=RequestMethod.POST)
+	@RequestMapping(path="/customer-views/crop-item-detials", method=RequestMethod.POST)
 	public String cropDetailsPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		try {
 			

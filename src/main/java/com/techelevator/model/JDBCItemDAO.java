@@ -33,7 +33,7 @@ public class JDBCItemDAO implements ItemDAO {
 	@Override
 	public List<Item> allCurrentHarvestItems() {
 		
-		String sqlSelectStatement = "SELECT item_image_id, item_type, item_variety, item_price, harvest_quantity " 
+		String sqlSelectStatement = "SELECT item_image_id, item_type, item_id, item_variety, item_price, harvest_quantity " 
 									+"FROM item "
 									+"INNER JOIN item_price "
 									+"ON item.item_id = item_price.item_id "
@@ -48,7 +48,7 @@ public class JDBCItemDAO implements ItemDAO {
 	@Override
 	public List<Item> allAvailableCropsList() {
 		//TODO fix this method
-		String sqlSelectStatement = "SELECT item_image_id, item_type, item_variety, item_price, harvest_quantity " 
+		String sqlSelectStatement = "SELECT item_image_id, item.item_id, item_type, item_variety, item_price, harvest_quantity " 
 				+"FROM item "
 				+"INNER JOIN item_price "
 				+"ON item.item_id = item_price.item_id "
@@ -64,13 +64,13 @@ public class JDBCItemDAO implements ItemDAO {
 	@Override
 	public Item getCropById(int id) {
 		
-		String sqlSelectStatement = "SELECT item_image_id, item_type, item_variety, item_price, harvest_quantity "
+		String sqlSelectStatement = "SELECT item_image_id, item_type, item.item_id, item_variety, item_price, harvest_quantity "
 									+"FROM item  "
 									+"INNER JOIN item_price "
 									+"ON item.item_id = item_price.item_id "
 									+"INNER JOIN item_harvest_details "
 									+"ON item.item_id = item_harvest_details.item_id "
-									+"WHERE item_id = ?"; 
+									+"WHERE item.item_id = ?"; 
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement, id);
 		
@@ -133,6 +133,7 @@ public class JDBCItemDAO implements ItemDAO {
 		while(results.next()){
 			
 			Item item = new Item();
+			item.setItemId(results.getInt("item_id"));
 			item.setImageId(results.getString("item_image_id"));
 			item.setType(results.getString("item_type"));
 			item.setVariety(results.getString("item_variety"));
