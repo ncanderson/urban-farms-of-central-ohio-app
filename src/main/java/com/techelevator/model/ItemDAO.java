@@ -15,4 +15,6 @@ public interface ItemDAO {
 	public List<Item> allCropsInDatabase();
 
 	public List<String> selectAllUniqueCropsByType();
+	
+	public List<Item> findAllCropsByType(String chosenType);
 }

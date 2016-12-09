@@ -1,14 +1,25 @@
 $(document).ready(function() {
 
-	  var selectItem = $('<table/>').appendTo($('ul.form-flex-outer'));
-	  $.getJSON('farmer-dashboard-views/enterInventory', function(persons) {
-	    persons.each(function(i, person) {
-	        $('<tr/>').appendTo(table)
-	            .append($('<td/>').text(person.name))
-	            .append($('<td/>').text(person.address));
-	    });
-	  });
-	
-});
+    $("#crop-type").change(function() {
+        
+        
+        $.ajax ({
+            url: "cropPicker?cropType=" + $(this).val(),
+            method: "GET", 
+            dataType: "json"
+        })
+        .done(function(data) {
+            $("#crop-variety").empty();
 
+            $.each(data, function() {
+                $("#crop-variety").append("<option value=" + crop-type + ">" + crop-type + "</option>");
+            });
+            
+            console.log(data);
+        })
+        .fail(function(xhr, status, error) {
+            console.log(error);
+        });
+    });
+});
 

@@ -20,7 +20,8 @@ import com.techelevator.model.ItemDAO;
 import com.techelevator.model.UserDAO;
 
 @Controller
-@SessionAttributes("CurrentUser")
+@SessionAttributes("currentUser")
+
 public class FarmerController {
 
 	private HarvestDAO harvestDAO;
