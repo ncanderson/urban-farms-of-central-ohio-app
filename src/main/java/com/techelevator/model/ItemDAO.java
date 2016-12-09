@@ -8,15 +8,11 @@ public interface ItemDAO {
 
 	public List<Item> allCurrentHarvestItems();
 	
-
 	public List<Item> allAvailableCropsList();
 	
 	public Item getCropById(int id);
 
-
-
 	public List<Item> allCropsInDatabase();
-
 
 	public List<String> selectAllUniqueCropsByType();
 }

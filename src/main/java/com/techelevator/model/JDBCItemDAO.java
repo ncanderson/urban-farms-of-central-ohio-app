@@ -63,11 +63,47 @@ public class JDBCItemDAO implements ItemDAO {
 	@Override
 	public Item getCropById(int id) {
 		
-
-		String sqlSelectStatement = ""; //TODO finish method
-		return null;
+		String sqlSelectStatement = "SELECT item_image_id, item_type, item_variety, item_price, harvest_quantity "
+									+"FROM item  "
+									+"INNER JOIN item_price "
+									+"ON item.item_id = item_price.item_id "
+									+"INNER JOIN item_harvest_details "
+									+"ON item.item_id = item_harvest_details.item_id "
+									+"WHERE item_id = ?"; 
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement, id);
+		
+		return mapResultsToItemList(results).get(0);
 	}
 	
+	@Override
+	public List<Item> allCropsInDatabase() {
+		
+		String sqlSelectStatement = "SELECT * "
+									+ "FROM item";
+
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement);
+		
+		return mapResultsToItemList(results);
+	}
+	
+	@Override
+	public List<String> selectAllUniqueCropsByType() {
+		
+		String sqlSelectStatement = "SELECT DISTINCT item_type "
+									+ "FROM item";
+		
+		List<String> distinctCropTypes = new ArrayList<String>();
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement);
+		
+		while(results.next()) {
+			String itemType = results.getString("item_type");
+			distinctCropTypes.add(itemType);
+		}
+		
+		return distinctCropTypes;
+		
+	}
 	
 	private List<Item> mapResultsToItemList(SqlRowSet results){
 		
@@ -90,45 +126,5 @@ public class JDBCItemDAO implements ItemDAO {
 			allCrops.add(item);		
 		}		
 		return allCrops;
-	}
-
-	@Override
-	public List<Item> allCropsInDatabase() {
-		
-		String sqlSelectStatement = "SELECT * "
-									+ "FROM item";
-	
-		List<Item> crops = new ArrayList<Item>();
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement);
-		
-		while (results.next()) {
-			Item item = new Item();
-			item.setImageId(results.getString("item_image_id"));
-			item.setType(results.getString("item_type"));
-			item.setVariety(results.getString("item_variety"));
-			crops.add(item);
-		}
-		for (Item item : crops) {
-			System.out.println(item.getType());
-		}
-		return crops;
-	}
-	
-	@Override
-	public List<String> selectAllUniqueCropsByType() {
-		
-		String sqlSelectStatement = "SELECT DISTINCT item_type "
-									+ "FROM item";
-		
-		List<String> distinctCropTypes = new ArrayList<String>();
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement);
-		
-		while(results.next()) {
-			String itemType = results.getString("item_type");
-			distinctCropTypes.add(itemType);
-		}
-		
-		return distinctCropTypes;
-		
 	}
 }
