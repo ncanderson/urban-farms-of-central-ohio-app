@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.techelevator.model.CartItem;
 import com.techelevator.model.HarvestDAO;
 import com.techelevator.model.InvoiceDAO;
 import com.techelevator.model.Item;
@@ -93,7 +94,7 @@ public class ShoppingCartController {
 		}
 	}
 	
-	@RequestMapping(path="/shopping-cart/checkout", method=RequestMethod.GET)
+	@RequestMapping(path="/customer-views/shopping-cart/checkout", method=RequestMethod.GET)
 	public String checkoutGet(HttpServletRequest request){ 
 	
 		
@@ -101,25 +102,25 @@ public class ShoppingCartController {
 	}
 	
 	
-	@RequestMapping(path="/shopping-cart/checkout", method=RequestMethod.POST)
-	public String checkoutPost(@RequestParam Long productId, 
+	@RequestMapping(path="/customer-views/shopping-cart/checkout", method=RequestMethod.POST)
+	public String checkoutPost(@RequestParam int productId, 
 									@RequestParam int quantity, 
 									ModelMap map){
 		//TODO change method
-//		Product product = productDAO.getProductById(productId);
-//		CartItem item = new CartItem();
-//		item.setProduct(product);
-//		item.setQuantity(quantity);
-//		
-//		List<CartItem> items = (List<CartItem>)map.get("cart");
-//		if(items == null) {
-//			items = new ArrayList<CartItem>();
-//		}
-//		
-//		items.add(item);
-//		
-//		map.addAttribute("cart", items);
-//		
+		Item crop = itemDAO.getCropById(productId);
+		CartItem item = new CartItem();
+		item.setCrop(crop);
+		item.setQuantity(quantity);
+		
+		List<CartItem> items = (List<CartItem>) map.get("cart");
+		if(items == null) {
+			items = new ArrayList<CartItem>();
+		}
+		
+		items.add(item);
+		
+		map.addAttribute("cart", items);
+	
 		return "redirect:/shopping-cart/checkout";
 	}
 	
