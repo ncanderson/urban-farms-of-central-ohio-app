@@ -58,6 +58,20 @@ public class JDBCItemDAO implements ItemDAO {
 		}		
 		return allCrops;
 	}
+
+	@Override
+	public List<Item> allAvailableCropsList() {
+		
+		List<Item> crops = this.allAvailableCropsList();
+		List<Item> availableCrops = new ArrayList<Item>();
+		for(Item item: crops){
+			
+			if(item.getHarvestQnty() > 0){
+				availableCrops.add(item);
+			}
+		}
+		return availableCrops;
+	}
 	
 	
 

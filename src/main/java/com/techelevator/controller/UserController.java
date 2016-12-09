@@ -159,6 +159,10 @@ public class UserController {
 	@RequestMapping(path="/customer-views/current-inventory", method=RequestMethod.GET)
 	public String showCurrentInventoryGet(HttpServletRequest request){
 		
+		List<Item> allAvailableCrops = itemDAO.allAvailableCropsList();
+		
+		request.setAttribute("availableCrops",  allAvailableCrops);
+		
 		return "customer-views/current-inventory";
 	}
 

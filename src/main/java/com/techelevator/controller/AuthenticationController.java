@@ -38,10 +38,18 @@ public class AuthenticationController {
 			model.put("currentUser", user);
 			
 			switch(user.getType()){
-				case ADMIN: return "redirect:/admin/admin-main-view";
-				case FARMER: return "redirect:/farmer-dashboard-views/dashboard";
-				case BUYER: return "redirect:/customer-views/current-inventory";
-				default : return "redirect:/welcome";
+			
+				case ADMIN: 
+							return "redirect:/admin/admin-main-view";
+							
+				case FARMER: 
+							return "redirect:/farmer-dashboard-views/dashboard";
+				
+				case BUYER: 
+							return "redirect:/customer-views/current-inventory";
+				
+				default : 
+							return "redirect:/welcome";
 			}
 			
 		}	
