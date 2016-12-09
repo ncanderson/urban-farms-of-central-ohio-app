@@ -2,7 +2,7 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-<title>Insert title here</title>
+<title>Crop Item Details</title>
 </head>
 <body>
 

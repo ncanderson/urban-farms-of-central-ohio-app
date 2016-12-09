@@ -2,7 +2,7 @@ package com.techelevator.model;
 
 
 
-public class ShoppingCartModel {
+public class CartItem {
 
 	private int quantity;
 	private Item cropItem;
@@ -14,10 +14,10 @@ public class ShoppingCartModel {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public Item getProduct() {
+	public Item getCrop() {
 		return cropItem;
 	}
-	public void setProduct(Item cropItem) {
+	public void setCrop(Item cropItem) {
 		this.cropItem = cropItem;
 	}
 	public DollarAmount getTotal(){

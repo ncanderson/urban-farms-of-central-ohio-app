@@ -41,8 +41,8 @@ public class AuthenticationController {
 			
 				case ADMIN: return "redirect:/admin/admin-main-view";
 				case FARMER: return "redirect:/farmer-dashboard-views/dashboard";				
-				case BUYER: return "redirect:/current-inventory";
-				default : return "redirect:/welcome";			
+				case BUYER: return "redirect:/customer-views/current-inventory";
+				default : return "redirect:/welcome";
 			} 
 		}	
 		return "redirect:/login";
