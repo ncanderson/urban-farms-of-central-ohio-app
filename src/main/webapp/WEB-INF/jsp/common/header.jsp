@@ -29,6 +29,9 @@
 	<c:url var="anonymousJS" value="/js/anonymous-view.js"/>		
 	<script type="text/javascript" src="${anonymousJS}"></script>
 	
+	<c:url var="jsCookies" value="/js/jscookies.js"/>
+	<script type="text/javascript" src="${jsCookies}"></script>
+	
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	
@@ -39,8 +42,14 @@
 
 <div class="container-fluid">
 
+<c:url var="homePage" value="/"/>
+<c:url var="login" value="/login"/>
+<c:url var="logout" value="/logout"/>
+
+
 <div id="nav-header" class="hidden-xs">
-	<a href="welcome"><img src="${imagePath}/cropped-UFCO-logo.png" alt="Urban farms of central ohio logo" id="logo-image"/></a>
+	<a href="${homePage}"><img src="${imagePath}/cropped-UFCO-logo.png" alt="Urban farms of central ohio logo" id="logo-image"/></a>
+	
 </div>
 
 <nav class="navbar navbar-default">
@@ -60,7 +69,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     
     <ul class="nav navbar-nav">
-        <li class="active"><a href="welcome">Home<span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="${homePage}">Home<span class="sr-only">(current)</span></a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -69,8 +78,11 @@
             <li><a href="#">View Past Orders</a></li>
           </ul>
         </li>
-        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> View Cart</a></li>
-        <li><a href="login">Login</a></li>
+        <li><a href="shopping-cart/checkout"><span class="glyphicon glyphicon-shopping-cart"></span> View Cart</a></li>
+        <li><a href="${login}">Login</a></li>
+
+        <li><a href="${logout }">Logout</a></li>
+
     </ul>
 
 	

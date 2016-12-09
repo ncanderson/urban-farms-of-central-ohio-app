@@ -58,7 +58,15 @@
 
 .Rtable--4cols > .Rtable-cell  { 
 	width: 25%; 
+}
+
+.Rtable--7cols > .Rtable-cell  { 
+	width: 15%; 
 } 
+
+.Rtable--2cols > .Rtable-cell {
+	width: 50%;
+}
 
 .Accordion {
 	position: relative;

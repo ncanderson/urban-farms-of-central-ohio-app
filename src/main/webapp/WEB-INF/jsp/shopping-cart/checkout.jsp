@@ -6,6 +6,10 @@
 </head>
 <body>
 
-<!-- NATE!! I added a "availableCrops" attribute.  It is a list of available crop items -->
+
+
+
+
+
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

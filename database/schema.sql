@@ -85,18 +85,29 @@ CREATE TABLE invoice (
   invoice_status_id integer NOT NULL REFERENCES invoice_status
 );
 
+CREATE TABLE harvest_reconciliation (
+  harvest_reconciliation_id serial PRIMARY KEY,
+  harvest_reconciliation_name varchar(25) NOT NULL,
+  harvest_reconciliation_description varchar(250) NULL
+);
+
 CREATE TABLE item_harvest_details (
   item_harvest_details_id serial PRIMARY KEY,
   item_id integer NOT NULL REFERENCES item,
   harvest_quantity integer NOT NULL,
   harvest_image_id varchar(25) NULL,
   average_size_of_item varchar(100) NULL,
+  harvest_availability varchar(150) NULL,
   harvest_details_comments varchar(150) NULL,
   harvest_date timestamp NOT NULL,
+<<<<<<< HEAD
   item_price decimal NOT NULL,
   harvest_end_date timestamp NULL,
   pick_list_comments varchar(250) NULL,
   is_bulk boolean NOT NULL DEFAULT FALSE
+=======
+  harvest_reconciliation_id integer NULL REFERENCES harvest_reconciliation
+>>>>>>> 72489848449339d9a226717ab58f7f19e53f277b
 );
 
 CREATE TABLE invoice_item (
@@ -104,10 +115,15 @@ CREATE TABLE invoice_item (
   invoice_id integer NOT NULL REFERENCES invoice,
   invoice_quantity integer NOT NULL,
   item_harvest_details_id integer NOT NULL REFERENCES item_harvest_details,
+<<<<<<< HEAD
   update_item_price decimal NULL,
   invoice_date timestamp NOT NULL,
   user_id integer NOT NULL,
   invoice_item_status_id integer NOT NULL DEFAULT  REFERENCES invoice_status
+=======
+  item_price_id integer NOT NULL REFERENCES item_price,
+  added_to_invoice_date timestamp NOT NULL
+>>>>>>> 72489848449339d9a226717ab58f7f19e53f277b
   );
 
 COMMIT;

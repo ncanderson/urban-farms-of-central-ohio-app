@@ -37,10 +37,18 @@
 		padding-right: 10px;
     }
     #menu-items {
-		
 		margin: 0 auto;
-		display: table;
-		
-		
+		display: table;	
     }
 }
+
+@media(min-width:1650px) {
+	#menu-items {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+
+
+

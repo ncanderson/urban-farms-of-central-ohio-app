@@ -26,6 +26,6 @@ div.container-fluid {
 .center-block {
 	text-align: center;
 	padding: 0;
-	/* overflow: hidden; */
+	overflow: hidden;
 	height: 100%;
 }

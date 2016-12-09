@@ -10,5 +10,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 public interface HarvestDAO {
 	
 	public List<Item> getHarvestItemList();
+	public void addHarvestItem(Harvest newHarvestItem);
 
 }
