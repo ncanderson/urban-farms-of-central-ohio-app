@@ -1,10 +1,14 @@
 package com.techelevator.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,7 +50,7 @@ public class UserController {
 			
 		return "admin/admin-main-view";
 	}
-
+ 
 //---------------------------END ADMIN VIEWS------------------------------------------------------
 //---------------------------END ADMIN VIEWS------------------------------------------------------	
 	
@@ -75,11 +79,25 @@ public class UserController {
 	}
 	
 	@RequestMapping(path="/farmer-dashboard-views/enterInventory", method = RequestMethod.GET)
-	public String addNewOrderItemToDatabaseGet(HttpServletRequest request) {
+	public String addNewOrderItemToDatabaseGet(HttpServletRequest request,  HttpServletResponse response) {
 		
 		List<Item> allCropsList = itemDAO.allCropsList();
 		
-		request.setAttribute("allCropsList", allCropsList);
+		String jsonPersons = "["
+			    + "{ \"name\": \"John Doe\", \"address\": \"Main Street 1\" },"
+			    + "{ \"name\": \"Jane Doe\", \"address\": \"Baker Street 1\" },"
+			    + "{ \"name\": \"Jack Doe\", \"address\": \"Church Street 1\" }"
+			+ "]";
+		
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json");
+		try {
+			response.getWriter().write(jsonPersons);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		request.setAttribute("allCropsList", jsonPersons);
 		
 		return "farmer-dashboard-views/enterInventory";
 	}

@@ -1,13 +1,13 @@
 $(document).ready(function() {
 
-	$("#crop-type").change(function() {
-		var $titleId = $(this).attr("id");
-		Cookies.set("crop-type", $(this).val);
-		$(this).val(Cookies.get("crop-type"));
-		
-        window.location.href = window.location.href + '?value=' + this.value;
-        
-	});
+	  var selectItem = $('<table/>').appendTo($('ul.form-flex-outer'));
+	  $.getJSON('farmer-dashboard-views/enterInventory', function(persons) {
+	    persons.each(function(i, person) {
+	        $('<tr/>').appendTo(table)
+	            .append($('<td/>').text(person.name))
+	            .append($('<td/>').text(person.address));
+	    });
+	  });
 	
 });
 
