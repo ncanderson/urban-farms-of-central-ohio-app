@@ -53,90 +53,7 @@ public class UserController {
 //---------------------------FARMER VIEWS---------------------------------------------------------
 //---------------------------FARMER VIEWS---------------------------------------------------------
 	
-	@RequestMapping(path="/farmer-dashboard-views/dashboard", method=RequestMethod.GET)
-	public String showDashboard(HttpServletRequest request){
-		
-		List<Invoice> allInvoices = invoiceDAO.getAllInvoices();
-		List<Invoice> pastOrders =  invoiceDAO.getPastOrders();
-		List<Invoice> pendingOrders =  invoiceDAO.getPendingOrders();
-		List<Buyer> buyerList = userDAO.getAllBuyers();			
-		List<Item> harvestItems = harvestDAO.getHarvestItemList();
-		
-		//request.setAttribute("harvestItemsList", harvestItems);//TODO push
-		request.setAttribute("buyerList", buyerList);
-		request.setAttribute("allInvoices", allInvoices);//TODO push 
-
-		
-		request.setAttribute("allInvoices", allInvoices);//TODO push 
-		request.setAttribute("pastOrders", pastOrders); 
-		request.setAttribute("pendingOrders", pendingOrders);
-		
-		return "farmer-dashboard-views/dashboard";
-	}
 	
-	@RequestMapping(path="/farmer-dashboard-views/enterInventory", method = RequestMethod.GET)
-	public String addNewOrderItemToDatabaseGet(HttpServletRequest request) {
-		
-		List<Item> allCropsList = itemDAO.allCropsList();
-		
-		request.setAttribute("allCropsList", allCropsList);
-		
-		return "farmer-dashboard-views/enterInventory";
-	}
-	
-	@RequestMapping(path="/farmer-dashboard-views/enterInventory", method = RequestMethod.POST)
-	public String addNewOrderItemToDatabasePost(HttpServletRequest request) {
-		
-		String imageId = (String) request.getAttribute("imageId");
-		String type = (String) request.getAttribute("type");
-		String variety = (String) request.getAttribute("variety");
-		int harvestQnty = Integer.parseInt((String)request.getAttribute("harvestQnty"));
-			int temp = Math.round(100*Float.parseFloat(request.getParameter("price")));
-		DollarAmount price = new DollarAmount(temp);
-		itemDAO.insertItem(imageId, type, variety, harvestQnty, price);//TODO fix insert in itemDAO
-		
-		List<Item> allCropsList = itemDAO.allCropsList();
-		
-		request.setAttribute("allCropsList", allCropsList);
-		
-		return "redirect:/farmer-dashboard-views/dashboard";
-	}
-	
-	@RequestMapping(path="/farmer-dashboard-views/view-pending-orders", method=RequestMethod.GET)
-	public String viewPendingOrdersGet(HttpServletRequest request){
-		
-		return "farmer-dashboard-views/view-pending-orders";
-	}
-	
-	@RequestMapping(path="/farmer-dashboard-views/view-pending-orders", method=RequestMethod.POST)
-	public String viewPendingOrdersPost(HttpServletRequest request){
-		
-		return "redirect:/farmer-dashboard-views/view-pending-orders";
-	}
-	
-	@RequestMapping(path="/farmer-dashboard-views/update-user-info", method=RequestMethod.GET)
-	public String updateUserInfoGet(HttpServletRequest request){
-		
-		return "farmer-dashboard-views/update-user-info";
-	}
-	
-	@RequestMapping(path="/farmer-dashboard-views/update-user-info", method=RequestMethod.POST)
-	public String updateUserInfoPost(HttpServletRequest request){
-		
-		return "redirect:/farmer-dashboard-views/update-user-info";
-	}
-	
-	@RequestMapping(path="/farmer-dashboard-views/view-past-orders", method=RequestMethod.GET)
-	public String viewPastOrdersGet(HttpServletRequest request){
-		
-		return "farmer-dashboard-views/view-past-orders";
-	}
-	
-	@RequestMapping(path="/farmer-dashboard-views/view-past-orders", method=RequestMethod.POST)
-	public String viewPastOrdersPost(HttpServletRequest request){
-		
-		return "redirect:/farmer-dashboard-views/view-past-orders";
-	}
 //---------------------------END FARMER VIEWS-------------------------------------------------------------
 //---------------------------END FARMER VIEWS-------------------------------------------------------------
 	
@@ -144,45 +61,7 @@ public class UserController {
 //---------------------------CUSTOMER VIEWS---------------------------------------------------------------
 	
 	
-	@RequestMapping(path="/customer-views/order-completion", method=RequestMethod.GET)
-	public String showOrderCompletionGet(HttpServletRequest request){
-		
-		return "order-completion";
-	}
-
-	@RequestMapping(path="/customer-views/order-completion", method=RequestMethod.POST)
-	public String showOrderCompletionPost(HttpServletRequest request){
-		
-		return "redirect:/customer-views/order-completion";
-	}
 	
-	@RequestMapping(path="/customer-views/current-inventory", method=RequestMethod.GET)
-	public String showCurrentInventoryGet(HttpServletRequest request){
-		
-		List<Item> allAvailableCrops = itemDAO.allAvailableCropsList();
-		
-		request.setAttribute("availableCrops",  allAvailableCrops);
-		
-		return "customer-views/current-inventory";
-	}
-
-	@RequestMapping(path="/customer-views/current-inventory", method=RequestMethod.POST)
-	public String showCurrentInventoryPost(HttpServletRequest request){
-		
-		return "redirect:/customer-views/current-inventory";
-	}
-	
-	@RequestMapping(path="/customer-views/account", method=RequestMethod.GET)
-	public String showCustomerAccountGet(HttpServletRequest request){
-		
-		return "customer-views/account";
-	}
-
-	@RequestMapping(path="/customer-views/account", method=RequestMethod.POST)
-	public String showCustomerAccountPost(HttpServletRequest request){
-		
-		return "redirect:/customer-views/account";
-	}
 //---------------------------END CUSTOMER VIEWS------------------------------------------------------------
 //---------------------------END CUSTOMER VIEWS------------------------------------------------------------
 	/**

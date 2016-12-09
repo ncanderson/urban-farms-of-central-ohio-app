@@ -9,6 +9,8 @@ public interface ItemDAO {
 	public List<Item> allCropsList();
 	
 	public List<Item> allAvailableCropsList();
+	
+	public Item getCropById(int id);
 
 
 

@@ -24,7 +24,7 @@ public class JDBCItemDAO implements ItemDAO {
 	@Override
 	public void insertItem(String imageId, String type, String variety, int harvestQnty, DollarAmount price) {
 	
-
+			//TODO
 	}
 
 	@Override
@@ -36,10 +36,39 @@ public class JDBCItemDAO implements ItemDAO {
 									+"ON item.item_id = item_price.item_id "
 									+"INNER JOIN item_harvest_details "
 									+"ON item.item_id = item_harvest_details.item_id";
-		
-		
+			
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement);
-		List<Item> allCrops = new ArrayList<Item>();
+				
+		return mapResultsToItemList(results);
+	}
+
+	@Override
+	public List<Item> allAvailableCropsList() {
+		//TODO fix this method
+		String sqlSelectStatement = "SELECT item_image_id, item_type, item_variety, item_price, harvest_quantity " 
+				+"FROM item "
+				+"INNER JOIN item_price "
+				+"ON item.item_id = item_price.item_id "
+				+"INNER JOIN item_harvest_details "
+				+"ON item.item_id = item_harvest_details.item_id"
+				+"WHERE harvest_quantity > 0";
+
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement);
+
+		return mapResultsToItemList(results);
+	}
+
+	@Override
+	public Item getCropById(int id) {
+		
+		String sqlSelectStatement = ""; //TODO finish method
+		return null;
+	}
+	
+	
+	private List<Item> mapResultsToItemList(SqlRowSet results){
+		
+		List<Item> itemList = new ArrayList<Item>();
 		while(results.next()){
 			
 			Item item = new Item();
@@ -54,25 +83,8 @@ public class JDBCItemDAO implements ItemDAO {
 			
 			item.setPrice(price);
 			
-			allCrops.add(item);		
-		}		
-		return allCrops;
-	}
-
-	@Override
-	public List<Item> allAvailableCropsList() {
-		
-		List<Item> crops = this.allAvailableCropsList();
-		List<Item> availableCrops = new ArrayList<Item>();
-		for(Item item: crops){
-			
-			if(item.getHarvestQnty() > 0){
-				availableCrops.add(item);
-			}
+			itemList.add(item);		
 		}
-		return availableCrops;
+		return itemList;
 	}
-	
-	
-
 }

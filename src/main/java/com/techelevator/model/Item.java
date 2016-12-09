@@ -1,7 +1,8 @@
 package com.techelevator.model;
 
 public class Item {
-
+	
+	private int itemId;
 	private String imageId;
 	private String type;
 	private String variety;
@@ -50,6 +51,14 @@ public class Item {
 
 	public DollarAmount getPrice() {
 		return price;
+	}
+
+	public int getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
 	}
 	
 	

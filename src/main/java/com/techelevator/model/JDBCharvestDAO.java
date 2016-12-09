@@ -20,7 +20,7 @@ public class JDBCharvestDAO implements HarvestDAO {
 		
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
-
+ 
 	@Override
 	public List<Item> getHarvestItemList() {
 		
@@ -38,7 +38,8 @@ public class JDBCharvestDAO implements HarvestDAO {
 			item.setType(results.getString("type"));
 			item.setHarvestQnty(results.getInt("harvest_quantity"));
 			item.setVariety(results.getString("variety"));
-			item.setPrice((DollarAmount)results.getObject("price"));//TODO figure out Money data type in SQL
+				int tempPrice = Math.round(results.getBigDecimal("price").floatValue()*100);
+			item.setPrice(new DollarAmount(tempPrice));
 			item.setImageId(results.getString("item_image_id"));//TODO account for image ID null occurrence
 			harvestItems.add(item);
 		}

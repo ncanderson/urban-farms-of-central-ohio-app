@@ -78,7 +78,7 @@
             <li><a href="#">View Past Orders</a></li>
           </ul>
         </li>
-        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> View Cart</a></li>
+        <li><a href="shopping-cart/checkout"><span class="glyphicon glyphicon-shopping-cart"></span> View Cart</a></li>
         <li><a href="${login}">Login</a></li>
 
         <li><a href="${logout }">Logout</a></li>
