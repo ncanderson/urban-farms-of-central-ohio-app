@@ -41,7 +41,7 @@ public class UserController {
 //---------------------------ADMIN VIEWS---------------------------------------------------------
 //---------------------------ADMIN VIEWS---------------------------------------------------------
 	
-	@RequestMapping(path="admin/admin-main-view",method=RequestMethod.GET)
+	@RequestMapping(path="admin/admin-main-view", method=RequestMethod.GET)
 	public String showAdminMainView(HttpServletRequest request){
 			
 		return "admin/admin-main-view";
