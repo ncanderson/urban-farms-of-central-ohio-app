@@ -11,19 +11,19 @@
 		<li>
 			<label for="type">Select crop type:</label>
 			<select name="type" id="crop-type">
-				<c:forEach var="cropItem" items="${allCropsList}">
-					<option value="${cropItem.type}">${cropItem.type}</option>
+				<c:forEach var="cropType" items="${distinctCropTypes}">
+					<option value="${cropType}">${cropType}</option>
 				</c:forEach>
 			</select>
 		</li>
-		<li>
+		<%-- <li>
 			<label for="variety">Select crop variety:</label>
 			<select name="variety" id="crop-variety">
-				<c:forEach var="cropVariety" items="${allCropsList}">
+				<c:forEach var="cropVariety" items="${distinctCropTypes}">
 					<option value="${cropVariety.variety}">${cropVariety.variety.toUpperCase()}</option>
 				</c:forEach>
 			</select>
-		</li>
+		</li> --%>
 		<li>
 			<label for="harvestQuantity">Enter pounds available:</label>
 			<input type="text" name="harvestQuantity" />

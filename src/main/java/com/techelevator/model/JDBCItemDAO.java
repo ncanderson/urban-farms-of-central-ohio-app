@@ -10,6 +10,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import gherkin.lexer.Pl;
+
 @Component
 public class JDBCItemDAO implements ItemDAO {
 
@@ -28,7 +30,7 @@ public class JDBCItemDAO implements ItemDAO {
 	}
 
 	@Override
-	public List<Item> allCropsList() {
+	public List<Item> allCurrentHarvestItems() {
 		
 		String sqlSelectStatement = "SELECT item_image_id, item_type, item_variety, item_price, harvest_quantity " 
 									+"FROM item "
@@ -61,6 +63,7 @@ public class JDBCItemDAO implements ItemDAO {
 	@Override
 	public Item getCropById(int id) {
 		
+
 		String sqlSelectStatement = ""; //TODO finish method
 		return null;
 	}
@@ -68,7 +71,8 @@ public class JDBCItemDAO implements ItemDAO {
 	
 	private List<Item> mapResultsToItemList(SqlRowSet results){
 		
-		List<Item> itemList = new ArrayList<Item>();
+		List<Item> allCrops = new ArrayList<Item>();
+
 		while(results.next()){
 			
 			Item item = new Item();
@@ -80,11 +84,51 @@ public class JDBCItemDAO implements ItemDAO {
 			float tempFloat = results.getBigDecimal("item_price").floatValue();
 			int tempInt = Math.round(100*tempFloat);
 			DollarAmount price = new DollarAmount(tempInt);
-			
+	
 			item.setPrice(price);
-			
-			itemList.add(item);		
+		
+			allCrops.add(item);		
+		}		
+		return allCrops;
+	}
+
+	@Override
+	public List<Item> allCropsInDatabase() {
+		
+		String sqlSelectStatement = "SELECT * "
+									+ "FROM item";
+	
+		List<Item> crops = new ArrayList<Item>();
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement);
+		
+		while (results.next()) {
+			Item item = new Item();
+			item.setImageId(results.getString("item_image_id"));
+			item.setType(results.getString("item_type"));
+			item.setVariety(results.getString("item_variety"));
+			crops.add(item);
 		}
-		return itemList;
+		for (Item item : crops) {
+			System.out.println(item.getType());
+		}
+		return crops;
+	}
+	
+	@Override
+	public List<String> selectAllUniqueCropsByType() {
+		
+		String sqlSelectStatement = "SELECT DISTINCT item_type "
+									+ "FROM item";
+		
+		List<String> distinctCropTypes = new ArrayList<String>();
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement);
+		
+		while(results.next()) {
+			String itemType = results.getString("item_type");
+			distinctCropTypes.add(itemType);
+		}
+		
+		return distinctCropTypes;
+		
 	}
 }

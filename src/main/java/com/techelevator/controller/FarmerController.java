@@ -57,9 +57,9 @@ public class FarmerController {
 	@RequestMapping(path="/farmer-dashboard-views/enterInventory", method = RequestMethod.GET)
 	public String addNewOrderItemToDatabaseGet(HttpServletRequest request) {
 		
-		List<Item> allCropsList = itemDAO.allCropsList();
+		List<String> distinctCropTypes = itemDAO.selectAllUniqueCropsByType();
 		
-		request.setAttribute("allCropsList", allCropsList);
+		request.setAttribute("distinctCropTypes", distinctCropTypes);
 		
 		return "farmer-dashboard-views/enterInventory";
 	}
@@ -80,7 +80,7 @@ public class FarmerController {
 		DollarAmount price = new DollarAmount(temp);
 		//itemDAO.insertItem(imageId, type, variety, harvestQnty, price);//TODO fix insert in itemDAO
 		
-		List<Item> allCropsList = itemDAO.allCropsList();	
+		List<Item> allCropsList = itemDAO.allCropsInDatabase();	
 		request.setAttribute("allCropsList", allCropsList);
 		
 		return "redirect:/farmer-dashboard-views/dashboard";
