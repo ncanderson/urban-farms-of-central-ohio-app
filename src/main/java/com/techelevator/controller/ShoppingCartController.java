@@ -23,7 +23,7 @@ import com.techelevator.model.UserDAO;
 
 
 @Controller 
-@SessionAttributes({"currentUser", "cart"})
+@SessionAttributes({"currentUser", "cart"})//TODO does "cart" need to be carried through form beginning?
 public class ShoppingCartController {
 
 	
