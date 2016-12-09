@@ -66,15 +66,14 @@ CREATE TABLE item (
   item_type varchar(25) NOT NULL,
   item_variety varchar(25) NULL,
   item_image_id varchar(50) NULL,
-  item_description varchar(150) NULL
-);
-
-CREATE TABLE item_price (
-  item_price_id serial PRIMARY KEY,
-  item_id integer NOT NULL,
-  date_added timestamp NOT NULL,
-  sale_type_id integer NOT NULL,
-  item_price decimal NOT NULL
+  item_description varchar(150) NULL,
+  is_active boolean NOT NULL,
+  season_one_start timestamp NULL,
+  season_one_end timestamp NULL,
+  season_two_start timestamp NULL,
+  season_two_end timestamp NULL,
+  season_three_start timestamp NULL,
+  season_three_end timestamp NULL
 );
 
 CREATE TABLE invoice (
@@ -101,7 +100,14 @@ CREATE TABLE item_harvest_details (
   harvest_availability varchar(150) NULL,
   harvest_details_comments varchar(150) NULL,
   harvest_date timestamp NOT NULL,
+<<<<<<< HEAD
+  item_price decimal NOT NULL,
+  harvest_end_date timestamp NULL,
+  pick_list_comments varchar(250) NULL,
+  is_bulk boolean NOT NULL DEFAULT FALSE
+=======
   harvest_reconciliation_id integer NULL REFERENCES harvest_reconciliation
+>>>>>>> 72489848449339d9a226717ab58f7f19e53f277b
 );
 
 CREATE TABLE invoice_item (
@@ -109,9 +115,15 @@ CREATE TABLE invoice_item (
   invoice_id integer NOT NULL REFERENCES invoice,
   invoice_quantity integer NOT NULL,
   item_harvest_details_id integer NOT NULL REFERENCES item_harvest_details,
+<<<<<<< HEAD
+  update_item_price decimal NULL,
+  invoice_date timestamp NOT NULL,
+  user_id integer NOT NULL,
+  invoice_item_status_id integer NOT NULL DEFAULT  REFERENCES invoice_status
+=======
   item_price_id integer NOT NULL REFERENCES item_price,
   added_to_invoice_date timestamp NOT NULL
+>>>>>>> 72489848449339d9a226717ab58f7f19e53f277b
   );
-
 
 COMMIT;

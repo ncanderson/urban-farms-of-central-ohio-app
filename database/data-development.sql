@@ -170,7 +170,7 @@ INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (4,
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (5,'Baby Swiss Chard','',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (6,'Basil','Green','HT2'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (7,'Basil','Purple',''); 
-INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (8,'Arugula','Baby ','Mid-size leaves'); 
+INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (8,'Arugula','Baby','Mid-size leaves'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (9,'Beets','Baby','Multicolored'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (10,'Beets','Baby - Golden',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (11,'Beets','Baby - Red',''); 
@@ -231,7 +231,7 @@ INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (65
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (66,'Pac Choi','',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (67,'Kale','Red Russian','Baby size - From field'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (68,'Patty Pan Squash','',''); 
-INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (69,'Kale','Green ','1 leaf/plant'); 
+INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (69,'Kale','Green','1 leaf/plant'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (70,'Peppers','Bell',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (71,'Peppers','Green','Already harvested'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (72,'Peppers','Habaneros',''); 
@@ -265,7 +265,7 @@ INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (99
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (100,'Swiss Chard','',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (101,'Peppers','Italian Sweet',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (102,'Radish','','Mix of Easter Egg (HT) and Watermelon (field)'); 
-INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (103,'Kale','Baby ','3 lbs of RR baby kale kept separate; 10 lbs of RR/Green kale'); 
+INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (103,'Kale','Baby','3 lbs of RR baby kale kept separate; 10 lbs of RR/Green kale'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (104,'Tomatoes','','In shipping container'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (105,'Tomatoes','B Grade','Paste tomatoes'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (106,'Tomatoes','Cherry','In Shipping Container'); 
@@ -280,7 +280,7 @@ INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (11
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (115,'Watermelon','','In shipping container'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (116,'Mustard','',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (117,'Zucchini','','Pick all available'); 
-INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (118,'Radish','Easter Egg ',''); 
+INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (118,'Radish','Easter Egg',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (119,'Sage','',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (120,'Radish','Watermelon',''); 
 INSERT INTO item (item_id, item_type, item_variety, item_description) VALUES (121,'Radish','HT',''); 
