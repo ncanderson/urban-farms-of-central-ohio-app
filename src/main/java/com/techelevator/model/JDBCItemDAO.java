@@ -53,7 +53,7 @@ public class JDBCItemDAO implements ItemDAO {
 				+"INNER JOIN item_price "
 				+"ON item.item_id = item_price.item_id "
 				+"INNER JOIN item_harvest_details "
-				+"ON item.item_id = item_harvest_details.item_id"
+				+"ON item.item_id = item_harvest_details.item_id "
 				+"WHERE harvest_quantity > 0";
 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement);
