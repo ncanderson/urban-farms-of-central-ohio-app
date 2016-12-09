@@ -109,7 +109,8 @@ public class JDBCItemDAO implements ItemDAO {
 		
 		String sqlSelectStatement = "SELECT * "
 									+ "FROM item "
-									+ "WHERE item_type = ?";
+									+ "WHERE item_type = ? "
+									+ "ORDER BY item_variety";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement, chosenType);
 		

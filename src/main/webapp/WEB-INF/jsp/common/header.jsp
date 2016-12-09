@@ -43,9 +43,6 @@
 <div class="container-fluid">
 
 <c:url var="homePage" value="/"/>
-<c:url var="login" value="/login"/>
-<c:url var="logout" value="/logout"/>
-
 
 <div id="nav-header" class="hidden-xs">
 	<a href="${homePage}"><img src="${imagePath}/cropped-UFCO-logo.png" alt="Urban farms of central ohio logo" id="logo-image"/></a>
@@ -79,12 +76,23 @@
           </ul>
         </li>
         <li><a href="shopping-cart/checkout"><span class="glyphicon glyphicon-shopping-cart"></span> View Cart</a></li>
-        <li><a href="${login}">Login</a></li>
-
-        <li><a href="${logout }">Logout</a></li>
-
+        
+		<c:choose>
+			<c:when test="${empty currentUser}">
+			<c:url var="newUserHref" value="/users/new" />
+				<li><a href="${newUserHref}">Sign Up</a></li>
+			<c:url var="loginHref" value="/login" />
+				<li><a href="${loginHref}">Login</a></li>
+			</c:when>
+			<c:otherwise>
+			<c:url var="logoutAction" value="/logout" />
+				<form id="logoutForm" action="${logoutAction}" method="POST">
+					<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
+				</form>
+				<li><a id="logoutLink" href="${logoutAction}">Log Out</a></li>
+			</c:otherwise>
+		</c:choose>
     </ul>
-
 	
     </div><!-- /.navbar-collapse -->
 </nav>

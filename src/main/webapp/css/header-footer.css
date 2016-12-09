@@ -80,7 +80,7 @@
 }
 .navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
 .navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
-  color: #000000;
+  color: #56b2ff;
   background-color: #56b2ff;
 }
 .navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
@@ -139,7 +139,7 @@
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #000000;
+    color: #56b2ff;
     background-color: #56b2ff;
   }
 }
