@@ -1,5 +1,11 @@
 $(document).ready(function() {
 
+//	submit the logout POST when the link is clicked
+	$("#logoutLink").click(function(event){
+		$("#logoutForm").submit();
+	});
+	
+//	Make ajax call to update crop variety when a selected type is chosen
     $("#crop-type").change(function() {
         
         $.ajax ({
