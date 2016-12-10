@@ -1,5 +1,7 @@
 package com.techelevator.controller;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.techelevator.model.Buyer;
 import com.techelevator.model.DollarAmount;
 import com.techelevator.model.HarvestDAO;
+import com.techelevator.model.HarvestItem;
 import com.techelevator.model.Invoice;
 import com.techelevator.model.InvoiceDAO;
 import com.techelevator.model.Item;
@@ -68,24 +71,42 @@ public class FarmerController {
 	@RequestMapping(path="/farmer-dashboard-views/enterInventory", method = RequestMethod.POST)
 	public String addNewOrderItemToDatabasePost(HttpServletRequest request) {
 		
+		HarvestItem itemToSave = new HarvestItem();
 		
-		//System.out.println(request.getParameter("harvestDetailsComments"));
-	
+		itemToSave.setItemId(itemDAO.getCropByTypeAndVariety(request.getParameter("type"), request.getParameter("variety")).getItemId());
+		if (!request.getParameter("harvestQuantity").isEmpty()) {
+			itemToSave.setHarvestQnty(Integer.parseInt(request.getParameter("harvestQuantity")));			
+		}
+		itemToSave.setHarvestImageId(request.getParameter("harvestImageId"));
+		itemToSave.setAverageSize(request.getParameter("averageSizeOfItem"));
+		itemToSave.setAvailability(request.getParameter("harvestAvailability"));
+		itemToSave.setComments(request.getParameter("harvestDetailsParameters"));
+		itemToSave.setFarmerEnteredPickComments(request.getParameter("farmerEnteredPickComments"));
 		
-		String imageId = request.getParameter("harvestImageId");
-		String type = request.getParameter("type");
-		String variety = request.getParameter("variety");
-		int harvestQnty = Integer.parseInt(request.getParameter("harvestQuantity"));
+//		=============
+//		How will we deal with date? This will just enter the date that the entry is made
 		
-			int temp = Math.round(100*Float.parseFloat(request.getParameter("price")));//TODO does this work?
-		DollarAmount price = new DollarAmount(temp);
-		//itemDAO.insertItem(imageId, type, variety, harvestQnty, price);//TODO fix insert in itemDAO
+		itemToSave.setDate(Date.valueOf(LocalDate.now()));
+
+//		========================
 		
-		List<Item> allCropsList = itemDAO.allCropsInDatabase();	
-		request.setAttribute("allCropsList", allCropsList);
+//		Convert string to DollarAmount
+//		int temp = Math.round(100 * Float.parseFloat(request.getParameter("price")));//TODO does this work?
+//		DollarAmount price = new DollarAmount(temp);
 		
-		return "redirect:/farmer-dashboard-views/dashboard";
+//		========================
+		
+//		harvestDAO.addHarvestItem(itemToSave);
+		
+//		List<HarvestItem> allHarvestItemsList = harvestDAO.getAllHarvestItems();	
+//		request.setAttribute("allHarvestItemsList", allHarvestItemsList);
+//		
+		return "redirect:/farmer-dashboard-views/enterInventory";
 	}
+	
+	
+	
+	
 	
 	@RequestMapping(path="/farmer-dashboard-views/view-pending-orders", method=RequestMethod.GET)
 	public String viewPendingOrdersGet(HttpServletRequest request){

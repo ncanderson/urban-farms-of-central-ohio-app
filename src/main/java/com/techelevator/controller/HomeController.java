@@ -42,6 +42,12 @@ public class HomeController {
 		return "anonymous-item-view";
 	}
 	
+	@RequestMapping(path="/anonymous-detail-view", method=RequestMethod.GET)
+	public String getAnonymousDetailView(HttpServletRequest request) {
+		
+		return "anonymous-detail-view";
+	}
+	
 	@RequestMapping(path="/login", method=RequestMethod.GET)
 	public String displayLoginForm(HttpServletRequest reqeust){
 		

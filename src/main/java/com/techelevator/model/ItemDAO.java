@@ -11,12 +11,13 @@ public interface ItemDAO {
 	public List<Item> allAvailableCropsList();
 	
 	public Item getCropById(int id);
+	
+	public Item getCropByTypeAndVariety(String type, String variety);
 
 	public List<Item> allCropsInDatabase();
 
 	public List<String> selectAllUniqueCropsByType();
 	
 	public List<Item> findAllCropsByType(String chosenType);
-	
 	
 }

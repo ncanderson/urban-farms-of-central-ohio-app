@@ -32,7 +32,7 @@
 		</li>
    		<li>
    			<label for="averageSizeOfItem">Average size of item:</label>
-   			<input type="text" name="harvestDetailsComments" />	
+   			<input type="text" name="averageSizeOfItem" />	
    		</li>
 	    <li>
   			<label for="harvestAvailability">Availability:</label>

@@ -5,3 +5,4 @@
 <h1>${detailCrop.variety} ${detailCrop.type}</h1>
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
+

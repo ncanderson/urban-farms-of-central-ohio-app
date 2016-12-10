@@ -5,6 +5,14 @@ $(document).ready(function() {
 		$("#logoutForm").submit();
 	});
 	
+//	submit form with 'enter' press
+	$("input").keypress(function(event) {
+	    if (event.which == 13) {
+	        event.preventDefault();
+	        $("form").submit();
+	    }
+	});
+	
 //	Make ajax call to update crop variety when a selected type is chosen
     $("#crop-type").change(function() {
         

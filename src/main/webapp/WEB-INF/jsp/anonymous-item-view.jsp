@@ -10,6 +10,8 @@
 			<div class="Rtable-cell">${item.harvestQnty} lbs. available</div>
 			<div class="Rtable-cell Rtable-cell--foot">${item.price.toString()}/lbs</div>
 		</c:forEach>  			     
-	</div>     
+	</div>   
+	<c:url var="itemDetails" value="crop-item-details?itemId=${item.itemId}" />
+				<div class="Rtable-cell"><a href=${itemDetails }>Show Item Details</a></div>  
             
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

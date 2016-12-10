@@ -2,12 +2,7 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-<title>Insert title here</title>
-</head>
-<body>
-
 <!-- NATE!! I added a "availableCrops" attribute.  It is a list of available crop items -->
-
 
 	<div class="Rtable Rtable--5cols Rtable--collapse js-RtableAccordions">
 		<c:forEach var="item" items="${availableCrops}"><!-- NOTE: these are fake crops, change in buyer controller when ready -->
@@ -23,8 +18,5 @@
 			
 		</c:forEach>  			     
 	</div>
-
-
+	
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
-
-<a href="parkDetails?parkCode=${park.parkCode}"><img src="img/parks/${park.imageName}.jpg" alt="park photo" class="park-photo" /></a>

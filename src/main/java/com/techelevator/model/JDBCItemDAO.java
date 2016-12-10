@@ -63,7 +63,7 @@ public class JDBCItemDAO implements ItemDAO {
 	public Item getCropById(int id) {
 		
 		String sqlSelectStatement = "SELECT item_image_id, item_type, item.item_id, item_variety, item_price, harvest_quantity "
-									+"FROM item  "
+									+"FROM item "
 									+"INNER JOIN item_price "
 									+"ON item.item_id = item_price.item_id "
 									+"INNER JOIN item_harvest_details "
@@ -73,6 +73,25 @@ public class JDBCItemDAO implements ItemDAO {
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement, id);
 		
 		return mapResultsToItemList(results).get(0);
+	}
+	
+	@Override 
+	public Item getCropByTypeAndVariety(String type, String variety) {
+		Item cropToFind = new Item();
+		
+		String sqlSelectStatement = "SELECT * "
+								    + "FROM item "
+								    + "WHERE item_type = ? AND item_variety = ?";
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement, type, variety);
+		
+		while (results.next()) {
+			cropToFind.setType(results.getString("item_type"));
+			cropToFind.setVariety(results.getString("item_variety"));
+			cropToFind.setImageId(results.getString("item_image_id"));
+		}
+		
+		return cropToFind;
 	}
 	
 	@Override

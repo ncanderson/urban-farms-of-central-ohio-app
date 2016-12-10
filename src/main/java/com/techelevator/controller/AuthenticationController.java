@@ -29,7 +29,7 @@ public class AuthenticationController {
 	
 	@RequestMapping(path="/login", method=RequestMethod.POST)
 	public String login(ModelMap model, @RequestParam String userName, @RequestParam String password,
-						HttpSession session){
+						HttpSession session) {
 		
 		if(userDAO.searchForUsernameAndPassword(userName, password)){ 
 			session.invalidate();
