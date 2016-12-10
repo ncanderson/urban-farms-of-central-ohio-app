@@ -20,10 +20,6 @@ INSERT INTO sale_type (sale_type_id, sale_type_name) VALUES (6, 'Farm Stand');
 INSERT INTO sale_type (sale_type_id, sale_type_name) VALUES (7, 'Compost');
 INSERT INTO sale_type (sale_type_id, sale_type_name) VALUES (8, 'Other');
 
-
-
-
-
 -- Insert Invoice Status
 INSERT INTO invoice_status (invoice_status_id, invoice_status_name) VALUES (1, 'Pending');
 INSERT INTO invoice_status (invoice_status_id, invoice_status_name) VALUES (2, 'Review');
@@ -243,7 +239,7 @@ INSERT INTO item (item_id, item_type, item_variety, item_description, is_active)
 INSERT INTO item (item_id, item_type, item_variety, item_description, is_active) VALUES (85,'Collards','','Field','true'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description, is_active) VALUES (86,'Radish - BULK','','','true'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description, is_active) VALUES (87,'Peppers','Thai Chile','Already harvested','true'); 
-INSERT INTO item (item_id, item_type, item_variety, item_description, is_active) VALUES (88,'Radish','Easter Egg - Bulk','All Available','tr,'true'ue'); 
+INSERT INTO item (item_id, item_type, item_variety, item_description, is_active) VALUES (88,'Radish','Easter Egg - Bulk','All Available','true'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description, is_active) VALUES (89,'Radish','French Breakfast','','true'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description, is_active) VALUES (90,'Parsley','','Clear cut plants','true'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description, is_active) VALUES (91,'Peppers','Sweet','','true'); 
@@ -1697,8 +1693,6 @@ INSERT INTO "invoice" (invoice_id, invoice_date, user_id, buyer_id, sale_type_id
 INSERT INTO "invoice" (invoice_id, invoice_date, user_id, buyer_id, sale_type_id, invoice_status_id) VALUES (1404,'12/02/2016 00:00:00',0,29,1,4);
 
 -- Insert Production Invoice Item Data
-INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id) VALUES 
-
 INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id) VALUES (1,1,4,1,21,'03/12/2015 00:00:00',7);
 INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id) VALUES (2,1,4,2,61,'03/12/2015 00:00:00',7);
 INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id) VALUES (3,2,4,3,21,'03/20/2015 00:00:00',7);
