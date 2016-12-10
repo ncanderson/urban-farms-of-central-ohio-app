@@ -18,5 +18,7 @@ public interface ItemDAO {
 	
 	public List<Item> findAllCropsByType(String chosenType);
 	
+	public List<Item> getAllActiveCrops();
 	
+	public void updateItem(Item item, int itemId);
 }

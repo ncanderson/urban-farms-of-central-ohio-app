@@ -126,6 +126,20 @@ public class JDBCItemDAO implements ItemDAO {
 		return itemsByType;
 	}
 	
+	@Override
+	public List<Item> getAllActiveCrops() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public void updateItem(Item item, int itemId) {
+		
+		String sqlInsertStatment = "UPDATE item SET item-type = ?, item-variety = ?, item-description = ?, is-active ?) WHERE item_id = ?;";
+		jdbcTemplate.update(sqlInsertStatment, item.getType(), item.getVariety(), item.getDescription(), item.isActive(), itemId);
+		
+	}
+	
 	private List<Item> mapResultsToItemList(SqlRowSet results){
 		
 		List<Item> allCrops = new ArrayList<Item>();
@@ -149,4 +163,8 @@ public class JDBCItemDAO implements ItemDAO {
 		}		
 		return allCrops;
 	}
+
+	
+
+	
 }
