@@ -3071,7 +3071,7 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3068,21,7,'01/12/2016 00:00:00','4');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3069,9,3,'01/12/2016 00:00:00','2');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3070,8,3,'01/12/2016 00:00:00','2');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3101,133,10,'01/12/2016 00:00:00','2');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (6922,133,10,'01/12/2016 00:00:00','2');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3071,22,10,'01/12/2016 00:00:00','3');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3072,21,0,'01/12/2016 00:00:00','3');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3073,56,4,'01/12/2016 00:00:00','5');
