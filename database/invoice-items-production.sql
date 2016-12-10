@@ -1,12 +1,12 @@
 -- Insert Production Invoice Item Data
 BEGIN;
 
-INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id) VALUES (1,1,4,1,21,'03/12/2015 00:00:00',7);
-INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id) VALUES (2,1,4,2,61,'03/12/2015 00:00:00',7);
-INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id) VALUES (3,2,4,3,21,'03/20/2015 00:00:00',7);
-INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id) VALUES (4,2,8,4,14,'03/20/2015 00:00:00',7);
-INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id) VALUES (6,2,3,6,61,'03/20/2015 00:00:00',7);
-INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id) VALUES (5,3,5,5,21,'03/20/2015 00:00:00',7);
+INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id, user_id) VALUES (1,1,4,1,21,'03/12/2015 00:00:00',7,0);
+INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id, user_id) VALUES (2,1,4,2,61,'03/12/2015 00:00:00',7,0);
+INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id, user_id) VALUES (3,2,4,3,21,'03/20/2015 00:00:00',7,0);
+INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id, user_id) VALUES (4,2,8,4,14,'03/20/2015 00:00:00',7,0);
+INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id, user_id) VALUES (6,2,3,6,61,'03/20/2015 00:00:00',7,0);
+INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id, user_id) VALUES (5,3,5,5,21,'03/20/2015 00:00:00',7,0);
 -- INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id) VALUES (7,4,6,7,21,'03/26/2015 00:00:00',7);
 -- INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id) VALUES (8,4,10,8,14,'03/26/2015 00:00:00',7);
 -- INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id) VALUES (9,4,3,9,55,'03/26/2015 00:00:00',7);
