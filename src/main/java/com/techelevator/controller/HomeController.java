@@ -49,11 +49,6 @@ public class HomeController {
 	}
 	
 	
-	@RequestMapping(path="/logout", method=RequestMethod.GET)
-	public String logout(HttpServletRequest reqeust){
-		
-		return "redirect:/welcome";
-	}
 	
 	/**
 	 * FOR TESTING ONLY UNTIL DB COMES ONLINE

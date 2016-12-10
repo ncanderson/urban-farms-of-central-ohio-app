@@ -75,10 +75,10 @@
             <li><a href="#">View Past Orders</a></li>
           </ul>
         </li>
-<<<<<<< HEAD
+<%-- <!-- <<<<<<< HEAD -->
         <li><a href="shopping-cart/checkout"><span class="glyphicon glyphicon-shopping-cart"></span> View Cart</a></li>
         
-		<c:choose>
+         		<c:choose>
 			<c:when test="${empty currentUser}">
 			<c:url var="newUserHref" value="/users/new" />
 				<li><a href="${newUserHref}">Sign Up</a></li>
@@ -92,15 +92,17 @@
 				</form>
 				<li><a id="logoutLink" href="${logoutAction}">Log Out</a></li>
 			</c:otherwise>
-		</c:choose>
-=======
+		</c:choose> --%>
+
         <c:url var="cartHref" value="/customer-views/shopping-cart/checkout" />
         <li><a href="${cartHref}"><span class="glyphicon glyphicon-shopping-cart"></span> View Cart</a></li>
+        
+        <c:url var="login" value="/login" />
         <li><a href="${login}">Login</a></li>
 
-        <li><a href="${logout }">Logout</a></li>
+		<c:url var="logout" value="/logout" />
+        <li><a href="${logout}">Logout</a></li>
 
->>>>>>> 1ba64a9d0e2a73617d6db6bbf0bf27a2fd595390
     </ul>
 	
     </div><!-- /.navbar-collapse -->

@@ -17,7 +17,8 @@
 				<div class="Rtable-cell  Rtable-cell--head"><h3>${item.variety} ${item.type}</h3></div>
 				<div class="Rtable-cell">${item.harvestQnty} lbs. available</div>
 				<div class="Rtable-cell Rtable-cell--foot">${item.price.toString()}/lbs</div>
-				 <c:url var="itemDetails" value="/shopping-cart/crop-item-detials?itemId=${item.itemId}" />
+						
+				 <c:url var="itemDetails" value="crop-item-details?itemId=${item.itemId}" />
 				<div class="Rtable-cell"><a href=${itemDetails }>Show Item Details</a></div>
 			
 		</c:forEach>  			     

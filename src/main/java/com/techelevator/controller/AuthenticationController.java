@@ -53,6 +53,6 @@ public class AuthenticationController {
 		model.remove("currentUser");
 		session.removeAttribute("currentUser");
 		session.invalidate();
-		return "redirect:/";
+		return "redirect:/welcome";
 	}
 }

@@ -64,13 +64,13 @@ public class ShoppingCartController {
 //		return "redirect:/available-crops";
 //	}
 	
-	@RequestMapping(path="/shoppin-cart/crop-item-detials", method=RequestMethod.GET)
+	@RequestMapping(path="/customer-views/crop-item-details", method=RequestMethod.GET)
 	public String cropDetailsGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		try {
-			
+			System.out.println("GET");
 			int cropId = Integer.parseInt(request.getParameter("itemId"));			
 			request.setAttribute("cropItem", itemDAO.getCropById(cropId));
-			return "shopping-cart/crop-item-details";
+			return "customer-views/shopping-cart/crop-item-details";
 			
 			
 		} catch (NumberFormatException | IndexOutOfBoundsException e) {
@@ -79,13 +79,13 @@ public class ShoppingCartController {
 		}
 	}
 	
-	@RequestMapping(path="/customer-views/crop-item-detials", method=RequestMethod.POST)
+	@RequestMapping(path="/customer-views/shopping-cart/crop-item-details", method=RequestMethod.POST)
 	public String cropDetailsPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		try {
-			
+			System.out.println("POST");
 			int cropId = Integer.parseInt(request.getParameter("itemId"));			
 			request.setAttribute("cropItem", itemDAO.getCropById(cropId));
-			return "redirect:/current-inventory";
+			return "redirect:/shopping-cart/crop-item-details";
 			
 			
 		} catch (NumberFormatException | IndexOutOfBoundsException e) {

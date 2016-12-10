@@ -65,7 +65,6 @@ public class BuyerController {
 	@RequestMapping(path="/customer-views/current-inventory", method=RequestMethod.POST)
 	public String showCurrentInventoryPost(HttpServletRequest request){
 		//TODO submit order
-	
 		return "customer-views/current-inventory";
 	}
 	
@@ -128,4 +127,6 @@ public class BuyerController {
 				
 		return itemList;
 	}
+	
+	
 }
