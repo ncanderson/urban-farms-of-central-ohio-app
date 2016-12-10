@@ -75,34 +75,28 @@
             <li><a href="#">View Past Orders</a></li>
           </ul>
         </li>
-<%-- <!-- <<<<<<< HEAD -->
-        <li><a href="shopping-cart/checkout"><span class="glyphicon glyphicon-shopping-cart"></span> View Cart</a></li>
-        
-         		<c:choose>
-			<c:when test="${empty currentUser}">
-			<c:url var="newUserHref" value="/users/new" />
-				<li><a href="${newUserHref}">Sign Up</a></li>
-			<c:url var="loginHref" value="/login" />
-				<li><a href="${loginHref}">Login</a></li>
-			</c:when>
-			<c:otherwise>
-			<c:url var="logoutAction" value="/logout" />
-				<form id="logoutForm" action="${logoutAction}" method="POST">
-					<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
-				</form>
-				<li><a id="logoutLink" href="${logoutAction}">Log Out</a></li>
-			</c:otherwise>
-		</c:choose> --%>
 
         <c:url var="cartHref" value="/customer-views/shopping-cart/checkout" />
         <li><a href="${cartHref}"><span class="glyphicon glyphicon-shopping-cart"></span> View Cart</a></li>
+		
+        <%-- <li><a href="${login}">Login</a></li>
+        <li><a href="#" id="logoutLink">Logout</a></li> --%>
         
-        <c:url var="login" value="/login" />
-        <li><a href="${login}">Login</a></li>
-
-		<c:url var="logout" value="/logout" />
-        <li><a href="${logout}">Logout</a></li>
-
+        <c:choose>
+			<c:when test="${empty currentUser}">
+				<c:url var="loginHref" value="/login" />
+				<li><a href="${loginHref}">Login</a></li>
+				<c:url var="newUserHref" value="#" />
+				<li><a href="${newUserHref}">Sign Up(Doesn't Go Anywhere)</a></li>
+			</c:when>
+			<c:otherwise>
+				<c:url var="logoutAction" value="/logout" />
+				<li><a id="logoutLink" href="#">Log Out</a></li>
+				<form id="logoutForm" action="${logoutAction}" method="POST">
+					<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
+				</form>
+			</c:otherwise>
+		</c:choose>
     </ul>
 	
     </div><!-- /.navbar-collapse -->

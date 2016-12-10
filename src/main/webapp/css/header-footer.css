@@ -31,6 +31,10 @@
   margin-bottom: 20px;
 }
 
+#logoutForm input {
+	width: 0px;
+}
+
 /**
 * Footer 
 */
