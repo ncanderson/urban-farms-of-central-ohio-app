@@ -5,6 +5,7 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2,61,4,'03/12/2015 00:00:00','3');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3,21,4,'03/20/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4,14,8,'03/20/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (6,61,3,'03/20/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (5,21,5,'03/20/2015 00:00:00','3');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (7,21,6,'03/26/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (8,14,10,'03/26/2015 00:00:00','0');
@@ -772,7 +773,7 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (766,134,7,'07/11/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (767,25,5,'07/11/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (768,52,5,'07/11/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (769,17,,'07/11/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (769,17,0,'07/11/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (762,49,5,'07/11/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (770,37,6,'07/11/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (771,14,15,'07/11/2015 00:00:00','0');
@@ -882,7 +883,7 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (870,61,2,'07/18/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (871,25,12,'07/18/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (872,52,5,'07/18/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (873,17,,'07/18/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (873,17,0,'07/18/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (875,15,3,'07/18/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (876,57,2,'07/18/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (877,50,12,'07/18/2015 00:00:00','0');
@@ -1014,8 +1015,8 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (993,34,6,'07/25/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (994,6,0.1,'07/25/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (995,19,6,'07/25/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (996,17,,'07/25/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (997,17,,'07/25/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (996,17,0,'07/25/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (997,17,0,'07/25/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (998,18,1,'07/25/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (999,44,0.5,'07/25/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (989,19,5,'07/25/2015 00:00:00','0');
@@ -1248,7 +1249,7 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1207,61,20,'08/04/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1208,16,8,'08/04/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1209,62,15,'08/04/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1210,17,,'08/04/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1210,17,0,'08/04/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1211,46,2,'08/04/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1212,57,5,'08/04/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1213,62,25,'08/05/2015 00:00:00','0');
@@ -1301,8 +1302,8 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1258,32,6,'08/08/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1259,9,5,'08/08/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1260,61,4,'08/08/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1261,17,,'08/08/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1262,17,,'08/08/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1261,17,0,'08/08/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1262,17,0,'08/08/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1263,65,9,'08/08/2015 00:00:00','3');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1264,64,4,'08/08/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1265,47,8,'08/08/2015 00:00:00','0');
@@ -1450,13 +1451,13 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1432,11,3,'08/15/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1433,65,23,'08/15/2015 00:00:00','2.5');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1434,64,4,'08/15/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1435,17,,'08/15/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1435,17,0,'08/15/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1436,64,10,'08/15/2015 00:00:00','2');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1437,50,4,'08/15/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1438,41,0.25,'08/15/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1439,43,1,'08/15/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1440,24,5,'08/15/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1441,17,,'08/15/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1441,17,0,'08/15/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1442,52,4,'08/15/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1443,61,3,'08/15/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1444,61,10,'08/15/2015 00:00:00','0');
@@ -1483,7 +1484,7 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1465,11,1,'08/15/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1466,43,0.25,'08/15/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1467,66,2,'08/15/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1468,17,,'08/15/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1468,17,0,'08/15/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1837,134,24,'08/15/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1838,62,41,'08/15/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1839,57,5,'08/15/2015 00:00:00','0');
@@ -1559,10 +1560,10 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1536,65,65,'08/19/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1537,64,13,'08/19/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1538,62,10,'08/19/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1842,48,,'08/19/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1843,48,,'08/19/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1844,48,,'08/19/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1845,48,,'08/19/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1842,48,0,'08/19/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1843,48,0,'08/19/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1844,48,0,'08/19/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1845,48,0,'08/19/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1539,25,5,'08/21/2015 00:00:00','4');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1540,65,20,'08/21/2015 00:00:00','2.5');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1541,50,10,'08/21/2015 00:00:00','2.75');
@@ -1605,8 +1606,8 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1578,24,10,'08/21/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1579,47,3,'08/21/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1580,43,0.25,'08/21/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1581,17,,'08/21/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1582,17,,'08/21/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1581,17,0,'08/21/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1582,17,0,'08/21/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1583,18,1.5,'08/21/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1584,14,5,'08/22/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1585,61,5,'08/22/2015 00:00:00','0');
@@ -1767,8 +1768,8 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1724,52,3,'08/29/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1725,9,5,'08/29/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1726,65,10,'08/29/2015 00:00:00','2.5');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1727,17,,'08/29/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1728,17,,'08/29/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1727,17,0,'08/29/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1728,17,0,'08/29/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1729,43,0.5,'08/29/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1733,61,9,'08/29/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1734,14,3,'08/29/2015 00:00:00','0');
@@ -1993,8 +1994,8 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1977,133,7,'09/12/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1978,17,4,'09/12/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1979,61,2,'09/12/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1980,17,,'09/12/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1981,17,,'09/12/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1980,17,0,'09/12/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1981,17,0,'09/12/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1982,65,3,'09/12/2015 00:00:00','2.5');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1983,14,12,'09/12/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (1984,21,6,'09/12/2015 00:00:00','0');
@@ -2117,7 +2118,7 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2102,61,36,'09/18/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2103,46,60,'09/18/2015 00:00:00','0.4');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2104,47,30,'09/18/2015 00:00:00','2');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2139,17,,'09/18/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2139,17,0,'09/18/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2105,21,12,'09/19/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2106,61,5,'09/19/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2107,14,4,'09/19/2015 00:00:00','0');
@@ -2151,7 +2152,7 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2135,14,3,'09/19/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2136,54,1.5,'09/19/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2137,64,4,'09/19/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2138,17,,'09/19/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2138,17,0,'09/19/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2421,134,29,'09/19/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2422,62,1,'09/19/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2423,19,1,'09/19/2015 00:00:00','0');
@@ -2278,7 +2279,7 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2244,46,1,'09/26/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2245,18,0.5,'09/26/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2246,24,15,'09/26/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2247,17,,'09/26/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2247,17,0,'09/26/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2248,14,12,'09/26/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2249,31,1,'09/26/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2250,133,24,'09/26/2015 00:00:00','0');
@@ -2293,7 +2294,7 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2259,47,3,'09/26/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2260,134,12,'09/26/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2261,24,5,'09/26/2015 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2262,17,,'09/26/2015 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2262,17,0,'09/26/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2263,32,4,'09/26/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2275,64,10,'09/26/2015 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (2276,3,1,'09/26/2015 00:00:00','0');
@@ -3698,7 +3699,7 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3713,57,10,'06/11/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3714,41,5,'06/11/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3715,6,1.5,'06/11/2016 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3716,15,,'06/11/2016 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3716,15,0,'06/11/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3717,133,22,'06/11/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3718,37,14,'06/11/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3719,22,3,'06/11/2016 00:00:00','0');
@@ -3717,7 +3718,7 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3732,41,5,'06/11/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3734,134,1,'06/11/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3735,21,3,'06/11/2016 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3736,19,,'06/11/2016 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3736,19,0,'06/11/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3859,25,8,'06/11/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3860,8,8,'06/11/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3861,21,5,'06/11/2016 00:00:00','0');
@@ -3725,7 +3726,7 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3863,61,0.5,'06/11/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3864,9,5,'06/11/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3865,54,5,'06/11/2016 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3866,15,,'06/11/2016 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3866,15,0,'06/11/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3867,22,2,'06/11/2016 00:00:00','3');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3988,14,6,'06/11/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3989,57,3,'06/11/2016 00:00:00','0');
@@ -3862,10 +3863,10 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3874,41,2,'06/18/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3875,61,2,'06/18/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3876,57,4,'06/18/2016 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3998,48,,'06/18/2016 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3999,48,,'06/18/2016 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4000,48,,'06/18/2016 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4001,48,,'06/18/2016 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3998,48,0,'06/18/2016 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3999,48,0,'06/18/2016 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4000,48,0,'06/18/2016 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4001,48,0,'06/18/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3900,25,200,'06/21/2016 00:00:00','4');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3901,54,20,'06/21/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3902,8,50,'06/21/2016 00:00:00','1.25');
@@ -3980,8 +3981,8 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (3986,52,2,'06/25/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4002,14,4,'06/25/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4003,20,2,'06/25/2016 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4004,48,,'06/25/2016 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4005,48,,'06/25/2016 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4004,48,0,'06/25/2016 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4005,48,0,'06/25/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4064,52,3.5,'06/25/2016 00:00:00','3.5');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4065,41,0.75,'06/25/2016 00:00:00','8');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4066,21,2,'06/25/2016 00:00:00','3');
@@ -4250,7 +4251,7 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4266,8,3,'07/12/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4267,41,0,'07/12/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4288,47,1,'07/12/2016 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4302,17,,'07/12/2016 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4302,17,0,'07/12/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4249,57,17,'07/12/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4250,11,17,'07/12/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4251,25,17,'07/12/2016 00:00:00','0');
@@ -4382,7 +4383,7 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4382,25,10,'07/19/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4384,49,5,'07/19/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4385,12,10,'07/19/2016 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4386,17,,'07/19/2016 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4386,17,0,'07/19/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4387,43,2,'07/19/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4388,41,0.5,'07/19/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4390,25,17,'07/19/2016 00:00:00','0');
@@ -4423,10 +4424,10 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4418,65,0,'07/20/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4419,37,2,'07/20/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4420,6,1,'07/20/2016 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4432,48,,'07/20/2016 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4433,48,,'07/20/2016 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4434,48,,'07/20/2016 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4435,48,,'07/20/2016 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4432,48,0,'07/20/2016 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4433,48,0,'07/20/2016 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4434,48,0,'07/20/2016 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4435,48,0,'07/20/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4436,65,15,'07/22/2016 00:00:00','3');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4437,8,5,'07/22/2016 00:00:00','2');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4438,12,5,'07/22/2016 00:00:00','2.5');
@@ -4453,7 +4454,7 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4459,49,5,'07/23/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4460,37,13,'07/23/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4461,41,1,'07/23/2016 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4462,17,,'07/23/2016 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4462,17,0,'07/23/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4463,25,15,'07/23/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4464,14,7.5,'07/23/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4465,8,10,'07/23/2016 00:00:00','0');
@@ -4507,7 +4508,7 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4505,12,5,'07/26/2016 00:00:00','3');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4506,44,3,'07/26/2016 00:00:00','3');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4525,8,0,'07/26/2016 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4526,17,,'07/26/2016 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4526,17,0,'07/26/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4527,6,0,'07/26/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4528,65,3,'07/26/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4529,47,0.5,'07/26/2016 00:00:00','0');
@@ -4655,7 +4656,7 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4656,42,2,'08/02/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4657,50,4,'08/02/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4658,16,3,'08/02/2016 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4659,17,,'08/02/2016 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4659,17,0,'08/02/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4660,6,0.5,'08/02/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4661,25,3,'08/02/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4662,32,9,'08/02/2016 00:00:00','0');
@@ -4787,7 +4788,7 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4831,47,1,'08/09/2016 00:00:00','4');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4832,32,1,'08/09/2016 00:00:00','4');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4833,134,8,'08/09/2016 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4834,17,,'08/09/2016 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4834,17,0,'08/09/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4835,32,0,'08/09/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4836,42,0,'08/09/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4837,66,4,'08/09/2016 00:00:00','0');
@@ -4867,7 +4868,7 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4893,61,5,'08/12/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4894,6,1,'08/12/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4895,64,10,'08/12/2016 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4896,54,,'08/12/2016 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4896,54,0,'08/12/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4897,45,8,'08/12/2016 00:00:00','3');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4898,32,5,'08/12/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (4899,41,0.75,'08/12/2016 00:00:00','0');
@@ -6430,7 +6431,7 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (6566,19,5,'10/01/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (6567,64,81,'10/01/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (6568,48,15,'10/01/2016 00:00:00','0');
-INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (6569,48,,'10/01/2016 00:00:00','0');
+INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (6569,48,0,'10/01/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (6570,14,6,'10/04/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (6571,31,6,'10/04/2016 00:00:00','0');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (6572,23,4,'10/04/2016 00:00:00','0');
@@ -6783,6 +6784,5 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (6919,55,4,'12/02/2016 00:00:00','4');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (6920,53,7,'12/02/2016 00:00:00','3.5');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (6921,3,10,'12/05/2016 00:00:00','5.5');
-
 
 COMMIT;
