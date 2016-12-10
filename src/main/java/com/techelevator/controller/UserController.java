@@ -48,11 +48,50 @@ public class UserController {
 //---------------------------ADMIN VIEWS---------------------------------------------------------
 	
 	@RequestMapping(path="admin/admin-main-view", method=RequestMethod.GET)
-	public String showAdminMainView(HttpServletRequest request){
+	public String adminMainView(HttpServletRequest request){
 			
 		return "admin/admin-main-view";
 	}
- 
+	
+	@RequestMapping(path="admin/admin-items-view", method=RequestMethod.GET)
+	public String adminItemViewGet(HttpServletRequest request){
+			
+		List<Item> activeCrops = itemDAO.getAllActiveCrops();
+		request.setAttribute("activeCrops", activeCrops);
+		
+		return "admin/admin-items-view";
+	}
+	
+	@RequestMapping(path="admin/admin-items-view", method=RequestMethod.POST)
+	public String adminItemViewPost(HttpServletRequest request){
+		
+		Item item = new Item();
+		int itemId = Integer.parseInt(request.getParameter("itemId"));
+		item.setType(request.getParameter("itemType"));
+		item.setVariety(request.getParameter("itemVariety"));
+		item.setDescription(request.getParameter("itemDescription"));
+		item.setActive(Boolean.valueOf(request.getParameter("itemIsActive")));
+
+		itemDAO.updateItem(item, itemId); 
+		return "admin/admin-items-view";
+	}
+	
+	@RequestMapping(path="admin/admin-edit-item-details", method=RequestMethod.GET)
+	public String adminEditItemDetails(HttpServletRequest request){
+			
+		int itemId = Integer.parseInt(request.getParameter("itemId"));
+		request.setAttribute("item", itemDAO.getCropById(itemId));
+
+		
+		return "admin/admin-edit-item-details";
+	}
+	@RequestMapping(path="admin/admin-add-user", method=RequestMethod.GET)
+	public String adminAddUserView(HttpServletRequest request){
+			
+		
+		
+		return "admin/admin-add-user";
+	}
 //---------------------------END ADMIN VIEWS------------------------------------------------------
 //---------------------------END ADMIN VIEWS------------------------------------------------------	
 	

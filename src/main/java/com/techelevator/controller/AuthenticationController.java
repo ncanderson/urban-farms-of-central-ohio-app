@@ -48,11 +48,14 @@ public class AuthenticationController {
 		return "redirect:/login";
 	}	
 	
+	
 	@RequestMapping(path="/logout", method=RequestMethod.POST)
-	public String logout(ModelMap model, HttpSession session) {
+	public String logoutPost(ModelMap model, HttpSession session) {
 		model.remove("currentUser");
 		session.removeAttribute("currentUser");
 		session.invalidate();
 		return "redirect:/welcome";
 	}
+	
+	//---------------------------------------------------
 }

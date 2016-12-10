@@ -8,10 +8,30 @@ public class Item {
 	private String variety;
 	private int harvestQnty;
 	private DollarAmount price;
+	private String description;
+	private boolean isActive;
 	
 	public Item(){
 		
 	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
+	
 
 	public void setImageId(String imageId) {
 		this.imageId = imageId;
