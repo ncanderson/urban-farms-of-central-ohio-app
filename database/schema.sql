@@ -107,6 +107,8 @@ CREATE TABLE item_harvest_details (
   harvest_reconciliation_id integer NULL REFERENCES harvest_reconciliation
 );
 
+CREATE SEQUENCE item_harvest_details_id;
+
 CREATE TABLE invoice_item (
   invoice_item_id serial PRIMARY KEY,
   invoice_id integer NOT NULL REFERENCES invoice,

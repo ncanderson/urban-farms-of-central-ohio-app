@@ -15,12 +15,12 @@ import org.springframework.stereotype.Component;
 import com.sun.jna.platform.win32.Sspi.TimeStamp;
 
 @Component  
-public class JDBCinvoiceDAO implements InvoiceDAO {
+public class JDBCInvoiceDAO implements InvoiceDAO {
 
 	JdbcTemplate jdbcTemplate;
 	
 	@Autowired
-	public JDBCinvoiceDAO(DataSource dataSource){
+	public JDBCInvoiceDAO(DataSource dataSource){
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	

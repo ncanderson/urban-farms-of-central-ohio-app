@@ -22,7 +22,6 @@ import com.techelevator.model.UserDAO;
 @SessionAttributes({"currentUser", "cart"})
 public class BuyerController {
 
-	
 	private HarvestDAO harvestDAO;
 	private ItemDAO itemDAO;
 	private UserDAO userDAO;

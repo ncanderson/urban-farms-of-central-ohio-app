@@ -16,8 +16,6 @@ import com.techelevator.model.Item;
 import com.techelevator.model.ItemDAO;
 import com.techelevator.model.UserDAO;
 
-
-
 @Controller 
 public class HomeController {
 	
