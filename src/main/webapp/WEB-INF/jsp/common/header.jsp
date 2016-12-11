@@ -78,9 +78,9 @@
 
         <c:url var="cartHref" value="/customer-views/shopping-cart/checkout" />
         <li><a href="${cartHref}"><span class="glyphicon glyphicon-shopping-cart"></span> View Cart</a></li>
-		
-        <%-- <li><a href="${login}">Login</a></li>
-        <li><a href="#" id="logoutLink">Logout</a></li> --%>
+
+		<c:url var="farmerDashboard" value="/farmer-dashboard-views/dashboard" />
+		<li><a href="${farmerDashboard}">Farmer Dashboard</a></li>
         
         <c:choose>
 			<c:when test="${empty currentUser}">

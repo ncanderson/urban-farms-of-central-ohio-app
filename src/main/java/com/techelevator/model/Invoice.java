@@ -76,14 +76,4 @@ public class Invoice {
 		this.items = items;
 	}
 	
-	public DollarAmount getTotal(){
-		
-		DollarAmount total = new DollarAmount(0);
-		for(Item item: items){
-			
-			total.plus(item.getPrice());
-		}
-		return total;
-	}
-	
 }

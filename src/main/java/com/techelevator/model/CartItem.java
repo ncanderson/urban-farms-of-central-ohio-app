@@ -19,19 +19,6 @@ public class CartItem {
 	}
 	public void setCrop(Item cropItem) {
 		this.cropItem = cropItem;
-	}
-	public DollarAmount getTotal(){
-		
-		DollarAmount total = new DollarAmount(0);
-		for(int i=0; i<quantity; i++){
-			
-			
-			total = total.plus(cropItem.getPrice());
-		}
-		 
-		return total;
-		
-	}
-	
+	}	
 	
 }

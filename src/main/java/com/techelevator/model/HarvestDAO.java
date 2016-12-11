@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public interface HarvestDAO {
 	
-	public List<Item> getHarvestItemList();
+	public List<HarvestItem> getHarvestItemList();
 	
 	public void addHarvestItem(HarvestItem newHarvestItem);
 	

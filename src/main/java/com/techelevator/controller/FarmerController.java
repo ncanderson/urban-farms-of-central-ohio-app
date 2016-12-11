@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
@@ -47,13 +48,13 @@ public class FarmerController {
 		List<Invoice> pastOrders =  invoiceDAO.getPastOrders();
 		List<Invoice> pendingOrders =  invoiceDAO.getPendingOrders();
 		List<Buyer> buyerList = userDAO.getAllBuyers();			
-		List<Item> harvestItems = harvestDAO.getHarvestItemList();
-		
-		request.setAttribute("harvestItemsList", harvestItems);//TODO push
-		request.setAttribute("buyerList", buyerList);	
-		request.setAttribute("allInvoices", allInvoices);//TODO push 
+		List<HarvestItem> harvestItems = harvestDAO.getHarvestItemList();
+		 
+		request.setAttribute("allInvoices", allInvoices); 
 		request.setAttribute("pastOrders", pastOrders); 
 		request.setAttribute("pendingOrders", pendingOrders);
+		request.setAttribute("buyerList", buyerList);	
+		request.setAttribute("harvestItemsList", harvestItems);
 		
 		return "farmer-dashboard-views/dashboard";
 	}
@@ -82,6 +83,7 @@ public class FarmerController {
 		itemToSave.setAvailability(request.getParameter("harvestAvailability"));
 		itemToSave.setComments(request.getParameter("harvestDetailsParameters"));
 		itemToSave.setFarmerEnteredPickComments(request.getParameter("farmerEnteredPickComments"));
+		itemToSave.setPrice(new BigDecimal(request.getParameter("pricePerPound")));
 		
 //		=============
 //		How will we deal with date? This will just enter the date that the entry is made
@@ -96,7 +98,7 @@ public class FarmerController {
 		
 //		========================
 		
-//		harvestDAO.addHarvestItem(itemToSave);
+		harvestDAO.addHarvestItem(itemToSave);
 		
 //		List<HarvestItem> allHarvestItemsList = harvestDAO.getAllHarvestItems();	
 //		request.setAttribute("allHarvestItemsList", allHarvestItemsList);

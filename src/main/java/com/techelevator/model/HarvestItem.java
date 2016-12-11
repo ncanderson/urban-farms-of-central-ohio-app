@@ -1,5 +1,6 @@
 package com.techelevator.model;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 
 public class HarvestItem {
@@ -11,12 +12,20 @@ public class HarvestItem {
 	private String availability;
 	private String comments;
 	private Date date;
+	private BigDecimal price;
 	private int reconciliationId;
 	private String itemType;
 	private String itemVariety;
 	private String itemImageId;
 	private String itemDescription;
 	private String farmerEnteredPickComments;
+	
+	public BigDecimal getPrice() {
+		return price;
+	}
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
 	
 	public String getFarmerEnteredPickCommments() {
 		return farmerEnteredPickComments;

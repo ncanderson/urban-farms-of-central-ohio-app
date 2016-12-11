@@ -29,32 +29,25 @@ public class JDBCinvoiceDAO implements InvoiceDAO {
 
 		List<Invoice> invoices = new ArrayList<Invoice>();
 		String sqlSelectStatment = "SELECT invoice_id, invoice_date, buyer_name, invoice_status_name, sale_type_name "
-				+ "FROM invoice INNER JOIN sale_type "
-				+ "ON invoice.sale_type_id = sale_type.sale_type_id "
-				+ "INNER JOIN invoice_status "
-				+ "ON invoice_status.invoice_status_id = invoice.invoice_status_id "
-				+ "INNER JOIN buyer_information "
-				+ "ON invoice.buyer_id = buyer_information.buyer_id";
+								   + "FROM invoice INNER JOIN sale_type "
+								   + "ON invoice.sale_type_id = sale_type.sale_type_id "
+								   + "INNER JOIN invoice_status "
+								   + "ON invoice_status.invoice_status_id = invoice.invoice_status_id "
+								   + "INNER JOIN buyer_information "
+								   + "ON invoice.buyer_id = buyer_information.buyer_id";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatment);
 	
-		while(results.next()){	
+		while(results.next()) {	
 
 			Invoice invoice = new Invoice();
-			Timestamp invoiceDate = results.getTimestamp("invoice_date");
-			int invoiceId = results.getInt("invoice_id");
-			String buyerName = results.getString("buyer_name");
-			String status = results.getString("invoice_status_name");
-			String saleType = results.getString("sale_type_name");
-			List<Item>  items = getItemsByInvoiceId(invoiceId);
-			
-			invoice.setInvoiceId(invoiceId);
-			invoice.setBuyerName(buyerName);
-			invoice.setDate(invoiceDate);
+			invoice.setDate(results.getTimestamp("invoice_date"));
+			invoice.setInvoiceId(results.getInt("invoice_id"));
+			invoice.setBuyerName(results.getString("buyer_name"));
+			invoice.setStatus(results.getString("invoice_status_name"));
+			invoice.setSaleType(results.getString("sale_type_name"));
+			List<Item> items = getItemsByInvoiceId(results.getInt("invoice_id"));
 			invoice.setItems(items);
-			invoice.setSaleType(saleType);
-			invoice.setStatus(status);
-			
 			invoices.add(invoice);
 		}
 					
@@ -96,33 +89,28 @@ public class JDBCinvoiceDAO implements InvoiceDAO {
 	
 	
 	private List<Item> getItemsByInvoiceId(int invoiceId) {
-		List<Item> items = new ArrayList<Item>();
 		
-		String sqlSelectStatemnt = "SELECT item_image_id, item_type, item_variety, item_harvest_details.harvest_quantity, item_price.item_price "
-				+ "FROM item "
-				+"INNER JOIN item_harvest_details "
-				+"ON item.item_id = item_harvest_details.item_id "
-				+"INNER JOIN invoice_item "
-				+"ON item_harvest_details.item_harvest_details_id = invoice_item.item_harvest_details_id "
-				+"INNER JOIN item_price "
-				+"ON invoice_item.item_price_id = item_price.item_price_id " 
-				+"WHERE invoice_id = ?";
+		List<Item> items = new ArrayList<Item>();
+
+		String sqlSelectStatemnt = "SELECT item.* "
+								   + "FROM item "
+								   + "INNER JOIN invoice_item ON item.item_id = invoice_item.item_id "
+								   + "INNER JOIN invoice ON invoice.invoice_id = invoice_item.invoice_id "
+								   + "WHERE invoice.invoice_id = ?";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatemnt, invoiceId);
 		
 		while(results.next()){
 			Item item = new Item();
-			item.setHarvestQnty(results.getInt("harvest_quantity"));
-			item.setImageId(results.getString("image_id"));
-			item.setPrice((DollarAmount)results.getObject("price"));
-			item.setType(results.getString("type"));
-			item.setVariety(results.getString("variety"));
+			item.setItemId(results.getInt("item_id"));
+			item.setImageId(results.getString("item_image_id"));
+			item.setType(results.getString("item_type"));
+			item.setVariety(results.getString("item_variety"));
+			item.setDescription(results.getString("item_description"));
+			item.setActive(results.getBoolean("is_active"));
 			
 			items.add(item);
 		}
 		return items;
 	}
-
-	
-
 }

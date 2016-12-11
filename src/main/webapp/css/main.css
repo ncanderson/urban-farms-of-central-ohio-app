@@ -28,4 +28,30 @@ div.container-fluid {
 	padding: 0;
 	overflow: hidden;
 	height: 100%;
+	position: relative;
 }
+
+li > .form-centered-button {
+	display: block;
+	margin: 0 auto;
+	margin-top: 5px;
+}
+
+/* Remove link styling in crop tables */
+div.Rtable-cell a {
+	color: black;	
+}
+
+div.Rtable-cell a:hover {
+	color: #56b2ff;	
+	text-decoration: none;
+}
+
+div.Rtable-cell a img {
+	border: 2px solid #edeff0;
+}
+
+div.Rtable-cell a img:hover {
+	border: 2px solid #56b2ff; 
+}
+

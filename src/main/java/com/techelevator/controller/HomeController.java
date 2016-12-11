@@ -10,8 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.techelevator.model.DollarAmount;
 import com.techelevator.model.HarvestDAO;
+import com.techelevator.model.HarvestItem;
 import com.techelevator.model.Item;
 import com.techelevator.model.ItemDAO;
 import com.techelevator.model.UserDAO;
@@ -44,6 +44,11 @@ public class HomeController {
 	
 	@RequestMapping(path="/anonymous-detail-view", method=RequestMethod.GET)
 	public String getAnonymousDetailView(HttpServletRequest request) {
+		int harvestCropId = Integer.parseInt(request.getParameter("itemId"));
+		
+		HarvestItem detailCrop = harvestDAO.getHarvestItemById(harvestCropId);
+		
+		request.setAttribute("detailCrop", detailCrop);
 		
 		return "anonymous-detail-view";
 	}
@@ -54,7 +59,7 @@ public class HomeController {
 		return "login";
 	}
 	
-	
+	 
 	
 	/**
 	 * FOR TESTING ONLY UNTIL DB COMES ONLINE
@@ -64,39 +69,34 @@ public class HomeController {
 		List<Item> itemList = new ArrayList<Item>();  
 		
 		Item tomato = new Item();
+		tomato.setItemId(0);
 		tomato.setImageId("img/tomato.jpg");
 		tomato.setType("Tomato");
 		tomato.setVariety("Cherry");
-		tomato.setHarvestQnty(20);
-		tomato.setPrice(new DollarAmount(100));
 		
 		Item kale = new Item();
+		kale.setItemId(1);
 		kale.setImageId("img/kale.jpg");
 		kale.setType("Kale");
 		kale.setVariety("");
-		kale.setHarvestQnty(10);
-		kale.setPrice(new DollarAmount(600));
 		
 		Item cucumber = new Item();
+		cucumber.setItemId(2);
 		cucumber.setImageId("img/cucumber.jpg");
 		cucumber.setType("Cucumber");
 		cucumber.setVariety("Pickling");
-		cucumber.setHarvestQnty(50);
-		cucumber.setPrice(new DollarAmount(175));
 		
 		Item arugula = new Item();
+		arugula.setItemId(3);
 		arugula.setImageId("img/arugula.jpg");
 		arugula.setType("Arugula");
 		arugula.setVariety("");
-		arugula.setHarvestQnty(10);
-		arugula.setPrice(new DollarAmount(200));
 		
 		Item lettuce = new Item();
+		lettuce.setItemId(4);
 		lettuce.setImageId("img/lettuce.jpg");
 		lettuce.setType("Lettuce");
 		lettuce.setVariety("Head");
-		lettuce.setHarvestQnty(15);
-		lettuce.setPrice(new DollarAmount(300));
 		
 		itemList.add(tomato);
 		itemList.add(kale);

@@ -17,6 +17,13 @@
   	float: none;
 }
 
+#dashboard-sidebar {
+	height: 100%;
+	position: relative;
+	left: 0;
+	top: 0;
+}
+
 #menu-items .navbar-collapse {
   	text-align: center;
 }

@@ -2,32 +2,31 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-<div class="col-xs-12 col-md-3">
+<div class="col-xs-12 col-md-3" id="dashboard-sidebar">
 	<div class="menu-header">
 		<h3>Menu</h3>
 	</div>
 
-	<div class="navbar" >
+	<div class="navbar">
 		<ul class="nav navbar-nav col-xs-12 col-lg-1" id="menu-items">
 			<li><a href="enterInventory">Create New Order List</a></li>
-			<li>+++++NOT IMPLEMENTED+++++</li>
 			<li><a href="view-pending-orders">View Pending Orders</a></li>
 			<li><a href="view-past-orders">View Past Orders</a></li>
 			<li><a href="update-user-info">View Customer Information</a></li>
-			<li>+++++NOT IMPLEMENTED+++++</li>
 		</ul>
 	</div>
+	
 </div>
 
 <div class="col-xs-12 col-md-9" id="content">
 	<div class="dashboard-item">
 		<h3>Available Inventory</h3>
-		<c:forEach var="item" items="${harvestItems}">
+		<c:forEach var="item" items="${harvestItemsList}">
 			<div class="Rtable Rtable--4cols Rtable--collapse">
-				<div class="Rtable-cell Rtable-cell--head">${item.type}</div>
-				<div class="Rtable-cell">${item.imageId}</div>
-				<div class="Rtable-cell">${item.variety}</div>
-				<div class="Rtable-cell Rtable-cell--foot">${item.price.toString()}</div>
+				<div class="Rtable-cell Rtable-cell--head">${item.itemType}</div>
+				<div class="Rtable-cell">${item.itemVariety}</div>
+				<div class="Rtable-cell">${item.harvestImageId}</div>
+				<div class="Rtable-cell Rtable-cell--foot">(Put price here you turkey)</div>
 			</div>
 		</c:forEach>
 	</div>
@@ -41,7 +40,7 @@
 				<div class="Rtable-cell">${pendingInvoice.saleType}</div>
 				<div class="Rtable-cell">${pendingInvoice.buyerName}</div>
 				<div class="Rtable-cell">${pendingInvoice.status}</div>
-				<div class="Rtable-cell">${pendingInvoice.getTotal()}</div>
+				<%-- <div class="Rtable-cell">${pendingInvoice.getTotal()}</div> --%>
 				<div class="Rtable-cell">${pendingInvoice.price.toString()}</div>
 				<div class="Rtable-cell Rtable-cell--foot">${pendingInvoice.items.size()}</div>
 			</div>
@@ -57,7 +56,7 @@
 				<div class="Rtable-cell">${invoice.saleType}</div>
 				<div class="Rtable-cell">${invoice.buyerName}</div>
 				<div class="Rtable-cell">${invoice.status}</div>
-				<div class="Rtable-cell">${invoice.getTotal()}</div>
+				<%-- <div class="Rtable-cell">${invoice.getTotal()}</div> --%>
 				<div class="Rtable-cell Rtable-cell--foot">${item.price.toString()}</div>
 			</div>
 			

@@ -88,36 +88,26 @@ public class BuyerController {
 		tomato.setImageId("img/tomato.jpg");
 		tomato.setType("Tomato");
 		tomato.setVariety("Cherry");
-		tomato.setHarvestQnty(20);
-		tomato.setPrice(new DollarAmount(100));
 		
 		Item kale = new Item();
 		kale.setImageId("img/kale.jpg");
 		kale.setType("Kale");
 		kale.setVariety("");
-		kale.setHarvestQnty(10);
-		kale.setPrice(new DollarAmount(600));
 		
 		Item cucumber = new Item();
 		cucumber.setImageId("img/cucumber.jpg");
 		cucumber.setType("Cucumber");
 		cucumber.setVariety("Pickling");
-		cucumber.setHarvestQnty(50);
-		cucumber.setPrice(new DollarAmount(175));
 		
 		Item arugula = new Item();
 		arugula.setImageId("img/arugula.jpg");
 		arugula.setType("Arugula");
 		arugula.setVariety("");
-		arugula.setHarvestQnty(10);
-		arugula.setPrice(new DollarAmount(200));
 		
 		Item lettuce = new Item();
 		lettuce.setImageId("img/lettuce.jpg");
 		lettuce.setType("Lettuce");
 		lettuce.setVariety("Head");
-		lettuce.setHarvestQnty(15);
-		lettuce.setPrice(new DollarAmount(300));
 		
 		itemList.add(tomato);
 		itemList.add(kale);

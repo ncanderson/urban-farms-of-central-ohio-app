@@ -8,13 +8,19 @@
 		
 		<div class="center-block">
 			<form method="POST" action="login">
-				<label for="userName">Username: </label>
-				<input type="text" name="userName" /><br />
-				
-				<label for="password">Password: </label>
-				<input type="password" name="password" /><br />
-				
-				<input type="submit" value="Submit" />
+				<ul class="form-flex-outer">
+					<li>
+						<label for="userName">Username: </label>
+						<input type="text" name="userName" /><br />
+					</li>
+					<li>
+						<label for="password">Password: </label>
+						<input type="password" name="password" /><br />
+					</li>
+					<li>
+						<input type="submit" class="form-centered-button" value="Submit" />
+					</li>
+				</ul>
 			</form>
 		</div>
 	
