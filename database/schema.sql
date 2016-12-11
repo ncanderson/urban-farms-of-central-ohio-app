@@ -115,9 +115,16 @@ CREATE TABLE invoice_item (
   update_item_price decimal NULL,
   user_id integer NOT NULL,
   invoice_item_status_id integer NOT NULL REFERENCES invoice_status,
-  item_price_id integer NULL, -- REFERENCES item_price,  not sure how to handle this?
+  invoice_price_override decimal NULL,
   added_to_invoice_date timestamp NOT NULL,
   item_id integer NOT NULL
+);
+
+CREATE TABLE banner_messages (
+  banner_id serial PRIMARY KEY,
+  banner_title varchar(50) NOT NULL,
+  banner_messages varchar(250) NULL,
+  is_active boolean NOT NULL
 );
 
 COMMIT;
