@@ -6785,6 +6785,4 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (6920,53,7,'12/02/2016 00:00:00','3.5');
 INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_quantity, harvest_date, item_price) VALUES (6921,3,10,'12/05/2016 00:00:00','5.5');
 
-ALTER SEQUENCE item_harvest_details_item_harvest_details_id_seq RESTART WITH 7000;
-
 COMMIT;
