@@ -27,7 +27,8 @@ public class JDBCharvestDAO implements HarvestDAO {
 		
 		String sqlSelectAllHarvestItems = "SELECT item.*, item_harvest_details.* "
 									     + "FROM item_harvest_details "
-									     + "INNER JOIN item ON item.item_id = item_harvest_details.item_id";
+									     + "INNER JOIN item ON item.item_id = item_harvest_details.item_id "
+									     + "LIMIT 10";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllHarvestItems);
 
@@ -49,7 +50,7 @@ public class JDBCharvestDAO implements HarvestDAO {
 		
 		String sqlInsertQuery = "INSERT INTO item_harvest_details(item_id, harvest_quantity, harvest_image_id, " 
 								+ "average_size_of_item, harvest_availability, "
-								+ "harvest_details_comments, harvest_date, pick_list_comments, item_price)" 
+								+ "harvest_details_comments, harvest_date, pick_list_comments, item_price) " 
 								+ "VALUES(?,?,?,?,?,?,?,?,?)";
 		
 		jdbcTemplate.update(sqlInsertQuery, itemId, harvestQnty, harvestImageId, averageSize, availability, comments, harvestDate, pickListComments, price);

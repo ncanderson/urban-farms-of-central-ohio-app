@@ -2,30 +2,23 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-<div class="col-xs-12 col-md-3" id="dashboard-sidebar">
-	<div class="menu-header">
-		<h3>Menu</h3>
-	</div>
+<c:import url="farmer-dashboard-sidebar-menu.jsp" />
 
-	<div class="navbar">
-		<ul class="nav navbar-nav col-xs-12 col-lg-1" id="menu-items">
-			<li><a href="enterInventory">Create New Order List</a></li>
-			<li><a href="view-pending-orders">View Pending Orders</a></li>
-			<li><a href="view-past-orders">View Past Orders</a></li>
-			<li><a href="update-user-info">View Customer Information</a></li>
-		</ul>
-	</div>
-	
-</div>
+<c:url var="defaultPhoto" value="/img/default-photo-veggies.jpg" />
 
 <div class="col-xs-12 col-md-9" id="content">
 	<div class="dashboard-item">
-		<h3>Available Inventory</h3>
+		<h3>Available Inventory LIMITING SQL QUERY TO 10 CURRENTLY</h3>
 		<c:forEach var="item" items="${harvestItemsList}">
-			<div class="Rtable Rtable--4cols Rtable--collapse">
+			<div class="Rtable Rtable--5cols Rtable--collapse">
+		        <form action="editInventoryItem?itemId=${item.itemId}" method="GET" class="Rtable-cell Rtable-cell" >
+			        <button type="submit" class="btn btn-default btn-sm">
+			        	<span class="glyphicon glyphicon-edit"></span> Edit
+			        </button>
+		        </form>
 				<div class="Rtable-cell Rtable-cell--head">${item.itemType}</div>
 				<div class="Rtable-cell">${item.itemVariety}</div>
-				<div class="Rtable-cell">${item.harvestImageId}</div>
+				<div class="Rtable-cell"><img src="${defaultPhoto}" alt="default-veggie-photo" id="crop-photo"/></div>
 				<div class="Rtable-cell Rtable-cell--foot">(Put price here you turkey)</div>
 			</div>
 		</c:forEach>
@@ -35,6 +28,9 @@
 		<h3>View All pending orders</h3>
 		<c:forEach var="pendingInvoice" items="${pendingOrders}">
 			<div class="Rtable Rtable--4cols Rtable--collapse">
+				<div class="Rtable-cell Rtable-cell"><button type="button" class="btn btn-default btn-sm">
+		        	<span class="glyphicon glyphicon-edit"></span> Edit
+		        </button></div>
 				<div class="Rtable-cell Rtable-cell--head">${pendingInvoice.invoiceId}</div>
 				<div class="Rtable-cell">${pendingInvoice.date}</div>
 				<div class="Rtable-cell">${pendingInvoice.saleType}</div>
@@ -48,7 +44,7 @@
 	</div>
 
 	<div class="dashboard-item">
-		<h3>View past orders</h3>
+		<h3>View past orders LIMITING SQL QUERY TO 10 CURRENTLY</h3>
 		<c:forEach var="invoice" items="${pastOrders}">
 			<div class="Rtable Rtable--7cols Rtable--collapse">
 				<div class="Rtable-cell Rtable-cell--head">${invoice.invoiceId}</div>

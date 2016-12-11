@@ -56,6 +56,8 @@
 	}
 }
 
-
+#crop-photo {
+	max-width: 130px;
+}
 
 

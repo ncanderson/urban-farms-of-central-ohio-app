@@ -69,7 +69,7 @@ public class FarmerController {
 		return "farmer-dashboard-views/enterInventory";
 	}
 	
-	@RequestMapping(path="/farmer-dashboard-views/enterInventory", method = RequestMethod.POST)
+	@RequestMapping(path="/farmer-dashboard-views/enterInventory", method=RequestMethod.POST)
 	public String addNewOrderItemToDatabasePost(HttpServletRequest request) {
 		
 		HarvestItem itemToSave = new HarvestItem();
@@ -106,9 +106,24 @@ public class FarmerController {
 		return "redirect:/farmer-dashboard-views/enterInventory";
 	}
 	
+	@RequestMapping(path="/editInventoryItem", method=RequestMethod.GET)
+	public String editItemDetails(HttpServletRequest request) {
+		int harvestCropId = Integer.parseInt(request.getParameter("itemId"));
+		
+		HarvestItem detailCrop = harvestDAO.getHarvestItemById(harvestCropId);
+		
+		request.setAttribute("detailCrop", detailCrop);
+		
+		return "farmer-dashboard-views/editInventoryItem";
+	}
 	
-	
-	
+	@RequestMapping(path="/editInventoryItem", method=RequestMethod.POST)
+	public String postEditedItemDetails(HttpServletRequest request) {
+
+//		Implement and update SQL query with the new information from the upate form
+		
+		return "redirect:/farmer-dashboard-views/dashboard";
+	}
 	
 	@RequestMapping(path="/farmer-dashboard-views/view-pending-orders", method=RequestMethod.GET)
 	public String viewPendingOrdersGet(HttpServletRequest request){
