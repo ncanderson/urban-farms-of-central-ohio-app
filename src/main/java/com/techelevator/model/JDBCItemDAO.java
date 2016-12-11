@@ -86,6 +86,7 @@ public class JDBCItemDAO implements ItemDAO {
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement, type, variety);
 		
 		while (results.next()) {
+			cropToFind.setItemId(results.getInt("item_id"));
 			cropToFind.setType(results.getString("item_type"));
 			cropToFind.setVariety(results.getString("item_variety"));
 			cropToFind.setImageId(results.getString("item_image_id"));
