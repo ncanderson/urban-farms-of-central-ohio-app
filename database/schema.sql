@@ -92,7 +92,7 @@ CREATE TABLE harvest_reconciliation (
 );
 
 CREATE TABLE item_harvest_details (
-  item_harvest_details_id serial PRIMARY KEY,
+  item_harvest_details_id serial NOT NULL PRIMARY KEY,	
   item_id integer NOT NULL REFERENCES item,
   harvest_quantity integer NOT NULL,
   harvest_image_id varchar(25) NULL,
