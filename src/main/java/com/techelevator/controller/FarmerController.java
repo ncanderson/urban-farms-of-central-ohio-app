@@ -75,34 +75,25 @@ public class FarmerController {
 		HarvestItem itemToSave = new HarvestItem();
 		
 		itemToSave.setItemId(itemDAO.getCropByTypeAndVariety(request.getParameter("type"), request.getParameter("variety")).getItemId());
-		if (!request.getParameter("harvestImageId").isEmpty()) {
-			itemToSave.setHarvestQnty(Integer.parseInt(request.getParameter("harvestQuantity")));	//CHRISTIAN LOOK AT THIS want to load default image.	
-		}
-		itemToSave.setHarvestImageId(request.getParameter("harvestImageId"));
-		itemToSave.setAverageSize(request.getParameter("averageSizeOfItem"));
-		itemToSave.setAvailability(request.getParameter("harvestAvailability"));
-		itemToSave.setComments(request.getParameter("harvestDetailsParameters"));
-		itemToSave.setFarmerEnteredPickComments(request.getParameter("farmerEnteredPickComments"));
+//		if (!request.getParameter("harvestImageId").isEmpty()) {
+//			itemToSave.setHarvestImageId(GET IMAGE ID FROM THE SELECTED ITEM);	//CHRISTIAN LOOK AT THIS want to load default image.	
+//		}
+		itemToSave.setHarvestQnty(Integer.parseInt(request.getParameter("harvestQuantity")));
+//		itemToSave.setAverageSize(request.getParameter("averageSizeOfItem"));
+//		itemToSave.setAvailability(request.getParameter("harvestAvailability"));
+//		itemToSave.setComments(request.getParameter("harvestDetailsParameters"));
+//		itemToSave.setFarmerEnteredPickComments(request.getParameter("farmerEnteredPickComments"));
 		itemToSave.setPrice(new BigDecimal(request.getParameter("pricePerPound"))); //CHRISTIAN LOOK AT THIS
-		
-//		=============
-//		How will we deal with date? This will just enter the date that the entry is made
-		
-		itemToSave.setDate(Date.valueOf(LocalDate.now()));
 
-//		========================
-		
-//		Convert string to DollarAmount
-//		int temp = Math.round(100 * Float.parseFloat(request.getParameter("price")));//TODO does this work?
-//		DollarAmount price = new DollarAmount(temp);
-		
-//		========================
+		System.out.println(itemToSave.getItemId());
+		System.out.println(itemToSave.getHarvestQnty());
+		System.out.println(itemToSave.getPrice());
 		
 		harvestDAO.addHarvestItem(itemToSave); // CHRISTIAN NOT WORKING RIGHT NOW
 		
-//		List<HarvestItem> allHarvestItemsList = harvestDAO.getAllHarvestItems();	
-//		request.setAttribute("allHarvestItemsList", allHarvestItemsList);
-//		
+		List<HarvestItem> allHarvestItemsList = harvestDAO.getAllHarvestItems();	
+		request.setAttribute("harvestItemsList", allHarvestItemsList);
+
 		return "redirect:/farmer-dashboard-views/enterInventory";
 	}
 	

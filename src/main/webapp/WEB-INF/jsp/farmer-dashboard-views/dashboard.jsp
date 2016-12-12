@@ -8,7 +8,7 @@
 
 <div class="col-xs-12 col-md-9" id="content">
 	<div class="dashboard-item">
-		<h3>Available Inventory LIMITING SQL QUERY TO 10 CURRENTLY</h3>
+		<h3>Available Inventory</h3>
 		<c:forEach var="item" items="${harvestItemsList}">
 			<div class="Rtable Rtable--5cols Rtable--collapse">
 		        <form action="editInventoryItem?itemId=${item.itemId}" method="GET" class="Rtable-cell Rtable-cell" >
