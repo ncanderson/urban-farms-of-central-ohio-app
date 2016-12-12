@@ -75,15 +75,15 @@ public class FarmerController {
 		HarvestItem itemToSave = new HarvestItem();
 		
 		itemToSave.setItemId(itemDAO.getCropByTypeAndVariety(request.getParameter("type"), request.getParameter("variety")).getItemId());
-		if (!request.getParameter("harvestQuantity").isEmpty()) {
-			itemToSave.setHarvestQnty(Integer.parseInt(request.getParameter("harvestQuantity")));			
+		if (!request.getParameter("harvestImageId").isEmpty()) {
+			itemToSave.setHarvestQnty(Integer.parseInt(request.getParameter("harvestQuantity")));	//CHRISTIAN LOOK AT THIS want to load default image.	
 		}
 		itemToSave.setHarvestImageId(request.getParameter("harvestImageId"));
 		itemToSave.setAverageSize(request.getParameter("averageSizeOfItem"));
 		itemToSave.setAvailability(request.getParameter("harvestAvailability"));
 		itemToSave.setComments(request.getParameter("harvestDetailsParameters"));
 		itemToSave.setFarmerEnteredPickComments(request.getParameter("farmerEnteredPickComments"));
-		itemToSave.setPrice(new BigDecimal(request.getParameter("pricePerPound")));
+		itemToSave.setPrice(new BigDecimal(request.getParameter("pricePerPound"))); //CHRISTIAN LOOK AT THIS
 		
 //		=============
 //		How will we deal with date? This will just enter the date that the entry is made
@@ -98,7 +98,7 @@ public class FarmerController {
 		
 //		========================
 		
-		harvestDAO.addHarvestItem(itemToSave);
+		harvestDAO.addHarvestItem(itemToSave); // CHRISTIAN NOT WORKING RIGHT NOW
 		
 //		List<HarvestItem> allHarvestItemsList = harvestDAO.getAllHarvestItems();	
 //		request.setAttribute("allHarvestItemsList", allHarvestItemsList);

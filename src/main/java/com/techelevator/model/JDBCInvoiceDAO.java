@@ -35,7 +35,7 @@ public class JDBCInvoiceDAO implements InvoiceDAO {
 								   + "ON invoice_status.invoice_status_id = invoice.invoice_status_id "
 								   + "INNER JOIN buyer_information "
 								   + "ON invoice.buyer_id = buyer_information.buyer_id "
-								   + "LIMIT 10";
+								   + "WHERE invoice_id > 1300";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatment);
 	
