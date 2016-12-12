@@ -127,7 +127,8 @@ public class JDBCItemDAO implements ItemDAO {
 	public List<String> selectAllUniqueCropsByType() {
 		 
 		String sqlSelectStatement = "SELECT DISTINCT item_type "
-									+ "FROM item";
+									+ "FROM item "
+									+ "ORDER BY item_type";
 		
 		List<String> distinctCropTypes = new ArrayList<String>();
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement);
@@ -136,7 +137,6 @@ public class JDBCItemDAO implements ItemDAO {
 			String itemType = results.getString("item_type");
 			distinctCropTypes.add(itemType);
 		}
-		Collections.sort(distinctCropTypes);
 		return distinctCropTypes;
 	}
 	

@@ -25,6 +25,11 @@
 					<!-- JS will fill this menu out -->
 				</select>
 			</li>
+	   		<li>
+	   			<label for="pricePerPound">Enter price per pound:</label>
+	   			<!-- JS will fill this menu out -->
+	   			<input type="text" name="pricePerPound" id="pricePerPound"/>
+	   		</li>
 			<li>
 				<label for="harvestQuantity">Enter pounds available:</label>
 				<input type="text" name="harvestQuantity" />
@@ -32,10 +37,6 @@
 	   		<li>
 	   			<label for="averageSizeOfItem">Average size of item:</label>
 	   			<input type="text" name="averageSizeOfItem" />	
-	   		</li>
-	   		<li>
-	   			<label for="pricePerPound">Enter price per pound:</label>
-	   			<input type="text" name="pricePerPound" />
 	   		</li>
 		    <li>
 	  			<label for="harvestAvailability">Availability:</label>
@@ -53,6 +54,6 @@
 				<input type="submit" class="form-centered-button" value="Add Item to Harvest Availability" />
 			</li>
 		</ul>
-	</form>
+	</form>	
  </div>       
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

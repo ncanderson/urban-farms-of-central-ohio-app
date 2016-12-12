@@ -66,6 +66,7 @@ public class FarmerController {
 		List<String> distinctCropTypes = itemDAO.selectAllUniqueCropsByType();
 		
 		request.setAttribute("distinctCropTypes", distinctCropTypes);
+		request.setAttribute("firstCropType", distinctCropTypes.get(0));
 		
 		return "farmer-dashboard-views/enterInventory";
 	}
@@ -84,11 +85,9 @@ public class FarmerController {
 //		itemToSave.setAvailability(request.getParameter("harvestAvailability"));
 //		itemToSave.setComments(request.getParameter("harvestDetailsParameters"));
 //		itemToSave.setFarmerEnteredPickComments(request.getParameter("farmerEnteredPickComments"));
-		itemToSave.setPrice(new BigDecimal(request.getParameter("pricePerPound")));
-
-		System.out.println(itemToSave.getItemId());
-		System.out.println(itemToSave.getHarvestQnty());
-		System.out.println(itemToSave.getPrice());
+		String priceString = request.getParameter("pricePerPound").replaceAll("$", "");
+		double convertedPrice = Double.parseDouble(priceString);
+		itemToSave.setPrice(new BigDecimal(convertedPrice));
 		
 		harvestDAO.addHarvestItem(itemToSave); // CHRISTIAN NOT WORKING RIGHT NOW
 		

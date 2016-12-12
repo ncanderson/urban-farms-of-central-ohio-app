@@ -137,8 +137,13 @@ public class JDBCharvestDAO implements HarvestDAO {
 						+ "LIMIT 1";
 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlQuery, itemId);
-
-		return mapResultsToHarvestItemList(results).get(0).getPrice();
+		
+		HarvestItem itemToPrice = new HarvestItem();
+		while (results.next()) {
+			itemToPrice.setPrice(results.getBigDecimal("item_price"));
+		}
+		
+		return itemToPrice.getPrice();
 	}
 
 }
