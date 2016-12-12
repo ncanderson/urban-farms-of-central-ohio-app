@@ -68,6 +68,7 @@ public class FarmerController {
 		List<String> distinctCropTypes = itemDAO.selectAllUniqueCropsByType();
 		
 		request.setAttribute("distinctCropTypes", distinctCropTypes);
+		request.setAttribute("firstCropType", distinctCropTypes.get(0));
 		
 		return "farmer-dashboard-views/enterInventory";
 	}
@@ -86,6 +87,7 @@ public class FarmerController {
 		String dateInput = request.getParameter("harvestEndDate");
 		
 		itemToSave.setHarvestQnty(Integer.parseInt(request.getParameter("harvestQuantity")));
+
 		itemToSave.setAverageSize(request.getParameter("averageSizeOfItem"));
 		itemToSave.setAvailability(request.getParameter("harvestAvailability"));
 		itemToSave.setComments(request.getParameter("harvestDetailsComments"));
@@ -101,6 +103,9 @@ public class FarmerController {
 		System.out.println(itemToSave.getAvailability());
 		System.out.println(itemToSave.getEndDate());
 		
+//		String priceString = request.getParameter("pricePerPound").replaceAll("$", "");
+//		double convertedPrice = Double.parseDouble(priceString);
+//		itemToSave.setPrice(new BigDecimal(convertedPrice));
 		
 		harvestDAO.addHarvestItem(itemToSave);
 		

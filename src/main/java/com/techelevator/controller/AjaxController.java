@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,10 +23,12 @@ import com.techelevator.model.UserDAO;
 public class AjaxController {
 
 	private ItemDAO itemDAO;
+	private HarvestDAO harvestDAO;
 	
 	@Autowired
-	public AjaxController(ItemDAO itemDAO){
+	public AjaxController(ItemDAO itemDAO, HarvestDAO harvestDAO) {
 		this.itemDAO = itemDAO;
+		this.harvestDAO = harvestDAO;
 	}
 	
 	@RequestMapping(path="/farmer-dashboard-views/cropPicker", method = RequestMethod.GET)
@@ -34,5 +37,25 @@ public class AjaxController {
 		return itemsByType;
 	}
 	
+	@RequestMapping(path="/farmer-dashboard-views/noVarietyPriceGetter", method=RequestMethod.GET)
+	public BigDecimal ajaxControllerForRecentPriceWithoutVariety(@RequestParam String cropType) {
+		Item typeNoVariety = itemDAO.getCropByTypeAndVariety(cropType, "");
+		BigDecimal itemPrice = harvestDAO.getCurrentItemPrice(typeNoVariety.getItemId());
+		if (itemPrice == null) {
+			return BigDecimal.valueOf(0.0);
+		}
+		else {
+			return itemPrice;
+		}
+	}
+	
+	@RequestMapping(path="/farmer-dashboard-views/priceGetter", method=RequestMethod.GET)
+	public BigDecimal ajaxControllerForGetMostRecentPrice(@RequestParam String cropType,
+														  @RequestParam String cropVariety) {
+		Item itemSought = itemDAO.getCropByTypeAndVariety(cropType, cropVariety);
+		BigDecimal itemPrice = harvestDAO.getCurrentItemPrice(itemSought.getItemId());
+		return itemPrice;
+	}
 	
 }
+

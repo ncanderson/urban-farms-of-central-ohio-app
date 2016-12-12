@@ -14,6 +14,7 @@
 			<li>
 				<label for="type">Select crop family:</label>
 				<select name="type" id="crop-type">
+				<option selected="selected">Select Crop Family</option>
 					<c:forEach var="cropType" items="${distinctCropTypes}">
 						<option value="${cropType}">${cropType}</option>
 					</c:forEach>
@@ -21,7 +22,8 @@
 			</li>
 			<li id="crop-variety-hidden">
 				<label for="variety">Select crop variety:</label>
-				<select name="variety" id="crop-variety">
+				<select name="variety" id="crop-variety"> 
+					
 					<!-- JS will fill this menu out -->
 				</select>
 			</li>
@@ -33,9 +35,10 @@
 	   			<label for="averageSizeOfItem">Average size of item:</label>
 	   			<input type="text" name="averageSizeOfItem" />	
 	   		</li>
+
 	   		<li>
 	   			<label for="pricePerPound">Enter price per pound:</label>
-	   			<input type="text" name="pricePerPound" />
+	   			<input type="text" name="pricePerPound" id="pricePerPound"/>
 	   		</li>
 
 		    <li>
@@ -58,6 +61,6 @@
 				<input type="submit" class="form-centered-button" value="Add Item to Harvest Availability" />
 			</li>
 		</ul>
-	</form>
+	</form>	
  </div>       
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

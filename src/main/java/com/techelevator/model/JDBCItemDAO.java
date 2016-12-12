@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
+@Transactional
 public class JDBCItemDAO implements ItemDAO {
 
 	private JdbcTemplate jdbcTemplate;
@@ -88,10 +90,14 @@ public class JDBCItemDAO implements ItemDAO {
 	@Override 
 	public Item getCropByTypeAndVariety(String type, String variety) {
 		Item cropToFind = new Item();
+		String sqlSelectStatement; 
 		
-		String sqlSelectStatement = "SELECT * "
-								    + "FROM item "
-								    + "WHERE item_type = ? AND item_variety = ?";
+		if (variety == null) {
+			variety = "";
+		}
+		sqlSelectStatement = "SELECT * "
+				             + "FROM item "
+				             + "WHERE item_type = ? AND item_variety = ?";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement, type, variety);
 		
@@ -121,7 +127,8 @@ public class JDBCItemDAO implements ItemDAO {
 	public List<String> selectAllUniqueCropsByType() {
 		 
 		String sqlSelectStatement = "SELECT DISTINCT item_type "
-									+ "FROM item";
+									+ "FROM item "
+									+ "ORDER BY item_type";
 		
 		List<String> distinctCropTypes = new ArrayList<String>();
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement);
@@ -130,7 +137,6 @@ public class JDBCItemDAO implements ItemDAO {
 			String itemType = results.getString("item_type");
 			distinctCropTypes.add(itemType);
 		}
-		Collections.sort(distinctCropTypes);
 		return distinctCropTypes;
 	}
 	
