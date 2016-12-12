@@ -8,18 +8,29 @@
 
 <div class="col-xs-12 col-md-9" id="content">
 	<div class="dashboard-item">
-		<h3>Available Inventory</h3>
+		<h3>Available Harvest Inventory</h3>
+		<div class="Rtable Rtable--6cols Rtable--collapse">
+			<div class="Rtable-heading"></div>
+			<div class="Rtable-heading">Crop Type</div>
+			<div class="Rtable-heading">Crop Variety</div>
+			<div class="Rtable-heading">Harvest Quantity</div>
+			<div class="Rtable-heading">Sales Price</div>
+			<div class="Rtable-heading"></div>
+		</div>
 		<c:forEach var="item" items="${harvestItemsList}">
-			<div class="Rtable Rtable--5cols Rtable--collapse">
+			<div class="Rtable Rtable--6cols Rtable--collapse">
+		        <div class="Rtable-cell"><img src="${defaultPhoto}" alt="default-veggie-photo" id="crop-photo"/></div>
+		        <div class="Rtable-cell Rtable-cell--head">${item.itemType}</div>
+		        <div class="Rtable-cell">${item.itemVariety}</div>
+		        <div class="Rtable-cell Rtable-cell--foot">${item.harvestQnty}</div>
+		        <div class="Rtable-cell Rtable-cell--foot">$${item.price}</div>
 		        <form action="editInventoryItem?itemId=${item.itemId}" method="GET" class="Rtable-cell Rtable-cell" >
 			        <button type="submit" class="btn btn-default btn-sm">
 			        	<span class="glyphicon glyphicon-edit"></span> Edit
 			        </button>
 		        </form>
-				<div class="Rtable-cell Rtable-cell--head">${item.itemType}</div>
-				<div class="Rtable-cell">${item.itemVariety}</div>
-				<div class="Rtable-cell"><img src="${defaultPhoto}" alt="default-veggie-photo" id="crop-photo"/></div>
-				<div class="Rtable-cell Rtable-cell--foot">${item.harvestItemId} (Put price here you turkey)</div>
+				
+				
 			</div>
 		</c:forEach>
 	</div>

@@ -1,5 +1,6 @@
 package com.techelevator.model;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -16,5 +17,7 @@ public interface HarvestDAO {
 	public HarvestItem getHarvestItemById(int harvestItemId);
 	
 	public List<HarvestItem> getAllHarvestItems();
+	
+	public BigDecimal getCurrentItemPrice(int itemId);
 	
 }

@@ -84,7 +84,7 @@ public class FarmerController {
 //		itemToSave.setAvailability(request.getParameter("harvestAvailability"));
 //		itemToSave.setComments(request.getParameter("harvestDetailsParameters"));
 //		itemToSave.setFarmerEnteredPickComments(request.getParameter("farmerEnteredPickComments"));
-		itemToSave.setPrice(new BigDecimal(request.getParameter("pricePerPound"))); //CHRISTIAN LOOK AT THIS
+		itemToSave.setPrice(new BigDecimal(request.getParameter("pricePerPound")));
 
 		System.out.println(itemToSave.getItemId());
 		System.out.println(itemToSave.getHarvestQnty());
@@ -95,12 +95,12 @@ public class FarmerController {
 		List<HarvestItem> allHarvestItemsList = harvestDAO.getAllHarvestItems();	
 		request.setAttribute("harvestItemsList", allHarvestItemsList);
 
-		return "redirect:/farmer-dashboard-views/enterInventory";
+		return "redirect:/farmer-dashboard-views/dashboard";
 	}
 	
 	@RequestMapping(path="/editInventoryItem", method=RequestMethod.GET)
 	public String editItemDetails(HttpServletRequest request) {
-		int harvestCropId = Integer.parseInt(request.getParameter("itemId"));
+		int harvestCropId = Integer.parseInt(request.getParameter("harvestItemId"));
 		
 		HarvestItem detailCrop = harvestDAO.getHarvestItemById(harvestCropId);
 		

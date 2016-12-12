@@ -50,7 +50,7 @@
 	   			<textarea rows="2" id="farmerEnteredPickComments" placeholder="Pick-list comments"></textarea>
 	   		</li>
 			<li>
-				<input type="submit" class="form-centered-button" value="Add Item to Order" />
+				<input type="submit" class="form-centered-button" value="Add Item to Harvest Availability" />
 			</li>
 		</ul>
 	</form>
