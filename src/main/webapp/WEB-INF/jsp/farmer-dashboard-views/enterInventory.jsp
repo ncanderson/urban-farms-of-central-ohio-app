@@ -7,10 +7,10 @@
 <div class="col-xs-12 col-md-9">
 	<form action="enterInventory" method="POST">
 		<ul class="form-flex-outer">
-			<li>
+<!-- 			<li>
 				<label for="harvestImageId">Enter Image URL:</label>
 				<input type="text" name="harvestImageId" />
-			</li>
+			</li> -->
 			<li>
 				<label for="type">Select crop family:</label>
 				<select name="type" id="crop-type">
@@ -37,17 +37,22 @@
 	   			<label for="pricePerPound">Enter price per pound:</label>
 	   			<input type="text" name="pricePerPound" />
 	   		</li>
+
 		    <li>
 	  			<label for="harvestAvailability">Availability:</label>
-	  			<textarea rows="2" id="harvestAvailability" placeholder="Enter crop availability"></textarea>
+	  			<textarea rows="2" id="harvestAvailability" placeholder="Enter crop availability" name="harvestAvailability"></textarea>
+	   		</li>
+	   		<li>
+	  			<label for="harvestAvailability">End Availability On:</label>
+	  			<input type="date" placeholder="mm/dd/yyy" name="harvestEndDate"/>
 	   		</li>
 	   		<li>
 	   			<label for="harvestDetailsComments">Message:</label>
-	   			<textarea rows="2" id="harvestDetailsComments" placeholder="Notes about the crop"></textarea>
+	   			<textarea rows="2" id="harvestDetailsComments" placeholder="Notes about the crop" name="harvestDetailsComments" ></textarea>
 	   		</li>
 	   		<li>
 	   			<label for="farmerEnteredPickComments">Pick List Comments:</label>
-	   			<textarea rows="2" id="farmerEnteredPickComments" placeholder="Pick-list comments"></textarea>
+	   			<textarea rows="2" id="farmerEnteredPickComments" placeholder="Pick-list comments" name="farmerEnteredPickComments" ></textarea>
 	   		</li>
 			<li>
 				<input type="submit" class="form-centered-button" value="Add Item to Harvest Availability" />

@@ -1,6 +1,8 @@
 package com.techelevator.model;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -41,19 +43,27 @@ public class JDBCharvestDAO implements HarvestDAO {
 		int itemId = newHarvestItem.getItemId();
 		int harvestQnty = newHarvestItem.getHarvestQnty();
 //		String harvestImageId = newHarvestItem.getHarvestImageId();
-//		String averageSize = newHarvestItem.getAverageSize();
-//		String availability = newHarvestItem.getAvailability();
-//		String comments = newHarvestItem.getComments();
-//		Date harvestDate = newHarvestItem.getDate();
-//		String pickListComments = newHarvestItem.getFarmerEnteredPickCommments();
+		String averageSize = newHarvestItem.getAverageSize();
+		String availability = newHarvestItem.getAvailability();
+		String comments = newHarvestItem.getComments();
+	//	Date harvestDate = newHarvestItem.getDate();
+		String pickListComments = newHarvestItem.getFarmerEnteredPickCommments();
 		BigDecimal price = newHarvestItem.getPrice();
+		LocalDate endDate = newHarvestItem.getEndDate();
 		
+		System.out.println("JDBCharvestDAO");
 		System.out.println(itemId);
 		System.out.println(harvestQnty);
 		System.out.println(price);
+		System.out.println(comments);
+		System.out.println(availability);
+		System.out.println(endDate);
 		
-		String sqlInsertQuery = "INSERT INTO item_harvest_details(item_id, harvest_quantity, item_price) "
-								+ "VALUES(?, ?, ?)";
+		
+		String sqlInsertQuery = "INSERT INTO item_harvest_details"
+								+ "(item_id, harvest_quantity, average_size_of_item, harvest_availability, "
+								+ "harvest_details_comments, pick_list_comments, item_price, harvest_end_date) "
+								+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 	
 		
 //		String sqlInsertQuery = "INSERT INTO item_harvest_details(item_id, harvest_quantity, harvest_image_id, " 
@@ -62,7 +72,7 @@ public class JDBCharvestDAO implements HarvestDAO {
 //								+ "VALUES(?,?,?,?,?,?,?,?,?)";
 		
 //		jdbcTemplate.update(sqlInsertQuery, itemId, harvestQnty, harvestImageId, averageSize, availability, comments, harvestDate, pickListComments, price);
-		jdbcTemplate.update(sqlInsertQuery, itemId, harvestQnty, price);		
+		jdbcTemplate.update(sqlInsertQuery, itemId, harvestQnty, averageSize, availability, comments, pickListComments, price);		
 	}
 	
 	@Override
