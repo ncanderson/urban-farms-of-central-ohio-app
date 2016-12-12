@@ -64,8 +64,6 @@ public class JDBCItemDAO implements ItemDAO {
 		
 		String sqlSelectStatement = "SELECT item_image_id, item_type, item.item_id, item_variety, item_price, harvest_quantity "
 									+"FROM item "
-									+"INNER JOIN item_price "
-									+"ON item.item_id = item_price.item_id "
 									+"INNER JOIN item_harvest_details "
 									+"ON item.item_id = item_harvest_details.item_id "
 									+"WHERE item.item_id = ?"; 
@@ -73,6 +71,18 @@ public class JDBCItemDAO implements ItemDAO {
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement, id);
 		
 		return mapResultsToItemList(results).get(0);
+	}
+	
+	@Override
+	public Item getAdminCropById(int id) {
+		
+		String sqlSelectStatement = "SELECT  item_type, item_variety, item_description, is_active "
+									+"FROM item "
+									+"WHERE item.item_id = ?"; 
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatement, id);
+		
+		return mapResultsToAdminEditItem(results);
 	}
 	
 	@Override 
@@ -149,13 +159,30 @@ public class JDBCItemDAO implements ItemDAO {
 	@Override
 	public List<Item> getAllActiveCrops() {
 		// TODO Auto-generated method stub
-		return null;
+		
+		String sqlSelectStatment = "SELECT  item_id, item_image_id, item_type, item_variety "
+									+"FROM item "
+									+"WHERE item.is_active= true"; 
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatment);
+		
+		List<Item> activeCrops = new ArrayList<Item>();
+		while(results.next()){
+			Item item = new Item();
+			item.setItemId((results.getInt("item_id")));
+			item.setImageId(results.getString("item_image_id"));
+			item.setType(results.getString("item_type"));
+			item.setVariety(results.getString("item_variety"));
+
+			activeCrops.add(item);
+		}
+		return activeCrops;
 	}
 	
 	@Override
 	public void updateItem(Item item, int itemId) {
 		
-		String sqlInsertStatment = "UPDATE item SET item-type = ?, item-variety = ?, item-description = ?, is-active ?) WHERE item_id = ?;";
+		String sqlInsertStatment = "UPDATE item SET item_type = ?, item_variety = ?, item_description = ?, is_active = ? WHERE item_id = ?";
 		jdbcTemplate.update(sqlInsertStatment, item.getType(), item.getVariety(), item.getDescription(), item.isActive(), itemId);
 		
 	}
@@ -176,7 +203,21 @@ public class JDBCItemDAO implements ItemDAO {
 		}		
 		return allCrops;
 	}
+	
+	private Item mapResultsToAdminEditItem(SqlRowSet results){
+		
+		Item item = new Item();
 
+		while(results.next()){
+			
+			item.setType(results.getString("item_type"));
+			item.setVariety(results.getString("item_variety"));
+			item.setDescription(results.getString("item_description"));
+			item.setActive(Boolean.valueOf(results.getString("is_active")));
+		}
+		
+		return item;	
+	}
 	
 
 	
