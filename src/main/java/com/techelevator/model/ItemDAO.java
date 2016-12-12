@@ -12,6 +12,8 @@ public interface ItemDAO {
 	
 	public Item getCropById(int id);
 	
+	public Item getAdminCropById(int id);
+	
 	public Item getCropByTypeAndVariety(String type, String variety);
 
 	public List<Item> allCropsInDatabase();

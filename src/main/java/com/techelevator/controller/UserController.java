@@ -71,7 +71,8 @@ public class UserController {
 		item.setVariety(request.getParameter("itemVariety"));
 		item.setDescription(request.getParameter("itemDescription"));
 		item.setActive(Boolean.valueOf(request.getParameter("itemIsActive")));
-
+		//TODO get season start end dates
+		
 		itemDAO.updateItem(item, itemId); 
 		return "admin/admin-items-view";
 	}
@@ -80,7 +81,7 @@ public class UserController {
 	public String adminEditItemDetails(HttpServletRequest request){
 			
 		int itemId = Integer.parseInt(request.getParameter("itemId"));
-		request.setAttribute("item", itemDAO.getCropById(itemId));
+		request.setAttribute("item", itemDAO.getAdminCropById(itemId));
 
 		
 		return "admin/admin-edit-item-details";
