@@ -48,8 +48,12 @@ public class JDBCharvestDAO implements HarvestDAO {
 //		String pickListComments = newHarvestItem.getFarmerEnteredPickCommments();
 		BigDecimal price = newHarvestItem.getPrice();
 		
-		String sqlInsertQuery = "INSERT INTO item_harvest_details(item_id, harvest_quantity, item_price, harvest_date) "
-								+ "VALUES(?, ?, ?, NOW())";
+		System.out.println(itemId);
+		System.out.println(harvestQnty);
+		System.out.println(price);
+		
+		String sqlInsertQuery = "INSERT INTO item_harvest_details(item_id, harvest_quantity, item_price) "
+								+ "VALUES(?, ?, ?)";
 	
 		
 //		String sqlInsertQuery = "INSERT INTO item_harvest_details(item_id, harvest_quantity, harvest_image_id, " 
@@ -83,9 +87,7 @@ public class JDBCharvestDAO implements HarvestDAO {
 		String sqlQuery = "SELECT * " 
 				  		  + "FROM item_harvest_details "
 				  		  + "INNER JOIN item " 
-				  		  + "ON item_harvest_details.item_id = item.item_id " 
-				  		  + "INNER JOIN item_price "
-				  		  + "ON item_harvest_details.item_id = item_price.item_id ";
+				  		  + "ON item_harvest_details.item_id = item.item_id";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlQuery);
 		
