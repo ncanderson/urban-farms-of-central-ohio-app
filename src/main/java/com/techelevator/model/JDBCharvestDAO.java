@@ -28,7 +28,7 @@ public class JDBCharvestDAO implements HarvestDAO {
 		String sqlSelectAllHarvestItems = "SELECT item.*, item_harvest_details.* "
 										+ "FROM item_harvest_details "
 										+ "INNER JOIN item ON item.item_id = item_harvest_details.item_id "
-										+ "WHERE item_harvest_details_id > 6920"; //remove when application is sorting correctly
+										+ "WHERE harvest_quantity > 0";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllHarvestItems);
 
@@ -110,6 +110,7 @@ public class JDBCharvestDAO implements HarvestDAO {
 			foundItem.setItemType(results.getString("item_type"));
 			foundItem.setItemVariety(results.getString("item_variety"));
 			foundItem.setItemDescription(results.getString("item_description"));
+			foundItem.setPrice(results.getBigDecimal("item_price"));
 			
 //			Implement the following in the DB
 //			foundItem.setFarmerEnteredPickComments(results.getString("harvest_details_picking_comments"));
@@ -125,6 +126,19 @@ public class JDBCharvestDAO implements HarvestDAO {
 		}
 		
 		return harvestItemResults;
+	}
+
+	@Override
+	public BigDecimal getCurrentItemPrice(int itemId) {
+		String sqlQuery = "SELECT item_price, harvest_date "
+						+ "FROM item_harvest_details "
+						+ "WHERE item_id = ? "
+						+ "ORDER BY harvest_date desc "
+						+ "LIMIT 1";
+
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlQuery, itemId);
+
+		return mapResultsToHarvestItemList(results).get(0).getPrice();
 	}
 
 }
