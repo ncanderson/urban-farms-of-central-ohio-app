@@ -19,7 +19,7 @@
 				<div class="Rtable-cell Rtable-cell--head">${item.itemType}</div>
 				<div class="Rtable-cell">${item.itemVariety}</div>
 				<div class="Rtable-cell"><img src="${defaultPhoto}" alt="default-veggie-photo" id="crop-photo"/></div>
-				<div class="Rtable-cell Rtable-cell--foot">(Put price here you turkey)</div>
+				<div class="Rtable-cell Rtable-cell--foot">${item.harvestItemId} (Put price here you turkey)</div>
 			</div>
 		</c:forEach>
 	</div>

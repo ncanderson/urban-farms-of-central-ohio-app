@@ -99,7 +99,7 @@ CREATE TABLE item_harvest_details (
   average_size_of_item varchar(100) NULL,
   harvest_availability varchar(150) NULL,
   harvest_details_comments varchar(150) NULL,
-  harvest_date timestamp NOT NULL,
+  harvest_date timestamp NOT NULL DEFAULT NOW(),
   item_price decimal NOT NULL,
   harvest_end_date timestamp NULL,
   pick_list_comments varchar(250) NULL,
