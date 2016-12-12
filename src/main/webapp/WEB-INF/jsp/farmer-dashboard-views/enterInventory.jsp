@@ -44,10 +44,6 @@
 				<label for="harvestQuantity">Enter pounds available:</label>
 				<input type="text" name="harvestQuantity" />
 			</li>	
-			<li>
-				<label for="price">Enter price per pound:</label>
-				<input type="text" name="price" />
-			</li>
 	   		<li>
 	   			<label for="averageSizeOfItem">Average size of item:</label>
 	   			<input type="text" name="averageSizeOfItem" />	
