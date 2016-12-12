@@ -22,14 +22,14 @@ $(document).ready(function() {
             dataType: "json"
         })
         .done(function(data) {
+        	$("#crop-variety").empty();
             $.each(data, function(index, cropType) {
             	var option = document.createElement("option");
             	$(option).attr("value", cropType.variety);
             	$(option).text(cropType.variety);
                 $("#crop-variety").append(option);
             });
-            
-            console.log(data);
+           
         })
         .fail(function(xhr, status, error) {
             console.log(error);
