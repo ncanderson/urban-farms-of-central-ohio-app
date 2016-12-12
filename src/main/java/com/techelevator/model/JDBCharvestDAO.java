@@ -28,7 +28,7 @@ public class JDBCharvestDAO implements HarvestDAO {
 		String sqlSelectAllHarvestItems = "SELECT item.*, item_harvest_details.* "
 										+ "FROM item_harvest_details "
 										+ "INNER JOIN item ON item.item_id = item_harvest_details.item_id "
-										+ "WHERE item_harvest_details_id > 6920"; //remove when application is sorting correctly
+										+ "WHERE harvest_quantity > 0"; //remove when application is sorting correctly
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllHarvestItems);
 
