@@ -30,7 +30,8 @@ public class JDBCharvestDAO implements HarvestDAO {
 		String sqlSelectAllHarvestItems = "SELECT item.*, item_harvest_details.* "
 										+ "FROM item_harvest_details "
 										+ "INNER JOIN item ON item.item_id = item_harvest_details.item_id "
-										+ "WHERE harvest_quantity > 0";
+										+ "WHERE harvest_quantity > 0"
+										+ "LIMIT 50";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllHarvestItems);
 
@@ -128,8 +129,8 @@ public class JDBCharvestDAO implements HarvestDAO {
 			// Set image ID to default if one is not provided to database
 			
 			foundItem.setHarvestImageId(results.getString("harvest_image_id"));
-			if (results.getString("harvest_image_id") == null) {
-				foundItem.setHarvestImageId(results.getString("item_image_id"));				
+			if (foundItem.getHarvestImageId() == null || foundItem.getHarvestImageId().equals("")) {
+				foundItem.setHarvestImageId("default-photo-veggies.jpg");				
 			}
 			
 			harvestItemResults.add(foundItem);

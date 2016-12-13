@@ -93,7 +93,7 @@ public class FarmerController {
 		itemToSave.setComments(request.getParameter("harvestDetailsComments"));
 		itemToSave.setFarmerEnteredPickComments(request.getParameter("farmerEnteredPickComments"));
 		itemToSave.setPrice(new BigDecimal(request.getParameter("pricePerPound")));
-		itemToSave.setEndDate(LocalDate.parse(dateInput, formatter));
+//		itemToSave.setEndDate(LocalDate.parse(dateInput, formatter));
 
 		System.out.println("FarmerController");
 		System.out.println(itemToSave.getItemId());
@@ -101,7 +101,7 @@ public class FarmerController {
 		System.out.println(itemToSave.getPrice());
 		System.out.println(itemToSave.getComments());
 		System.out.println(itemToSave.getAvailability());
-		System.out.println(itemToSave.getEndDate());
+//		System.out.println(itemToSave.getEndDate());
 		
 //		String priceString = request.getParameter("pricePerPound").replaceAll("$", "");
 //		double convertedPrice = Double.parseDouble(priceString);

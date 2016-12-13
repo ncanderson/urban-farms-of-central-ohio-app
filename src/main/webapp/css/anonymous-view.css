@@ -19,6 +19,9 @@
 	.hiddenSmall {
   		display: none; 
   	}
+  	#main-page-menu-header {
+  		display: none;
+  	}
   	.Rtable--collapse > .Rtable-cell {
 		width: 100% !important;
 	}
