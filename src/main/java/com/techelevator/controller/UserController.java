@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.techelevator.model.Buyer;
 import com.techelevator.model.DollarAmount;
 import com.techelevator.model.HarvestDAO;
+import com.techelevator.model.HarvestItem;
 import com.techelevator.model.Invoice;
 import com.techelevator.model.InvoiceDAO;
 import com.techelevator.model.Item;
@@ -90,13 +91,37 @@ public class UserController {
 		
 		return "admin/admin-edit-item-details";
 	}
+	
 	@RequestMapping(path="/admin/admin-all-farmers-view", method=RequestMethod.GET)
-	public String adminAddUserView(HttpServletRequest request){
+	public String adminAddUserViewGet(HttpServletRequest request){
 			
 		List<User> allFarmers = userDAO.getAllFarmers();
 		request.setAttribute("allFarmers", allFarmers);
 		
 		return "admin/admin-all-farmers-view";
+	}
+	
+	@RequestMapping(path="/admin/admin-all-farmers-view", method=RequestMethod.POST)
+	public String adminAddUserViewPost(HttpServletRequest request){
+			
+		//TODO updated edited farmer
+		
+		List<User> allFarmers = userDAO.getAllFarmers();
+		request.setAttribute("allFarmers", allFarmers);
+		
+		return "admin/admin-all-farmers-view";
+	}
+	
+	@RequestMapping(path="/admin/admin-edit-farmer-view", method=RequestMethod.GET)
+	public String adminEditFarmer(HttpServletRequest request){
+			
+		int farmerId = Integer.parseInt(request.getParameter("userID"));
+		
+		User farmer = userDAO.getUserById(farmerId);
+		
+		request.setAttribute("farmer", farmer);
+				
+		return "admin/admin-edit-farmer-view";
 	}
 
 }

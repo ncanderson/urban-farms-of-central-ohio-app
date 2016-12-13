@@ -11,5 +11,7 @@ public interface UserDAO {
 	public List<Buyer> getAllBuyers();
 	
 	public List<User> getAllFarmers();
+	
+	public User getUserById(int id);
 
 }

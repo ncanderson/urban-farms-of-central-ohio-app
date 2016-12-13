@@ -11,7 +11,7 @@
 		<div class="Rtable-cell">
 			<h3> ${item.type}</h3>
 			<label for="itemType">Enter Item Type</label>
-			<input type="text" name="itemTyper" />
+			<input type="text" name="itemType" />
    		</div>
 		<div class="Rtable-cell">
 			<h3> ${item.variety}</h3>

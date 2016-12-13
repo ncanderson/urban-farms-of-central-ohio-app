@@ -5,7 +5,21 @@
 <title>Admin Add User</title>
 </head>
 <body>
-
+	
+	<div>
+		<c:forEach var="user" items="${allFarmers}">
+						
+				<div><h3>${user.firstName} ${user.lastName}</h3></div>
+				<div><h3>${user.email}</h3></div>
+				<div><h3>${user.active}</h3></div>
+				<c:url var="userDetails" value="admin-edit-farmer-view?userID=${user.userID}" />
+				<div><a href=${userDetails }>Edit Farmer Details</a></div>
+			
+		</c:forEach>  			     
+	</div>
+	
+	<c:url var="addFarmer" value="admin-add-new-farmer"/>
+	<div><a href=${addFarmer }>Add New Farmer</a></div>
 
 
 

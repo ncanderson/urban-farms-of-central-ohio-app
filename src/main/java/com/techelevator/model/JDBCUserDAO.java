@@ -126,10 +126,23 @@ public class JDBCUserDAO implements UserDAO {
 							
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatment);
 		
-		return mapResultsToFarmer(results);
+		return mapResultsToFarmerList(results);
 	}
 	
-	private List<User> mapResultsToFarmer(SqlRowSet results){
+	
+	@Override
+	public User getUserById(int id) {
+
+		String sqlSelectStatment = "SELECT user_id, email, first_name, last_name, user_phone_number, is_global_admin, is_admin, is_active "
+				   + "from users "
+				   + "WHERE user_id = ?";
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatment, id);
+
+		return mapRowToFarmer(results);
+	}
+	
+	private List<User> mapResultsToFarmerList(SqlRowSet results){
 		
 		List<User> allFarmers = new ArrayList<User>();
 		
@@ -151,6 +164,27 @@ public class JDBCUserDAO implements UserDAO {
 		return allFarmers;
 	}
 	
+	private User mapRowToFarmer(SqlRowSet results){
+		
+		User user = new User();
+		while(results.next()){
+			
+			user.setUserID(results.getInt("user_id"));
+			user.setEmail(results.getString("email"));
+			user.setFirstName(results.getString("first_name"));
+			user.setLastName(results.getString("last_name"));
+			user.setPhoneNumber(results.getString("user_phone_number"));
+			user.setGlobalAdmin(Boolean.valueOf(results.getString("is_global_admin")));
+			user.setAdmin(Boolean.valueOf(results.getString("is_admin")));
+			user.setActive(Boolean.valueOf(results.getString("is_active")));
+			
+		}
+		
+		return user;
+	}
+	
+	
+	
 	private Type type;
 	private int userID;
 	private String email;
@@ -160,6 +194,8 @@ public class JDBCUserDAO implements UserDAO {
 	private boolean isGlobalAdmin;
 	private boolean isAdmin;
 	private boolean isActive;
+
+	
 
 
 }
