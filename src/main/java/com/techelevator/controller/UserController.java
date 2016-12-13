@@ -63,8 +63,8 @@ public class UserController {
 		return "admin/admin-items-view";
 	}
 	
-	@RequestMapping(path="admin/admin-items-view", method=RequestMethod.POST)
-	public String adminItemViewPost(HttpServletRequest request){
+	@RequestMapping(path="admin/admin-items-view-update", method=RequestMethod.POST)
+	public String adminItemViewUpdatePost(HttpServletRequest request){
 		
 		Item item = new Item();
 		int itemId = Integer.parseInt(request.getParameter("itemId"));
@@ -79,7 +79,25 @@ public class UserController {
 	
 		
 		itemDAO.updateItem(item, itemId); 
-		return "admin/admin-items-view";
+		return "redirect:/admin/admin-items-view";
+	}
+	
+	@RequestMapping(path="admin/admin-items-view-insert", method=RequestMethod.POST)
+	public String adminItemViewInsertPost(HttpServletRequest request){
+		
+		Item item = new Item();
+		
+		item.setType(request.getParameter("itemType"));
+		item.setVariety(request.getParameter("itemVariety"));
+		item.setDescription(request.getParameter("itemDescription"));
+		item.setActive(Boolean.valueOf(request.getParameter("itemIsActive")));
+		//TODO get season start end dates
+		itemDAO.addNewItem(item); 
+		
+		List<Item> activeCrops = itemDAO.getAllActiveCrops();
+		request.setAttribute("activeCrops", activeCrops);
+	
+		return "redirect:/admin/admin-items-view";
 	}
 	
 	@RequestMapping(path="admin/admin-edit-item-details", method=RequestMethod.GET)
@@ -87,9 +105,15 @@ public class UserController {
 			
 		int itemId = Integer.parseInt(request.getParameter("itemId"));
 		request.setAttribute("item", itemDAO.getAdminCropById(itemId));
-
 		
 		return "admin/admin-edit-item-details";
+	}
+	
+	@RequestMapping(path="admin/admin-add-new-item", method=RequestMethod.GET)
+	public String adminAddNewItem(HttpServletRequest request){
+			
+		
+		return "admin/admin-add-new-item";
 	}
 	
 	@RequestMapping(path="/admin/admin-all-farmers-view", method=RequestMethod.GET)
@@ -105,11 +129,21 @@ public class UserController {
 	public String adminAddUserViewPost(HttpServletRequest request){
 			
 		//TODO updated edited farmer
+		User user = new User();
+		int userId = Integer.parseInt(request.getParameter("userID"));
+   		
+		user.setFirstName(request.getParameter("firstName"));
+		user.setLastName(request.getParameter("lastName"));
+		user.setEmail(request.getParameter("email"));
+		user.setPhoneNumber(request.getParameter("phoneNumber"));
+		user.setActive(Boolean.valueOf(request.getParameter("farmerIsActive")));
+		
+		userDAO.updateFarmer(user, userId);
 		
 		List<User> allFarmers = userDAO.getAllFarmers();
 		request.setAttribute("allFarmers", allFarmers);
 		
-		return "admin/admin-all-farmers-view";
+		return "redirect:/admin/admin-all-farmers-view";
 	}
 	
 	@RequestMapping(path="/admin/admin-edit-farmer-view", method=RequestMethod.GET)

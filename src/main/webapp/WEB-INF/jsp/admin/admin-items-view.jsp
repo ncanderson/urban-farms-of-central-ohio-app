@@ -21,8 +21,8 @@
 		</c:forEach>  			     
 	</div>
 	
-	<c:url var="itemDetails" value="admin-edit-item-details?itemId=${item.itemId}" />
-	<div><a href=${itemDetails }>Edit Item Details</a></div>
+	<c:url var="addNewItem" value="admin-add-new-item" />
+	<div><a href=${addNewItem }>Add New Item</a></div>
 
  
 

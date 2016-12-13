@@ -2,37 +2,37 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-<title>Edit Item Details</title>
+<title>Add new Item</title>
 </head>
 <body>
-	
-	<form action="admin-items-view-update" method="POST">
-		<input type="hidden" name="itemId" value="${item.itemId}"/>
+	  
+	<form action="admin-items-view-insert" method="POST">
+		
 		<div class="Rtable-cell">
-			<h3> ${item.type}</h3>
-			<label for="itemType">Enter Item Type</label>
+			
+			<h3><label for="itemType">Type</label></h3>
 			<input type="text" name="itemType" />
    		</div>
 		<div class="Rtable-cell">
-			<h3> ${item.variety}</h3>
-			<label for="itemVariety">Enter Item Variety</label>
+			
+			<h3><label for="itemVariety">Variety</label></h3>
 			<input type="text" name="itemVariety" />
    		</div>
    		<div class="Rtable-cell">
-			<h3> ${item.description}</h3>
-			<label for="itemDescription">Enter Item Description</label>
+			
+			<h3><label for="itemDescription">Description</label></h3>
 			<textarea rows="4" name="itemDescription">Enter Item Description</textarea>   		
 		</div>
 		 <div class="Rtable-cell">
-			<h3> ${item.active}</h3>
-			<label for="itemIsActive">Is Active</label>
+			
+			<h3><label for="itemIsActive">Is Active</label></h3>
 			<select name="itemIsActive">
 		        <option value="true">True</option>
 		        <option value="false">False</option>
 		    </select>
    		</div> 
    		<div>
-   			<h3>This Div for seasons input</h3><!-- seasons -->
+   			<h3>This Div for seasons input</h3><!-- seasons  -->
    		</div>
 		<div class="Rtable-cell">
 		
@@ -41,10 +41,9 @@
 		</div>
 		<input type="submit" value="Save" />
 	</form>
-	
-	
-	
 
 
-<c:import url="/WEB-INF/jsp/common/footer.jsp" />		<label for="harvestImageId">Enter Image URL:</label>
-		
+
+
+
+<c:import url="/WEB-INF/jsp/common/footer.jsp" />

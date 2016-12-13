@@ -142,6 +142,16 @@ public class JDBCUserDAO implements UserDAO {
 		return mapRowToFarmer(results);
 	}
 	
+	@Override
+	public Void updateFarmer(User farmer, int userId) {
+		
+		String sqlUpdateStatement = "UPDATE users SET email = ?, first_name = ?, last_name = ?, user_phone_number = ?, is_active =? WHERE user_id = ?";
+		
+		jdbcTemplate.update(sqlUpdateStatement, farmer.getEmail(), farmer.getFirstName(), farmer.getLastName(), farmer.getPhoneNumber(), farmer.isActive(), userId);
+		
+		return null;
+	}
+	
 	private List<User> mapResultsToFarmerList(SqlRowSet results){
 		
 		List<User> allFarmers = new ArrayList<User>();
@@ -194,6 +204,8 @@ public class JDBCUserDAO implements UserDAO {
 	private boolean isGlobalAdmin;
 	private boolean isAdmin;
 	private boolean isActive;
+
+	
 
 	
 

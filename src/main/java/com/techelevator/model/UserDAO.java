@@ -13,5 +13,7 @@ public interface UserDAO {
 	public List<User> getAllFarmers();
 	
 	public User getUserById(int id);
+	
+	public Void updateFarmer(User farmer, int userId);
 
 }

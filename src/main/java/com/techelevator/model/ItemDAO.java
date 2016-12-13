@@ -25,5 +25,7 @@ public interface ItemDAO {
 	public List<Item> getAllActiveCrops();
 	
 	public void updateItem(Item item, int itemId);
+	
+	public void addNewItem(Item item);
 
 }
