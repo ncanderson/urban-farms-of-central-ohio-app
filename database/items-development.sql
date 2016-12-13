@@ -135,4 +135,6 @@ INSERT INTO item (item_id, item_type, item_variety, item_description, is_active)
 INSERT INTO item (item_id, item_type, item_variety, item_description, is_active) VALUES (133,'Turnips','Hakurei','Largest only (golf ball size)','true'); 
 INSERT INTO item (item_id, item_type, item_variety, item_description, is_active) VALUES (134,'Winter Squash','','','true');
 
+ALTER SEQUENCE items_development_item_id_seq RESTART WITH 135;
+
 COMMIT;

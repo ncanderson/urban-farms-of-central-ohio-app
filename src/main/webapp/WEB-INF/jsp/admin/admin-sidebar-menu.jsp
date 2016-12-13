@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <div class="col-xs-12 col-md-3" id="dashboard-sidebar">
     <div class="menu-header">
         <h3>Menu</h3>
