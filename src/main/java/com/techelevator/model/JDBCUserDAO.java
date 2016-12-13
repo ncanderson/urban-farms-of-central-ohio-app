@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import com.techelevator.model.User.Type;
 import com.techelevator.security.PasswordHasher;
 
 @Component
@@ -113,6 +114,52 @@ public class JDBCUserDAO implements UserDAO {
 		}
 		return buyerList;
 	}
+
+	@Override
+	public List<User> getAllFarmers() {
+		
+		
+		
+		String sqlSelectStatment = "SELECT user_id, email, first_name, last_name, user_phone_number, is_global_admin, is_admin, is_active "
+								   + "from users "
+								   + "WHERE user_type = 1";
+							
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatment);
+		
+		return mapResultsToFarmer(results);
+	}
+	
+	private List<User> mapResultsToFarmer(SqlRowSet results){
+		
+		List<User> allFarmers = new ArrayList<User>();
+		
+		while(results.next()){
+			
+			User user = new User();
+			user.setUserID(results.getInt("user_id"));
+			user.setEmail(results.getString("email"));
+			user.setFirstName(results.getString("first_name"));
+			user.setLastName(results.getString("last_name"));
+			user.setPhoneNumber(results.getString("user_phone_number"));
+			user.setGlobalAdmin(Boolean.valueOf(results.getString("is_global_admin")));
+			user.setAdmin(Boolean.valueOf(results.getString("is_admin")));
+			user.setActive(Boolean.valueOf(results.getString("is_active")));
+			
+			allFarmers.add(user);
+		}
+		
+		return allFarmers;
+	}
+	
+	private Type type;
+	private int userID;
+	private String email;
+	private String firstName;
+	private String lastName;
+	private String phoneNumber;
+	private boolean isGlobalAdmin;
+	private boolean isAdmin;
+	private boolean isActive;
 
 
 }
