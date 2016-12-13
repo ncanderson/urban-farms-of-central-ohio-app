@@ -41,30 +41,7 @@ public class ShoppingCartController {
 		this.invoiceDAO = invoiceDAO;
 	}
 	
-	
-//	@RequestMapping(path="/available-crops", method=RequestMethod.GET)
-//	public String availableCropsGet(HttpServletRequest request) {
-//		
-//		List<Item> availableCrops = itemDAO.allAvailableCropsList();
-//
-//		request.setAttribute("availableCrops", availableCrops);
-//		
-//		
-//		return "available-crops";
-//	}
-//	
-//	@RequestMapping(path="/available-crops", method=RequestMethod.POST)
-//	public String availableCropsPost(HttpServletRequest request) {
-//		
-//		List<Item> availableCrops = itemDAO.allAvailableCropsList();
-//
-//		request.setAttribute("availableCrops", availableCrops);
-//		
-//		
-//		return "redirect:/available-crops";
-//	}
-	
-	@RequestMapping(path="/customer-views/crop-item-details", method=RequestMethod.GET)
+	@RequestMapping(path="/customer-views/shopping-cart", method=RequestMethod.GET)
 	public String cropDetailsGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		try {
 			System.out.println("GET");

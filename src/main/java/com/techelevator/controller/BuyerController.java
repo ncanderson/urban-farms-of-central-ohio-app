@@ -1,6 +1,5 @@
 package com.techelevator.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,10 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.techelevator.model.DollarAmount;
 import com.techelevator.model.HarvestDAO;
+import com.techelevator.model.HarvestItem;
 import com.techelevator.model.InvoiceDAO;
-import com.techelevator.model.Item;
 import com.techelevator.model.ItemDAO;
 import com.techelevator.model.UserDAO;
 
@@ -38,11 +36,23 @@ public class BuyerController {
 	@RequestMapping(path="/customer-views/current-inventory", method=RequestMethod.GET)
 	public String showCurrentInventoryGet(HttpServletRequest request){
 		
-		List<Item> allAvailableCrops = itemDAO.allAvailableCropsList();
+		List<HarvestItem> allAvailableCrops = harvestDAO.getHarvestItemList();
 		
-		request.setAttribute("availableCrops",  allAvailableCrops);
+		request.setAttribute("harvestItemsList", allAvailableCrops);
 		
 		return "customer-views/current-inventory";
+	}
+	
+	@RequestMapping(path="/customer-views/crop-item-details", method=RequestMethod.GET)
+	public String showItemDetailView(HttpServletRequest request) {
+		
+		int harvestItemId = Integer.parseInt(request.getParameter("harvestItemId"));
+		
+		HarvestItem detailCrop = harvestDAO.getHarvestItemById(harvestItemId);
+		
+		request.setAttribute("detailCrop", detailCrop);
+		
+		return "customer-views/crop-item-details";
 	}
 	
 	@RequestMapping(path="/customer-views/order-completion", method=RequestMethod.GET)

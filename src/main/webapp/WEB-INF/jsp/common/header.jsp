@@ -82,6 +82,9 @@
 		<c:url var="farmerDashboard" value="/farmer-dashboard-views/dashboard" />
 		<li><a href="${farmerDashboard}">Farmer Dashboard</a></li>
         
+        <c:url var="buyerCurrentInventory" value="/customer-views/current-inventory" />
+        <li><a href="${buyerCurrentInventory}">Buyer Current Inventory </a></li>
+        
         <c:choose>
 			<c:when test="${empty currentUser}">
 				<c:url var="loginHref" value="/login" />
