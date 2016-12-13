@@ -5,8 +5,8 @@
 
 <title>Admin main</title>
 
-	<div class="">
-	<c:import url="/WEB-INF/jsp/farmer-dashboard-views/farmer-dashboard-sidebar-menu.jsp" />
+	<div class="jumbotron">
+	
 	<h2>Admin Options</h2>
 		<div class="span2" >
 			<div>
