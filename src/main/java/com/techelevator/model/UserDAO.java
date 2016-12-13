@@ -14,6 +14,8 @@ public interface UserDAO {
 	
 	public User getUserById(int id);
 	
-	public Void updateFarmer(User farmer, int userId);
+	public void updateFarmer(User farmer, int userId);
+	
+	public void addNewFarmer(User user);
 
 }

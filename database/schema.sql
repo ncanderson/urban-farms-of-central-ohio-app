@@ -5,7 +5,7 @@
 BEGIN;
 
 CREATE TABLE buyer_information (
-  buyer_id serial PRIMARY KEY,
+  buyer_id serial NOT NULL PRIMARY KEY,
   buyer_name varchar(80) NOT NULL,    -- Name of the buyer
   address1 varchar(50) NULL,      	  -- Address first line
   address2 varchar(50) NULL,      	  -- Address second line
@@ -22,32 +22,32 @@ CREATE TABLE buyer_information (
 );
 
 CREATE TABLE credentials (
-  credentials_id serial PRIMARY KEY,
+  credentials_id serial NOT NULL PRIMARY KEY,
   password varchar(24) NOT NULL,
   salt varchar(172) NOT NULL
 );
 
 CREATE TABLE contact_preference_type (
-  contact_preference_type_id serial PRIMARY KEY,
+  contact_preference_type_id serial NOT NULL PRIMARY KEY,
   contact_preference_type_name varchar(6) NOT NULL,
   contact_preference_type_description varchar(150) NULL
 );
 
 CREATE TABLE sale_type (
-  sale_type_id serial PRIMARY KEY,
+  sale_type_id serial NOT NULL PRIMARY KEY,
   sale_type_name varchar(25) NOT NULL,
   sale_type_description varchar(150) NULL
 );
 
 CREATE TABLE invoice_status (
-  invoice_status_id serial PRIMARY KEY,
+  invoice_status_id serial NOT NULL  PRIMARY KEY,
   invoice_status_name varchar(25) NOT NULL,
   invoice_status_description varchar(150) NULL
 );
 
 -- all users have a type 1) admin, 2) farmer, 3) buyer
 CREATE TABLE users (
-  user_id serial PRIMARY KEY,
+  user_id serial NOT NULL PRIMARY KEY,
   email varchar(100) NOT NULL, -- email is username 
   user_type integer NOT NULL,
   buyer_id integer NULL REFERENCES buyer_information,
@@ -62,7 +62,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE item (
-  item_id serial PRIMARY KEY,
+  item_id serial NOT NULL PRIMARY KEY,
   item_type varchar(25) NOT NULL,
   item_variety varchar(25) NULL,
   item_image_id varchar(50) NULL,
@@ -77,7 +77,7 @@ CREATE TABLE item (
 );
 
 CREATE TABLE invoice (
-  invoice_id serial PRIMARY KEY,
+  invoice_id serial NOT NULL PRIMARY KEY,
   invoice_date timestamp NOT NULL,
   user_id integer NOT NULL REFERENCES users,
   buyer_id integer NOT NULL REFERENCES buyer_information,
@@ -86,7 +86,7 @@ CREATE TABLE invoice (
 );
 
 CREATE TABLE harvest_reconciliation (
-  harvest_reconciliation_id serial PRIMARY KEY,
+  harvest_reconciliation_id serial NOT NULL PRIMARY KEY,
   harvest_reconciliation_name varchar(25) NOT NULL,
   harvest_reconciliation_description varchar(250) NULL
 );
@@ -108,7 +108,7 @@ CREATE TABLE item_harvest_details (
 );
 
 CREATE TABLE invoice_item (
-  invoice_item_id serial PRIMARY KEY,
+  invoice_item_id serial NOT NULL PRIMARY KEY,
   invoice_id integer NOT NULL REFERENCES invoice,
   invoice_quantity integer NOT NULL,
   item_harvest_details_id integer NOT NULL REFERENCES item_harvest_details,
