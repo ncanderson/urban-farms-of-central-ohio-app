@@ -23,12 +23,11 @@
 		</c:forEach>
 	</div>
 	
-</div>
 
-<c:url var="addNewItem" value="admin-add-new-item" />
-    <div><a href=${addNewItem }>Add New Item</a></div>
+	<c:url var="addNewItem" value="admin-add-new-item" />
+	<div><a href=${addNewItem }>Add New Item</a></div>
             
 </div>
-            
+</div>         
             
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
