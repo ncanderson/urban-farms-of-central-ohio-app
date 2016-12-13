@@ -29,7 +29,7 @@ public class HarvestItem {
 		this.price = price;
 	}
 	
-	public String getFarmerEnteredPickCommments() {
+	public String getFarmerEnteredPickComments() {
 		return farmerEnteredPickComments;
 	}
 	public void setFarmerEnteredPickComments(String farmerEnteredPickComments) {

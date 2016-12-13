@@ -47,33 +47,16 @@ public class JDBCharvestDAO implements HarvestDAO {
 		String averageSize = newHarvestItem.getAverageSize();
 		String availability = newHarvestItem.getAvailability();
 		String comments = newHarvestItem.getComments();
-	//	Date harvestDate = newHarvestItem.getDate();
-		String pickListComments = newHarvestItem.getFarmerEnteredPickCommments();
+		String pickListComments = newHarvestItem.getFarmerEnteredPickComments();
 		BigDecimal price = newHarvestItem.getPrice();
 		LocalDate endDate = newHarvestItem.getEndDate();
-		
-		System.out.println("JDBCharvestDAO");
-		System.out.println(itemId);
-		System.out.println(harvestQnty);
-		System.out.println(price);
-		System.out.println(comments);
-		System.out.println(availability);
-		System.out.println(endDate);
-		
 		
 		String sqlInsertQuery = "INSERT INTO item_harvest_details"
 								+ "(item_id, harvest_quantity, average_size_of_item, harvest_availability, "
 								+ "harvest_details_comments, pick_list_comments, item_price, harvest_end_date) "
 								+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
-	
-		
-//		String sqlInsertQuery = "INSERT INTO item_harvest_details(item_id, harvest_quantity, harvest_image_id, " 
-//								+ "average_size_of_item, harvest_availability, "
-//								+ "harvest_details_comments, harvest_date, pick_list_comments, item_price)" 
-//								+ "VALUES(?,?,?,?,?,?,?,?,?)";
-		
-//		jdbcTemplate.update(sqlInsertQuery, itemId, harvestQnty, harvestImageId, averageSize, availability, comments, harvestDate, pickListComments, price);
-		jdbcTemplate.update(sqlInsertQuery, itemId, harvestQnty, averageSize, availability, comments, pickListComments, price);		
+
+		jdbcTemplate.update(sqlInsertQuery, itemId, harvestQnty, averageSize, availability, comments, pickListComments, price, endDate);		
 	}
 	
 	@Override
@@ -120,11 +103,7 @@ public class JDBCharvestDAO implements HarvestDAO {
 			foundItem.setItemVariety(results.getString("item_variety"));
 			foundItem.setItemDescription(results.getString("item_description"));
 			foundItem.setPrice(results.getBigDecimal("item_price"));
-			
-//			Implement the following in the DB
-//			foundItem.setFarmerEnteredPickComments(results.getString("harvest_details_picking_comments"));
-			
-			// Set image ID to default if one is not provided to database
+			foundItem.setFarmerEnteredPickComments(results.getString("pick_list_comments"));
 			
 			foundItem.setHarvestImageId(results.getString("harvest_image_id"));
 			if (foundItem.getHarvestImageId() == null || foundItem.getHarvestImageId().equals("")) {

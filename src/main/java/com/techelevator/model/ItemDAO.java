@@ -20,6 +20,8 @@ public interface ItemDAO {
 
 	public List<String> selectAllUniqueCropsByType();
 	
+	public List<String> selectAllVarietiesByCropType(String type);
+	
 	public List<Item> findAllCropsByType(String chosenType);
 
 	public List<Item> getAllActiveCrops();

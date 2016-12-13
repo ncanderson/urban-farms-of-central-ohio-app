@@ -20,7 +20,6 @@ import com.techelevator.model.UserDAO;
 public class HomeController {
 	
 	private HarvestDAO harvestDAO;
-	private ItemDAO itemDAO;
 	private UserDAO userDAO;
 	
 	@Autowired

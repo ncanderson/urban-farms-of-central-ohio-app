@@ -13,11 +13,11 @@
 				<label for="harvestImageId">Enter Image URL:</label>
 				<input type="text" name="harvestImageId" value="${detailCrop.harvestImageId}" />
 			</li>
-			
 			<!-- Allow to change type/variety? -->
-<%-- 			<li>
+			<li>
 				<label for="type">Select crop family:</label>
 				<select name="type" id="crop-type">
+					<option value="${detailCrop.itemType}">${detailCrop.itemType}</option>
 					<c:forEach var="cropType" items="${distinctCropTypes}">
 						<option value="${cropType}">${cropType}</option>
 					</c:forEach>
@@ -26,16 +26,21 @@
 			<li id="crop-variety-hidden">
 				<label for="variety">Select crop variety:</label>
 				<select name="variety" id="crop-variety">
-					<!-- JS will fill this menu out -->
+					<option value="${detailCrop.itemVariety}">${detailCrop.itemVariety}</option>
+					<c:forEach var="variety" items="${varietiesOfSelectedType}">
+						<c:if test="${variety != detailCrop.itemVariety}">
+							<option value="${variety}">${variety}</option>						
+						</c:if>
+					</c:forEach>
 				</select>
-			</li> --%>
+			</li>
 			<li>
 				<label for="harvestQuantity">Enter pounds available:</label>
 				<input type="text" name="harvestQuantity" value="${detailCrop.harvestQnty}"/>
 			</li>	
 			<li>
 				<label for="price">Enter price per pound:</label>
-				<input type="text" name="price" value="${detailCrop.price}"/>
+				<input type="text" name="price" value="$${detailCrop.price}"/>
 			</li>
 	   		<li>
 	   			<label for="averageSizeOfItem">Average size of item:</label>
@@ -61,4 +66,3 @@
  </div>       
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
             
-<c:import url="/WEB-INF/jsp/common/footer.jsp" />
