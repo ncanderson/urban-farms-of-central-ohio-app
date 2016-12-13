@@ -125,8 +125,8 @@ public class UserController {
 		return "admin/admin-all-farmers-view";
 	}
 	
-	@RequestMapping(path="/admin/admin-all-farmers-view", method=RequestMethod.POST)
-	public String adminAddUserViewPost(HttpServletRequest request){
+	@RequestMapping(path="/admin/admin-all-farmers-view-update", method=RequestMethod.POST)
+	public String adminAddUserViewPostUpdate(HttpServletRequest request){
 			
 		//TODO updated edited farmer
 		User user = new User();
@@ -146,6 +146,26 @@ public class UserController {
 		return "redirect:/admin/admin-all-farmers-view";
 	}
 	
+	@RequestMapping(path="/admin/admin-all-farmers-view-insert", method=RequestMethod.POST)
+	public String adminAddUserViewPostInsert(HttpServletRequest request){
+			
+		//TODO updated edited farmer
+		User user = new User();
+		
+		user.setFirstName(request.getParameter("firstName"));
+		user.setLastName(request.getParameter("lastName"));
+		user.setEmail(request.getParameter("email"));
+		user.setPhoneNumber(request.getParameter("phoneNumber"));
+		user.setActive(Boolean.valueOf(request.getParameter("farmerIsActive")));
+		
+		userDAO.addNewFarmer(user);
+		
+		List<User> allFarmers = userDAO.getAllFarmers();
+		request.setAttribute("allFarmers", allFarmers);
+		
+		return "redirect:/admin/admin-all-farmers-view";
+	}
+	
 	@RequestMapping(path="/admin/admin-edit-farmer-view", method=RequestMethod.GET)
 	public String adminEditFarmer(HttpServletRequest request){
 			
@@ -156,6 +176,14 @@ public class UserController {
 		request.setAttribute("farmer", farmer);
 				
 		return "admin/admin-edit-farmer-view";
+	}
+	
+	@RequestMapping(path="admin/admin-add-new-farmer", method=RequestMethod.GET)
+	public String adminAddNewFarmer(HttpServletRequest request){
+			
+
+		
+		return "admin/admin-add-new-farmer";
 	}
 
 }

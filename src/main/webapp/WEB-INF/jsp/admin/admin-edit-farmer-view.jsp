@@ -6,7 +6,7 @@
 </head>
 <body>
 	
-<form action="admin-all-farmers" method="POST">
+<form action="admin-all-farmers-update" method="POST">
 		<input type="hidden" name="userID" value="${farmer.userID }"/>
 		<div class="Rtable-cell">
 			<h3> ${farmer.firstName}</h3>
