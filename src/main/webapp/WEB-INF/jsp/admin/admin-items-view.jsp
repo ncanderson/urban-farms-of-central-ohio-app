@@ -4,8 +4,9 @@
 <c:import url="/WEB-INF/jsp/admin/admin-sidebar-menu.jsp" />
 
 <div>
-<c:url var="addNewItem" value="admin-add-new-item" />
-    <div><a href=${addNewItem }>Add New Item</a></div>
+    
+    <c:url var="addNewItem" value="/admin-add-new-item" />
+	<a href="${addNewItem }" type="button" class="btn btn-primary wide-button">Add New Item</a>
 
 <c:url var="defaultPhoto" value="/img/default-photo-veggies.jpg" />
 

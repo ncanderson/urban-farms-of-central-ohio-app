@@ -45,7 +45,7 @@ CREATE TABLE invoice_status (
   invoice_status_description varchar(150) NULL
 );
 
--- all users have a type 1) admin, 2) farmer, 3) buyer
+-- all users have a type 0) admin, 1) farmer, 2) buyer
 CREATE TABLE users (
   user_id serial NOT NULL PRIMARY KEY,
   email varchar(100) NOT NULL, -- email is username 
