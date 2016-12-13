@@ -1,6 +1,8 @@
 package com.techelevator.model;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -28,7 +30,7 @@ public class JDBCharvestDAO implements HarvestDAO {
 		String sqlSelectAllHarvestItems = "SELECT item.*, item_harvest_details.* "
 										+ "FROM item_harvest_details "
 										+ "INNER JOIN item ON item.item_id = item_harvest_details.item_id "
-										+ "WHERE harvest_quantity > 0"; //remove when application is sorting correctly
+										+ "WHERE harvest_quantity > 0";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllHarvestItems);
 
@@ -41,19 +43,27 @@ public class JDBCharvestDAO implements HarvestDAO {
 		int itemId = newHarvestItem.getItemId();
 		int harvestQnty = newHarvestItem.getHarvestQnty();
 //		String harvestImageId = newHarvestItem.getHarvestImageId();
-//		String averageSize = newHarvestItem.getAverageSize();
-//		String availability = newHarvestItem.getAvailability();
-//		String comments = newHarvestItem.getComments();
-//		Date harvestDate = newHarvestItem.getDate();
-//		String pickListComments = newHarvestItem.getFarmerEnteredPickCommments();
+		String averageSize = newHarvestItem.getAverageSize();
+		String availability = newHarvestItem.getAvailability();
+		String comments = newHarvestItem.getComments();
+	//	Date harvestDate = newHarvestItem.getDate();
+		String pickListComments = newHarvestItem.getFarmerEnteredPickCommments();
 		BigDecimal price = newHarvestItem.getPrice();
+		LocalDate endDate = newHarvestItem.getEndDate();
 		
+		System.out.println("JDBCharvestDAO");
 		System.out.println(itemId);
 		System.out.println(harvestQnty);
 		System.out.println(price);
+		System.out.println(comments);
+		System.out.println(availability);
+		System.out.println(endDate);
 		
-		String sqlInsertQuery = "INSERT INTO item_harvest_details(item_id, harvest_quantity, item_price) "
-								+ "VALUES(?, ?, ?)";
+		
+		String sqlInsertQuery = "INSERT INTO item_harvest_details"
+								+ "(item_id, harvest_quantity, average_size_of_item, harvest_availability, "
+								+ "harvest_details_comments, pick_list_comments, item_price, harvest_end_date) "
+								+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 	
 		
 //		String sqlInsertQuery = "INSERT INTO item_harvest_details(item_id, harvest_quantity, harvest_image_id, " 
@@ -62,7 +72,7 @@ public class JDBCharvestDAO implements HarvestDAO {
 //								+ "VALUES(?,?,?,?,?,?,?,?,?)";
 		
 //		jdbcTemplate.update(sqlInsertQuery, itemId, harvestQnty, harvestImageId, averageSize, availability, comments, harvestDate, pickListComments, price);
-		jdbcTemplate.update(sqlInsertQuery, itemId, harvestQnty, price);		
+		jdbcTemplate.update(sqlInsertQuery, itemId, harvestQnty, averageSize, availability, comments, pickListComments, price);		
 	}
 	
 	@Override
@@ -110,6 +120,7 @@ public class JDBCharvestDAO implements HarvestDAO {
 			foundItem.setItemType(results.getString("item_type"));
 			foundItem.setItemVariety(results.getString("item_variety"));
 			foundItem.setItemDescription(results.getString("item_description"));
+			foundItem.setPrice(results.getBigDecimal("item_price"));
 			
 //			Implement the following in the DB
 //			foundItem.setFarmerEnteredPickComments(results.getString("harvest_details_picking_comments"));
@@ -125,6 +136,24 @@ public class JDBCharvestDAO implements HarvestDAO {
 		}
 		
 		return harvestItemResults;
+	}
+
+	@Override
+	public BigDecimal getCurrentItemPrice(int itemId) {
+		String sqlQuery = "SELECT item_price, harvest_date "
+						+ "FROM item_harvest_details "
+						+ "WHERE item_id = ? "
+						+ "ORDER BY harvest_date desc "
+						+ "LIMIT 1";
+
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlQuery, itemId);
+		
+		HarvestItem itemToPrice = new HarvestItem();
+		while (results.next()) {
+			itemToPrice.setPrice(results.getBigDecimal("item_price"));
+		}
+		
+		return itemToPrice.getPrice();
 	}
 
 }

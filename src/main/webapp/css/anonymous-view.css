@@ -53,7 +53,23 @@
 	list-style: none;
 	border: solid 3px white;
 	background: fade(slategrey,20%);
+	text-align: center;
 	h1, > h2, > h3, > h4, > h5, > h6 { margin: 0; }
+}
+
+.Rtable-heading {
+	box-sizing: border-box;
+	flex-grow: 1;
+	width: 25%;
+	padding: 0.8em 1.2em;
+	overflow: hidden;
+	list-style: none;
+	background: fade(slategrey,20%);
+	text-align: center;
+	margin: 0 0 -3em 0;
+	
+	h1, > h2, > h3, > h4, > h5, > h6 { margin: 0; };
+	
 }
 
 .Rtable--2cols > .Rtable-cell {
@@ -66,6 +82,10 @@
 
 .Rtable--5cols > .Rtable-cell {
 	width: 20%;
+}
+
+.Rtable--6cols > .Rtable-cell, .Rtable-heading {
+	width: 16.6%;
 }
 
 .Rtable--7cols > .Rtable-cell  { 

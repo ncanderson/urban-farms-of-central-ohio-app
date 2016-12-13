@@ -2,6 +2,7 @@ package com.techelevator.model;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class HarvestItem {
 	private int harvestItemId;
@@ -19,6 +20,7 @@ public class HarvestItem {
 	private String itemImageId;
 	private String itemDescription;
 	private String farmerEnteredPickComments;
+	private LocalDate endDate;
 	
 	public BigDecimal getPrice() {
 		return price;
@@ -110,6 +112,12 @@ public class HarvestItem {
 	}
 	public void setReconciliationId(int reconciliationId) {
 		this.reconciliationId = reconciliationId;
+	}
+	public LocalDate getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(LocalDate endDate) {
+		this.endDate = endDate;
 	}
 		
 }
