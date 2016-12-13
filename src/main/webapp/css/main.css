@@ -56,6 +56,23 @@ div.Rtable-cell a img:hover {
 	border: 2px solid #56b2ff; 
 }
 
+/* ++++++++++++++++++++++++++++++++++
+			ADMIN VIEW
+++++++++++++++++++++++++++++++++++ */
+
 .wide-button {
 	width: 25%;
 }
+#admin-image {
+	
+}
+
+
+
+
+
+
+/* Red border around everything for viewing */
+/* * {
+	border: 1px solid red;
+} */
