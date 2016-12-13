@@ -5,10 +5,10 @@
 <title>Add new Farmer</title>
 </head>
 <body>
+<h1>*****This form is not complete******</h1>
+<h3>*****missing temp password, salt, credentials_id******</h3>
 
-
-
-<form action="admin-all-farmers-insert" method="POST">
+<form action="admin-all-farmers-view-insert" method="POST">
 		
 		<div class="Rtable-cell">
 			
@@ -23,7 +23,7 @@
    		<div class="Rtable-cell">
 			
 			<h3><label for="email">Enter Email</label></h3>
-			<input type="text" name="email" />s  		
+			<input type="text" name="email" />		
 		</div>
 		<div class="Rtable-cell">
 			
@@ -49,20 +49,5 @@
    		<!--  TODO  password and mobile/work phone select -->
 		<input type="submit" value="Save" />
 	</form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

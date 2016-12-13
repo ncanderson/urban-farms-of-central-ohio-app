@@ -153,9 +153,9 @@ public class JDBCUserDAO implements UserDAO {
 	
 	@Override
 	public void addNewFarmer(User user) {
-		
-		String sqlInsertStatement = "INSERT INTO users (first_name, last_name, user_type, user_phone_number, is_global_admin, is_admin, is_active) VALUES (?, ?, ?, ?, ?, ?, ?)";
-		jdbcTemplate.update(sqlInsertStatement, user.getFirstName(), user.getLastName(), 1, user.getPhoneNumber(), false, user.isAdmin(), user.isActive());
+		//TODO this method needs work, password, salt, credentials_id
+		String sqlInsertStatement = "INSERT INTO users (first_name, last_name, email, user_type, user_phone_number, is_global_admin, is_admin, is_active) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		jdbcTemplate.update(sqlInsertStatement, user.getFirstName(), user.getLastName(), user.getEmail(), 1, user.getPhoneNumber(), false, user.isAdmin(), user.isActive());
 		
 	}
 	
