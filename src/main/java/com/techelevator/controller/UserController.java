@@ -157,6 +157,7 @@ public class UserController {
 		user.setEmail(request.getParameter("email"));
 		user.setPhoneNumber(request.getParameter("phoneNumber"));
 		user.setActive(Boolean.valueOf(request.getParameter("farmerIsActive")));
+		user.setAdmin(Boolean.valueOf(request.getParameter("farmerIsAdmin")));
 		
 		userDAO.addNewFarmer(user);
 		

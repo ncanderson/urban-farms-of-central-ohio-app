@@ -32,7 +32,7 @@
 		</div>
 		 <div class="Rtable-cell">
 			
-			<h3><label for="farmerIsAdmin">Is Active</label></h3>
+			<h3><label for="farmerIsAdmin">Is Admin</label></h3>
 			<select name="farmerIsAdmin">
 		        <option value="true">True</option>
 		        <option value="false">False</option>
