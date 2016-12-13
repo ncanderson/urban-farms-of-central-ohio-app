@@ -7,10 +7,10 @@
 <div class="col-xs-12 col-md-9">
 	<form action="enterInventory" method="POST">
 		<ul class="form-flex-outer">
-<!-- 			<li>
+			<li>
 				<label for="harvestImageId">Enter Image URL:</label>
 				<input type="text" name="harvestImageId" />
-			</li> -->
+			</li>
 			<li>
 				<label for="type">Select crop family:</label>
 				<select name="type" id="crop-type">
@@ -23,7 +23,6 @@
 			<li id="crop-variety-hidden">
 				<label for="variety">Select crop variety:</label>
 				<select name="variety" id="crop-variety"> 
-					
 					<!-- JS will fill this menu out -->
 				</select>
 			</li>
@@ -35,7 +34,6 @@
 	   			<label for="averageSizeOfItem">Average size of item:</label>
 	   			<input type="text" name="averageSizeOfItem" />	
 	   		</li>
-
 	   		<li>
 	   			<label for="pricePerPound">Enter price per pound:</label>
 	   			<input type="text" name="pricePerPound" id="pricePerPound"/>
@@ -46,8 +44,8 @@
 	  			<textarea rows="2" id="harvestAvailability" placeholder="Enter crop availability" name="harvestAvailability"></textarea>
 	   		</li>
 	   		<li>
-	  			<label for="harvestAvailability">End Availability On:</label>
-	  			<input type="date" placeholder="mm/dd/yyy" name="harvestEndDate"/>
+	  			<label for="harvestEndDate">End Availability On:</label>
+	  			<input type="date" placeholder="dd/MM/yyyy" name="harvestEndDate"/>
 	   		</li>
 	   		<li>
 	   			<label for="harvestDetailsComments">Message:</label>

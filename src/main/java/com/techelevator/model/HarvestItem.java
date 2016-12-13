@@ -12,7 +12,7 @@ public class HarvestItem {
 	private String averageSize;
 	private String availability;
 	private String comments;
-	private Date date;
+	private Date dateAdded;
 	private BigDecimal price;
 	private int reconciliationId;
 	private String itemType;
@@ -29,7 +29,7 @@ public class HarvestItem {
 		this.price = price;
 	}
 	
-	public String getFarmerEnteredPickCommments() {
+	public String getFarmerEnteredPickComments() {
 		return farmerEnteredPickComments;
 	}
 	public void setFarmerEnteredPickComments(String farmerEnteredPickComments) {
@@ -101,11 +101,11 @@ public class HarvestItem {
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
-	public Date getDate() {
-		return date;
+	public Date getDateAdded() {
+		return dateAdded;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDateAdded(Date date) {
+		this.dateAdded = date;
 	}
 	public int getReconciliationId() {
 		return reconciliationId;

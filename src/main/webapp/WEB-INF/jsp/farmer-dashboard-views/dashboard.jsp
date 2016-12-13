@@ -24,13 +24,12 @@
 		        <div class="Rtable-cell">${item.itemVariety}</div>
 		        <div class="Rtable-cell Rtable-cell--foot">${item.harvestQnty}</div>
 		        <div class="Rtable-cell Rtable-cell--foot">$${item.price}</div>
-		        <form action="editInventoryItem?itemId=${item.itemId}" method="GET" class="Rtable-cell Rtable-cell" >
+		        <form action="editInventoryItem" method="GET" class="Rtable-cell Rtable-cell" >
 			        <button type="submit" class="btn btn-default btn-sm">
 			        	<span class="glyphicon glyphicon-edit"></span> Edit
 			        </button>
+			        <input type="hidden" name="harvestItemId" value="${item.harvestItemId}" />
 		        </form>
-				
-				
 			</div>
 		</c:forEach>
 	</div>

@@ -124,6 +124,7 @@ public class UserController {
 		
 		return "admin/admin-all-farmers-view";
 	}
+
 	
 	@RequestMapping(path="/admin/admin-all-farmers-view", method=RequestMethod.POST)
 	public String adminAddUserViewPost(HttpServletRequest request){
@@ -146,15 +147,4 @@ public class UserController {
 		return "redirect:/admin/admin-all-farmers-view";
 	}
 	
-	@RequestMapping(path="/admin/admin-edit-farmer-view", method=RequestMethod.GET)
-	public String adminEditFarmer(HttpServletRequest request){
-			
-		int farmerId = Integer.parseInt(request.getParameter("userID"));
-		
-		User farmer = userDAO.getUserById(farmerId);
-		
-		request.setAttribute("farmer", farmer);
-				
-		return "admin/admin-edit-farmer-view";
-	}
 }
