@@ -83,8 +83,6 @@ public class JDBCharvestDAO implements HarvestDAO {
 						  + "FROM item_harvest_details "
 						  + "INNER JOIN item " 
 						  + "ON item_harvest_details.item_id = item.item_id " 
-						  + "INNER JOIN item_price "
-						  + "ON item_harvest_details.item_id = item_price.item_id "
 						  + "WHERE item_harvest_details_id = ?";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlQuery, harvestItemId);
@@ -116,7 +114,7 @@ public class JDBCharvestDAO implements HarvestDAO {
 			foundItem.setAverageSize(results.getString("average_size_of_item"));
 			foundItem.setAvailability(results.getString("harvest_availability"));
 			foundItem.setComments(results.getString("harvest_details_comments"));
-			foundItem.setDate(results.getDate("harvest_date"));
+			foundItem.setDateAdded(results.getDate("harvest_date"));
 			foundItem.setReconciliationId(results.getInt("harvest_reconciliation_id"));
 			foundItem.setItemType(results.getString("item_type"));
 			foundItem.setItemVariety(results.getString("item_variety"));
