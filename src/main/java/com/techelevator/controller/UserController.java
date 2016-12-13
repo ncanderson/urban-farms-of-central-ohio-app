@@ -186,5 +186,13 @@ public class UserController {
 		
 		return "admin/admin-add-new-farmer";
 	}
+	
+	
+	@RequestMapping(path="admin/admin-all-buyers-view", method=RequestMethod.GET)
+	public String adminAllBuyersView(HttpServletRequest request){
+			
 
+		
+		return "admin/admin-all-buyers-view";
+	}
 }
