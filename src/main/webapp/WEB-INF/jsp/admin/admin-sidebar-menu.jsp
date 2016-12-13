@@ -19,9 +19,9 @@
                 <li><a href="${enterInventory}">Add New Harvest Item</a></li>            
             </c:if> --%>
             
-            <li><a href="view-pending-orders">View Pending Orders</a></li>
+<!--             <li><a href="view-pending-orders">View Pending Orders</a></li>
             <li><a href="view-past-orders">View Past Orders</a></li>
-            <li><a href="update-user-info">View Customer Information</a></li>
+            <li><a href="update-user-info">View Customer Information</a></li> -->
         </ul>
     </div>
 
