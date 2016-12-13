@@ -9,5 +9,7 @@ public interface UserDAO {
 	public User selectUserByUserName(String userName);
 	
 	public List<Buyer> getAllBuyers();
+	
+	public List<User> getAllFarmers();
 
 }

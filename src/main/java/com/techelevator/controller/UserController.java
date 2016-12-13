@@ -73,6 +73,10 @@ public class UserController {
 		item.setActive(Boolean.valueOf(request.getParameter("itemIsActive")));
 		//TODO get season start end dates
 		
+		List<Item> activeCrops = itemDAO.getAllActiveCrops();
+		request.setAttribute("activeCrops", activeCrops);
+	
+		
 		itemDAO.updateItem(item, itemId); 
 		return "admin/admin-items-view";
 	}
@@ -86,12 +90,13 @@ public class UserController {
 		
 		return "admin/admin-edit-item-details";
 	}
-	@RequestMapping(path="admin/admin-add-user", method=RequestMethod.GET)
+	@RequestMapping(path="/admin/admin-all-farmers-view", method=RequestMethod.GET)
 	public String adminAddUserView(HttpServletRequest request){
 			
+		List<User> allFarmers = userDAO.getAllFarmers();
+		request.setAttribute("allFarmers", allFarmers);
 		
-		
-		return "admin/admin-add-user";
+		return "admin/admin-all-farmers-view";
 	}
 //---------------------------END ADMIN VIEWS------------------------------------------------------
 //---------------------------END ADMIN VIEWS------------------------------------------------------	
