@@ -2,6 +2,7 @@
 @import url("anonymous-view.css");
 @import url("farmer-dashboard.css");
 @import url("enter-new-inventory.css");
+@import url("enter-new-inventory.css");
 
 html {
 	height: 100%;
@@ -55,3 +56,6 @@ div.Rtable-cell a img:hover {
 	border: 2px solid #56b2ff; 
 }
 
+.wide-button {
+	width: 25%;
+}
