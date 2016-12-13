@@ -8,6 +8,8 @@
     <div class="navbar">
         <ul class="nav navbar-nav col-xs-12 col-lg-1" id="menu-items">
         
+        	<li><a href="admin-main-view">Back to Admin Main</a></li>
+        
             <c:if test="${requestScope['javax.servlet.forward.request_uri'] != '/capstone/farmer-dashboard-views/dashboard'}">
                 <c:url var="farmerDashboard" value="/farmer-dashboard-views/dashboard" />
                 <li><a href="${farmerDashboard}">Back to Dashboard</a></li>
