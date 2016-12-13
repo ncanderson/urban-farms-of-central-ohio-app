@@ -46,8 +46,8 @@
 	  			<textarea rows="2" id="harvestAvailability" placeholder="Enter crop availability" name="harvestAvailability"></textarea>
 	   		</li>
 	   		<li>
-	  			<label for="harvestAvailability">End Availability On:</label>
-	  			<input type="date" placeholder="mm/dd/yyy" name="harvestEndDate"/>
+	  			<label for="harvestEndDate">End Availability On:</label>
+	  			<input type="date" placeholder="dd/MM/yyyy" name="harvestEndDate"/>
 	   		</li>
 	   		<li>
 	   			<label for="harvestDetailsComments">Message:</label>

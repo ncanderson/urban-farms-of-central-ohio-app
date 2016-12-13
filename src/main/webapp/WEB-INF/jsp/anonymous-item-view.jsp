@@ -1,30 +1,27 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
+<c:url var="imagePath" value="/img/" />
 
-<c:url var="defaultPhoto" value="/img/default-photo-veggies.jpg" />
-
-<div class="col-xs-12 col-md-9" id="content">
-	<div class="dashboard-item">
-		<h3>Available Harvest Inventory</h3>
-		<div class="Rtable Rtable--5cols Rtable--collapse">
-			<div class="Rtable-heading"></div>
-			<div class="Rtable-heading">Crop Type</div>
-			<div class="Rtable-heading">Crop Variety</div>
-			<div class="Rtable-heading">Harvest Quantity</div>
-			<div class="Rtable-heading">Sales Price</div>
-		</div>
-		<c:forEach var="item" items="${harvestItemsList}">
-			<div class="Rtable Rtable--5cols Rtable--collapse">
-		        <div class="Rtable-cell"><img src="${defaultPhoto}" alt="default-veggie-photo" id="crop-photo"/></div>
-		        <div class="Rtable-cell Rtable-cell--head">${item.itemType}</div>
-		        <div class="Rtable-cell">${item.itemVariety}</div>
-		        <div class="Rtable-cell Rtable-cell--foot">${item.harvestQnty}</div>
-		        <div class="Rtable-cell Rtable-cell--foot">$${item.price}</div>
-				
-			</div>
-		</c:forEach>
-	</div>
+<h2>Currently Available Items</h2>
+<h3>Click an item for further details</h3>
+	
+<div id="main-page-menu-header" class="Rtable Rtable--4cols js-RtableAccordions">
+       <div class="Rtable-cell Rtable-cell--head"></div>
+       <div class="Rtable-cell"><h2>Crop</h2></div>
+       <div class="Rtable-cell"><h2>Harvest Quantity</h2></div>
+       <div class="Rtable-cell Rtable-cell--foot"><h2>Sales Price</h2></div>
 </div>
+   
+<div class="Rtable Rtable--4cols Rtable--collapse js-RtableAccordions">
+	<c:forEach var="item" items="${harvestItemsList}">
+	    <c:url var="itemDetails" value="anonymous-detail-view?harvestItemId=${item.harvestItemId}" />
+	    <button class="Accordion" role="tab">${item.itemVariety} ${item.itemType}</button>
+	    <div class="Rtable-cell"><a href="${itemDetails}"><img src="${imagePath}/${item.harvestImageId}" alt="crop image" class="crop-image" /></a></div>
+	    <div class="Rtable-cell  Rtable-cell--head"><h3><a href="${itemDetails}">${item.itemVariety} ${item.itemType}</a></h3></div>
+	    <div class="Rtable-cell"><a href="${itemDetails}">${item.harvestQnty}/lbs. available</a></div>
+	    <div class="Rtable-cell Rtable-cell--foot"><a href="${itemDetails}">$${item.price}/lbs.</a></div>
+	</c:forEach>                 
+</div>   
             
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

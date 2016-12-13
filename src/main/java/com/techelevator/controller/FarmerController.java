@@ -76,37 +76,29 @@ public class FarmerController {
 	@RequestMapping(path="/farmer-dashboard-views/enterInventory", method=RequestMethod.POST)
 	public String addNewOrderItemToDatabasePost(HttpServletRequest request) {
 		
+		Item selectedItem = itemDAO.getCropByTypeAndVariety(request.getParameter("type"), request.getParameter("variety"));
 		HarvestItem itemToSave = new HarvestItem();
+		itemToSave.setItemId(selectedItem.getItemId());
 		
-		itemToSave.setItemId(itemDAO.getCropByTypeAndVariety(request.getParameter("type"), request.getParameter("variety")).getItemId());
 //		if (!request.getParameter("harvestImageId").isEmpty()) {
 //			itemToSave.setHarvestImageId(GET IMAGE ID FROM THE SELECTED ITEM);	//CHRISTIAN LOOK AT THIS want to load default image.	
 //		}
 		
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		
 		String dateInput = request.getParameter("harvestEndDate");
 		
 		itemToSave.setHarvestQnty(Integer.parseInt(request.getParameter("harvestQuantity")));
-
 		itemToSave.setAverageSize(request.getParameter("averageSizeOfItem"));
 		itemToSave.setAvailability(request.getParameter("harvestAvailability"));
 		itemToSave.setComments(request.getParameter("harvestDetailsComments"));
 		itemToSave.setFarmerEnteredPickComments(request.getParameter("farmerEnteredPickComments"));
-		itemToSave.setPrice(new BigDecimal(request.getParameter("pricePerPound")));
 		itemToSave.setEndDate(LocalDate.parse(dateInput, formatter));
 
-		System.out.println("FarmerController");
-		System.out.println(itemToSave.getItemId());
-		System.out.println(itemToSave.getHarvestQnty());
-		System.out.println(itemToSave.getPrice());
-		System.out.println(itemToSave.getComments());
-		System.out.println(itemToSave.getAvailability());
-		System.out.println(itemToSave.getEndDate());
-		
-//		String priceString = request.getParameter("pricePerPound").replaceAll("$", "");
-//		double convertedPrice = Double.parseDouble(priceString);
-//		itemToSave.setPrice(new BigDecimal(convertedPrice));
-		
+		String priceString = request.getParameter("pricePerPound").replaceAll("\\$", "");
+		double convertedPrice = Double.parseDouble(priceString);
+		itemToSave.setPrice(new BigDecimal(convertedPrice));
+
 		harvestDAO.addHarvestItem(itemToSave);
 		
 		List<HarvestItem> allHarvestItemsList = harvestDAO.getAllHarvestItems();	
@@ -115,24 +107,33 @@ public class FarmerController {
 		return "redirect:/farmer-dashboard-views/dashboard";
 	}
 	
-	@RequestMapping(path="/editInventoryItem", method=RequestMethod.GET)
+	
+	
+	@RequestMapping(path="/farmer-dashboard-views/editInventoryItem", method=RequestMethod.GET)
 	public String editItemDetails(HttpServletRequest request) {
 		int harvestCropId = Integer.parseInt(request.getParameter("harvestItemId"));
 		
 		HarvestItem detailCrop = harvestDAO.getHarvestItemById(harvestCropId);
+		List<String> varietiesOfSelectedType = itemDAO.selectAllVarietiesByCropType(detailCrop.getItemType());
+		
+		List<String> distinctCropTypes = itemDAO.selectAllUniqueCropsByType();
 		
 		request.setAttribute("detailCrop", detailCrop);
+		request.setAttribute("distinctCropTypes", distinctCropTypes);
+		request.setAttribute("varietiesOfSelectedType", varietiesOfSelectedType);
 		
 		return "farmer-dashboard-views/editInventoryItem";
 	}
 	
-	@RequestMapping(path="/editInventoryItem", method=RequestMethod.POST)
+	@RequestMapping(path="/farmer-dashboard-views/editInventoryItem", method=RequestMethod.POST)
 	public String postEditedItemDetails(HttpServletRequest request) {
 
 //		Implement and update SQL query with the new information from the update form
 		
 		return "redirect:/farmer-dashboard-views/dashboard";
 	}
+	
+	
 	
 	@RequestMapping(path="/farmer-dashboard-views/view-pending-orders", method=RequestMethod.GET)
 	public String viewPendingOrdersGet(HttpServletRequest request){

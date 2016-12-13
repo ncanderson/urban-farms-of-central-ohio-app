@@ -20,7 +20,6 @@ import com.techelevator.model.UserDAO;
 public class HomeController {
 	
 	private HarvestDAO harvestDAO;
-	private ItemDAO itemDAO;
 	private UserDAO userDAO;
 	
 	@Autowired
@@ -41,9 +40,10 @@ public class HomeController {
 	
 	@RequestMapping(path="/anonymous-detail-view", method=RequestMethod.GET)
 	public String getAnonymousDetailView(HttpServletRequest request) {
-		int harvestCropId = Integer.parseInt(request.getParameter("itemId"));
 		
-		HarvestItem detailCrop = harvestDAO.getHarvestItemById(harvestCropId);
+		int harvestItemId = Integer.parseInt(request.getParameter("harvestItemId"));
+		
+		HarvestItem detailCrop = harvestDAO.getHarvestItemById(harvestItemId);
 		
 		request.setAttribute("detailCrop", detailCrop);
 		
