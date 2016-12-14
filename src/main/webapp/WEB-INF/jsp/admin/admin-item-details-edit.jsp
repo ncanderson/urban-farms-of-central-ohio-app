@@ -8,11 +8,17 @@
 
 <div class="col-xs-12 col-md-9" id="content">
 
-<img src="${defaultPhoto}" alt="default-veggie-photo" id="crop-photo"/>
+<!-- div.admin-image.col-xs- -->
 
+
+
+
+
+
+<img src="${defaultPhoto}" alt="default-veggie-photo" class="crop-image-medium"/>
 	
 	<form action="admin-items-view-update" method="POST">
-		<input type="hidden" name="itemId" value="${item.itemId}"/>
+		
 		<div class="">
 			<h3> ${item.type}</h3>
 			<label for="itemType">Enter Item Type</label>
@@ -45,15 +51,14 @@
 	  			<input type="date" placeholder="dd/MM/yyyy" name="harvestEndDate"/>
 	   		</div>
    			
-   			
+   			<label for="harvestImageId">Enter Image URL:</label>
    			
    		</div>
 		<input type="submit" value="Save" />
+		<input type="hidden" name="itemId" value="${item.itemId}"/>
 	</form>
 	
 </div>
-	
 
-
-<c:import url="/WEB-INF/jsp/common/footer.jsp" />		<label for="harvestImageId">Enter Image URL:</label>
+<c:import url="/WEB-INF/jsp/common/footer.jsp" />		
 		

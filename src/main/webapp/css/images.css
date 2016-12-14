@@ -1,0 +1,12 @@
+.crop-image-small {
+	max-width: 150px;	
+}
+
+.crop-image-medium {
+	max-width: 400px;
+}
+
+@media(max-width:795px){
+	.crop-image-medium {
+		max-width: 150px;
+    }

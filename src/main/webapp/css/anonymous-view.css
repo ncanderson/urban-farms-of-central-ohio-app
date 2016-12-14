@@ -9,10 +9,6 @@
 	overflow: hidden;
 }
 
-.crop-image {
-	max-height: 150px;	
-}
-
 /* Accordian collapse styling */
 
 @media all and (max-width: 500px) { 

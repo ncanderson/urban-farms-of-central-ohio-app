@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.techelevator.model.Buyer;
-import com.techelevator.model.DollarAmount;
+
 import com.techelevator.model.HarvestDAO;
 import com.techelevator.model.HarvestItem;
 import com.techelevator.model.Invoice;
@@ -25,8 +25,6 @@ import com.techelevator.model.Item;
 import com.techelevator.model.ItemDAO;
 import com.techelevator.model.User;
 import com.techelevator.model.UserDAO;
-
-import gherkin.lexer.Pl;
 
 @Controller
 @SessionAttributes("currentUser")
@@ -81,8 +79,7 @@ public class UserController {
 		
 		List<Item> activeCrops = itemDAO.getAllActiveCrops();
 		request.setAttribute("activeCrops", activeCrops);
-	
-		
+
 		itemDAO.updateItem(item, itemId); 
 		return "redirect:/admin/admin-item-view";
 	}
@@ -107,7 +104,7 @@ public class UserController {
 		return "redirect:/admin/admin-item-view";
 	}
 	
-	@RequestMapping(path="admin/admin-edit-item-details", method=RequestMethod.GET)
+	@RequestMapping(path="admin/admin-item-details-edit", method=RequestMethod.GET)
 	public String adminEditItemDetails(HttpServletRequest request){
 			
 		int itemId = Integer.parseInt(request.getParameter("itemId"));
@@ -123,10 +120,7 @@ public class UserController {
 		return "admin/admin-item-new";
 	}
 	
-
 //---------------------------ADMIN FARMER VIEWS---------------------------------------------------------
-//---------------------------ADMIN FARMER VIEWS---------------------------------------------------------
-	
 
 	@RequestMapping(path="/admin/admin-farmer-view-all", method=RequestMethod.GET)
 	public String adminAddUserViewGet(HttpServletRequest request){
