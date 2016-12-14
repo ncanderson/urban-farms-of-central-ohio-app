@@ -39,6 +39,7 @@ public class AjaxController {
 	
 	@RequestMapping(path="/farmer-dashboard-views/noVarietyPriceGetter", method=RequestMethod.GET)
 	public BigDecimal ajaxControllerForRecentPriceWithoutVariety(@RequestParam String cropType) {
+		
 		Item typeNoVariety = itemDAO.getCropByTypeAndVariety(cropType, "");
 		BigDecimal itemPrice = harvestDAO.getCurrentItemPrice(typeNoVariety.getItemId());
 		if (itemPrice == null) {
@@ -52,6 +53,7 @@ public class AjaxController {
 	@RequestMapping(path="/farmer-dashboard-views/priceGetter", method=RequestMethod.GET)
 	public BigDecimal ajaxControllerForGetMostRecentPrice(@RequestParam String cropType,
 														  @RequestParam String cropVariety) {
+		
 		Item itemSought = itemDAO.getCropByTypeAndVariety(cropType, cropVariety);
 		BigDecimal itemPrice = harvestDAO.getCurrentItemPrice(itemSought.getItemId());
 		return itemPrice;

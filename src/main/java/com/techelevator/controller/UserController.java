@@ -54,11 +54,9 @@ public class UserController {
 		return "admin/admin-main-view";
 	}
 
-
 //---------------------------ADMIN ITEMS VIEWS---------------------------------------------------------
 //---------------------------ADMIN ITEMS VIEWS---------------------------------------------------------
 
-	
 	@RequestMapping(path="admin/admin-item-view", method=RequestMethod.GET)
 	public String adminItemViewGet(HttpServletRequest request){
 			
@@ -153,6 +151,7 @@ public class UserController {
 	}
 	
 //---------------------------ADMIN FARMER VIEWS---------------------------------------------------------
+//---------------------------ADMIN FARMER VIEWS---------------------------------------------------------
 
 	@RequestMapping(path="/admin/admin-farmer-view-all", method=RequestMethod.GET)
 	public String adminAddUserViewGet(HttpServletRequest request){
@@ -224,16 +223,7 @@ public class UserController {
 	
 //---------------------------ADMIN BUYER USERS VIEWS---------------------------------------------------------
 //---------------------------ADMIN BUYER USERS VIEWS---------------------------------------------------------
-	
-	@RequestMapping(path="admin/admin-companies-all", method=RequestMethod.GET)
-	public String adminAllCompaniesView(HttpServletRequest request){
-			
-//		List<User> allCompanies = userDAO.getAllCompanies();
-//		request.setAttribute("allBuyers", allCompanies);
 		
-		return "admin/admin-companies-all";
-	}
-	
 	@RequestMapping(path="admin/admin-buyer-users-all", method=RequestMethod.GET)
 	public String adminAllBuyerUsersView(HttpServletRequest request){
 
@@ -289,4 +279,33 @@ public class UserController {
 		
 		return "admin/admin-banners-all";
 	}
+	
+//	---------------------------ADMIN COMPANIES VIEWS---------------------------------------------------------
+//	---------------------------ADMIN COMPANIES VIEWS---------------------------------------------------------
+	
+	@RequestMapping(path="admin/admin-companies-all", method=RequestMethod.GET)
+	public String adminViewAllCompanies(HttpServletRequest request) {
+		
+//		List<User> allCompanies = userDAO.getAllCompanies();
+//		request.setAttribute("allBuyers", allCompanies);
+		
+		return "admin/admin-companies-all";
+	}
+	
+	@RequestMapping(path="admin/admin-companies-edit", method=RequestMethod.GET)
+	public String adminEditCompany(HttpServletRequest request) {
+		
+		return "admin/admin-companies-edit";
+	}
+	
+	@RequestMapping(path="admin/admin-companies-new", method=RequestMethod.GET)
+	public String adminNewCompany(HttpServletRequest request) {
+		
+		return "admin/admin-companies-new";
+	}
 }
+
+
+
+
+

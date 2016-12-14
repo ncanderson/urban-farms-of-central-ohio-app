@@ -10,7 +10,7 @@
 <div>
 	<c:forEach var="user" items="${allBuyers}">
 		<div class="col-xs-12 col-md-4 highlight-box">
-			<h3>${user.companyName}</h3>
+			<h3>${user.buyerUserOrg}</h3>
 			<h3>${user.firstName} ${user.lastName}</h3>
 			<h3>${user.email}</h3>
 			<h3>${user.phoneNumber}</h3>

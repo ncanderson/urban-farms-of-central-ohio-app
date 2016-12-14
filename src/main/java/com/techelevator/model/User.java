@@ -12,6 +12,7 @@ public class User {
 	private boolean isGlobalAdmin;
 	private boolean isAdmin;
 	private boolean isActive;
+	//make an ID on buyer_inf table
 	private String companyName;
 	private boolean resetPassword; 
 	
