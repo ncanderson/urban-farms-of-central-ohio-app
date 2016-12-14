@@ -12,12 +12,12 @@
 	<c:url var="defaultPhoto" value="/img/default-photo-veggies.jpg" />
 
 	<div class="col-xs-12 col-md-9" id="content">
-		<div class="dashboard-item">
+		<div>
 			<h3>Produce Items</h3>
 			<c:forEach var="item" items="${activeCrops}">
 				<div class="Rtable Rtable--2cols Rtable--collapse">
 		        	<c:url var="itemDetails" value="admin-item-details-edit?itemId=${item.itemId}" />
-		        	<div class="Rtable-cell"><a href="${itemDetails}"><img src="${defaultPhoto}" alt="default-veggie-photo" id="crop-photo"/></a></div>
+		        	<div class="Rtable-cell"><a href="${itemDetails}"><img src="${defaultPhoto}" alt="default-veggie-photo" class="crop-image-small"/></a></div>
 					<div class="Rtable-cell Rtable-cell--head">
 						<h3><a href="${itemDetails}">${item.variety} ${item.type}</a></h3>
 					</div>

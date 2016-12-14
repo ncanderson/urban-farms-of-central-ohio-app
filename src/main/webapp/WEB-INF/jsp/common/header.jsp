@@ -34,6 +34,9 @@
 	<c:url var="jsCookies" value="/js/jscookies.js"/>
 	<script type="text/javascript" src="${jsCookies}"></script>
 	
+	<c:url var="adminViewJS" value="/js/admin-views.js"/>
+	<script type="text/javascript" src="${adminViewJS}"></script>
+	
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	

@@ -79,8 +79,7 @@ public class UserController {
 		
 		List<Item> activeCrops = itemDAO.getAllActiveCrops();
 		request.setAttribute("activeCrops", activeCrops);
-	
-		
+
 		itemDAO.updateItem(item, itemId); 
 		return "redirect:/admin/admin-item-view";
 	}

@@ -51,6 +51,7 @@
     #farmer-menu-items, #admin-menu-items {
 		margin: 0 auto;
 		display: table;	
+		flex-direction: row;
     }
 }
 
