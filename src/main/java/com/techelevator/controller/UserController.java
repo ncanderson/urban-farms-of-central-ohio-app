@@ -45,15 +45,17 @@ public class UserController {
 		this.invoiceDAO = invoiceDAO;
 	}
 
-//---------------------------ADMIN VIEWS---------------------------------------------------------
-//---------------------------ADMIN VIEWS---------------------------------------------------------
+//---------------------------ADMIN MAIN VIEWS---------------------------------------------------------
+//---------------------------ADMIN MAIN VIEWS---------------------------------------------------------
 	
 	@RequestMapping(path="admin/admin-main-view", method=RequestMethod.GET)
 	public String adminMainView(HttpServletRequest request){
 			
 		return "admin/admin-main-view";
 	}
-	
+
+//---------------------------ADMIN ITEMS VIEWS---------------------------------------------------------
+//---------------------------ADMIN ITEMS VIEWS---------------------------------------------------------
 	@RequestMapping(path="admin/admin-items-view", method=RequestMethod.GET)
 	public String adminItemViewGet(HttpServletRequest request){
 			
@@ -117,6 +119,9 @@ public class UserController {
 		
 		return "admin/admin-add-new-item";
 	}
+	
+//---------------------------ADMIN FARMER VIEWS---------------------------------------------------------
+//---------------------------ADMIN FARMER VIEWS---------------------------------------------------------
 	
 	@RequestMapping(path="/admin/admin-all-farmers-view", method=RequestMethod.GET)
 	public String adminAddUserViewGet(HttpServletRequest request){
@@ -189,6 +194,8 @@ public class UserController {
 		return "admin/admin-add-new-farmer";
 	}
 	
+//---------------------------ADMIN BUYER USERS VIEWS---------------------------------------------------------
+//---------------------------ADMIN BUYER USERS VIEWS---------------------------------------------------------
 	
 	@RequestMapping(path="admin/admin-all-buyer-users-view", method=RequestMethod.GET)
 	public String adminAllBuyersView(HttpServletRequest request){
@@ -198,4 +205,16 @@ public class UserController {
 		
 		return "admin/admin-all-buyer-users-view";
 	}
+	
+	
+	
+	@RequestMapping(path="admin/admin-add-new-buyer-user", method=RequestMethod.GET)
+	public String adminAddNewBuyer(HttpServletRequest request){
+			
+		
+		return "admin/admin-add-new-buyer-user";
+	}
+	
+	
+	
 }

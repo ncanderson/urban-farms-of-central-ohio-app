@@ -17,8 +17,8 @@
 		</c:forEach>  			     
 	</div>
 	
-	<c:url var="addBuyer" value="admin-add-new-buyer"/>
-	<div><a href=${addBuyer }>Add New Buyer</a></div>
+	<c:url var="addBuyerUser" value="admin-add-new-buyer-user"/>
+	<div><a href=${addBuyerUser }>Add New Buyer</a></div>
 	
 
 
