@@ -5,7 +5,7 @@
 
 <div>
     
-    <c:url var="addNewItem" value="/admin-add-new-item" />
+    <c:url var="addNewItem" value="/admin/admin-add-new-item" />
 	<a href="${addNewItem }" type="button" class="btn btn-primary wide-button">Add New Item</a>
 
 <c:url var="defaultPhoto" value="/img/default-photo-veggies.jpg" />

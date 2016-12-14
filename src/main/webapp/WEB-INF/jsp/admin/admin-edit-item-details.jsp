@@ -36,7 +36,16 @@
 		    </select>
    		</div> 
    		<div>
-   			<h3>This Div for seasons input</h3><!-- seasons -->
+   			<h3>Seasonal Availability</h3>
+   			<hr>
+   			
+   			<div>
+	  			<label for="harvestEndDate">End Availability On:</label>
+	  			<input type="date" placeholder="dd/MM/yyyy" name="harvestEndDate"/>
+	   		</div>
+   			
+   			
+   			
    		</div>
 		<input type="submit" value="Save" />
 	</form>
