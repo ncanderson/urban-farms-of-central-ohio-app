@@ -4,43 +4,28 @@
 
 <c:import url="/WEB-INF/jsp/common/dashboard-sidebar.jsp" />
 
-	<div>
-		<c:forEach var="buyerUser" items="${allBuyers}">
-						
-				<div><h3>${buyerUser.firstName} ${user.lastName}</h3></div>
-				<div><h3>${buyerUser.email}</h3></div>
-				<div><h3>${buyerUser.active}</h3></div>
-				<div><h3>${buyerUser.companyName}</h3></div>
-				<c:url var="buyerUserDetails" value="admin-edit-buyer-user?userID=${buyerUser.userID}" />
-				<div><a href=${buyerUserDetails }>Edit Buyer User Details</a></div>
-			
-		</c:forEach>  			     
-	</div>
-	
-	<c:url var="addBuyerUser" value="admin-add-new-buyer-user"/>
-	<div><a href=${addBuyerUser }>Add New Buyer</a></div>
-	
+<c:url var="addNewBuyer" value="admin-buyer-users-all"/>
+<p class="text-center"><a href="${addNewBuyers}" type="button" class="btn btn-primary wide-button">Add New Buyer</a></p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div>
+	<c:forEach var="user" items="${allBuyers}">
+		<div class="col-xs-12 col-md-4 highlight-box">
+			<h3>${user.companyName}</h3>
+			<h3>${user.firstName} ${user.lastName}</h3>
+			<h3>${user.email}</h3>
+			<h3>${user.phoneNumber}</h3>
+			<c:choose>
+				<c:when test="${user.isActive()}">
+					<h3><em>Active User</em></h3>
+				</c:when>
+				<c:otherwise>
+					<h3><em>Inactive User</em></h3>
+				</c:otherwise>
+			</c:choose>
+			<c:url var="userDetails" value="admin-buyer-user-edit?userId=${user.userId}" />
+			<a href="${userDetails}" type="button" class="btn btn-info">Edit Buyer Details</a>
+		</div>
+	</c:forEach>  			     
+</div>
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

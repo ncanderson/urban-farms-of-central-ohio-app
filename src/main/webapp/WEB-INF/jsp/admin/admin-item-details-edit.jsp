@@ -8,14 +8,10 @@
 
 <div class="col-xs-12 col-md-9 admin-content">
 
-	<div class="col-xs-12 col-md-6">
-		<img src="${defaultPhoto}" alt="default-veggie-photo" class="crop-image-medium img-responsive"/>
-	</div>
-	
-	<div class="col-xs-12 col-md-6">
+	<div class="col-xs-12 col-md-6 col-md-push-6">
 		<c:choose>
 			<c:when test="${empty adminDetailItem.variety}">
-				<h2 class="text-center">${adminDetailItem.type}</h2>
+				<h2 class="text-center head-text">${adminDetailItem.type}</h2>
 			</c:when>
 			<c:otherwise>
 				<h2 class="text-center">${adminDetailItem.type}, ${adminDetailItem.variety}</h2>
@@ -36,7 +32,11 @@
 		</c:choose>
 	</div>
 
-	<div class="col-xs-12">
+	<div class="col-xs-12 col-md-6 col-md-pull-6">
+		<img src="${defaultPhoto}" alt="default-veggie-photo" class="crop-image-medium img-responsive"/>
+	</div>
+
+	<div class="col-xs-12" id="updateForm">
 		<form action="admin-items-view-update" method="POST">
 			<ul class="form-flex-outer">
 		 		<li>
@@ -88,11 +88,12 @@
 				</li>
 				<li>
 					<input type="submit" value="Save" />
-					<input type="hidden" name="itemId" value="${item.itemId}"/>
+					<input type="hidden" name="itemId" value="${item.itemId}" class="form-centered-button"/>
 				</li>
 			</ul>
 		</form>
 	</div>
+		
 </div>
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />		

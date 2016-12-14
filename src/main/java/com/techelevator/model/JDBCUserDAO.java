@@ -60,7 +60,6 @@ public class JDBCUserDAO implements UserDAO {
 		return user;
 	}
 	
-	
 	private User mapResultToUser(SqlRowSet results, String userName){
 		User user = new User();
 		
@@ -72,7 +71,7 @@ public class JDBCUserDAO implements UserDAO {
 			user.setGlobalAdmin(results.getBoolean("is_global_admin"));
 			user.setPhoneNumber(results.getString("user_phone_number"));
 			user.setType(User.Type.values()[results.getInt("user_type")]);
-			user.setUserID(results.getInt("user_id"));
+			user.setUserId(results.getInt("user_id"));
 		}	
 		return user;
 	}
@@ -227,7 +226,7 @@ public class JDBCUserDAO implements UserDAO {
 		while(results.next()){
 			
 			User user = new User();
-			user.setUserID(results.getInt("user_id"));
+			user.setUserId(results.getInt("user_id"));
 			user.setEmail(results.getString("email"));
 			user.setFirstName(results.getString("first_name"));
 			user.setLastName(results.getString("last_name"));
@@ -247,7 +246,7 @@ public class JDBCUserDAO implements UserDAO {
 		User user = new User();
 		while(results.next()){
 			
-			user.setUserID(results.getInt("user_id"));
+			user.setUserId(results.getInt("user_id"));
 			user.setEmail(results.getString("email"));
 			user.setFirstName(results.getString("first_name"));
 			user.setLastName(results.getString("last_name"));
@@ -268,7 +267,7 @@ public class JDBCUserDAO implements UserDAO {
 		while(results.next()){
 			
 			User user = new User();
-			user.setUserID(results.getInt("user_id"));
+			user.setUserId(results.getInt("user_id"));
 			user.setEmail(results.getString("email"));
 			user.setFirstName(results.getString("first_name"));
 			user.setLastName(results.getString("last_name"));
@@ -278,23 +277,7 @@ public class JDBCUserDAO implements UserDAO {
 			
 			allBuyerUsers.add(user);
 		}
-		
-		return allBuyerUsers;
-		
+		return allBuyerUsers;		
 	}
-
-	
-	
-	
-	
-
-
-
-
-
-	
-
-	
-
 
 }
