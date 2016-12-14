@@ -81,7 +81,7 @@ public class FarmerController {
 		itemToSave.setItemId(selectedItem.getItemId());
 		
 //		if (!request.getParameter("harvestImageId").isEmpty()) {
-//			itemToSave.setHarvestImageId(GET IMAGE ID FROM THE SELECTED ITEM);	//CHRISTIAN LOOK AT THIS want to load default image.	
+//			itemToSave.setHarvestImageId(GET IMAGE ID FROM THE SELECTED ITEM);	
 //		}
 		
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -110,10 +110,8 @@ public class FarmerController {
 		return "redirect:/farmer-dashboard-views/dashboard";
 	}
 	
-	
-	
 	@RequestMapping(path="/farmer-dashboard-views/editInventoryItem", method=RequestMethod.GET)
-	public String editItemDetails(HttpServletRequest request) {
+	public String editItemDetailsGet(HttpServletRequest request) {
 		int harvestCropId = Integer.parseInt(request.getParameter("harvestItemId"));
 		
 		HarvestItem detailCrop = harvestDAO.getHarvestItemById(harvestCropId);
@@ -129,14 +127,45 @@ public class FarmerController {
 	}
 	
 	@RequestMapping(path="/farmer-dashboard-views/editInventoryItem", method=RequestMethod.POST)
-	public String postEditedItemDetails(HttpServletRequest request) {
+	public String editItemDetailsPost(HttpServletRequest request) {
+		
+		int harvestItemId = Integer.parseInt(request.getParameter("harvestItemId"));
+		
+		Item selectedItem = itemDAO.getCropByTypeAndVariety(request.getParameter("type"), request.getParameter("variety"));
+		HarvestItem itemToSave = new HarvestItem();
+		itemToSave.setItemId(selectedItem.getItemId());
+		
+//		if (!request.getParameter("harvestImageId").isEmpty()) {
+//			itemToSave.setHarvestImageId(GET IMAGE ID FROM THE SELECTED ITEM);	
+//		}
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		String dateInput = request.getParameter("harvestEndDate");
+		
+		itemToSave.setHarvestQnty(Integer.parseInt(request.getParameter("harvestQuantity")));
+		itemToSave.setAverageSize(request.getParameter("averageSizeOfItem"));
+		itemToSave.setAvailability(request.getParameter("harvestAvailability"));
+		itemToSave.setComments(request.getParameter("harvestDetailsComments"));
+		System.out.println(request.getParameter("farmerEnteredPickComments"));
+		itemToSave.setFarmerEnteredPickComments(request.getParameter("farmerEnteredPickComments"));
+		itemToSave.setReconciliationId(Integer.valueOf(request.getParameter("harvestItemDisposition")));
+		itemToSave.setHarvestItemId(harvestItemId);
+		
+		if (!(dateInput.equals("") || dateInput == null)) {
+			itemToSave.setEndDate(LocalDate.parse(dateInput, formatter));
+		} 
+		
+		String priceString = request.getParameter("price").replaceAll("\\$", "");
+		double convertedPrice = Double.parseDouble(priceString);
+		itemToSave.setPrice(new BigDecimal(convertedPrice));
 
-//		Implement and update SQL query with the new information from the update form
+		harvestDAO.updateHarvestItem(itemToSave);
+		
+		List<HarvestItem> allHarvestItemsList = harvestDAO.getAllHarvestItems();	
+		request.setAttribute("harvestItemsList", allHarvestItemsList);
 		
 		return "redirect:/farmer-dashboard-views/dashboard";
 	}
-	
-	
 	
 	@RequestMapping(path="/farmer-dashboard-views/view-pending-orders", method=RequestMethod.GET)
 	public String viewPendingOrdersGet(HttpServletRequest request){

@@ -19,5 +19,7 @@ public interface HarvestDAO {
 	public List<HarvestItem> getAllHarvestItems();
 	
 	public BigDecimal getCurrentItemPrice(int itemId);
+
+	public void updateHarvestItem(HarvestItem updateHarvestItem);
 	
 }
