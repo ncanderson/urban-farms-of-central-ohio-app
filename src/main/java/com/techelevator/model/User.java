@@ -4,7 +4,7 @@ public class User {
 	
 	public enum Type {ADMIN, FARMER, BUYER};
 	private Type type;
-	private int userID;
+	private int userId;
 	private String email;
 	private String firstName;
 	private String lastName;
@@ -13,7 +13,8 @@ public class User {
 	private boolean isAdmin;
 	private boolean isActive;
 	private String companyName;
-	 
+	private boolean resetPassword; 
+	
 	public User(){
 		
 	}
@@ -26,12 +27,12 @@ public class User {
 		this.type = type;
 	}
 
-	public int getUserID() {
-		return userID;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setUserID(int userID) {
-		this.userID = userID;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getEmail() {
@@ -96,6 +97,14 @@ public class User {
 
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
+	}
+
+	public boolean isResetPassword() {
+		return resetPassword;
+	}
+
+	public void setResetPassword(boolean resetPassword) {
+		this.resetPassword = resetPassword;
 	}
 	
 	

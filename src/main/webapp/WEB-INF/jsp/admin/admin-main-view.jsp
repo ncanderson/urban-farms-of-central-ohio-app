@@ -5,33 +5,33 @@
 
 <title>Admin main</title>
 
-	<div class="jumbotron">
+	<div class="jumbotron text-center">
 	
 	<h2>Admin Options</h2>
 		<div class="span2" >
 			<div>
-				<c:url var="ViewItems" value="/admin/admin-items-view" />
-				<a href="${ViewItems}" type="button" class="btn btn-primary wide-button">Edit Items</a>
+				<c:url var="viewItems" value="/admin/admin-item-view" />
+				<a href="${viewItems}" type="button" class="btn btn-primary wide-button">Edit Items</a>
 			</div>
 			<br>
 			<div>
-				<c:url var="ViewFarmers" value="/admin/admin-all-farmers-view" />
-				<a href="${ViewFarmers}" type="button" class="btn btn-primary wide-button">Edit Farmer Users</a>
+				<c:url var="viewFarmers" value="/admin/admin-farmer-view-all" />
+				<a href="${viewFarmers}" type="button" class="btn btn-primary wide-button">Edit Farmer Users</a>
 			</div>
 			<br>
 			<div>
-				<c:url var="ViewBuyers" value="/admin/admin-all-buyer-users-view" />
-				<a href="${ViewBuyers}" type="button" class="btn btn-primary wide-button">Edit Buyer Users</a>
+				<c:url var="viewBuyers" value="/admin/admin-buyer-users-all" />
+				<a href="${viewBuyers}" type="button" class="btn btn-primary wide-button">Edit Buyer Users</a>
 			</div>
 			<br>
 			<div>
-				<c:url var="ViewCompanies" value="/admin/admin-all-companies-view" />
-				<a href="${ViewCompanies }" type="button" class="btn btn-primary wide-button">Edit Companies</a>
+				<c:url var="viewCompanies" value="/admin/admin-companies-all" />
+				<a href="${viewCompanies }" type="button" class="btn btn-primary wide-button">Edit Companies</a>
 			</div>
 			<br>
 			<div>
-				<c:url var="ViewBanners" value="/admin/admin-all-banners-view" />
-				<a href="${ViewBanners}" type="button" class="btn btn-primary wide-button">Edit Banner Notification</a>
+				<c:url var="viewBanners" value="/admin/admin-banners-all" />
+				<a href="${viewBanners}" type="button" class="btn btn-primary wide-button">Edit Banner Notification</a>
 			</div>
 		</div>
 		

@@ -60,7 +60,6 @@ public class JDBCUserDAO implements UserDAO {
 		return user;
 	}
 	
-	
 	private User mapResultToUser(SqlRowSet results, String userName){
 		User user = new User();
 		
@@ -72,7 +71,7 @@ public class JDBCUserDAO implements UserDAO {
 			user.setGlobalAdmin(results.getBoolean("is_global_admin"));
 			user.setPhoneNumber(results.getString("user_phone_number"));
 			user.setType(User.Type.values()[results.getInt("user_type")]);
-			user.setUserID(results.getInt("user_id"));
+			user.setUserId(results.getInt("user_id"));
 		}	
 		return user;
 	}
@@ -168,9 +167,56 @@ public class JDBCUserDAO implements UserDAO {
 	@Override
 	public void addNewFarmer(User user) {
 		//TODO this method needs work, password, salt, credentials_id
-		String sqlInsertStatement = "INSERT INTO users (first_name, last_name, email, user_type, user_phone_number, is_global_admin, is_admin, is_active) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-		jdbcTemplate.update(sqlInsertStatement, user.getFirstName(), user.getLastName(), user.getEmail(), 1, user.getPhoneNumber(), false, user.isAdmin(), user.isActive());
+		byte[] tempSalt = passwordHasher.generateRandomSalt();
+		String tempPassword = new String(Base64.encode(tempSalt)).substring(0, 9);
+		byte[] trueSalt = passwordHasher.generateRandomSalt();		
+		String hashedPassword = passwordHasher.computeHash(tempPassword, trueSalt);
 		
+		String sqlInsertCredentialsStatement = "INSERT INTO credentials (password, salt) VALUES (?, ?)";
+		jdbcTemplate.update(sqlInsertCredentialsStatement, hashedPassword, trueSalt);
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet("SELECT credentials_id FROM credentials WHERE password = ?", hashedPassword);
+		
+		int credId = 0;
+		while(results.next()){
+			credId = results.getInt("credentials_id");
+		}
+				
+		String sqlInsertStatement = "INSERT INTO users (credentials_id, first_name, last_name, email, user_type, user_phone_number, is_global_admin, is_admin, is_active, reset_password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		jdbcTemplate.update(sqlInsertStatement, credId, user.getFirstName(), user.getLastName(), user.getEmail(), 1, user.getPhoneNumber(), false, user.isAdmin(), user.isActive(), true);
+		//TODO missing Step!!! Must email new famer new temp passsword
+		
+	}
+	
+	@Override
+	public void addNewBuyerUser(User user, String org) {
+		
+		byte[] tempSalt = passwordHasher.generateRandomSalt();
+		String tempPassword = new String(Base64.encode(tempSalt)).substring(0, 9);
+		byte[] trueSalt = passwordHasher.generateRandomSalt();		
+		String hashedPassword = passwordHasher.computeHash(tempPassword, trueSalt);
+		
+		String sqlInsertCredentialsStatement = "INSERT INTO credentials (password, salt) VALUES (?, ?)";
+		jdbcTemplate.update(sqlInsertCredentialsStatement, hashedPassword, trueSalt);
+		
+		SqlRowSet results1 = jdbcTemplate.queryForRowSet("SELECT credentials_id FROM credentials WHERE password = ?", hashedPassword);
+		
+		int credId = 0;
+		while(results1.next()){
+			credId = results1.getInt("credentials_id");
+		}
+		
+		SqlRowSet results2 = jdbcTemplate.queryForRowSet("SELECT buyer_id FROM buyer_information WHERE buyer_name = ?", org);
+		
+		int buyerId = 0;
+		while(results1.next()){
+			buyerId = results1.getInt("buyer_id");
+		}
+				
+		String sqlInsertStatement = "INSERT INTO users (credentials_id, buyer_id, first_name, last_name, email, user_type, user_phone_number, is_global_admin, is_admin, is_active, reset_password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		jdbcTemplate.update(sqlInsertStatement, credId, buyerId, user.getFirstName(), user.getLastName(), user.getEmail(), 0, user.getPhoneNumber(), false, user.isAdmin(), user.isActive(), true);
+		//TODO missing Step!!! Must email new buyer new temp passsword
+			
 	}
 	
 	private List<User> mapResultsToFarmerList(SqlRowSet results){
@@ -180,7 +226,7 @@ public class JDBCUserDAO implements UserDAO {
 		while(results.next()){
 			
 			User user = new User();
-			user.setUserID(results.getInt("user_id"));
+			user.setUserId(results.getInt("user_id"));
 			user.setEmail(results.getString("email"));
 			user.setFirstName(results.getString("first_name"));
 			user.setLastName(results.getString("last_name"));
@@ -200,7 +246,7 @@ public class JDBCUserDAO implements UserDAO {
 		User user = new User();
 		while(results.next()){
 			
-			user.setUserID(results.getInt("user_id"));
+			user.setUserId(results.getInt("user_id"));
 			user.setEmail(results.getString("email"));
 			user.setFirstName(results.getString("first_name"));
 			user.setLastName(results.getString("last_name"));
@@ -221,7 +267,7 @@ public class JDBCUserDAO implements UserDAO {
 		while(results.next()){
 			
 			User user = new User();
-			user.setUserID(results.getInt("user_id"));
+			user.setUserId(results.getInt("user_id"));
 			user.setEmail(results.getString("email"));
 			user.setFirstName(results.getString("first_name"));
 			user.setLastName(results.getString("last_name"));
@@ -231,21 +277,7 @@ public class JDBCUserDAO implements UserDAO {
 			
 			allBuyerUsers.add(user);
 		}
-		
-		return allBuyerUsers;
-		
+		return allBuyerUsers;		
 	}
-	
-	
-	
-
-
-
-
-
-	
-
-	
-
 
 }

@@ -1,6 +1,8 @@
 package com.techelevator.controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -16,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.techelevator.model.Buyer;
-import com.techelevator.model.DollarAmount;
+
 import com.techelevator.model.HarvestDAO;
 import com.techelevator.model.HarvestItem;
 import com.techelevator.model.Invoice;
@@ -25,8 +27,6 @@ import com.techelevator.model.Item;
 import com.techelevator.model.ItemDAO;
 import com.techelevator.model.User;
 import com.techelevator.model.UserDAO;
-
-import gherkin.lexer.Pl;
 
 @Controller
 @SessionAttributes("currentUser")
@@ -45,8 +45,8 @@ public class UserController {
 		this.invoiceDAO = invoiceDAO;
 	}
 
-
-//---------------------------ADMIN VIEWS---------------------------------------------------------
+ 
+//---------------------------ADMIN MAIN---------------------------------------------------------
 	
 	@RequestMapping(path="admin/admin-main-view", method=RequestMethod.GET)
 	public String adminMainView(HttpServletRequest request){
@@ -72,17 +72,46 @@ public class UserController {
 	public String adminItemViewUpdatePost(HttpServletRequest request){
 		
 		Item item = new Item();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		
+		String start1 = request.getParameter("startDate1");
+		String end1 = request.getParameter("endDate1");
+		
+		String start2 = request.getParameter("startDate2");
+		String end2 = request.getParameter("endDate2");
+		
+		String start3 = request.getParameter("startDate3");
+		String end3 = request.getParameter("endDate3");
+		
+		
 		int itemId = Integer.parseInt(request.getParameter("itemId"));
 		item.setType(request.getParameter("itemType"));
 		item.setVariety(request.getParameter("itemVariety"));
 		item.setDescription(request.getParameter("itemDescription"));
 		item.setActive(Boolean.valueOf(request.getParameter("itemIsActive")));
-		//TODO get season start end dates
+		
+		if (!(start1.equals("") || start1 == null)) {
+			item.setStartDate1(LocalDate.parse(start1, formatter));
+		} 
+		if (!(start2.equals("") || start2 == null)) {
+			item.setStartDate2(LocalDate.parse(start2, formatter));
+		} 
+		if (!(start3.equals("") || start3 == null)) {
+			item.setStartDate3(LocalDate.parse(start3, formatter));
+		} 
+		if (!(end1.equals("") || end1 == null)) {
+			item.setEndDate1(LocalDate.parse(end1, formatter));
+		}
+		if (!(end2.equals("") || end2 == null)) {
+			item.setEndDate2(LocalDate.parse(end2, formatter));
+		}
+		if (!(end3.equals("") || end3 == null)) {
+			item.setEndDate3(LocalDate.parse(end3, formatter));
+		}
 		
 		List<Item> activeCrops = itemDAO.getAllActiveCrops();
 		request.setAttribute("activeCrops", activeCrops);
-	
-		
+
 		itemDAO.updateItem(item, itemId); 
 		return "redirect:/admin/admin-item-view";
 	}
@@ -101,17 +130,17 @@ public class UserController {
 		
 		List<Item> activeCrops = itemDAO.getAllActiveCrops();
 		request.setAttribute("activeCrops", activeCrops);
-	
+	 
 		System.out.println(item.getDescription());
 		
 		return "redirect:/admin/admin-item-view";
 	}
 	
-	@RequestMapping(path="admin/admin-edit-item-details", method=RequestMethod.GET)
+	@RequestMapping(path="admin/admin-item-details-edit", method=RequestMethod.GET)
 	public String adminEditItemDetails(HttpServletRequest request){
 			
 		int itemId = Integer.parseInt(request.getParameter("itemId"));
-		request.setAttribute("item", itemDAO.getAdminCropById(itemId));
+		request.setAttribute("adminDetailItem", itemDAO.getAdminCropById(itemId));
 		
 		return "admin/admin-item-details-edit";
 	}
@@ -123,10 +152,7 @@ public class UserController {
 		return "admin/admin-item-new";
 	}
 	
-
 //---------------------------ADMIN FARMER VIEWS---------------------------------------------------------
-//---------------------------ADMIN FARMER VIEWS---------------------------------------------------------
-	
 
 	@RequestMapping(path="/admin/admin-farmer-view-all", method=RequestMethod.GET)
 	public String adminAddUserViewGet(HttpServletRequest request){
@@ -159,9 +185,8 @@ public class UserController {
 	}
 	
 	@RequestMapping(path="/admin/admin-all-farmers-view-insert", method=RequestMethod.POST)
-	public String adminAddUserViewPostInsert(HttpServletRequest request){
-			
-		//TODO updated edited farmer
+	public String adminAddUserViewPostInsert(HttpServletRequest request){		
+	
 		User user = new User();
 		
 		user.setFirstName(request.getParameter("firstName"));
@@ -176,13 +201,13 @@ public class UserController {
 		List<User> allFarmers = userDAO.getAllFarmers();
 		request.setAttribute("allFarmers", allFarmers);
 		
-		return "redirect:/admin/admin/admin-farmer-view-all";
+		return "redirect:/admin/admin-farmer-view-all";
 	}
 	
-	@RequestMapping(path="/admin/admin-edit-farmer-view", method=RequestMethod.GET)
+	@RequestMapping(path="/admin/admin-farmer-edit", method=RequestMethod.GET)
 	public String adminEditFarmer(HttpServletRequest request){
 			
-		int farmerId = Integer.parseInt(request.getParameter("userID"));
+		int farmerId = Integer.parseInt(request.getParameter("userId"));
 		
 		User farmer = userDAO.getUserById(farmerId);
 		
@@ -191,25 +216,15 @@ public class UserController {
 		return "admin/admin-farmer-edit";
 	}
 	
-	@RequestMapping(path="admin/admin-add-new-farmer", method=RequestMethod.GET)
+	@RequestMapping(path="admin/admin-farmer-new", method=RequestMethod.GET)
 	public String adminAddNewFarmer(HttpServletRequest request){
-			
 
-		
 		return "admin/admin-farmer-new";
 	}
 	
 //---------------------------ADMIN BUYER USERS VIEWS---------------------------------------------------------
 //---------------------------ADMIN BUYER USERS VIEWS---------------------------------------------------------
 	
-	@RequestMapping(path="admin/admin-banners-all", method=RequestMethod.GET)
-	public String adminAllBannerNotificationsView(HttpServletRequest request){
-			
-//		Return all banner notifications
-		
-		return "admin/admin-banners-all";
-	}
-
 	@RequestMapping(path="admin/admin-companies-all", method=RequestMethod.GET)
 	public String adminAllCompaniesView(HttpServletRequest request){
 			
@@ -219,15 +234,59 @@ public class UserController {
 		return "admin/admin-companies-all";
 	}
 	
-	
-	
-	@RequestMapping(path="admin/admin-add-new-buyer-user", method=RequestMethod.GET)
-	public String adminAddNewBuyer(HttpServletRequest request){
-			
+	@RequestMapping(path="admin/admin-buyer-users-all", method=RequestMethod.GET)
+	public String adminAllBuyerUsersView(HttpServletRequest request){
+
+		List<Buyer> allBuyers= userDAO.getAllBuyers();
+		request.setAttribute("allBuyers", allBuyers);
 		
-		return "admin/admin-add-new-buyer-user";
+		return "admin/admin-buyer-users-all";
 	}
 	
+	@RequestMapping(path="/admin/admin-buyer-user-edit", method=RequestMethod.GET)
+	public String adminEditBuyerUser(HttpServletRequest request){
+			
+		int buyerId = Integer.parseInt(request.getParameter("userId"));
+		
+//		Buyer buyer = userDAO.getBuyerById(buyerId);
+//		
+//		request.setAttribute("buyer", buyer);
+				
+		return "admin/admin-buyer-user-edit";
+	}
 	
+	@RequestMapping(path="admin/admin-buyer-user-add-new", method=RequestMethod.POST)
+	public String adminAllBuyerUsersViewInsert(HttpServletRequest request){
+			
+		User user = new User();
+		
+		user.setUserId(Integer.valueOf(request.getParameter("userId")));
+		user.setFirstName(request.getParameter("firstName"));
+		user.setLastName(request.getParameter("lastName"));
+		user.setEmail(request.getParameter("email"));
+		user.setPhoneNumber(request.getParameter("phoneNumber"));
+		user.setActive(Boolean.valueOf(request.getParameter("buyerUserIsActive")));
+		user.setAdmin(Boolean.valueOf(request.getParameter("buyerUserIsAdmin")));
+		String org = request.getParameter("buyerUserOrg");
+		userDAO.addNewBuyerUser(user, org);
+		
+		return "redirect:/admin/admin-buyer-users-all";
+	}
 	
+	@RequestMapping(path="admin/admin-buyer-user-new", method=RequestMethod.GET)
+	public String adminAddNewBuyer(HttpServletRequest request){
+			
+		return "admin/admin-buyer-user-new";
+	}
+	
+//---------------------------ADMIN BANNER NOTIFICATIONS VIEWS---------------------------------------------------------
+//---------------------------ADMIN BANNER NOTIFICATIONS VIEWS---------------------------------------------------------
+	
+	@RequestMapping(path="admin/admin-banners-all", method=RequestMethod.GET)
+	public String adminAllBannerNotificationsView(HttpServletRequest request){
+			
+//		Return all banner notifications
+		
+		return "admin/admin-banners-all";
+	}
 }

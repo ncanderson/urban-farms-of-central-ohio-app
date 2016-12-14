@@ -15,6 +15,9 @@
 	
 	<c:url var="mainCSS" value="/css/main.css"/>	
 	<link rel="stylesheet" href="${mainCSS}" />
+	
+	<c:url var="admin-viewCSS" value="/css/admin-views.css"/>
+	<link rel="stylesheet" href="${admin-viewCSS}" />
 
 	<c:url var="jqueryHREF" value="/js/jquery.min.js"/>
 	<script type="text/javascript" src="${jqueryHREF}"></script>
@@ -33,6 +36,9 @@
 	
 	<c:url var="jsCookies" value="/js/jscookies.js"/>
 	<script type="text/javascript" src="${jsCookies}"></script>
+	
+	<c:url var="adminViewJS" value="/js/admin-views.js"/>
+	<script type="text/javascript" src="${adminViewJS}"></script>
 	
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">

@@ -7,7 +7,8 @@
 <c:url var="defaultPhoto" value="/img/default-photo-veggies.jpg" />
 
 <div class="col-xs-12 col-md-9" id="content">
-	<div class="dashboard-item">
+
+	<div>
 		<h3>Available Harvest Inventory</h3>
 		<div class="Rtable Rtable--6cols Rtable--collapse">
 			<div class="Rtable-heading"></div>
@@ -19,7 +20,7 @@
 		</div>
 		<c:forEach var="item" items="${harvestItemsList}">
 			<div class="Rtable Rtable--6cols Rtable--collapse">
-		        <div class="Rtable-cell"><img src="${defaultPhoto}" alt="default-veggie-photo" id="crop-photo"/></div>
+		        <div class="Rtable-cell"><img src="${defaultPhoto}" alt="default-veggie-photo" class="crop-image-small"/></div>
 		        <div class="Rtable-cell Rtable-cell--head">${item.itemType}</div>
 		        <div class="Rtable-cell">${item.itemVariety}</div>
 		        <div class="Rtable-cell Rtable-cell--foot">${item.harvestQnty}</div>
@@ -34,7 +35,7 @@
 		</c:forEach>
 	</div>
 	
-	<div class="dashboard-item">
+	<div>
 		<h3>View All pending orders</h3>
 		<c:forEach var="pendingInvoice" items="${pendingOrders}">
 			<div class="Rtable Rtable--4cols Rtable--collapse">
@@ -53,8 +54,8 @@
 		</c:forEach>		
 	</div>
 
-	<div class="dashboard-item">
-		<h3>View past orders LIMITING SQL QUERY TO 10 CURRENTLY</h3>
+	<div>
+		<h3>View past orders LIMITING SQL QUERY TO 10 CURRENTLY IF NOTHING HERE CHECK THE ATTRIBUTE NAME</h3>
 		<c:forEach var="invoice" items="${pastOrders}">
 			<div class="Rtable Rtable--7cols Rtable--collapse">
 				<div class="Rtable-cell Rtable-cell--head">${invoice.invoiceId}</div>
@@ -69,7 +70,7 @@
 		</c:forEach>
 	</div>
 	
-	<div class="dashboard-item">
+	<div>
 		<h3>View Customer Information</h3>
 	</div>
 </div>

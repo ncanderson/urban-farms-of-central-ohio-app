@@ -7,29 +7,26 @@
 <div>
     
     <c:url var="addNewItem" value="/admin/admin-add-new-item" />
-	<a href="${addNewItem }" type="button" class="btn btn-primary wide-button">Add New Item</a>
+	<p class="text-center"><a href="${addNewItem}" type="button" class="btn btn-primary wide-button">Add New Item</a></p>
 
-<c:url var="defaultPhoto" value="/img/default-photo-veggies.jpg" />
+	<c:url var="defaultPhoto" value="/img/default-photo-veggies.jpg" />
 
-<div class="col-xs-12 col-md-9" id="content">
-	<div class="dashboard-item">
-		<h3>Produce Items</h3>
-		<c:forEach var="item" items="${activeCrops}">
-			<div class="Rtable Rtable--2cols Rtable--collapse">
-		        <div class="Rtable-cell"><img src="${defaultPhoto}" alt="default-veggie-photo" id="crop-photo"/></div>
-		        <c:url var="itemDetails" value="admin-edit-item-details?itemId=${item.itemId}" />
-				<div class="Rtable-cell Rtable-cell--head">
-					<h3> <a href=${itemDetails }>${item.type} ${item.variety}</a></h3>
+	<div class="col-xs-12 col-md-9" id="content">
+		<div>
+			<h3>Produce Items</h3>
+			<c:forEach var="item" items="${activeCrops}">
+				<div class="Rtable Rtable--2cols Rtable--collapse">
+		        	<c:url var="itemDetails" value="admin-item-details-edit?itemId=${item.itemId}" />
+		        	<div class="Rtable-cell"><a href="${itemDetails}"><img src="${defaultPhoto}" alt="default-veggie-photo" class="crop-image-small"/></a></div>
+					<div class="Rtable-cell Rtable-cell--head">
+						<h3><a href="${itemDetails}">${item.variety} ${item.type}</a></h3>
+					</div>
 				</div>
-			</div>
-		</c:forEach>
+			</c:forEach>
+		</div>
+	   
 	</div>
 	
-
-	<c:url var="addNewItem" value="admin-add-new-item" />
-	<div><a href=${addNewItem }>Add New Item</a></div>
-            
-</div>
 </div>         
             
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

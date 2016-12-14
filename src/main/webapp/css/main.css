@@ -1,8 +1,9 @@
 @import url("header-footer.css");
 @import url("anonymous-view.css");
 @import url("farmer-dashboard.css");
-@import url("enter-new-inventory.css");
-@import url("enter-new-inventory.css");
+@import url("centered-input-form.css");
+@import url("admin-views.css");
+@import url("images.css");
 
 html {
 	height: 100%;
@@ -10,6 +11,10 @@ html {
 
 html * {
 	font-family: Raleway, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: Verdana, sans-serif;
 }
 
 body {
@@ -29,9 +34,8 @@ div.container-fluid {
 }
 
 .center-block {
-	text-align: center;
-	padding: 0;
 	overflow: hidden;
+	padding: 2%;
 	height: 100%;
 	position: relative;
 }
@@ -60,21 +64,10 @@ div.Rtable-cell a img:hover {
 	border: 2px solid #56b2ff; 
 }
 
-/* ++++++++++++++++++++++++++++++++++
-			ADMIN VIEW
-++++++++++++++++++++++++++++++++++ */
-
-.wide-button {
-	width: 25%;
+.head-text {
+	font-family: Verdana, sans-serif;
+	font-weight: bold;
 }
-#admin-image {
-	
-}
-
-
-
-
-
 
 /* Red border around everything for viewing */
 /* * {
