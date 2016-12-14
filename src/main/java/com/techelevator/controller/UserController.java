@@ -117,7 +117,7 @@ public class UserController {
 		return "admin/admin-item-new";
 	}
 	
-	@RequestMapping(path="/admin/admin-all-farmers-view", method=RequestMethod.GET)
+	@RequestMapping(path="/admin/admin-farmer-view-all", method=RequestMethod.GET)
 	public String adminAddUserViewGet(HttpServletRequest request){
 			
 		List<User> allFarmers = userDAO.getAllFarmers();
@@ -189,12 +189,20 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping(path="admin/admin-all-buyer-users-view", method=RequestMethod.GET)
-	public String adminAllBuyersView(HttpServletRequest request){
+	@RequestMapping(path="admin/admin-banners-all", method=RequestMethod.GET)
+	public String adminAllBannerNotificationsView(HttpServletRequest request){
 			
-		List<User> allBuyerUsers = userDAO.getAllBuyerUsers();
-		request.setAttribute("allBuyers", allBuyerUsers);
+//		Return all banner notifications
 		
-		return "admin/admin-buyer-users-all";
+		return "admin/admin-banners-all";
+	}
+
+	@RequestMapping(path="admin/admin-companies-all", method=RequestMethod.GET)
+	public String adminAllCompaniesView(HttpServletRequest request){
+			
+//		List<User> allCompanies = userDAO.getAllCompanies();
+//		request.setAttribute("allBuyers", allCompanies);
+		
+		return "admin/admin-companies-all";
 	}
 }
