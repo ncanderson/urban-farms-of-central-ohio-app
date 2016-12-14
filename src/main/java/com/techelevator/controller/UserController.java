@@ -188,11 +188,12 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping(path="admin/admin-all-buyers-view", method=RequestMethod.GET)
+	@RequestMapping(path="admin/admin-all-buyer-users-view", method=RequestMethod.GET)
 	public String adminAllBuyersView(HttpServletRequest request){
 			
-
+		List<User> allBuyerUsers = userDAO.getAllBuyerUsers();
+		request.setAttribute("allBuyers", allBuyerUsers);
 		
-		return "admin/admin-all-buyers-view";
+		return "admin/admin-all-buyer-users-view";
 	}
 }

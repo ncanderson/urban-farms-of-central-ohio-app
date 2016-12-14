@@ -3,8 +3,7 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 <title>Add new Item</title>
-</head>
-<body>
+
 	  
 	<form action="admin-items-view-insert" method="POST">
 		

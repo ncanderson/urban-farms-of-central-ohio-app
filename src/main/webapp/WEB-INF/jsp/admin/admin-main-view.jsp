@@ -20,7 +20,7 @@
 			</div>
 			<br>
 			<div>
-				<c:url var="ViewBuyers" value="/admin/admin-all-buyers-view" />
+				<c:url var="ViewBuyers" value="/admin/admin-all-buyer-users-view" />
 				<a href="${ViewBuyers}" type="button" class="btn btn-primary wide-button">Edit Buyer Users</a>
 			</div>
 			<br>

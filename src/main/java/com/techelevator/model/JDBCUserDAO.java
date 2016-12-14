@@ -114,6 +114,20 @@ public class JDBCUserDAO implements UserDAO {
 		}
 		return buyerList;
 	}
+	
+	@Override
+	public List<User> getAllBuyerUsers() {
+		
+		String sqlSelectStatment = "SELECT user_id, email, first_name, last_name, user_phone_number, buyer_name, users.is_active "
+									+ "from users "
+									+ "INNER JOIN buyer_information "
+									+ "ON users.buyer_id = buyer_information.buyer_id "
+									+ "WHERE user_type = 2";
+			
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectStatment);
+		
+		return mapBuyerUser(results);
+	}
 
 	@Override
 	public List<User> getAllFarmers() {
@@ -200,17 +214,31 @@ public class JDBCUserDAO implements UserDAO {
 		return user;
 	}
 	
+	private List<User> mapBuyerUser(SqlRowSet results){
+		
+	List<User> allBuyerUsers = new ArrayList<User>();
+		
+		while(results.next()){
+			
+			User user = new User();
+			user.setUserID(results.getInt("user_id"));
+			user.setEmail(results.getString("email"));
+			user.setFirstName(results.getString("first_name"));
+			user.setLastName(results.getString("last_name"));
+			user.setPhoneNumber(results.getString("user_phone_number"));	
+			user.setCompanyName(results.getString("buyer_name"));
+			user.setActive(Boolean.valueOf(results.getString("is_active")));
+			
+			allBuyerUsers.add(user);
+		}
+		
+		return allBuyerUsers;
+		
+	}
 	
 	
-	private Type type;
-	private int userID;
-	private String email;
-	private String firstName;
-	private String lastName;
-	private String phoneNumber;
-	private boolean isGlobalAdmin;
-	private boolean isAdmin;
-	private boolean isActive;
+	
+
 
 
 

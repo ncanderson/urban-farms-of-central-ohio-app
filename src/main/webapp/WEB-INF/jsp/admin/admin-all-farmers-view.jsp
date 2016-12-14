@@ -3,8 +3,7 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 <title>Admin Add User</title>
-</head>
-<body>
+
 	
 	<div>
 		<c:forEach var="user" items="${allFarmers}">

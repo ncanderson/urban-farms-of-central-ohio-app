@@ -12,7 +12,7 @@ public class User {
 	private boolean isGlobalAdmin;
 	private boolean isAdmin;
 	private boolean isActive;
-	
+	private String companyName;
 	 
 	public User(){
 		
@@ -88,6 +88,14 @@ public class User {
 
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
 	
 	
