@@ -5,8 +5,6 @@
 
 <h2>Currently Available Items</h2>
 <h3>Click an item for further details</h3>
-
-<div class="jumbotron">LIMITING TO 10 BECAUSE TOMCAT WAS WICKED SLOW</div>
 	
 <div id="main-page-menu-header" class="Rtable Rtable--4cols js-RtableAccordions">
        <div class="Rtable-cell Rtable-cell--head"></div>

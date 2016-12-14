@@ -6787,4 +6787,6 @@ INSERT INTO "item_harvest_details" (item_harvest_details_id, item_id, harvest_qu
 
 ALTER SEQUENCE item_harvest_details_item_harvest_details_id_seq RESTART WITH 6923;
 
+UPDATE item_harvest_details SET harvest_quantity = 0;
+
 COMMIT;

@@ -6,5 +6,7 @@ INSERT INTO users (user_id, email, user_type, credentials_id, first_name, last_n
 INSERT INTO users (user_id, email, user_type, credentials_id, first_name, last_name, is_global_admin, is_admin, is_active) VALUES (2, 'some@farmer.com', 1, 2, 'Farmer', 'Joe', 'false', 'true', 'true');
 INSERT INTO users (user_id, email, user_type, credentials_id, first_name, last_name, is_global_admin, is_admin, is_active) VALUES (3, 'some@buyer.com', 2, 3, 'Buyer', 'Joe', 'false', 'false', 'true');
 INSERT INTO users (user_id, email, user_type, credentials_id, first_name, last_name, is_global_admin, is_admin, is_active) VALUES (4, 'someother@farmer.com', 1, 2, 'Farmer', 'Jane', 'false', 'false', 'true');
+INSERT INTO users (user_id, email, user_type, credentials_id, first_name, last_name, is_global_admin, is_admin, is_active, buyer_id) VALUES (5, 'adminbuyer@thetable.com', 2, 2, 'Admin', 'Buyer', 'false', 'true', 'true', 2);
+INSERT INTO users (user_id, email, user_type, credentials_id, first_name, last_name, is_global_admin, is_admin, is_active, buyer_id) VALUES (6, 'userbuyer@thetable.com', 2, 2, 'User', 'Buyer', 'false', 'false', 'true', 2);
 
 COMMIT;
