@@ -21,3 +21,5 @@ LIMIT 1;
  SELECT item_harvest_details_id as ID, item_id as Item, harvest_quantity as Qty, harvest_image_id as Img, average_size_of_item as Size, harvest_availability as Avail, harvest_details_comments as Notes, harvest_date as Date, item_price as Price, harvest_end_date as End, pick_list_comments as Pick, is_bulk, harvest_reconciliation_id as Rec FROM item_harvest_details WHERE harvest_quantity > 0;
 
 SELECT item_id as ID, item_type as TYPE, item_variety as VAR, item_description as DES, is_active as Active FROM item LIMIT 50; 
+
+SELECT user_id as ID, user_type as Type, first_name as FName, last_name as LName, user_phone_number as Phone, buyer_name as Org, users.is_active as Active FROM users INNER JOIN buyer_information ON users.buyer_id = buyer_information.buyer_id;

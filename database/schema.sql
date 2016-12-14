@@ -58,7 +58,8 @@ CREATE TABLE users (
   user_phone_number varchar(15) NULL,
   is_global_admin boolean NOT NULL,
   is_admin boolean NOT NULL,
-  is_active boolean NOT NULL
+  is_active boolean NOT NULL,
+  reset_password boolean NOT NULL DEFAULT FALSE
 );
 
 CREATE TABLE item (
