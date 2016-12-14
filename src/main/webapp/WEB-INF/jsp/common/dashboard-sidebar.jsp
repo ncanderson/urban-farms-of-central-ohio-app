@@ -28,15 +28,15 @@
 			
 			<div class="navbar">
 				<ul class="nav navbar-nav col-xs-12 col-lg-1" id="admin-menu-items">
-					<c:url var="ViewItems" value="/admin/admin-items-view" />
+					<c:url var="ViewItems" value="/admin/admin-item-view" />
 					<li><a href="${ViewItems}">Edit Items</a></li>
-					<c:url var="ViewFarmers" value="/admin/admin-all-farmers-view" />
+					<c:url var="ViewFarmers" value="/admin/admin-farmer-view-all" />
 					<li><a href="${ViewFarmers}">Edit Farmer Users</a></li>
-					<c:url var="ViewBuyers" value="/admin/admin-all-buyer-users-view" />
+					<c:url var="ViewBuyers" value="/admin/admin-buyer-users-all" />
 					<li><a href="${ViewBuyers}">Edit Buyers Users</a></li>
-					<c:url var="ViewCompanies" value="/admin/admin-all-companies-view" />
+					<c:url var="ViewCompanies" value="/admin/admin-companies-all" />
 					<li><a href="${ViewCompanies}">Edit Companies</a></li>
-					<c:url var="ViewBanners" value="/admin/admin-all-banners-view" />
+					<c:url var="ViewBanners" value="/admin/admin-banners-all" />
 					<li><a href="${ViewBanners}">Edit Banner Notifications</a></li>
 				</ul>
 			</div>

@@ -16,6 +16,7 @@
 /* Accordian collapse styling */
 
 @media all and (max-width: 500px) { 
+	
 	.hiddenSmall {
   		display: none; 
   	}

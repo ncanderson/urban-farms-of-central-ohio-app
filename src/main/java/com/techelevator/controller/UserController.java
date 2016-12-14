@@ -46,7 +46,6 @@ public class UserController {
 	}
 
 //---------------------------ADMIN VIEWS---------------------------------------------------------
-//---------------------------ADMIN VIEWS---------------------------------------------------------
 	
 	@RequestMapping(path="admin/admin-main-view", method=RequestMethod.GET)
 	public String adminMainView(HttpServletRequest request){
@@ -54,13 +53,13 @@ public class UserController {
 		return "admin/admin-main-view";
 	}
 	
-	@RequestMapping(path="admin/admin-items-view", method=RequestMethod.GET)
+	@RequestMapping(path="admin/admin-item-view", method=RequestMethod.GET)
 	public String adminItemViewGet(HttpServletRequest request){
 			
 		List<Item> activeCrops = itemDAO.getAllActiveCrops();
 		request.setAttribute("activeCrops", activeCrops);
 		
-		return "admin/admin-items-view";
+		return "admin/admin-item-view";
 	}
 	
 	@RequestMapping(path="admin/admin-items-view-update", method=RequestMethod.POST)
@@ -79,7 +78,7 @@ public class UserController {
 	
 		
 		itemDAO.updateItem(item, itemId); 
-		return "redirect:/admin/admin-items-view";
+		return "redirect:/admin/admin-item-view";
 	}
 	
 	@RequestMapping(path="admin/admin-items-view-insert", method=RequestMethod.POST)
@@ -99,7 +98,7 @@ public class UserController {
 	
 		System.out.println(item.getDescription());
 		
-		return "redirect:/admin/admin-items-view";
+		return "redirect:/admin/admin-item-view";
 	}
 	
 	@RequestMapping(path="admin/admin-edit-item-details", method=RequestMethod.GET)
@@ -108,23 +107,23 @@ public class UserController {
 		int itemId = Integer.parseInt(request.getParameter("itemId"));
 		request.setAttribute("item", itemDAO.getAdminCropById(itemId));
 		
-		return "admin/admin-edit-item-details";
+		return "admin/admin-item-details-edit";
 	}
 	
 	@RequestMapping(path="admin/admin-add-new-item", method=RequestMethod.GET)
 	public String adminAddNewItem(HttpServletRequest request){
 			
 		
-		return "admin/admin-add-new-item";
+		return "admin/admin-item-new";
 	}
 	
-	@RequestMapping(path="/admin/admin-all-farmers-view", method=RequestMethod.GET)
+	@RequestMapping(path="/admin/admin-farmer-view-all", method=RequestMethod.GET)
 	public String adminAddUserViewGet(HttpServletRequest request){
 			
 		List<User> allFarmers = userDAO.getAllFarmers();
 		request.setAttribute("allFarmers", allFarmers);
 		
-		return "admin/admin-all-farmers-view";
+		return "admin/admin-farmer-view-all";
 	}
 	
 	@RequestMapping(path="/admin/admin-all-farmers-view-update", method=RequestMethod.POST)
@@ -145,7 +144,7 @@ public class UserController {
 		List<User> allFarmers = userDAO.getAllFarmers();
 		request.setAttribute("allFarmers", allFarmers);
 		
-		return "redirect:/admin/admin-all-farmers-view";
+		return "redirect:/admin/admin-farmer-view-all";
 	}
 	
 	@RequestMapping(path="/admin/admin-all-farmers-view-insert", method=RequestMethod.POST)
@@ -166,7 +165,7 @@ public class UserController {
 		List<User> allFarmers = userDAO.getAllFarmers();
 		request.setAttribute("allFarmers", allFarmers);
 		
-		return "redirect:/admin/admin-all-farmers-view";
+		return "redirect:/admin/admin/admin-farmer-view-all";
 	}
 	
 	@RequestMapping(path="/admin/admin-edit-farmer-view", method=RequestMethod.GET)
@@ -178,7 +177,7 @@ public class UserController {
 		
 		request.setAttribute("farmer", farmer);
 				
-		return "admin/admin-edit-farmer-view";
+		return "admin/admin-farmer-edit";
 	}
 	
 	@RequestMapping(path="admin/admin-add-new-farmer", method=RequestMethod.GET)
@@ -186,16 +185,24 @@ public class UserController {
 			
 
 		
-		return "admin/admin-add-new-farmer";
+		return "admin/admin-farmer-new";
 	}
 	
 	
-	@RequestMapping(path="admin/admin-all-buyer-users-view", method=RequestMethod.GET)
-	public String adminAllBuyersView(HttpServletRequest request){
+	@RequestMapping(path="admin/admin-banners-all", method=RequestMethod.GET)
+	public String adminAllBannerNotificationsView(HttpServletRequest request){
 			
-		List<User> allBuyerUsers = userDAO.getAllBuyerUsers();
-		request.setAttribute("allBuyers", allBuyerUsers);
+//		Return all banner notifications
 		
-		return "admin/admin-all-buyer-users-view";
+		return "admin/admin-banners-all";
+	}
+
+	@RequestMapping(path="admin/admin-companies-all", method=RequestMethod.GET)
+	public String adminAllCompaniesView(HttpServletRequest request){
+			
+//		List<User> allCompanies = userDAO.getAllCompanies();
+//		request.setAttribute("allBuyers", allCompanies);
+		
+		return "admin/admin-companies-all";
 	}
 }
