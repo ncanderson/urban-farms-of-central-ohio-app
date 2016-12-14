@@ -168,8 +168,24 @@ public class JDBCUserDAO implements UserDAO {
 	@Override
 	public void addNewFarmer(User user) {
 		//TODO this method needs work, password, salt, credentials_id
-		String sqlInsertStatement = "INSERT INTO users (first_name, last_name, email, user_type, user_phone_number, is_global_admin, is_admin, is_active) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-		jdbcTemplate.update(sqlInsertStatement, user.getFirstName(), user.getLastName(), user.getEmail(), 1, user.getPhoneNumber(), false, user.isAdmin(), user.isActive());
+		byte[] tempSalt = passwordHasher.generateRandomSalt();
+		String tempPassword = new String(Base64.encode(tempSalt)).substring(0, 9);
+		byte[] trueSalt = passwordHasher.generateRandomSalt();		
+		String hashedPassword = passwordHasher.computeHash(tempPassword, trueSalt);
+		
+		String sqlInsertCredentialsStatement = "INSERT INTO credentials (password, salt) VALUES (?, ?)";
+		jdbcTemplate.update(sqlInsertCredentialsStatement, hashedPassword, trueSalt);
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet("SELECT credentials_id FROM credentials WHERE password = ?", hashedPassword);
+		
+		int credId = 0;
+		while(results.next()){
+			credId = results.getInt("credentials_id");
+		}
+				
+		String sqlInsertStatement = "INSERT INTO users (credentials_id, first_name, last_name, email, user_type, user_phone_number, is_global_admin, is_admin, is_active, reset_password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		jdbcTemplate.update(sqlInsertStatement, credId, user.getFirstName(), user.getLastName(), user.getEmail(), 1, user.getPhoneNumber(), false, user.isAdmin(), user.isActive(), true);
+		//TODO missing Step!!! Must email new famer his new temp passsword
 		
 	}
 	
