@@ -13,8 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
+@Transactional
 public class JDBCharvestDAO implements HarvestDAO {
 
 	private JdbcTemplate jdbcTemplate;
@@ -56,6 +58,40 @@ public class JDBCharvestDAO implements HarvestDAO {
 								+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 
 		jdbcTemplate.update(sqlInsertQuery, itemId, harvestQnty, averageSize, availability, comments, pickListComments, price, endDate);		
+	}
+	
+	@Override
+	public void updateHarvestItem(HarvestItem updateHarvestItem) {
+		
+		int itemId = updateHarvestItem.getItemId();
+		int harvestItemId = updateHarvestItem.getHarvestItemId();
+		int harvestQnty = updateHarvestItem.getHarvestQnty();
+//		String harvestImageId = updateHarvestItem.getHarvestImageId();
+		String averageSize = updateHarvestItem.getAverageSize();
+		String availability = updateHarvestItem.getAvailability();
+		String comments = updateHarvestItem.getComments();
+		String pickListComments = updateHarvestItem.getFarmerEnteredPickComments();
+		BigDecimal price = updateHarvestItem.getPrice();
+		LocalDate endDate = updateHarvestItem.getEndDate();
+		int recId = updateHarvestItem.getReconciliationId();
+		
+		
+		
+		
+		String sqlInsertQuery = "INSERT INTO item_harvest_details"
+								+ "(item_id, harvest_quantity, average_size_of_item, harvest_availability, "
+								+ "harvest_details_comments, pick_list_comments, item_price, harvest_end_date, harvest_reconciliation_id) "
+								+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		jdbcTemplate.update(sqlInsertQuery, itemId, harvestQnty, averageSize, availability, comments, pickListComments, price, endDate, recId);
+		
+		String sqlUpdateQuery = "UPDATE item_harvest_details "
+								+ "SET harvest_quantity = 0 "
+								+ "WHERE item_harvest_details_id = ?";
+			
+		jdbcTemplate.update(sqlUpdateQuery, harvestItemId);
+		
+
 	}
 	
 	@Override

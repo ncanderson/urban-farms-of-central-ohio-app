@@ -1,8 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
-
-<c:import url="farmer-dashboard-sidebar-menu.jsp" />
+<c:import url="/WEB-INF/jsp/common/dashboard-sidebar.jsp" />
 
 <c:url var="defaultPhoto" value="/img/default-photo-veggies.jpg" />
 
@@ -48,18 +47,33 @@
 	   		</li>
 		    <li>
 	  			<label for="harvestAvailability">Availability:</label>
-	  			<input type="text" id="harvestAvailability" value="${detailCrop.availability}"/>
+	  			<input type="text" name="harvestAvailability" value="${detailCrop.availability}"/>
+	   		</li>
+	   		<li>
+	  			<label for="harvestEndDate">End Availability On:</label>
+	  			<input type="date" placeholder="dd/MM/yyyy" name="harvestEndDate"/>
 	   		</li>
 	   		<li>
 	   			<label for="harvestDetailsComments">Message:</label>
-	   			<input type="text" id="harvestDetailsComments" value="${detailCrop.comments}"/>
+	   			<input type="text" name="harvestDetailsComments" value="${detailCrop.comments}"/>
 	   		</li>
 	   		<li>
 	   			<label for="farmerEnteredPickComments">Pick List Comments:</label>
-	   			<input type="text" id="farmerEnteredPickComments" value="${detailCrop.farmerEnteredPickComments}"/>
+	   			<input type="text" name="farmerEnteredPickComments" value="${detailCrop.farmerEnteredPickComments}"/>
+	   		</li>
+	   		<li>
+	   			<label for="harvestItemDisposition">Reason For Edit:</label>
+	   			<select name="harvestItemDisposition">
+	   				<option selected="selected" value="">Please Select</option>
+				  	<option value="1">Till Over</option>
+				  	<option value="2">Over Estimate Harvest</option>
+				  	<option value="3">Wrong Variety Selected</option>
+				  	<option value="4">Other</option>
+				</select>
 	   		</li>
 			<li>
 				<input type="submit" class="form-centered-button" value="Update Item" />
+				<input type="hidden" name="harvestItemId" value="${detailCrop.harvestItemId}"/>
 			</li>
 		</ul>
 	</form>

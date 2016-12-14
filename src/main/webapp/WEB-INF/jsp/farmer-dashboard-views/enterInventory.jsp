@@ -43,10 +43,10 @@
 	  			<label for="harvestAvailability">Availability:</label>
 	  			<textarea rows="2" id="harvestAvailability" placeholder="Enter crop availability" name="harvestAvailability"></textarea>
 	   		</li>
-	   		<!-- <li>
+	   		<li>
 	  			<label for="harvestEndDate">End Availability On:</label>
 	  			<input type="date" placeholder="dd/MM/yyyy" name="harvestEndDate"/>
-	   		</li> -->
+	   		</li>
 	   		<li>
 	   			<label for="harvestDetailsComments">Message:</label>
 	   			<textarea rows="2" id="harvestDetailsComments" placeholder="Notes about the crop" name="harvestDetailsComments" ></textarea>
