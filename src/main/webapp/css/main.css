@@ -18,6 +18,10 @@ body {
 	flex-direction: column;
 }
 
+form {
+	width: auto;
+}
+
 div.container-fluid {
 	flex: 1;
 	margin: 0;
