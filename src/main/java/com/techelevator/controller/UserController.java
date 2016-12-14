@@ -140,7 +140,7 @@ public class UserController {
 	public String adminEditItemDetails(HttpServletRequest request){
 			
 		int itemId = Integer.parseInt(request.getParameter("itemId"));
-		request.setAttribute("item", itemDAO.getAdminCropById(itemId));
+		request.setAttribute("adminDetailItem", itemDAO.getAdminCropById(itemId));
 		
 		return "admin/admin-item-details-edit";
 	}

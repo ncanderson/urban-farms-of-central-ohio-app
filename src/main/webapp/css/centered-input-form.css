@@ -17,6 +17,10 @@
 	align-items: center;
 }
 
+.form-flex-outer > li > input {
+	margin-bottom: 1%;
+}
+
 .form-flex-outer > li > label, 
 .form-flex-outer li p {
 	flex: 1 0 120px;
