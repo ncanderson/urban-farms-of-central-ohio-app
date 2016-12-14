@@ -8,8 +8,12 @@
 	width: 100%;
 }
 
+.navbar-header {
+	width: 100%;
+}
+
 .navbar {
-	padding-right: 5px;
+	
 }
 
 #logo-image {

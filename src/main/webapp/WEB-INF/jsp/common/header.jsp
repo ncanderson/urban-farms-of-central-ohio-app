@@ -5,8 +5,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
 	<title>Urban Farms of Central Ohio | Produce Ordering</title>
+	
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<c:url var="bootstrapCSSHREF" value="/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="${bootstrapCSSHREF}" />
@@ -66,26 +68,46 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     
     <ul class="nav navbar-nav">
+    
         <li class="active"><a href="${homePage}">Home<span class="sr-only">(current)</span></a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">View Current Orders</a></li>
-            <li><a href="#">View Pending Orders</a></li>
-            <li><a href="#">View Past Orders</a></li>
-          </ul>
-        </li>
+    
+    	<c:if test="${currentUser.isAdmin()}">
+    		<c:url var="adminMain" value="/admin/admin-main-view" />
+    		<li><a href="${adminMain}">Admin Menu</a></li>
+    		<c:url var="farmerDashboard" value="/farmer-dashboard-views/dashboard" />
+			<li><a href="${farmerDashboard}">Farmer Dashboard</a></li>
+    	</c:if>
+    
+        <c:if test="${currentUser.type == 'FARMER' && currentUser.isAdmin() == false}">
+			<c:url var="farmerDashboard" value="/farmer-dashboard-views/dashboard" />
+			<li><a href="${farmerDashboard}">Farmer Dashboard</a></li>
+        </c:if>
+    
+    	<c:if test="${currentUser.type == 'BUYER'}">
+	        <%-- <c:url var="buyerCurrentInventory" value="/customer-views/current-inventory" />
+	        <li><a href="${buyerCurrentInventory}">Buyer Current Inventory </a></li> --%>
+	        
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#">View Current Orders</a></li>
+	            <li><a href="#">View Pending Orders</a></li>
+	            <li><a href="#">View Past Orders</a></li>
+	          </ul>
+	        </li>
+        </c:if>
 
-        <c:url var="cartHref" value="/customer-views/shopping-cart/checkout" />
-        <li><a href="${cartHref}"><span class="glyphicon glyphicon-shopping-cart"></span> View Cart</a></li>
-
-		<c:url var="farmerDashboard" value="/farmer-dashboard-views/dashboard" />
-		<li><a href="${farmerDashboard}">Farmer Dashboard</a></li>
+		<c:if test="${not empty currentUser}">
+	        <c:url var="cartHref" value="/customer-views/shopping-cart" />
+	        <li><a href="${cartHref}"><span class="glyphicon glyphicon-shopping-cart"></span> View Cart</a></li>
+        </c:if>
         
-        <c:url var="buyerCurrentInventory" value="/customer-views/current-inventory" />
-        <li><a href="${buyerCurrentInventory}">Buyer Current Inventory </a></li>
         
-        <c:choose>
+	</ul>
+	
+    <div class="pull-right">
+    	<ul class="nav navbar-nav">    
+        <c:choose> 
 			<c:when test="${empty currentUser}">
 				<c:url var="loginHref" value="/login" />
 				<li><a href="${loginHref}">Login</a></li>
@@ -99,7 +121,8 @@
 				</form>
 			</c:otherwise>
 		</c:choose>
-    </ul>
+    	</ul>
+	</div>
 	
     </div><!-- /.navbar-collapse -->
 </nav>

@@ -83,7 +83,7 @@
 	width: 25%; 
 }
 
-.Rtable--5cols > .Rtable-cell {
+.Rtable--5cols > .Rtable-cell, form {
 	width: 20%;
 }
 

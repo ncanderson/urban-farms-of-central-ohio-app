@@ -2,6 +2,7 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
+<c:import url="/WEB-INF/jsp/common/dashboard-sidebar.jsp" />
 
 	<div>
 		<c:forEach var="buyerUser" items="${allBuyers}">

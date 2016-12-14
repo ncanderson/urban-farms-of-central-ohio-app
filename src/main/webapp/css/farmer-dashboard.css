@@ -7,7 +7,7 @@
 	text-align: left;
 }
 
-#menu-items {
+#farmer-menu-items, #admin-menu-items {
 	white-space: nowrap;
 	width: auto;
 	padding: 0;
@@ -24,35 +24,41 @@
 	top: 0;
 }
 
-#menu-items .navbar-collapse {
+#admin-menu-items .navbar-collapse {
   	text-align: center;
 }
 
-#menu-items > ul {
+#farmer-menu-items .navbar-collapse {
+	text-align: center;
+}
+
+#farmer-menu-items, #admin-menu-items > ul {
 	text-align: center;
 	padding: 0;
 }
 
-#menu-items > ul > li {
+#farmer-menu-items, #admin-menu-items > ul > li {
 	text-align: center;
 	padding: 0;
+	width: 100%;
 }
 
 @media(max-width:795px){
-	#menu-items > ul > li > a {
+	#farmer-menu-items, #admin-menu-items > ul > li > a {
 		padding-left: 10px;
 		padding-right: 10px;
     }
-    #menu-items {
+    #farmer-menu-items, #admin-menu-items {
 		margin: 0 auto;
 		display: table;	
     }
 }
 
 @media(min-width:1650px) {
-	#menu-items {
+	#farmer-menu-items, #admin-menu-items {
 		display: flex;
 		flex-direction: column;
+		width: auto;
 	}
 }
 

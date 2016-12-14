@@ -42,33 +42,22 @@ public class ShoppingCartController {
 	}
 	
 	@RequestMapping(path="/customer-views/shopping-cart", method=RequestMethod.GET)
-	public String cropDetailsGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		try {
-			System.out.println("GET");
-			int cropId = Integer.parseInt(request.getParameter("itemId"));			
-			request.setAttribute("cropItem", itemDAO.getCropById(cropId));
-			return "customer-views/shopping-cart/crop-item-details";
-			
-			
-		} catch (NumberFormatException | IndexOutOfBoundsException e) {
-			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-			return null;
-		}
+	public String viewShoppingCart(HttpServletRequest request) {
+		
+		return "customer-views/shopping-cart";
 	}
 	
-	@RequestMapping(path="/customer-views/shopping-cart/crop-item-details", method=RequestMethod.POST)
-	public String cropDetailsPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		try {
-			System.out.println("POST");
-			int cropId = Integer.parseInt(request.getParameter("itemId"));			
-			request.setAttribute("cropItem", itemDAO.getCropById(cropId));
-			return "redirect:/shopping-cart/crop-item-details";
-			
-			
-		} catch (NumberFormatException | IndexOutOfBoundsException e) {
-			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-			return null;
-		}
+	@RequestMapping(path="/customer-views/shopping-cart", method=RequestMethod.POST)
+	public String addToShoppingCart(@RequestParam int harvestQuantityToBuy,
+									@RequestParam int harvestItemToBuy,
+									ModelMap model) {
+		
+		CartItem cartItem = new CartItem();
+		cartItem.setCrop(new Item()); // LOOK UP HARVEST DETAIL ITEM BY ID
+		cartItem.setQuantity(harvestQuantityToBuy);
+		
+		model.addAttribute("cart", cartItem);
+		return "redirect:/customer-views/current-inventory";
 	}
 	
 	@RequestMapping(path="/customer-views/shopping-cart/checkout", method=RequestMethod.GET)

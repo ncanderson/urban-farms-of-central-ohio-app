@@ -25,7 +25,6 @@ $(document).ready(function() {
         })
         .done(function(data) {
         	$("#crop-variety").empty();
-        	$("#pricePerPound").val("");
             $.each(data, function(index, cropType) {
             	var option = document.createElement("option");
             	$(option).attr("value", cropType.variety);

@@ -28,18 +28,21 @@ public class AuthenticationController {
 
 	
 	@RequestMapping(path="/login", method=RequestMethod.POST)
-	public String login(ModelMap model, @RequestParam String userName, @RequestParam String password,
+	public String login(ModelMap model, 
+						@RequestParam String userName, 
+						@RequestParam String password,
 						HttpSession session) {
 		
-		if(userDAO.searchForUsernameAndPassword(userName, password)){ 
+		if(userDAO.searchForUsernameAndPassword(userName, password)) { 
 			session.invalidate();
 				
 			User user = userDAO.selectUserByUserName(userName);		
+			
 			model.put("currentUser", user);
 			
-			switch(user.getType()){
+			switch(user.getType()) {
 			
-				case ADMIN: return "redirect:/admin/admin-main-view";
+				case ADMIN: return "redirect:/farmer-dashboard-views/dashboard";
 				case FARMER: return "redirect:/farmer-dashboard-views/dashboard";				
 				case BUYER: return "redirect:/customer-views/current-inventory";
 				default : return "redirect:/welcome";
@@ -47,7 +50,6 @@ public class AuthenticationController {
 		}	
 		return "redirect:/login";
 	}	
-	
 	
 	@RequestMapping(path="/logout", method=RequestMethod.POST)
 	public String logoutPost(ModelMap model, HttpSession session) {

@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-</body>
-</html>
+<c:import url="/WEB-INF/jsp/common/header.jsp" />
+
+<c:import url="farmer-dashboard-sidebar-menu.jsp" />
+
+<c:url var="defaultPhoto" value="/img/default-photo-veggies.jpg" />
+
+<div class="jumbotron"><h1>VIEW PAST ORDERS</h1></div>
+
+<c:import url="/WEB-INF/jsp/common/footer.jsp" />

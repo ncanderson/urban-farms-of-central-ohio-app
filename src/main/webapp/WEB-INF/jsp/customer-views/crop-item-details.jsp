@@ -20,7 +20,11 @@
 		<p>Comments: ${detailCrop.comments}</p>
 	</div>
 	
-	but
+	<form action="customer-views/shopping-cart" method="POST">
+	   	<input type="text" placeholder="Quantity to buy" />
+	   	<input type="submit" value="Add to Cart" name="harvestQuantityToBuy"/>
+	   	<input type="hidden" name="harvestItemToBuy" value="${item.harvestItemId}" />
+    </form>
 
 </div>
 
