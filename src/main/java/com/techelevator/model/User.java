@@ -13,7 +13,8 @@ public class User {
 	private boolean isAdmin;
 	private boolean isActive;
 	private String companyName;
-	 
+	private boolean resetPassword; 
+	
 	public User(){
 		
 	}
@@ -96,6 +97,14 @@ public class User {
 
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
+	}
+
+	public boolean isResetPassword() {
+		return resetPassword;
+	}
+
+	public void setResetPassword(boolean resetPassword) {
+		this.resetPassword = resetPassword;
 	}
 	
 	

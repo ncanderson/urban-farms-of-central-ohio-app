@@ -209,9 +209,13 @@ public class JDBCItemDAO implements ItemDAO {
 	@Override
 	public void updateItem(Item item, int itemId) {
 		//TODO missing season dates
-		String sqlUpdateStatment = "UPDATE item SET item_type = ?, item_variety = ?, item_description = ?, is_active = ? WHERE item_id = ?";
-		jdbcTemplate.update(sqlUpdateStatment, item.getType(), item.getVariety(), item.getDescription(), item.isActive(), itemId);
-		
+		String sqlUpdateStatment = "UPDATE item SET item_type = ?, item_variety = ?, item_description = ?, is_active = ? "
+								 + "season_one_start = ?, season_one_end =?, season_two_start = ?, season_two_end = ?, season_three_start = ?, season_three_end = ? "
+								 + "WHERE item_id = ?";
+		jdbcTemplate.update(sqlUpdateStatment, item.getType(), item.getVariety(), item.getDescription(), item.isActive(), 
+											   item.getStartDate1(), item.getEndDate1(), item.getStartDate2(), item.getEndDate2(), 
+											   item.getStartDate3(), item.getEndDate3(), itemId);
+	
 	}
 	
 	@Override

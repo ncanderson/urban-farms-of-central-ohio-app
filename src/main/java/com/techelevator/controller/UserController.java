@@ -1,6 +1,8 @@
 package com.techelevator.controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -43,7 +45,7 @@ public class UserController {
 		this.invoiceDAO = invoiceDAO;
 	}
 
-
+ 
 //---------------------------ADMIN VIEWS---------------------------------------------------------
 	
 	@RequestMapping(path="admin/admin-main-view", method=RequestMethod.GET)
@@ -70,12 +72,42 @@ public class UserController {
 	public String adminItemViewUpdatePost(HttpServletRequest request){
 		
 		Item item = new Item();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		
+		String start1 = request.getParameter("startDate1");
+		String end1 = request.getParameter("endDate1");
+		
+		String start2 = request.getParameter("startDate2");
+		String end2 = request.getParameter("endDate2");
+		
+		String start3 = request.getParameter("startDate3");
+		String end3 = request.getParameter("endDate3");
+		
+		
 		int itemId = Integer.parseInt(request.getParameter("itemId"));
 		item.setType(request.getParameter("itemType"));
 		item.setVariety(request.getParameter("itemVariety"));
 		item.setDescription(request.getParameter("itemDescription"));
 		item.setActive(Boolean.valueOf(request.getParameter("itemIsActive")));
-		//TODO get season start end dates
+		
+		if (!(start1.equals("") || start1 == null)) {
+			item.setStartDate1(LocalDate.parse(start1, formatter));
+		} 
+		if (!(start2.equals("") || start2 == null)) {
+			item.setStartDate2(LocalDate.parse(start2, formatter));
+		} 
+		if (!(start3.equals("") || start3 == null)) {
+			item.setStartDate3(LocalDate.parse(start3, formatter));
+		} 
+		if (!(end1.equals("") || end1 == null)) {
+			item.setEndDate1(LocalDate.parse(end1, formatter));
+		}
+		if (!(end2.equals("") || end2 == null)) {
+			item.setEndDate2(LocalDate.parse(end2, formatter));
+		}
+		if (!(end3.equals("") || end3 == null)) {
+			item.setEndDate3(LocalDate.parse(end3, formatter));
+		}
 		
 		List<Item> activeCrops = itemDAO.getAllActiveCrops();
 		request.setAttribute("activeCrops", activeCrops);
@@ -155,7 +187,7 @@ public class UserController {
 	@RequestMapping(path="/admin/admin-all-farmers-view-insert", method=RequestMethod.POST)
 	public String adminAddUserViewPostInsert(HttpServletRequest request){
 			
-		//TODO updated edited farmer
+	
 		User user = new User();
 		
 		user.setFirstName(request.getParameter("firstName"));
@@ -213,7 +245,30 @@ public class UserController {
 		return "admin/admin-companies-all";
 	}
 	
+	@RequestMapping(path="admin/admin-buyer-users-all", method=RequestMethod.GET)
+	public String adminAllBuyerUsersView(HttpServletRequest request){
+			
+
+		
+		return "admin/admin-buyer-users-all";
+	}
 	
+	@RequestMapping(path="admin/admin-all-buyer-users-all-insert", method=RequestMethod.POST)
+	public String adminAllBuyerUsersViewInsert(HttpServletRequest request){
+			
+		User user = new User();
+		
+		user.setFirstName(request.getParameter("firstName"));
+		user.setLastName(request.getParameter("lastName"));
+		user.setEmail(request.getParameter("email"));
+		user.setPhoneNumber(request.getParameter("phoneNumber"));
+		user.setActive(Boolean.valueOf(request.getParameter("buyerUserIsActive")));
+		user.setAdmin(Boolean.valueOf(request.getParameter("buyerUserIsAdmin")));
+		String org = request.getParameter("buyerUserOrg");
+		userDAO.addNewBuyerUser(user, org);
+		
+		return "redirect:/admin/admin-buyer-users-all";
+	}
 	
 	@RequestMapping(path="admin/admin-add-new-buyer-user", method=RequestMethod.GET)
 	public String adminAddNewBuyer(HttpServletRequest request){
@@ -221,7 +276,6 @@ public class UserController {
 		
 		return "admin/admin-add-new-buyer-user";
 	}
-	
 	
 	
 }
