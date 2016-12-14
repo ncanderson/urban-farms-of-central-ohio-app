@@ -17,7 +17,7 @@
 	<c:forEach var="item" items="${harvestItemsList}">
 	    <c:url var="itemDetails" value="anonymous-detail-view?harvestItemId=${item.harvestItemId}" />
 	    <button class="Accordion" role="tab">${item.itemVariety} ${item.itemType}</button>
-	    <div class="Rtable-cell"><a href="${itemDetails}"><img src="${imagePath}/${item.harvestImageId}" alt="crop image" class="crop-image" /></a></div>
+	    <div class="Rtable-cell"><a href="${itemDetails}"><img src="${imagePath}/${item.harvestImageId}" alt="crop image" class="crop-image-small" /></a></div>
 	    <div class="Rtable-cell  Rtable-cell--head"><h3><a href="${itemDetails}">${item.itemVariety} ${item.itemType}</a></h3></div>
 	    <div class="Rtable-cell"><a href="${itemDetails}">${item.harvestQnty}/lbs. available</a></div>
 	    <div class="Rtable-cell Rtable-cell--foot"><a href="${itemDetails}">$${item.price}/lbs.</a></div>

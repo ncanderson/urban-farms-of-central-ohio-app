@@ -8,7 +8,7 @@
 
 <div class="col-xs-12 col-md-9" id="content">
 
-<img src="${defaultPhoto}" alt="default-veggie-photo" id="crop-photo"/>
+<img src="${defaultPhoto}" alt="default-veggie-photo" class="crop-image-small"/>
 
 	
 	<form action="admin-items-view-update" method="POST">

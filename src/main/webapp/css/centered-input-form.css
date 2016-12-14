@@ -37,3 +37,33 @@
 	letter-spacing: .09em;
 	border-radius: 2px;
 }
+
+/*
+== SAMPLE HTML FOR THIS CSS ==
+
+<form action="" method="POST">
+	<ul class="form-flex-outer">
+		== TEXT BOX + LABEL ==
+		<li>
+			<label for="">TEXT</label>
+			<input type="text" name="" />
+		</li>
+		== SELECT MENU ==
+		<li>
+			<label for="">TEXT</label>
+			<select name="" id="">
+			<option selected="selected">TEXT</option>
+				<c:forEach var="" items="${}">
+					<option value="${}">${}</option>
+				</c:forEach>
+			</select>
+		</li>
+		== BUTTON ==
+		<li>
+			<input type="submit" class="form-centered-button" value="" />
+		</li>
+	</ul>
+</form>
+
+
+*/
