@@ -5,8 +5,7 @@
 <c:import url="/WEB-INF/jsp/common/dashboard-sidebar.jsp" />
 
 <title>Add new Farmer</title>
-</head>
-<body>
+
 <h1>*****This form is not complete******</h1>
 <h3>*****missing temp password, salt, credentials_id******</h3>
 

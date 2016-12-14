@@ -43,6 +43,7 @@ public class UserController {
 		this.invoiceDAO = invoiceDAO;
 	}
 
+
 //---------------------------ADMIN VIEWS---------------------------------------------------------
 	
 	@RequestMapping(path="admin/admin-main-view", method=RequestMethod.GET)
@@ -50,6 +51,11 @@ public class UserController {
 			
 		return "admin/admin-main-view";
 	}
+
+
+//---------------------------ADMIN ITEMS VIEWS---------------------------------------------------------
+//---------------------------ADMIN ITEMS VIEWS---------------------------------------------------------
+
 	
 	@RequestMapping(path="admin/admin-item-view", method=RequestMethod.GET)
 	public String adminItemViewGet(HttpServletRequest request){
@@ -115,6 +121,11 @@ public class UserController {
 		return "admin/admin-item-new";
 	}
 	
+
+//---------------------------ADMIN FARMER VIEWS---------------------------------------------------------
+//---------------------------ADMIN FARMER VIEWS---------------------------------------------------------
+	
+
 	@RequestMapping(path="/admin/admin-farmer-view-all", method=RequestMethod.GET)
 	public String adminAddUserViewGet(HttpServletRequest request){
 			
@@ -186,6 +197,8 @@ public class UserController {
 		return "admin/admin-farmer-new";
 	}
 	
+//---------------------------ADMIN BUYER USERS VIEWS---------------------------------------------------------
+//---------------------------ADMIN BUYER USERS VIEWS---------------------------------------------------------
 	
 	@RequestMapping(path="admin/admin-banners-all", method=RequestMethod.GET)
 	public String adminAllBannerNotificationsView(HttpServletRequest request){
@@ -203,4 +216,16 @@ public class UserController {
 		
 		return "admin/admin-companies-all";
 	}
+	
+	
+	
+	@RequestMapping(path="admin/admin-add-new-buyer-user", method=RequestMethod.GET)
+	public String adminAddNewBuyer(HttpServletRequest request){
+			
+		
+		return "admin/admin-add-new-buyer-user";
+	}
+	
+	
+	
 }
