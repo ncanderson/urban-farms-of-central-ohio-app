@@ -1,10 +1,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
+<c:import url="/WEB-INF/jsp/admin/admin-sidebar-menu.jsp" />
 
+<<<<<<< HEAD
 <title>Add new Item</title>
 
 	  
+=======
+<div class="col-xs-12 col-md-9" id="content">  
+>>>>>>> 18d4151febe3a8eebf2fff3fdbdbd97a1c124393
 	<form action="admin-items-view-insert" method="POST">
 		
 		<div class="Rtable-cell">
@@ -40,7 +45,7 @@
 		</div>
 		<input type="submit" value="Save" />
 	</form>
-
+</div>
 
 
 
