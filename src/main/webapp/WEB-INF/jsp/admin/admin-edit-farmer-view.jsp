@@ -3,8 +3,7 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 <title>Edit Farmer View</title>
-</head>
-<body>
+
 	
 <form action="admin-all-farmers-update" method="POST">
 		<input type="hidden" name="userID" value="${farmer.userID }"/>
