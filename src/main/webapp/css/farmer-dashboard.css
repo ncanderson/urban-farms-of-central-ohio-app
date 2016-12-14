@@ -7,6 +7,10 @@
 	text-align: left;
 }
 
+.menu-header > h3 {
+	margin: 0;
+}
+
 #farmer-menu-items, #admin-menu-items {
 	white-space: nowrap;
 	width: auto;
@@ -22,6 +26,7 @@
 	position: relative;
 	left: 0;
 	top: 0;
+	padding: 0px;
 }
 
 #admin-menu-items .navbar-collapse {

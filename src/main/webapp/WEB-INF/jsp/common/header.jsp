@@ -15,6 +15,9 @@
 	
 	<c:url var="mainCSS" value="/css/main.css"/>	
 	<link rel="stylesheet" href="${mainCSS}" />
+	
+	<c:url var="admin-viewCSS" value="/css/admin-views.css"/>
+	<link rel="stylesheet" href="${admin-viewCSS}" />
 
 	<c:url var="jqueryHREF" value="/js/jquery.min.js"/>
 	<script type="text/javascript" src="${jqueryHREF}"></script>
