@@ -26,8 +26,6 @@ import com.techelevator.model.ItemDAO;
 import com.techelevator.model.User;
 import com.techelevator.model.UserDAO;
 
-import gherkin.lexer.Pl;
-
 @Controller
 @SessionAttributes("currentUser")
 public class UserController {
