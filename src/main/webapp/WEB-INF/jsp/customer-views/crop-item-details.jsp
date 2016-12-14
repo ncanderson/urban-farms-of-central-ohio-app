@@ -8,7 +8,7 @@
 <div>
 
 	<div>
-		<img src="${imagePath}/${item.harvestImageId}" alt="crop image" class="crop-image" />
+		<img src="${imagePath}/${detailCrop.harvestImageId}" alt="crop image" class="crop-image" />
 	</div>
 	
 	<div id="crop-detail-information">
@@ -19,11 +19,11 @@
 		<p>Description: ${detailCrop.itemDescription}</p>
 		<p>Comments: ${detailCrop.comments}</p>
 	</div>
-	
-	<form action="customer-views/shopping-cart" method="POST">
-	   	<input type="text" placeholder="Quantity to buy" />
-	   	<input type="submit" value="Add to Cart" name="harvestQuantityToBuy"/>
-	   	<input type="hidden" name="harvestItemToBuy" value="${item.harvestItemId}" />
+	<c:url var="cartHref" value="/customer-views/shopping-cart" /> 
+	<form action="${cartHref}" method="POST">
+	   	<input type="text" name="harvestQuantityToBuy" placeholder="Quantity to buy" />
+	   	<input type="submit" value="Add to Cart"/>
+	   	<input type="hidden" name="harvestItemToBuy" value="${detailCrop.harvestItemId}" />
     </form>
 
 </div>

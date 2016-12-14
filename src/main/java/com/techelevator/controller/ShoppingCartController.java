@@ -51,7 +51,7 @@ public class ShoppingCartController {
 	public String addToShoppingCart(@RequestParam int harvestQuantityToBuy,
 									@RequestParam int harvestItemToBuy,
 									ModelMap model) {
-		
+		System.out.println("Got here");
 		CartItem cartItem = new CartItem();
 		cartItem.setCrop(new Item()); // LOOK UP HARVEST DETAIL ITEM BY ID
 		cartItem.setQuantity(harvestQuantityToBuy);
