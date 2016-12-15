@@ -21,4 +21,6 @@ public interface UserDAO {
 	public void addNewFarmer(User user);
 	
 	public void addNewBuyerUser(User user, String org);
+	
+	public int getBuyerByUserId(int userId);
 }

@@ -220,6 +220,19 @@ public class JDBCUserDAO implements UserDAO {
 			
 	}
 	
+	@Override
+	public int getBuyerByUserId(int userId) {
+		
+		String sqlSelectStatement = "SELECT buyer_id FROM users WHERE user_id = ?";
+		SqlRowSet result = jdbcTemplate.queryForRowSet(sqlSelectStatement, userId);
+		
+		int buyerId = 0;
+		while(result.next()){
+			buyerId = result.getInt("buyer_id");
+		}
+		return buyerId;
+	}
+	
 	private List<User> mapResultsToFarmerList(SqlRowSet results){
 		
 		List<User> allFarmers = new ArrayList<User>();
@@ -282,6 +295,8 @@ public class JDBCUserDAO implements UserDAO {
 		return allBuyerUsers;
 		
 	}
+
+	
 
 	
 	

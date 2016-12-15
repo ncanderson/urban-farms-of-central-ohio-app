@@ -3071,7 +3071,6 @@ INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_h
 INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id, user_id) VALUES (3068,613,7,3068,21,'01/12/2016 00:00:00',7,0);
 INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id, user_id) VALUES (3069,613,3,3069,9,'01/12/2016 00:00:00',7,0);
 INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id, user_id) VALUES (3070,613,3,3070,8,'01/12/2016 00:00:00',7,0);
-INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id, user_id) VALUES (6922,613,10,6922,133,'01/12/2016 00:00:00',7,0);
 INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id, user_id) VALUES (3071,614,10,3071,22,'01/12/2016 00:00:00',7,0);
 INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id, user_id) VALUES (3072,614,0,3072,21,'01/12/2016 00:00:00',7,0);
 INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id, user_id) VALUES (3073,614,4,3073,56,'01/12/2016 00:00:00',7,0);
@@ -6783,5 +6782,8 @@ INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_h
 INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id, user_id) VALUES (6918,1404,10,6918,9,'12/02/2016 00:00:00',7,0);
 INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id, user_id) VALUES (6919,1404,4,6919,55,'12/02/2016 00:00:00',7,0);
 INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id, user_id) VALUES (6920,1404,7,6920,53,'12/02/2016 00:00:00',7,0);
+INSERT INTO "invoice_item"(invoice_item_id, invoice_id, invoice_quantity, item_harvest_details_id, item_id, added_to_invoice_date, invoice_item_status_id, user_id) VALUES (6922,613,10,6922,133,'01/12/2016 00:00:00',7,0);
+
+ALTER SEQUENCE invoice_item_invoice_item_id_seq RESTART WITH 6923;
 
 COMMIT;

@@ -1406,4 +1406,6 @@ INSERT INTO "invoice" (invoice_id, invoice_date, user_id, buyer_id, sale_type_id
 INSERT INTO "invoice" (invoice_id, invoice_date, user_id, buyer_id, sale_type_id, invoice_status_id) VALUES (1403,'12/02/2016 00:00:00',0,7,1,4);
 INSERT INTO "invoice" (invoice_id, invoice_date, user_id, buyer_id, sale_type_id, invoice_status_id) VALUES (1404,'12/02/2016 00:00:00',0,29,1,4);
 
+ALTER SEQUENCE invoice_invoice_id_seq RESTART WITH 1405;
+
 COMMIT;

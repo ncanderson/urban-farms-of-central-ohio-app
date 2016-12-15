@@ -14,7 +14,8 @@ public class Invoice {
 	private int invoiceId;
 	private String saleType;
 	private String status;
-	private List<Item> items;
+	private List<InvoiceItem> invoiceItems;
+	private int userId;
 	
 	public Invoice(){
 		
@@ -68,12 +69,22 @@ public class Invoice {
 		this.status = status;
 	}
 
-	public List<Item> getItems() {
-		return items;
+	public List<InvoiceItem> getInvoiceItems() {
+		return invoiceItems;
 	}
 
-	public void setItems(List<Item> items) {
-		this.items = items;
+	public void setInvoiceItems(List<InvoiceItem> invoiceItems) {
+		this.invoiceItems = invoiceItems;
 	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	
+	
 	
 }

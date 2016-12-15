@@ -79,10 +79,10 @@ CREATE TABLE item (
 
 CREATE TABLE invoice (
   invoice_id serial NOT NULL PRIMARY KEY,
-  invoice_date timestamp NOT NULL,
+  invoice_date timestamp NULL DEFAULT NOW(),
   user_id integer NOT NULL REFERENCES users,
   buyer_id integer NOT NULL REFERENCES buyer_information,
-  sale_type_id integer NOT NULL,
+  sale_type_id integer NULL,
   invoice_status_id integer NOT NULL REFERENCES invoice_status
 );
 
@@ -117,7 +117,7 @@ CREATE TABLE invoice_item (
   user_id integer NOT NULL,
   invoice_item_status_id integer NOT NULL REFERENCES invoice_status,
   invoice_price_override decimal NULL,
-  added_to_invoice_date timestamp NOT NULL,
+  added_to_invoice_date timestamp NOT NULL DEFAULT NOW(),
   item_id integer NOT NULL
 );
 

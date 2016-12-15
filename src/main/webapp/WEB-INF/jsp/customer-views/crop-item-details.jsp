@@ -15,7 +15,7 @@
 		<p>Available Until: ${detailCrop.endDate}</p>
 		<p>Price: $${detailCrop.price}</p>
 		<p>Average Size: ${detailCrop.averageSize}</p>
-		<p>Item availability: ${detailCrop.availability}</p>
+		<p>Item availability: ${detailCrop.availability}/lbs</p>
 		<p>Description: ${detailCrop.itemDescription}</p>
 		<p>Comments: ${detailCrop.comments}</p>
 	</div>

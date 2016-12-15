@@ -119,5 +119,7 @@ public class HarvestItem {
 	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
+	
+	
 		
 }
