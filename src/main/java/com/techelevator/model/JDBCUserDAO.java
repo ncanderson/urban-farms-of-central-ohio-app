@@ -292,24 +292,4 @@ public class JDBCUserDAO implements UserDAO {
 		}
 		return allBuyerUsers;		
 	}
-
-<<<<<<< HEAD
-	
-
-	
-	
-	
-	
-
-
-
-
-
-	
-
-	
-
-
-=======
->>>>>>> 3b3e98f9cecb1b149253b7a045ce968f84ca5cae
 }
