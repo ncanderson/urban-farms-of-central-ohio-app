@@ -21,7 +21,8 @@ public class JDBCUserDAO implements UserDAO {
 	private PasswordHasher passwordHasher;
 	
 	@Autowired
-	public JDBCUserDAO(DataSource dataSource){
+	public JDBCUserDAO(DataSource dataSource ){
+		
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 		this.passwordHasher = new PasswordHasher();
 	}
