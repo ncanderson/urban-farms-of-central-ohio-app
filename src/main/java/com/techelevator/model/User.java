@@ -12,14 +12,9 @@ public class User {
 	private boolean isGlobalAdmin;
 	private boolean isAdmin;
 	private boolean isActive;
-	//make an ID on buyer_inf table
-	private String companyName;
+	private int buyerId;
 	private boolean resetPassword; 
 	
-	public User(){
-		
-	}
-
 	public Type getType() {
 		return type;
 	}
@@ -92,12 +87,12 @@ public class User {
 		this.isActive = isActive;
 	}
 
-	public String getCompanyName() {
-		return companyName;
+	public int getBuyerId() {
+		return buyerId;
 	}
-
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+	
+	public void setBuyerId(int buyerId) {
+		this.buyerId = buyerId;
 	}
 
 	public boolean isResetPassword() {
@@ -107,9 +102,4 @@ public class User {
 	public void setResetPassword(boolean resetPassword) {
 		this.resetPassword = resetPassword;
 	}
-	
-	
-	
-	
-
 }

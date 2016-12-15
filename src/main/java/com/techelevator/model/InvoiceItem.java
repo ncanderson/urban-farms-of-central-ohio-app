@@ -9,11 +9,11 @@ public class InvoiceItem {
 	private int invoiceId;
 	private int invoiceQnty;
 	private int harvestDetailsId;
-	private BigDecimal updatedItemPrice;
-	private int userId;
-	private int invoiceItemStatusId;
-	private BigDecimal invoiceOverridePrice;
-	private Date dateAddedToInvoice;
+	private BigDecimal updatedItemPrice; // Generated from previous data in the controller, based on "sale type"
+	private int userId; // Login userId
+	private int invoiceItemStatusId; // From invoice_status table 
+	private BigDecimal invoiceOverridePrice; // Farmer admin can override specific items at the invoice level
+	private Date dateAddedToInvoice; // Generated auto when they add to cart
 	
 	public int getInvoiceItemId() {
 		return invoiceItemId;
