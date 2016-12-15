@@ -95,6 +95,8 @@ public class Invoice {
 			
 			total = total.add(harvestDetailsPrice);
 		}
+		
+
 		return total;
 	}
 	
