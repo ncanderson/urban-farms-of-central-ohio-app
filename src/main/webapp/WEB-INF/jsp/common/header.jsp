@@ -55,7 +55,14 @@
 <div id="nav-header" class="hidden-xs">
 	<a href="${homePage}"><img src="${imagePath}/cropped-UFCO-logo.png" alt="Urban farms of central ohio logo" id="logo-image"/></a>
 	
+	<div class="pull-right" style="margin: 80px 20px 0px 0;">
+		Welcome, ${currentUser.firstName } ${currentUser.lastName }
+	</div>
+
 </div>
+
+
+
 
 <nav class="navbar navbar-default">
   
@@ -73,60 +80,62 @@
     <!-- Left-side links -->
     <div class="collapse navbar-collapse dropdown-menu-right" id="bs-example-navbar-collapse-1">
     
-    <ul class="nav navbar-nav" id="main-nav">
-    
-        <li class="active"><a href="${homePage}">Home<span class="sr-only">(current)</span></a></li>
-    
-    	<c:if test="${currentUser.isAdmin()}">
-    		<c:url var="adminMain" value="/admin/admin-main-view" />
-    		<li><a href="${adminMain}">Admin Menu</a></li>
-    		<c:url var="farmerDashboard" value="/farmer-dashboard-views/dashboard" />
-			<li><a href="${farmerDashboard}">Farmer Dashboard</a></li>
-    	</c:if>
-    
-        <c:if test="${currentUser.type == 'FARMER' && currentUser.isAdmin() == false}">
-			<c:url var="farmerDashboard" value="/farmer-dashboard-views/dashboard" />
-			<li><a href="${farmerDashboard}">Farmer Dashboard</a></li>
-        </c:if>
-    
-    	<c:if test="${currentUser.type == 'BUYER'}">
-	        <%-- <c:url var="buyerCurrentInventory" value="/customer-views/current-inventory" />
-	        <li><a href="${buyerCurrentInventory}">Buyer Current Inventory </a></li> --%>
-	        
-	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
-	          <ul class="dropdown-menu">
-	            <li><a href="#">View Current Orders</a></li>
-	            <li><a href="#">View Pending Orders</a></li>
-	            <li><a href="#">View Past Orders</a></li>
-	          </ul>
-	        </li>
-        </c:if>
-
-		<c:if test="${not empty currentUser}">
-	        <c:url var="cartHref" value="/customer-views/shopping-cart" />
-	        <li><a href="${cartHref}"><span class="glyphicon glyphicon-shopping-cart"></span> View Cart</a></li>
-        </c:if>
-	</ul>
-
-   	<ul class="nav navbar-nav pull-right">    
-       <c:choose> 
-		<c:when test="${empty currentUser}">
-			<c:url var="loginHref" value="/login" />
-			<li id="logout-button"><a href="${loginHref}">Login</a></li>
-			<c:url var="newUserHref" value="#" />
-		</c:when>
-		<c:otherwise>
-			<c:url var="logoutAction" value="/logout" />
-			<li id="logout-button"><a id="logoutLink" href="#">Log Out</a></li>
-			<form id="logoutForm" action="${logoutAction}" method="POST">
-				<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
-			</form>
-		</c:otherwise>
-	</c:choose>
-   	</ul>
+	    <ul class="nav navbar-nav" id="main-nav">
+	    
+	        <li class="active"><a href="${homePage}">Home<span class="sr-only">(current)</span></a></li>
+	    
+	    	<c:if test="${currentUser.isAdmin()}">
+	    		<c:url var="adminMain" value="/admin/admin-main-view" />
+	    		<li><a href="${adminMain}">Admin Menu</a></li>
+	    		<c:url var="farmerDashboard" value="/farmer-dashboard-views/dashboard" />
+				<li><a href="${farmerDashboard}">Farmer Dashboard</a></li>
+	    	</c:if>
+	    
+	        <c:if test="${currentUser.type == 'FARMER' && currentUser.isAdmin() == false}">
+				<c:url var="farmerDashboard" value="/farmer-dashboard-views/dashboard" />
+				<li><a href="${farmerDashboard}">Farmer Dashboard</a></li>
+	        </c:if>
+	    
+	    	<c:if test="${currentUser.type == 'BUYER'}">
+		        <%-- <c:url var="buyerCurrentInventory" value="/customer-views/current-inventory" />
+		        <li><a href="${buyerCurrentInventory}">Buyer Current Inventory </a></li> --%>
+		        
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#">View Current Orders</a></li>
+		            <li><a href="#">View Pending Orders</a></li>
+		            <li><a href="#">View Past Orders</a></li>
+		          </ul>
+		        </li>
+	        </c:if>
+	
+			<c:if test="${not empty currentUser}">
+		        <c:url var="cartHref" value="/customer-views/shopping-cart" />
+		        <li><a href="${cartHref}"><span class="glyphicon glyphicon-shopping-cart"></span> View Cart</a></li>
+	        </c:if>
+		</ul>
+	
+	
+	   	<ul class="nav navbar-nav pull-right">    
+	       <c:choose> 
+			<c:when test="${empty currentUser}">
+				<c:url var="loginHref" value="/login" />
+				<li id="logout-button"><a href="${loginHref}">Login</a></li>
+				<c:url var="newUserHref" value="#" />
+			</c:when>
+			<c:otherwise>
+				<c:url var="logoutAction" value="/logout" />
+				<li id="logout-button"><a id="logoutLink" href="#">Log Out</a></li>
+				<form id="logoutForm" action="${logoutAction}" method="POST">
+					<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
+				</form>
+			</c:otherwise>
+		</c:choose>
+	   	</ul>
 
     </div><!-- /.navbar-collapse -->
 </nav>
 
 <div class="center-block col-md-10">
+
