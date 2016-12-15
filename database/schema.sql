@@ -79,7 +79,7 @@ CREATE TABLE item (
 
 CREATE TABLE invoice (
   invoice_id serial NOT NULL PRIMARY KEY,
-  invoice_date timestamp NOT NULL DEFAULT NOW(),
+  invoice_date timestamp NULL DEFAULT NOW(),
   user_id integer NOT NULL REFERENCES users,
   buyer_id integer NOT NULL REFERENCES buyer_information,
   sale_type_id integer NULL,

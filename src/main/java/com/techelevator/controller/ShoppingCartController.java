@@ -57,12 +57,15 @@ public class ShoppingCartController {
 											  @RequestParam int harvestItemToBuy,
 											  ModelMap model) {
 		
-		System.out.println("test two");
+		
 		
 		User user = (User)model.get("currentUser");
-		int buyerId = userDAO.getBuyerByUserId(user.getUserId());
-		Invoice invoice = invoiceDAO.getPendingOrderForBuyer(buyerId);
 		
+		int buyerId = userDAO.getBuyerByUserId(user.getUserId());// <---Null pionter???
+
+		Invoice invoice = invoiceDAO.getPendingOrderForBuyer(buyerId);
+		System.out.println("test");
+
 		if(invoice == null) {
 			invoice = invoiceDAO.createNewInvoice(user.getUserId(), buyerId);	
 		}
