@@ -4,9 +4,9 @@
 
 	<div class="jumbotron">
 	
-		<h1>Please login to access the site</h1>
+		<h1 class="text-center">Please login to access the site</h1>
 		
-		<div class="center-block">
+		<div class="center-block col-xs-8">
 			<form method="POST" action="login">
 				<ul class="form-flex-outer">
 					<li>

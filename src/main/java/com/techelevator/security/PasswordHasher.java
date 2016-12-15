@@ -21,7 +21,6 @@ public class PasswordHasher {
 	
 	private SecureRandom random;
 	
-	@Autowired
 	public PasswordHasher() {
 		random = new SecureRandom();
 	}

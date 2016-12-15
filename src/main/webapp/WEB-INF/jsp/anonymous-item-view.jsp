@@ -3,14 +3,14 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 <c:url var="imagePath" value="/img/" />
 
-<h2>Currently Available Items</h2>
-<h3>Click an item for further details</h3>
+<h2 class="text-center">Currently Available Items</h2>
+<h3 class="text-center">Click an item for further details</h3>
 	
 <div id="main-page-menu-header" class="Rtable Rtable--4cols js-RtableAccordions">
-       <div class="Rtable-cell Rtable-cell--head"></div>
-       <div class="Rtable-cell"><h2>Crop</h2></div>
-       <div class="Rtable-cell"><h2>Harvest Quantity</h2></div>
-       <div class="Rtable-cell Rtable-cell--foot"><h2>Sales Price</h2></div>
+	<div class="Rtable-cell Rtable-cell--head"></div>
+	<div class="Rtable-cell"><h4>Crop</h4></div>
+	<div class="Rtable-cell"><h4>Harvest Quantity</h4></div>
+	<div class="Rtable-cell Rtable-cell--foot"><h4>Sale Price</h4></div>
 </div>
    
 <div class="Rtable Rtable--4cols Rtable--collapse js-RtableAccordions">

@@ -4,13 +4,8 @@
 
 <c:url var="imagePath" value="/img/" />
 
-<h2>Currently Available Items</h2>
-<h3>Click an item for further details</h3>
-	
-<div class="jumobtron">
-	<h1>BUYER VIEW</h1>
-	
-</div>
+<h2 class="text-center">Currently Available Items</h2>
+<h3 class="text-center">Click an item for further details</h3>
 	
 <div id="main-page-menu-header" class="Rtable Rtable--5cols js-RtableAccordions">
        <div class="Rtable-cell Rtable-cell--head"></div>
@@ -28,7 +23,7 @@
 	    <div class="Rtable-cell  Rtable-cell--head"><h3><a href="${itemDetails}">${item.itemVariety} ${item.itemType}</a></h3></div>
 	    <div class="Rtable-cell"><a href="${itemDetails}">${item.harvestQnty}/lbs. available</a></div>
 	    <div class="Rtable-cell"><a href="${itemDetails}">$${item.price}/lbs.</a></div>
-	    <form action="customer-views/shopping-cart" method="POST" class="Rtable-cell Rtable-cell--foot Rtable-form">
+	    <form action="shopping-cart" method="POST" class="Rtable-cell Rtable-cell--foot Rtable-form">
 	    	<input type="text" placeholder="Quantity to buy" class="Rtable-cell" />
 	    	<input type="submit" value="Add to Cart" name="harvestQuantityToBuy" class="Rtable-cell"/>
 	    	<input type="hidden" name="harvestItemToBuy" value="${item.harvestItemId}" />
