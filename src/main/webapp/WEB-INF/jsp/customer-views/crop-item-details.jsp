@@ -19,6 +19,7 @@
 		<p>Description: ${detailCrop.itemDescription}</p>
 		<p>Comments: ${detailCrop.comments}</p>
 	</div>
+	
 	<c:url var="cartHref" value="/customer-views/shopping-cart" /> 
 	<form action="${cartHref}" method="POST">
 	   	<input type="text" name="harvestQuantityToBuy" placeholder="Quantity to buy" />

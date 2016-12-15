@@ -23,9 +23,11 @@
 	    <div class="Rtable-cell  Rtable-cell--head"><h3><a href="${itemDetails}">${item.itemVariety} ${item.itemType}</a></h3></div>
 	    <div class="Rtable-cell"><a href="${itemDetails}">${item.harvestQnty}/lbs. available</a></div>
 	    <div class="Rtable-cell"><a href="${itemDetails}">$${item.price}/lbs.</a></div>
-	    <form action="shopping-cart" method="POST" class="Rtable-cell Rtable-cell--foot Rtable-form">
-	    	<input type="text" placeholder="Quantity" class="Rtable-cell" />
-	    	<input type="submit" value="Add to Cart" name="harvestQuantityToBuy" class="Rtable-cell"/>
+	    
+	   	<c:url var="cartHref" value="/customer-views/shopping-cart" /> 
+	    <form action="${cartHref}" method="POST" class="Rtable-cell Rtable-cell--foot Rtable-form">
+	    	<input type="text" placeholder="Quantity" name="harvestQuantityToBuy" class="Rtable-cell" />
+	    	<input type="submit" value="Add to Cart" class="Rtable-cell"/>
 	    	<input type="hidden" name="harvestItemToBuy" value="${item.harvestItemId}" />
 	    </form>
 	</c:forEach>                 

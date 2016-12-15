@@ -57,6 +57,8 @@ public class ShoppingCartController {
 											  @RequestParam int harvestItemToBuy,
 											  ModelMap model) {
 		
+		System.out.println("test two");
+		
 		User user = (User)model.get("currentUser");
 		int buyerId = userDAO.getBuyerByUserId(user.getUserId());
 		Invoice invoice = invoiceDAO.getPendingOrderForBuyer(buyerId);
