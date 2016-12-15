@@ -22,9 +22,21 @@
   	.Rtable--collapse > .Rtable-cell {
 		width: 100% !important;
 	}
+	.Rtable-cell {
+		border: 3px solid black;
+		margin: -3px 3px 0 -3px;
+	}
   	.Rtable--collapse > .Rtable-cell--foot {
     	margin-bottom: 1em;
 	}
+	.Accordion {
+		font-size: 1.5em;
+		border-bottom: 0px;
+	}
+	.Rtable-form-shopping-cart {
+		width: 50% !important;
+		margin-right: -3px;
+	} 
 }
 
 @media all and (min-width: 500px) {
@@ -40,7 +52,7 @@
 	display: flex !important;
 	flex-wrap: wrap;
 	flex-direction: row;
-	margin: 0 0 3em 0;
+	margin: 0 0 1em 0;
 	padding: 0;
 }
 
@@ -51,8 +63,7 @@
 	padding: 0.8em 1.2em;
 	overflow: hidden;
 	list-style: none;
-	border: solid 3px white;
-	background: fade(slategrey,20%);
+	align-self: center;
 	text-align: center;
 	h1, > h2, > h3, > h4, > h5, > h6 { margin: 0; }
 }
@@ -101,8 +112,8 @@
 	padding: 0.6em 0.6em 0.6em 2em;
 	border-radius: 0.5em;
 	text-align: left;
-	border: solid 3px #007676;
-	background-color: darkcyan;
+	border: solid 3px black;
+	background-color: #56b2ff;
 	font-weight: bold;
 	color: #002525;
 	text-decoration: none;

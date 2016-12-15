@@ -6,7 +6,7 @@ $(document).ready(function() {
 	});
 	
 //	submit form with 'enter' press
-	$("input").keypress(function(event) {
+	$("input, textarea").keypress(function(event) {
 	    if (event.which == 13) {
 	        event.preventDefault();
 	        $("form").submit();

@@ -21,6 +21,7 @@
 	    <div class="Rtable-cell  Rtable-cell--head"><h3><a href="${itemDetails}">${item.itemVariety} ${item.itemType}</a></h3></div>
 	    <div class="Rtable-cell"><a href="${itemDetails}">${item.harvestQnty}/lbs. available</a></div>
 	    <div class="Rtable-cell Rtable-cell--foot"><a href="${itemDetails}">$${item.price}/lbs.</a></div>
+	    <hr />
 	</c:forEach>                 
 </div>   
             

@@ -15,9 +15,11 @@ $(document).ready(function() {
 		
 		$table.find(".Rtable-cell").each( function() {
 	        $(this).addClass("hiddenSmall");
+	        $(".Rtable-form > .Rtable-cell").addClass("Rtable-form-shopping-cart");
 	        
 	        if ( selectedControls[colCount] === "true" ) {
 	        	$(this).removeClass("hiddenSmall");
+	        	
 	        }
 	        cellCount++;
 	        
