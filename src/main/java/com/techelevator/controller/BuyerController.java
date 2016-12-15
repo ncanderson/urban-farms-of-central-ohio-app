@@ -1,13 +1,16 @@
 package com.techelevator.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.techelevator.model.HarvestDAO;
@@ -15,6 +18,7 @@ import com.techelevator.model.HarvestItem;
 import com.techelevator.model.InvoiceDAO;
 import com.techelevator.model.ItemDAO;
 import com.techelevator.model.UserDAO;
+
 
 @Controller
 @SessionAttributes({"currentUser", "cart"})
@@ -69,8 +73,11 @@ public class BuyerController {
 	
 	
 	@RequestMapping(path="/customer-views/current-inventory", method=RequestMethod.POST)
-	public String showCurrentInventoryPost(HttpServletRequest request){
+	public String showCurrentInventoryPost(@RequestParam int harvestQuantityToBuy, @RequestParam HarvestItem detailCrop,
+											ModelMap map, HttpServletRequest request){
 		//TODO submit order
+
+		
 		return "customer-views/current-inventory";
 	}
 	
