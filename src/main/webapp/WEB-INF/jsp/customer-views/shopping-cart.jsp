@@ -75,5 +75,5 @@
 	<p>${harvestItem.endDate}</p>
 	<br />
 </c:forEach>
-       
+
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
