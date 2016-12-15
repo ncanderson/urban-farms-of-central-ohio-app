@@ -55,7 +55,14 @@
 <div id="nav-header" class="hidden-xs">
 	<a href="${homePage}"><img src="${imagePath}/cropped-UFCO-logo.png" alt="Urban farms of central ohio logo" id="logo-image"/></a>
 	
+	<div class="pull-right" style="margin: 80px 20px 0px 0;">
+		Welcome, ${currentUser.firstName } ${currentUser.lastName }
+	</div>
+
 </div>
+
+
+
 
 <nav class="navbar navbar-default">
   
@@ -110,6 +117,7 @@
         
         
 	</ul>
+
 	
     <div class="pull-right">
     	<ul class="nav navbar-nav">    
@@ -132,5 +140,7 @@
 	
     </div><!-- /.navbar-collapse -->
 </nav>
+
+
 
 <div class="center-block col-sm-10">
