@@ -132,8 +132,6 @@ public class JDBCUserDAO implements UserDAO {
 	@Override
 	public List<User> getAllFarmers() {
 		
-		
-		
 		String sqlSelectStatment = "SELECT user_id, email, first_name, last_name, user_phone_number, is_global_admin, is_admin, is_active "
 								   + "from users "
 								   + "WHERE user_type = 1";
@@ -251,7 +249,6 @@ public class JDBCUserDAO implements UserDAO {
 			
 			allFarmers.add(user);
 		}
-		
 		return allFarmers;
 	}
 	
@@ -268,9 +265,7 @@ public class JDBCUserDAO implements UserDAO {
 			user.setGlobalAdmin(Boolean.valueOf(results.getString("is_global_admin")));
 			user.setAdmin(Boolean.valueOf(results.getString("is_admin")));
 			user.setActive(Boolean.valueOf(results.getString("is_active")));
-			
 		}
-		
 		return user;
 	}
 	
@@ -286,7 +281,7 @@ public class JDBCUserDAO implements UserDAO {
 			user.setFirstName(results.getString("first_name"));
 			user.setLastName(results.getString("last_name"));
 			user.setPhoneNumber(results.getString("user_phone_number"));	
-			user.setCompanyName(results.getString("buyer_name"));
+			user.setBuyerId(results.getInt("buyer_id"));
 			user.setActive(Boolean.valueOf(results.getString("is_active")));
 			
 			allBuyerUsers.add(user);
