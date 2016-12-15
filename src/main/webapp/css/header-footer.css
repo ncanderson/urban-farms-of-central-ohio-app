@@ -2,10 +2,26 @@
 * Header 
 */
 
+@media (max-width: 768px) {
+  .navbar-collapse {
+    text-align: center;
+  }
+  nav.navbar {
+  	margin-bottom: 0px;
+  	height: auto;
+  }
+}
+
 #nav-header {
 	background-color: #FFFFFF;
 	height: 100px;
 	width: 100%;
+}
+
+.navbar-default div.navbar-collapse {
+    border-top:none;
+    box-shadow:none;
+    width: auto;
 }
 
 .navbar-header {

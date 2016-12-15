@@ -71,9 +71,9 @@
     </div>
 
     <!-- Left-side links -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse dropdown-menu-right" id="bs-example-navbar-collapse-1">
     
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav" id="main-nav">
     
         <li class="active"><a href="${homePage}">Home<span class="sr-only">(current)</span></a></li>
     
@@ -107,29 +107,25 @@
 	        <c:url var="cartHref" value="/customer-views/shopping-cart" />
 	        <li><a href="${cartHref}"><span class="glyphicon glyphicon-shopping-cart"></span> View Cart</a></li>
         </c:if>
-        
-        
 	</ul>
-	
-    <div class="pull-right">
-    	<ul class="nav navbar-nav">    
-        <c:choose> 
-			<c:when test="${empty currentUser}">
-				<c:url var="loginHref" value="/login" />
-				<li><a href="${loginHref}">Login</a></li>
-				<c:url var="newUserHref" value="#" />
-			</c:when>
-			<c:otherwise>
-				<c:url var="logoutAction" value="/logout" />
-				<li><a id="logoutLink" href="#">Log Out</a></li>
-				<form id="logoutForm" action="${logoutAction}" method="POST">
-					<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
-				</form>
-			</c:otherwise>
-		</c:choose>
-    	</ul>
-	</div>
-	
+
+   	<ul class="nav navbar-nav pull-right">    
+       <c:choose> 
+		<c:when test="${empty currentUser}">
+			<c:url var="loginHref" value="/login" />
+			<li id="logout-button"><a href="${loginHref}">Login</a></li>
+			<c:url var="newUserHref" value="#" />
+		</c:when>
+		<c:otherwise>
+			<c:url var="logoutAction" value="/logout" />
+			<li id="logout-button"><a id="logoutLink" href="#">Log Out</a></li>
+			<form id="logoutForm" action="${logoutAction}" method="POST">
+				<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
+			</form>
+		</c:otherwise>
+	</c:choose>
+   	</ul>
+
     </div><!-- /.navbar-collapse -->
 </nav>
 
