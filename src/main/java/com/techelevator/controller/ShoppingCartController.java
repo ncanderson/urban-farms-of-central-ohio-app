@@ -44,10 +44,11 @@ public class ShoppingCartController {
 	public String viewShoppingCart(@RequestParam int invoiceId, HttpServletRequest request) {
 
 		Invoice invoice = invoiceDAO.getInvoiceById(invoiceId);
-		List<InvoiceItem> items = invoiceDAO.getInvoiceItemsByInvoiceId(invoice.getInvoiceId());
-
+		List<InvoiceItem> invoiceItems = invoiceDAO.getInvoiceItemsByInvoiceId(invoice.getInvoiceId());
+		
+		
 		request.setAttribute("invoice", invoice);
-		request.setAttribute("itemList", items);
+		request.setAttribute("itemList", invoiceItems);
 		
 		return "customer-views/shopping-cart";
 	}
@@ -73,7 +74,7 @@ public class ShoppingCartController {
 		invoiceDAO.addItemToInvoice(invoice, item, harvestQuantityToBuy);
 		
 		return "redirect:/customer-views/shopping-cart?invoiceId=" + invoice.getInvoiceId();
-	}
+	} 
 	
 	@RequestMapping(path="/customer-views/checkout", method=RequestMethod.GET)
 	public String checkoutGet(HttpServletRequest request){ 
