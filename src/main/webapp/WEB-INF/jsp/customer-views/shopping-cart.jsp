@@ -11,6 +11,8 @@
 <ul>
 <c:forEach var="item" items="${itemList}">
 <li>${item.harvestDetailsId}</li>
+<li>${item.price }</li>
+
 </c:forEach>
 </ul>
             
