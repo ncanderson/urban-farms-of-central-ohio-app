@@ -28,8 +28,10 @@
 	    <form action="${cartHref}" method="POST" class="Rtable-cell Rtable-cell--foot Rtable-form">
 	    	<input type="text" placeholder="Quantity" name="harvestQuantityToBuy" class="Rtable-cell" />
 	    	<input type="submit" value="Add to Cart" class="Rtable-cell"/>
+
 	    	<input type="hidden" name="harvestItemToBuy" value="${item.harvestItemId}" />
 	    </form>
+	    
 	</c:forEach>                 
 </div>   
             
