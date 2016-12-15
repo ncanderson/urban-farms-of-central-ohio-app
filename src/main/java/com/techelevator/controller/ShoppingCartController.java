@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,6 +53,7 @@ public class ShoppingCartController {
 
 		Invoice invoice = invoiceDAO.getInvoiceById(invoiceId);
 		List<InvoiceItem> invoiceItems = invoiceDAO.getInvoiceItemsByInvoiceId(invoice.getInvoiceId());
+		invoice.setInvoiceItems(invoiceItems);
 		
 		List<HarvestItem> lineItemHarvestDetailsItem = new ArrayList<HarvestItem>();
 		for (InvoiceItem lineItem : invoiceItems) {
@@ -62,6 +64,9 @@ public class ShoppingCartController {
 		User user = (User)model.get("currentUser");
 		BuyerOrganization buyerOrganization = buyerOrganizationDAO.getBuyerOrganizationById(invoice.getBuyerId());
 		
+		BigDecimal total = invoice.getInvoiceTotal();
+		
+		request.setAttribute("total", total);
 		request.setAttribute("invoice", invoice); // Object
 		request.setAttribute("user", user); // Object
 		request.setAttribute("buyerOrganization", buyerOrganization); // Object

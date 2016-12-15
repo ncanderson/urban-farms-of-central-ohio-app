@@ -22,9 +22,9 @@
 <p>${user.firstName}</p>
 <p>${user.lastName}</p>
 <p>${user.phoneNumber}</p>
-<p>${user.isGlobalAdmin}</p>
-<p>${user.isAdmin}</p>
-<p>${user.isActive}</p>
+<p>${user.isGlobalAdmin()}</p>
+<p>${user.isAdmin()}</p>
+<p>${user.isActive()}</p>
 <p>${user.buyerId}</p>
 <p>${user.resetPassword}</p>
 <br />
@@ -76,6 +76,8 @@
 	<p>${harvestItem.endDate}</p>
 	<br />
 </c:forEach>
+
+<h2>${total}</h2>
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
 

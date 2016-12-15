@@ -87,22 +87,16 @@ public class Invoice {
 		this.userId = userId;
 	}
 	
-	public double getInvoiceTotal() {
+	public BigDecimal getInvoiceTotal() {
+		
 		BigDecimal total = new BigDecimal(0);
-		
-		System.out.println("invoice test");
-		
+
 		for (InvoiceItem item: this.invoiceItems) {
-			System.out.println("inside for loop");
+		
 			BigDecimal harvestDetailsPrice = harvestDAO.getCurrentItemPrice(item.getHarvestDetailsId());
 			
 			total = total.add(harvestDetailsPrice);
 		}
-
-		return total.doubleValue();
-
+		return total;
 	}
-	
-	
-	
 }
