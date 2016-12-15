@@ -6,12 +6,12 @@
 <h2 class="text-center">Currently Available Items</h2>
 <h3 class="text-center">Click an item for further details</h3>
 	
-<div id="main-page-menu-header" class="Rtable Rtable--4cols js-RtableAccordions">
+<!-- <div id="main-page-menu-header" class="Rtable Rtable--4cols js-RtableAccordions">
 	<div class="Rtable-cell Rtable-cell--head"></div>
 	<div class="Rtable-cell"><h4>Crop</h4></div>
 	<div class="Rtable-cell"><h4>Harvest Quantity</h4></div>
 	<div class="Rtable-cell Rtable-cell--foot"><h4>Sale Price</h4></div>
-</div>
+</div> -->
    
 <div class="Rtable Rtable--4cols Rtable--collapse js-RtableAccordions">
 	<c:forEach var="item" items="${harvestItemsList}">

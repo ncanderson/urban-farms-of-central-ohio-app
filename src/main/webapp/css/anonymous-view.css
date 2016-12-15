@@ -46,6 +46,15 @@
   	.Rtable--collapse {
     	display: block;
   	}
+  	.Rtable-form {
+  		display: flex;
+  		flex-direction: column; 
+  	}
+  	.Rtable-form {
+  	}
+  	.Rtable-form > .Rtable-cell {
+  		width: 100%;
+  	}
 }
 
 .Rtable {
