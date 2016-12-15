@@ -13,6 +13,10 @@ html * {
 	font-family: Raleway, sans-serif;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	font-family: Verdana, sans-serif;
+}
+
 body {
 	min-height: 100%;
 	display: flex;
@@ -60,7 +64,7 @@ div.Rtable-cell a img:hover {
 	border: 2px solid #56b2ff; 
 }
 
-span.head-text {
+.head-text {
 	font-family: Verdana, sans-serif;
 	font-weight: bold;
 }

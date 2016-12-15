@@ -25,4 +25,7 @@ INSERT INTO invoice_status (invoice_status_id, invoice_status_name) VALUES (5, '
 INSERT INTO invoice_status (invoice_status_id, invoice_status_name) VALUES (6, 'Delivered');
 INSERT INTO invoice_status (invoice_status_id, invoice_status_name) VALUES (7, 'Archived');
 
+INSERT INTO harvest_reconciliation (harvest_reconciliation_id, harvest_reconciliation_name) VALUES (1, 'Till Under');
+INSERT INTO harvest_reconciliation (harvest_reconciliation_id, harvest_reconciliation_name) VALUES (2, 'Over Estimate Harvest');
+
 COMMIT;

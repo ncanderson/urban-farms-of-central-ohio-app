@@ -79,7 +79,7 @@ CREATE TABLE item (
 
 CREATE TABLE invoice (
   invoice_id serial NOT NULL PRIMARY KEY,
-  invoice_date timestamp NULL DEFAULT NOW(),
+  invoice_date timestamp NOT NULL DEFAULT NOW(),
   user_id integer NOT NULL REFERENCES users,
   buyer_id integer NOT NULL REFERENCES buyer_information,
   sale_type_id integer NULL,
@@ -115,7 +115,7 @@ CREATE TABLE invoice_item (
   item_harvest_details_id integer NOT NULL REFERENCES item_harvest_details,
   update_item_price decimal NULL,
   user_id integer NOT NULL,
-  invoice_item_status_id integer NOT NULL REFERENCES invoice_status,
+  invoice_item_status_id integer NULL REFERENCES invoice_status,
   invoice_price_override decimal NULL,
   added_to_invoice_date timestamp NOT NULL DEFAULT NOW(),
   item_id integer NOT NULL
@@ -125,6 +125,8 @@ CREATE TABLE banner_messages (
   banner_id serial PRIMARY KEY,
   banner_title varchar(50) NOT NULL,
   banner_messages varchar(250) NULL,
+  add_date timestamp NOT NULL DEFAULT NOW(),
+  end_date timestamp NULL,
   is_active boolean NOT NULL
 );
 

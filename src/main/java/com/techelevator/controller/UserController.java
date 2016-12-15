@@ -46,7 +46,7 @@ public class UserController {
 	}
 
  
-//---------------------------ADMIN VIEWS---------------------------------------------------------
+//---------------------------ADMIN MAIN---------------------------------------------------------
 	
 	@RequestMapping(path="admin/admin-main-view", method=RequestMethod.GET)
 	public String adminMainView(HttpServletRequest request){
@@ -130,7 +130,7 @@ public class UserController {
 		
 		List<Item> activeCrops = itemDAO.getAllActiveCrops();
 		request.setAttribute("activeCrops", activeCrops);
-	
+	 
 		System.out.println(item.getDescription());
 		
 		return "redirect:/admin/admin-item-view";
@@ -185,8 +185,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(path="/admin/admin-all-farmers-view-insert", method=RequestMethod.POST)
-	public String adminAddUserViewPostInsert(HttpServletRequest request){
-			
+	public String adminAddUserViewPostInsert(HttpServletRequest request){		
 	
 		User user = new User();
 		
@@ -202,13 +201,13 @@ public class UserController {
 		List<User> allFarmers = userDAO.getAllFarmers();
 		request.setAttribute("allFarmers", allFarmers);
 		
-		return "redirect:/admin/admin/admin-farmer-view-all";
+		return "redirect:/admin/admin-farmer-view-all";
 	}
 	
-	@RequestMapping(path="/admin/admin-edit-farmer-view", method=RequestMethod.GET)
+	@RequestMapping(path="/admin/admin-farmer-edit", method=RequestMethod.GET)
 	public String adminEditFarmer(HttpServletRequest request){
 			
-		int farmerId = Integer.parseInt(request.getParameter("userID"));
+		int farmerId = Integer.parseInt(request.getParameter("userId"));
 		
 		User farmer = userDAO.getUserById(farmerId);
 		
@@ -217,25 +216,15 @@ public class UserController {
 		return "admin/admin-farmer-edit";
 	}
 	
-	@RequestMapping(path="admin/admin-add-new-farmer", method=RequestMethod.GET)
+	@RequestMapping(path="admin/admin-farmer-new", method=RequestMethod.GET)
 	public String adminAddNewFarmer(HttpServletRequest request){
-			
 
-		
 		return "admin/admin-farmer-new";
 	}
 	
 //---------------------------ADMIN BUYER USERS VIEWS---------------------------------------------------------
 //---------------------------ADMIN BUYER USERS VIEWS---------------------------------------------------------
 	
-	@RequestMapping(path="admin/admin-banners-all", method=RequestMethod.GET)
-	public String adminAllBannerNotificationsView(HttpServletRequest request){
-			
-//		Return all banner notifications
-		
-		return "admin/admin-banners-all";
-	}
-
 	@RequestMapping(path="admin/admin-companies-all", method=RequestMethod.GET)
 	public String adminAllCompaniesView(HttpServletRequest request){
 			
@@ -247,17 +236,31 @@ public class UserController {
 	
 	@RequestMapping(path="admin/admin-buyer-users-all", method=RequestMethod.GET)
 	public String adminAllBuyerUsersView(HttpServletRequest request){
-			
 
+		List<Buyer> allBuyers= userDAO.getAllBuyers();
+		request.setAttribute("allBuyers", allBuyers);
 		
 		return "admin/admin-buyer-users-all";
 	}
 	
-	@RequestMapping(path="admin/admin-all-buyer-users-all-insert", method=RequestMethod.POST)
+	@RequestMapping(path="/admin/admin-buyer-user-edit", method=RequestMethod.GET)
+	public String adminEditBuyerUser(HttpServletRequest request){
+			
+		int buyerId = Integer.parseInt(request.getParameter("userId"));
+		
+//		Buyer buyer = userDAO.getBuyerById(buyerId);
+//		
+//		request.setAttribute("buyer", buyer);
+				
+		return "admin/admin-buyer-user-edit";
+	}
+	
+	@RequestMapping(path="admin/admin-buyer-user-add-new", method=RequestMethod.POST)
 	public String adminAllBuyerUsersViewInsert(HttpServletRequest request){
 			
 		User user = new User();
 		
+		user.setUserId(Integer.valueOf(request.getParameter("userId")));
 		user.setFirstName(request.getParameter("firstName"));
 		user.setLastName(request.getParameter("lastName"));
 		user.setEmail(request.getParameter("email"));
@@ -270,12 +273,20 @@ public class UserController {
 		return "redirect:/admin/admin-buyer-users-all";
 	}
 	
-	@RequestMapping(path="admin/admin-add-new-buyer-user", method=RequestMethod.GET)
+	@RequestMapping(path="admin/admin-buyer-user-new", method=RequestMethod.GET)
 	public String adminAddNewBuyer(HttpServletRequest request){
 			
-		
-		return "admin/admin-add-new-buyer-user";
+		return "admin/admin-buyer-user-new";
 	}
 	
+//---------------------------ADMIN BANNER NOTIFICATIONS VIEWS---------------------------------------------------------
+//---------------------------ADMIN BANNER NOTIFICATIONS VIEWS---------------------------------------------------------
 	
+	@RequestMapping(path="admin/admin-banners-all", method=RequestMethod.GET)
+	public String adminAllBannerNotificationsView(HttpServletRequest request){
+			
+//		Return all banner notifications
+		
+		return "admin/admin-banners-all";
+	}
 }

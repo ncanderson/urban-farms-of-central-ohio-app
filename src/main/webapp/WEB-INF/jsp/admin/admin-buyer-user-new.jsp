@@ -7,12 +7,16 @@
 <h1>*****This form is not complete******</h1>
 <h3>*****salt, credentials_id******</h3>
 
-<h2 class="text-center">Add new farmer</h2>
+<h2 class="text-center">Add New Buyer</h2>
 
 <div class="col-xs-12 col-md-9 admin-content">
 
-	<form action="admin-all-farmers-view-insert" method="POST">
+	<form action="admin-buyer-user-add-new" method="POST">
 		<ul class="form-flex-outer">
+			<li>
+				<label for="buyerUserOrg">Organization:</label>
+				<input type="text" name="buyerUserOrg" />
+			</li>
 			<li>
 				<label for="firstName">First Name:</label>
 				<input type="text" name="firstName" />
@@ -34,15 +38,15 @@
 	   			<input type="text" name="temporaryPassword" />
 	   		</li>
 			<li>
-				<label for="farmerIsAdmin">Admin Privileges?</label>
-				<select name="farmerIsAdmin">
+				<label for="buyerUserIsAdmin">Admin Privileges?</label>
+				<select name="buyerIsAdmin">
 			        <option value="false">No</option>
 			        <option value="true">Yes</option>
 		    	</select>
 			</li>
 			<li>
-				<label for="farmerIsActive">Active Farmer?</label>
-				<select name="farmerIsActive">
+				<label for="buyerUserIsActive">Active buyer?</label>
+				<select name="buyerIsActive">
 			        <option value="false">No</option>
 			        <option value="true">Yes</option>
 		    	</select>

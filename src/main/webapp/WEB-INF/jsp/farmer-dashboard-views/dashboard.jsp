@@ -55,7 +55,7 @@
 	</div>
 
 	<div>
-		<h3>View past orders LIMITING SQL QUERY TO 10 CURRENTLY</h3>
+		<h3>View past orders LIMITING SQL QUERY TO 10 CURRENTLY IF NOTHING HERE CHECK THE ATTRIBUTE NAME</h3>
 		<c:forEach var="invoice" items="${pastOrders}">
 			<div class="Rtable Rtable--7cols Rtable--collapse">
 				<div class="Rtable-cell Rtable-cell--head">${invoice.invoiceId}</div>

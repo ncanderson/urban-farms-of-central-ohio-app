@@ -2,8 +2,8 @@
 
 <div class="col-xs-12 col-md-3" id="dashboard-sidebar">
 
-	<div class="menu-header">
-		<h3>Menu</h3>
+	<div class="menu-header text-center">
+		<h3 class="head-text">Menu</h3>
 	</div>
 
 	<div class="navbar">
@@ -24,7 +24,7 @@
 		</ul>
 		
 		<c:if test="${currentUser.isAdmin()}">
-			<h3>Admin Options</h3>
+			<h3 class="head-text text-center">Admin Options</h3>
 			
 			<div class="navbar">
 				<ul class="nav navbar-nav col-xs-12 col-lg-1" id="admin-menu-items">
