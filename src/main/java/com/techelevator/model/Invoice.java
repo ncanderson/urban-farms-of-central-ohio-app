@@ -1,5 +1,6 @@
 package com.techelevator.model;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
@@ -16,6 +17,7 @@ public class Invoice {
 	private String status;
 	private List<InvoiceItem> invoiceItems;
 	private int userId;
+	private HarvestDAO harvestDAO;
 	
 	public Invoice(){
 		
@@ -83,6 +85,20 @@ public class Invoice {
 
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+	
+	public double getInvoiceTotal() {
+		BigDecimal total = new BigDecimal(0);
+		
+		System.out.println("invoice test");
+		
+		for (InvoiceItem item: this.invoiceItems) {
+			System.out.println("inside for loop");
+			BigDecimal harvestDetailsPrice = harvestDAO.getCurrentItemPrice(item.getHarvestDetailsId());
+			
+			total = total.add(harvestDetailsPrice);
+		}
+		return total.doubleValue();
 	}
 	
 	

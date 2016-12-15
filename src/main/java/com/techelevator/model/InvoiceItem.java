@@ -14,6 +14,7 @@ public class InvoiceItem {
 	private int invoiceItemStatusId;
 	private BigDecimal invoiceOverridePrice;
 	private Date dateAddedToInvoice;
+	private HarvestDAO harvestDAO;
 	
 	public int getInvoiceItemId() {
 		return invoiceItemId;
@@ -68,6 +69,10 @@ public class InvoiceItem {
 	}
 	public void setDateAddedToInvoice(Date dateAddedToInvoice) {
 		this.dateAddedToInvoice = dateAddedToInvoice;
+	}
+	public BigDecimal getInvoiceItemPrice(){
+		 
+		return harvestDAO.getCurrentItemPrice(this.harvestDetailsId);
 	}
 
 }
