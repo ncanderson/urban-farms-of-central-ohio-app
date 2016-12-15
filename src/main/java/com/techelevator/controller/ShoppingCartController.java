@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.techelevator.model.BuyerOrganization;
+import com.techelevator.model.BuyerOrganizationDAO;
 import com.techelevator.model.HarvestDAO;
 import com.techelevator.model.HarvestItem;
 import com.techelevator.model.Invoice;
@@ -23,7 +26,7 @@ import com.techelevator.model.UserDAO;
 
 
 @Controller 
-@SessionAttributes({"currentUser", "cart"})//TODO does "cart" need to be carried through form beginning?
+@SessionAttributes({"currentUser", "cart"})
 public class ShoppingCartController {
 
 	
@@ -31,24 +34,40 @@ public class ShoppingCartController {
 	private ItemDAO itemDAO;
 	private UserDAO userDAO;
 	private InvoiceDAO invoiceDAO;
+	private BuyerOrganizationDAO buyerOrganizationDAO;
 	
 	@Autowired
-	public ShoppingCartController(HarvestDAO harvestDAO, ItemDAO itemDAO, UserDAO userDAO, InvoiceDAO invoiceDAO){
+	public ShoppingCartController(HarvestDAO harvestDAO, ItemDAO itemDAO, UserDAO userDAO, InvoiceDAO invoiceDAO, BuyerOrganizationDAO buyerOrganizationDAO){
 		this.harvestDAO = harvestDAO;
 		this.itemDAO = itemDAO;
 		this.userDAO = userDAO;
 		this.invoiceDAO = invoiceDAO;
+		this.buyerOrganizationDAO = buyerOrganizationDAO;
 	}
 	
 	@RequestMapping(path="/customer-views/shopping-cart", method=RequestMethod.GET)
-	public String viewShoppingCart(@RequestParam int invoiceId, HttpServletRequest request) {
+	public String viewShoppingCart(@RequestParam int invoiceId, 
+								   HttpServletRequest request,
+								   ModelMap model) {
 
 		Invoice invoice = invoiceDAO.getInvoiceById(invoiceId);
 		List<InvoiceItem> invoiceItems = invoiceDAO.getInvoiceItemsByInvoiceId(invoice.getInvoiceId());
 		
+		List<HarvestItem> lineItemHarvestDetailsItem = new ArrayList<HarvestItem>();
+		for (InvoiceItem lineItem : invoiceItems) {
+			HarvestItem detailOfLineItem = harvestDAO.getHarvestItemById(lineItem.getHarvestDetailsId());
+			lineItemHarvestDetailsItem.add(detailOfLineItem);
+		}
 		
-		request.setAttribute("invoice", invoice);
-		request.setAttribute("itemList", invoiceItems);
+		User user = (User)model.get("currentUser");
+		BuyerOrganization buyerOrganization = buyerOrganizationDAO.getBuyerOrganizationById(invoice.getBuyerId());
+		
+		request.setAttribute("invoice", invoice); // Object
+		request.setAttribute("user", user); // Object
+		request.setAttribute("buyerOrganization", buyerOrganization); // Object
+		request.setAttribute("invoiceItems", invoiceItems); // List 
+		request.setAttribute("harvestDetailItems", lineItemHarvestDetailsItem); // List
+		
 		
 		return "customer-views/shopping-cart";
 	}
@@ -57,8 +76,6 @@ public class ShoppingCartController {
 	public String addingInvoiceToShoppingCart(@RequestParam int harvestQuantityToBuy,
 											  @RequestParam int harvestItemToBuy,
 											  ModelMap model) {
-		
-		
 		
 		User user = (User)model.get("currentUser");
 		
