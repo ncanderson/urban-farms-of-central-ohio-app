@@ -133,4 +133,4 @@
     </div><!-- /.navbar-collapse -->
 </nav>
 
-<div class="center-block col-sm-10">
+<div class="center-block col-md-10">

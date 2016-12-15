@@ -7,13 +7,13 @@
 <h2 class="text-center">Currently Available Items</h2>
 <h3 class="text-center">Click an item for further details</h3>
 	
-<div id="main-page-menu-header" class="Rtable Rtable--5cols js-RtableAccordions">
+<!-- <div id="main-page-menu-header" class="Rtable Rtable--5cols js-RtableAccordions">
        <div class="Rtable-cell Rtable-cell--head"></div>
-       <div class="Rtable-cell"><h2>Crop</h2></div>
-       <div class="Rtable-cell"><h2>Harvest Quantity</h2></div>
-       <div class="Rtable-cell Rtable-cell--foot"><h2>Sales Price</h2></div>
+       <div class="Rtable-cell"><h4>Crop</h4></div>
+       <div class="Rtable-cell"><h4>Harvest Quantity</h4></div>
+       <div class="Rtable-cell Rtable-cell--foot"><h4>Sale Price</h4></div>
        <div class="Rtable-cell"></div>
-</div>
+</div> -->
    
 <div class="Rtable Rtable--5cols Rtable--collapse js-RtableAccordions">
 	<c:forEach var="item" items="${harvestItemsList}">
@@ -24,7 +24,7 @@
 	    <div class="Rtable-cell"><a href="${itemDetails}">${item.harvestQnty}/lbs. available</a></div>
 	    <div class="Rtable-cell"><a href="${itemDetails}">$${item.price}/lbs.</a></div>
 	    <form action="shopping-cart" method="POST" class="Rtable-cell Rtable-cell--foot Rtable-form">
-	    	<input type="text" placeholder="Quantity to buy" class="Rtable-cell" />
+	    	<input type="text" placeholder="Quantity" class="Rtable-cell" />
 	    	<input type="submit" value="Add to Cart" name="harvestQuantityToBuy" class="Rtable-cell"/>
 	    	<input type="hidden" name="harvestItemToBuy" value="${item.harvestItemId}" />
 	    </form>

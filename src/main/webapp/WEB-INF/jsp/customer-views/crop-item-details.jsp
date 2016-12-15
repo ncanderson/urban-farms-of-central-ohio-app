@@ -8,7 +8,7 @@
 <div>
 
 	<div>
-		<img src="${imagePath}/${detailCrop.harvestImageId}" alt="crop image" class="crop-image" />
+		<img src="${imagePath}/${detailCrop.harvestImageId}" alt="crop image" class="crop-image-medium" />
 	</div>
 	
 	<div id="crop-detail-information">
