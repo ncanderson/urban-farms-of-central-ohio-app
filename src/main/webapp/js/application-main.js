@@ -1,5 +1,18 @@
 $(document).ready(function() {
 
+	
+//	Add logout button to main nav drop-down when media query triggers change
+	checkSize();
+	
+	$(window).resize(checkSize);
+	
+	function checkSize() {
+		if ($(".navbar-collapse").css("text-align") === "center") {
+			var logoutButton = $("#logout-button").detach();
+			logoutButton.appendTo("#main-nav");
+		}
+	}
+	
 //	submit the logout POST when the link is clicked
 	$("#logoutLink").click(function(event){
 		$("#logoutForm").submit();

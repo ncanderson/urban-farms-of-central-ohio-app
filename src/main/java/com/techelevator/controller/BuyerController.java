@@ -58,12 +58,6 @@ public class BuyerController {
 		
 		return "customer-views/crop-item-details";
 	}
-	
-	@RequestMapping(path="/customer-views/order-completion", method=RequestMethod.GET)
-	public String showOrderCompletionGet(HttpServletRequest request){
-		
-		return "order-completion";
-	}
 
 	@RequestMapping(path="/customer-views/order-completion", method=RequestMethod.POST)
 	public String showOrderCompletionPost(HttpServletRequest request){

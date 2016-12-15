@@ -78,18 +78,19 @@ public class ShoppingCartController {
 		return "redirect:/customer-views/shopping-cart?invoiceId=" + invoice.getInvoiceId();
 	}
 	
-	@RequestMapping(path="/customer-views/shopping-cart/checkout", method=RequestMethod.GET)
+	@RequestMapping(path="/customer-views/checkout", method=RequestMethod.GET)
 	public String checkoutGet(HttpServletRequest request){ 
 	
 		
-		return "shopping-cart/checkout";
+		return "customer-views/checkout";
 	}
 	
 	
-	@RequestMapping(path="/customer-views/shopping-cart/checkout", method=RequestMethod.POST)
+	@RequestMapping(path="/customer-views/checkout", method=RequestMethod.POST)
 	public String checkoutPost(@RequestParam int productId, 
-									@RequestParam int quantity, 
-									ModelMap map){
+							   @RequestParam int quantity, 
+							   ModelMap map) {
+		
 		//TODO change method
 //		Item crop = itemDAO.getCropById(productId);
 //		CartItem item = new CartItem();
@@ -105,7 +106,13 @@ public class ShoppingCartController {
 //		
 //		map.addAttribute("cart", items);
 //	
-		return "redirect:/shopping-cart/checkout";
+		return "redirect:/customer-views/order-completion";
+	}
+	
+	@RequestMapping(path="/customer-views/order-completion", method=RequestMethod.GET)
+	public String orderCompletion() {
+		
+		return "customer-views/order-completion";
 	}
 	
 	
